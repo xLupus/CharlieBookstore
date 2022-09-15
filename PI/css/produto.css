@@ -105,35 +105,3 @@
     text-align: center;
     outline: none;
 }
-.btn-cart button{
-    display: flex;
-    background-color: black;
-    color: white;
-    width: 295px;
-    height: 50px;
-    border-radius: 50px;
-    vertical-align: middle;
-    align-items: center;
-    justify-content: center;
-}
-.btn-cart button span {
-    margin-left: 15px;
-}
-
-.description{
-    display: block;
-}
-
-.description span{
-    display: block;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.description p{
-    width: 1070px;
-    line-height: 25px;
-    font-size: 16px;
-    text-align: justify;
-}

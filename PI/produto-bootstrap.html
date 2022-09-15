@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap demo</title>
+        <link rel="stylesheet" href="css/produto-bootstrap.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <title>Livro</title>
+    </head>
+    <body>
+        <div class="container-xxl">
+            <div class="row my-4">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Livros</a></li>
+                        <li class="breadcrumb-item"><a href="#">Fantasia</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Nome do Livro</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <div class="col col-5">
+                    <div class="d-flex justify-content-center books-pictures">
+                        <div class="me-3 destaque">
+                            <img src="assets/produto/Capa_teste.svg" alt="">
+                        </div>
+                        <div class="side-pictures overflow-auto">
+                            <img class="mb-2" src="assets/produto/Capa_teste.svg" alt="" width="125">
+                            <img class="mb-2" src="assets/produto/Capa_teste.svg" alt="" width="125">
+                            <img src="assets/produto/Capa_teste.svg" alt="" width="125">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ms-5 col col-5 d-flex flex-column">
+                    <span class="fs-3 fw-bold">Harry Potter e a Câmera Secreta</span>
+                    <span class="fs-4 my-4 fw-bold">R$ 34,99</span>
+
+                    <div class="row d-flex flex-column mb-4">
+                        <span class="fs-6 mb-2">Tipo de Midia</span>
+
+                        <div class="d-grid gap-2 d-md-block">
+                            <button type="button" class="btn btn-light rounded-pill me-2 px-4 py-2 fw-semibold border" data-bs-toggle="button">Fisico</button>
+                            <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border" data-bs-toggle="button">Digital</button>
+                        </div>
+                    </div>
+                    <div class="row d-flex flex-column ">
+                        <span class="fs-6 mb-2">Tipo de Capa</span>
+
+                        <div class="d-grid gap-2 d-md-block">
+                            <button type="button" class="btn btn-light rounded-pill me-2 px-4 py-2 fw-semibold border" data-bs-toggle="button">Normal</button>
+                            <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border" data-bs-toggle="button">Dura</button>
+                        </div>
+                    </div>
+
+                    <span class="d-block my-4">Disponivel em Estoque</span>
+
+                    <div class="d-flex flex-row bg-light align-items-center p-4 mb-4 rounded">
+                        <img class="me-3"  src="assets/produto/delivery.svg" alt="" height="36">
+                        <span>Frete gratis acima de R$ 150 - exceto para Norte e Nordeste</span>
+                    </div>
+
+                    <form class="d-flex align-items-center" action="" method="post">
+                        <div class="quantity">
+                            <button>-</button>
+                            <input type="number" name="qtd" value="1" min="1" disabled>
+                            <button>+</button>
+                        </div>
+
+                        <div class="">
+                            <button type="submit" class="btn btn-dark rounded-pill px-5 py-2">
+                                <img class=" pe-2 py-1" src="assets/produto/carrinho.svg" alt="">
+                                <span class="">Adicionar ao carrinho</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="d-block mt-5 description-container">
+                <span class="d-block fs-3 mb-3">Sinopse</span>
+                <p class=" d-block lh-lg">Depois de férias aborrecidas na casa dos tios trouxas, está na hora de Harry Potter voltar a estudar. Coisas acontecem, no entanto, para dificultar o regresso de Harry. Persistente e astuto, o herói não se deixa intimidar pelos obstáculos e, com a ajuda dos fiéis amigos Weasley, começa o ano letivo na Escola de Magia e Bruxaria de Hogwarts. As novidades não são poucas. Novos colegas, novos professores, muitas e boas descobertas e um grande e perigosos desafio. Alguém ou alguma coisa ameaça a segurança e a tranquilidade dos membros de Hogwarts.</p>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    </body>
+</html>
