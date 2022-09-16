@@ -20,6 +20,9 @@ input[type=number] {
     width: 150px;
     height: 480px;
 }
+.side-pictures img{
+    cursor: pointer;
+}
 
 
 .quantity {
@@ -47,3 +50,4 @@ input[type=number] {
     text-align: center;
     outline: none;
 }
+.description-container{width: 1070px;}
