@@ -14,17 +14,17 @@
             </ol>
         </nav>
     </div>
-    
+
 
     <div class="d-flex justify-content-center">
         <div class="col col-5">
             <div class="d-flex justify-content-center books-pictures">
                 <div class="me-3 destaque">
-                    <img src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="" width="320">
+                    <img id="book-picture" src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="" width="320">
                 </div>
                 <div class="side-pictures overflow-auto">
                     @foreach($produto->produtoImagens as $imagem)
-                    <img class="mb-2" src="{{$imagem->IMAGEM_URL}}" alt="" width="125">
+                    <img class="mb-2 book-pictures" src="{{$imagem->IMAGEM_URL}}" alt="" width="125">
                     @endforeach
                 </div>
             </div>
@@ -41,7 +41,7 @@
                 <span class="fs-3 fw-bold">R$ {{$produto->PRODUTO_PRECO}}</span>
             @endif
             </div>
-            
+
 
             <div class="row d-flex flex-column mb-4">
                 <span class="fs-6 mb-2">Tipo de Midia</span>
@@ -70,9 +70,9 @@
             @if($produto->produtoEstoque->PRODUTO_QTD > 0)
             <form class="d-flex align-items-center" action="" method="post">
                 <div class="quantity">
-                    <button type="button">-</button>
-                    <input type="number" name="qtd" value="1" min="1" max="{{$produto->produtoEstoque->PRODUTO_QTD}}">
-                    <button type="button">+</button>
+                    <button type="button" id="qtd-menos">-</button>
+                    <input type="number" id="produto-qtd" name="qtd" value="1" min="1" max="{{$produto->produtoEstoque->PRODUTO_QTD}}">
+                    <button type="button" id="qtd-mais">+</button>
                 </div>
 
                 <div class="">
@@ -97,3 +97,5 @@
     </div>
 </div>
 @endsection
+
+@section('script','/js/produto.js')
