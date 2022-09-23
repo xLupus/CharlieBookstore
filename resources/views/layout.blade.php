@@ -75,7 +75,7 @@
     @yield('main')
 
     <footer class="bg-brown mt-5">
-        <div class="d-flex justify-content-evenly pb-2 pt-4 px-0 container-xxl">
+        <div class="d-flex justify-content-evenly pb-4 pt-5 px-0 container-xxl">
             <div class="col d-flex align-items-center ">
                 <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-truck rounded-circle bg-white p-2" viewBox="-1.5 -1 18 18">
                     <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
@@ -102,12 +102,11 @@
                 <span class="text-white fw-semibold ms-3">CharlieBS@gmail.com</span>
             </div>
         </div>
-        <div class="footer-hr mt-4 mb-5">
-        </div>
 
+        <div class="footer-hr mt-4 mb-5"></div>
 
         <div class="d-flex flex-column align-items-center container-xxl px-0">
-            <div class="row container-xxl d-flex justify-content-between pb-4 pt-5">
+            <div class="row container-xxl d-flex justify-content-between pb-4">
                 <div class="col col-2 px-0">
                     <span class="text-white fw-bold fs-5 d-block mb-4">Navegue Por Aqui:</span>
                     <ul class="px-0">
