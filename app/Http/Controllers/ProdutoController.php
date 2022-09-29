@@ -15,7 +15,10 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-       return view('welcome')->with(['categorias' => Categoria::all()->take(14), 'produto' => Produto::all()->take(5)]); //Index (recebe categorias)
+        return view('index')->with([
+            'categorias' => Categoria::all()->take(14),
+            'produtos' => Produto::all()->take(10),
+        ]); //Index (recebe categorias)
     }
 
     /**
@@ -48,7 +51,6 @@ class ProdutoController extends Controller
     public function show($id)
     {
         $produto = Produto::find($id);
-
         return view('produtos.show', compact('produto'));
 
     }

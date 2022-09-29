@@ -15,11 +15,8 @@ class Produto extends Model
 
     public $timestamps = false;
 
-
     public function produtoImagens(){
-        return $this->hasMany(ProdutoImagem::class, 'PRODUTO_ID')
-                    ->orderBy('IMAGEM_ORDEM', 'ASC');
-
+        return $this->hasMany(ProdutoImagem::class, 'PRODUTO_ID')->orderBy('IMAGEM_ORDEM', 'ASC');
     }
 
     public function produtoCategoria(){
@@ -28,9 +25,5 @@ class Produto extends Model
 
     public function produtoEstoque(){
         return $this->belongsTo(ProdutoEstoque::class, 'PRODUTO_ID');
-    }
-
-    public function allCategorias(){
-        dd( Categoria::all());
     }
 }
