@@ -14,19 +14,23 @@ class Produto extends Model
     protected $primaryKey = 'PRODUTO_ID';
 
     public $timestamps = false;
-    
-    
+
+
     public function produtoImagens(){
         return $this->hasMany(ProdutoImagem::class, 'PRODUTO_ID')
                     ->orderBy('IMAGEM_ORDEM', 'ASC');
-                             
+
     }
-    
+
     public function produtoCategoria(){
         return $this->belongsTo(Categoria::class, 'CATEGORIA_ID');
     }
 
     public function produtoEstoque(){
         return $this->belongsTo(ProdutoEstoque::class, 'PRODUTO_ID');
+    }
+
+    public function allCategorias(){
+        dd( Categoria::all());
     }
 }
