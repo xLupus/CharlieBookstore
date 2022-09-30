@@ -15,15 +15,15 @@ class Produto extends Model
 
     public $timestamps = false;
 
-    public function produtoImagens(){
+    public function produtoImagens() {
         return $this->hasMany(ProdutoImagem::class, 'PRODUTO_ID')->orderBy('IMAGEM_ORDEM', 'ASC');
     }
 
-    public function produtoCategoria(){
+    public function produtoCategoria() {
         return $this->belongsTo(Categoria::class, 'CATEGORIA_ID');
     }
 
-    public function produtoEstoque(){
+    public function produtoEstoque() {
         return $this->belongsTo(ProdutoEstoque::class, 'PRODUTO_ID');
     }
 }
