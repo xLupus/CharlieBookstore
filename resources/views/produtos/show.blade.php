@@ -2,6 +2,7 @@
 
 @section('style', '/css/produto.css')
 @section('title', $produto->PRODUTO_NOME)
+@section('script','/js/produto.js')
 
 @section('main')
 <div class="container-xxl">
@@ -97,5 +98,3 @@
     </div>
 </div>
 @endsection
-
-@section('script','/js/produto.js')
