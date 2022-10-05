@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produto;
+use App\Models\Categoria;
 
 class ProdutoController extends Controller
 {
@@ -14,7 +15,10 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        //
+        return view('index')->with([
+            'categorias' => Categoria::all()->take(14),
+            'produtos' => Produto::all()->take(10),
+        ]); //Index (recebe categorias)
     }
 
     /**
@@ -47,7 +51,6 @@ class ProdutoController extends Controller
     public function show($id)
     {
         $produto = Produto::find($id);
-
         return view('produtos.show', compact('produto'));
 
     }

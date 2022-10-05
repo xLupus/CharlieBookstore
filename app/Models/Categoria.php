@@ -14,8 +14,8 @@ class Categoria extends Model
     protected $primaryKey = 'CATEGORIA_ID';
 
     public $timestamps = false;
-    
-    public function produtos(){
+
+    public function produtos() {
         return $this->hasMany(Produto::class, 'CATEGORIA_ID');
     }
 }
