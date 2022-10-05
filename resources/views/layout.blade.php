@@ -54,11 +54,34 @@
                     <hr class="hr">
 
                     <ul class="navbar-nav flex-collumn flex-xl-row mt-2 mt-xl-0 pt-xl-0 justify-content-center justify-content-xl-none align-items-center align-items-xl-none">
-                        <li class="nav-item p-3 ps-xl-4 pe-xl-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                        <li class="nav-item dropdown p-3 ps-xl-4 pe-xl-1 d-none d-xl-block">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person dropdown-toggle" data-bs-toggle="dropdown" viewBox="0 0 16 16">
+                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                            </svg>
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                                <li><a class="dropdown-item d-flex justify-content-between align-items-center" href="#">Configurações</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Log out</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item p-3 ps-xl-4 pe-xl-1 d-xl-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person" data-bs-toggle="collapse" data-bs-target="#collapseExample" viewBox="0 0 16 16">
                                 <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                             </svg>
                         </li>
+                        <ul class="navbar-nav collapse d-xl-none" id="collapseExample">
+                            <li class="nav-item"><a class="nav-link" href="">Perfil</a></li>
+                            <li class="nav-item d-flex justify-content-between align-items-center">
+                                <a class="nav-link" href="#">Configurações</a>
+                            </li>
+                            <li class="nav-item"><hr class="hr"></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Log out</a></li>
+                        </ul><!-- collapse do responsivo -->
+
+
                         <li class="nav-item p-3 ps-xl-4 pe-xl-4 position-relative">
                             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"  fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
                                 <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
