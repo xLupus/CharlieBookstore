@@ -1,6 +1,6 @@
 @extends('layout')
-
 @section('style', 'css/index.css')
+
 @section('main')
     <main role="main">
         <div class="container-fluid mt-5 mb-5">
@@ -9,10 +9,10 @@
                     <img src="/img/Image.png" alt="image" class="img-fluid position-relative" style="right: .8rem;">
                 </div>
                 <div class="col-6">
-                    <p class="lh-1" style="font-size: 100px; margin-top: 7%; margin-left: 14%;">A sua <br> Livraria <br> Online</p>
-                    <p class="fs-4" style="margin-top: 5%; margin-left: 14%;">Conheça nosso acervo literário!</p>
-                    <div class="d-flex col-6 ms-5" style="margin-top: 5%;">
-                        <button type="button" class="btn btn-default text-white w-100 p-2 fs-3 btn-conferir"><a href="#" class="link text-decoration-none text-white">Conferir</a></button>
+                    <p class="lh-1 txt" id="txt1">A sua <br> Livraria <br> Online</p>
+                    <p class="fs-4 txt" id="txt2">Conheça nosso acervo literário!</p>
+                    <div class="d-flex col-6 ms-5" id="div-btn">
+                        <a href="#" class="btn btn-default w-100 p-2 fs-3 text-decoration-none text-white btn-conferir" role="button">Conferir</a>
                     </div>
                 </div>
                 <div class="col-2">
@@ -24,51 +24,62 @@
         <div class="container-fluid mt-5">
             <div class="row">
                 <div class="col-12">
-                    <p class="fs-3 fw-bold" style="margin-left: 5%;">Categorias</p>
+                    <p class="fs-3 fw-bold txt">Categorias</p>
                 </div>
 
                 <div class="col-10 mx-auto mt-2 mb-5">
                     <div class="row row-cols-6 gy-3 gx-4 text-center">
                         @foreach($categorias as $categoria)
                             <div class="col">
-                                <button class="p-3 border bg-light w-100">
-                                    <a href="#" class="link text-decoration-none text-black">{{$categoria->CATEGORIA_NOME}}</a>
-                                </button>
+                                <a href="#" class="btn btn-default p-3 border rounded-0 bg-light w-100 text-decoration-none text-black" role="button">{{$categoria->CATEGORIA_NOME}}</a>
                             </div>
                         @endforeach
                     </div>
                 </div>
 
                 <div class="col-12 mt-5">
-                    <p class="fs-3 fw-bold" style="margin-left: 5%;">Livros em Alta</p>
+                    <p class="fs-3 fw-bold txt">Livros em Alta</p>
                 </div>
 
                 <div class="col-10 mx-auto mt-2 mb-1"><!-- carousel 1 -->
                     <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="4500">
+                            <div class="carousel-item active" data-bs-interval="6500">
                                 <div class="row row-cols-5 g-5">
+
                                     @for ($i = 0; $i < 5; $i++)
-                                        <div class="carousel">
-                                            <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}"  class="link text-decoration-none text-black">
-                                                <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="" width="223">
-                                                <p>{{$produtos[$i]->PRODUTO_NOME}}</p>
-                                                <p>{{$produtos[$i]->PRODUTO_PRECO}}</p>
-                                            </a>
+                                        <div class="col">
+                                            <div class="d-flex justify-content-center">
+                                                <a href="{{route('produto.show', $produtos[$i]->produtoImagens[0]->IMAGEM_ID)}}" class="link text-decoration-none text-dark">
+                                                    <figure class="figure">
+                                                        <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                        <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
+                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="fw-semibold fs-5 d-block">R$ {{$produtos[$i]->PRODUTO_PRECO}}</span>
+                                                        </figcaption>
+                                                    </figure>
+                                                </a>
+                                            </div>
                                         </div>
                                     @endfor
                                 </div>
                             </div>
 
-                            <div class="carousel-item" data-bs-interval="4500">
+                            <div class="carousel-item" data-bs-interval="6500">
                                 <div class="row row-cols-5 g-5">
                                     @for ($i = 5; $i < 10; $i++)
-                                        <div>
-                                            <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-black">
-                                                <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="" width="223">
-                                                <p>{{$produtos[$i]->PRODUTO_NOME}}</p>
-                                                <p>{{$produtos[$i]->PRODUTO_PRECO}}</p>
-                                            </a>
+                                        <div class="col">
+                                            <div class="d-flex justify-content-center">
+                                                <a href="{{route('produto.show', $produtos[$i]->produtoImagens[0]->IMAGEM_ID)}}" class="link text-decoration-none text-dark">
+                                                    <figure class="figure">
+                                                        <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                        <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
+                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="fw-semibold fs-5 d-block">R$ {{$produtos[$i]->PRODUTO_PRECO}}</span>
+                                                        </figcaption>
+                                                    </figure>
+                                                </a>
+                                            </div>
                                         </div>
                                     @endfor
                                 </div>
@@ -93,36 +104,55 @@
 
 
                 <div class="col-12 mt-5">
-                    <p class="fs-3 fw-bold" style="margin-left: 5%;">Maiores Descontos</p>
+                    <p class="fs-3 fw-bold txt" style="margin-left: 5%;">Maiores Descontos</p>
                 </div>
 
                 <div class="col-10 mx-auto mt-2 mb-1"><!-- carousel 2 -->
                     <div id="carouselControls2" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
-
-                            <div class="carousel-item active" data-bs-interval="4500">
+                            <div class="carousel-item active" data-bs-interval="6500">
                                 <div class="row row-cols-5 g-5">
                                     @for ($i = 5; $i < 10; $i++)
-                                        <div class="carousel">
-                                            <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}"  class="link text-decoration-none text-black">
-                                                <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="" width="223">
-                                                <p>{{$produtos[$i]->PRODUTO_NOME}}</p>
-                                                <p>{{$produtos[$i]->PRODUTO_PRECO}}</p>
-                                            </a>
+                                        <div class="col">
+                                            <div class="d-flex justify-content-center">
+                                                <a href="{{route('produto.show', $produtos[$i]->produtoImagens[0]->IMAGEM_ID)}}" class="link text-decoration-none text-dark">
+                                                    <figure class="figure">
+                                                        <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                        <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
+                                                            <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">15%</span>
+                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <div class="d-flex">
+                                                                <span class="fw-semibold"><s>R$ {{$produtos[$i]->PRODUTO_PRECO}}</s></span>
+                                                                <span class="fw-semibold ms-4 fs-5">R$ {{$produtos[$i]->PRODUTO_DESCONTO}}</span>
+                                                            </div>
+                                                        </figcaption>
+                                                    </figure>
+                                                </a>
+                                            </div>
                                         </div>
                                     @endfor
                                 </div>
                             </div>
 
-                            <div class="carousel-item" data-bs-interval="4500">
+                            <div class="carousel-item" data-bs-interval="6500">
                                 <div class="row row-cols-5 g-5">
                                     @for ($i = 5; $i < 10; $i++)
-                                        <div class="carousel">
-                                            <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}"  class="link text-decoration-none text-black">
-                                                <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="" width="223">
-                                                <p>{{$produtos[$i]->PRODUTO_NOME}}</p>
-                                                <p>{{$produtos[$i]->PRODUTO_PRECO}}</p>
-                                            </a>
+                                        <div class="col">
+                                            <div class="d-flex justify-content-center">
+                                                <a href="{{route('produto.show', $produtos[$i]->produtoImagens[0]->IMAGEM_ID)}}" class="link text-decoration-none text-dark">
+                                                    <figure class="figure">
+                                                        <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                        <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
+                                                            <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5" style="bottom: 4.5rem; width: 4.5rem; left: 12rem">15%</span>
+                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <div class="d-flex">
+                                                                <span class="fw-semibold"><s>R$ {{$produtos[$i]->PRODUTO_PRECO}}</s></span>
+                                                                <span class="fw-semibold ms-4 fs-5">R$ {{$produtos[$i]->PRODUTO_DESCONTO}}</span>
+                                                            </div>
+                                                        </figcaption>
+                                                    </figure>
+                                                </a>
+                                            </div>
                                         </div>
                                     @endfor
                                 </div>

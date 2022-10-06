@@ -34,7 +34,7 @@
                 <span class="fs-3 fw-bold">{{ $produto->PRODUTO_NOME }}</span>
 
                 <div class="my-4">
-                    @if ($produto->PRODUTO_DESCONTO > 0 )
+                    @if ($produto->PRODUTO_DESCONTO > 0)
                         <span class="fs-3 me-2 fw-bold">R$ {{number_format( $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO, 2)}}</span>
                         <span class="fs-5 fw-bold text-decoration-line-through">R$ {{ $produto->PRODUTO_PRECO }}</span>
                     @else
@@ -88,7 +88,6 @@
                 @else
                     <p>Produto esgotado</p>
                 @endif
-
             </div>
         </div>
 
