@@ -8,8 +8,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link rel="stylesheet" href="/css/header.css">
         <link rel="stylesheet" href="/css/footer.css">
-        <link rel="stylesheet" href="/css/index.css">
-    <title>@yield('title')</title>
+        <link rel="stylesheet" href="@yield('style')">
+        <title>@yield('title')</title>
 </head>
 <body>
     <header class="navbar navbar-expand-xl">

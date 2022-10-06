@@ -60,14 +60,17 @@
                     </div>
                 </div>
 
-                <span class="d-block my-4">Disponivel em Estoque</span>
+                @if($produto->produtoEstoque?->PRODUTO_QTD > 0)
+                    <span class="d-block my-4">Disponivel em Estoque</span>
+                @endif
+
 
                 <div class="d-flex flex-row bg-light align-items-center p-4 mb-4 rounded">
                     <i class="bi bi-cart fs-3 me-3"></i>
                     <span>Frete gratis acima de R$ 150 - exceto para Norte e Nordeste</span>
                 </div>
 
-                @if($produto->produtoEstoque->PRODUTO_QTD > 0)
+                @if($produto->produtoEstoque?->PRODUTO_QTD > 0)
                     <form class="d-flex align-items-center" action="" method="post">
                         <div class="quantity">
                             <button type="button" id="qtd-menos">-</button>

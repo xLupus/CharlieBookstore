@@ -1,5 +1,6 @@
 @extends('layout')
 
+@section('style', 'css/index.css')
 @section('main')
     <main role="main">
         <div class="container-fluid mt-5 mb-5">
@@ -11,7 +12,7 @@
                     <p class="lh-1" style="font-size: 100px; margin-top: 7%; margin-left: 14%;">A sua <br> Livraria <br> Online</p>
                     <p class="fs-4" style="margin-top: 5%; margin-left: 14%;">Conheça nosso acervo literário!</p>
                     <div class="d-flex col-6 ms-5" style="margin-top: 5%;">
-                        <button type="button" class="btn btn-default text-white w-100 p-2 fs-3" style="background-color: #90BDD2;  margin-left: 14%;">Conferir</button>
+                        <button type="button" class="btn btn-default text-white w-100 p-2 fs-3 btn-conferir"><a href="#" class="link text-decoration-none text-white">Conferir</a></button>
                     </div>
                 </div>
                 <div class="col-2">
@@ -30,7 +31,7 @@
                     <div class="row row-cols-6 gy-3 gx-4 text-center">
                         @foreach($categorias as $categoria)
                             <div class="col">
-                                <div class="p-3 border bg-light">{{$categoria->CATEGORIA_NOME}}</div>
+                                <button class="p-3 border bg-light w-100"><a href="#" class="link text-decoration-none text-black">{{$categoria->CATEGORIA_NOME}}</a></button>
                             </div>
                         @endforeach
                     </div>
@@ -45,117 +46,32 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="4500">
                                 <div class="row row-cols-5 g-5">
-                                    @foreach($produtos as $produto)
-                                        @foreach($produto->produtoImagens as $imagem)
-                                            @if($imagem->IMAGEM_ID <= 5 && $produto->PRODUTO_ATIVO == 1)
-                                                @switch($imagem->IMAGEM_ID)
-                                                    @case(1) @case(2)
-                                                        <div class="col">
-                                                            <div class="d-block">
-                                                                <figure class="figure">
-                                                                    <img src="/img/{{$imagem->IMAGEM_URL}}" alt="{{$imagem->IMAGEM_URL}}" class="figure-img img-fluid">
-                                                                    <figcaption class="figure-caption text-dark fw-semibold fs-6">
-                                                                        <p class="mt-2"><small>{{$produto->PRODUTO_NOME}}</small></p>
-                                                                        <p class="fw-semibold fs-5">R$ {{$produto->PRODUTO_PRECO}}</p>
-                                                                    </figcaption>
-                                                                </figure>
-                                                            </div>
-                                                        </div>
-                                                        @break
-
-                                                    @case(3)
-                                                        <div class="col">
-                                                            <div class="d-block">
-                                                                <figure class="figure d-grid justify-content-center">
-                                                                    <img src="/img/{{$imagem->IMAGEM_URL}}" alt="{{$imagem->IMAGEM_URL}}" class="figure-img img-fluid">
-                                                                    <figcaption class="figure-caption text-dark fw-semibold fs-6">
-                                                                        <p class="mt-2"><small>{{$produto->PRODUTO_NOME}}</small></p>
-                                                                        <p class="fw-semibold fs-5">R$ {{$produto->PRODUTO_PRECO}}</p>
-                                                                    </figcaption>
-                                                                </figure>
-                                                            </div>
-                                                        </div>
-                                                        @break
-
-                                                    @case(4) @case(5)
-                                                        <div class="col">
-                                                            <div class="d-block">
-                                                                <figure class="figure float-end">
-                                                                    <img src="/img/{{$imagem->IMAGEM_URL}}" alt="{{$imagem->IMAGEM_URL}}" class="figure-img img-fluid">
-                                                                    <figcaption class="figure-caption text-dark fw-semibold fs-6">
-                                                                        <p class="mt-2"><small>{{$produto->PRODUTO_NOME}}</small></p>
-                                                                        <p class="fw-semibold fs-5">R$ {{$produto->PRODUTO_PRECO}}</p>
-                                                                    </figcaption>
-                                                                </figure>
-                                                            </div>
-                                                        </div>
-                                                        @break
-
-                                                    @default
-                                                        @break
-                                                @endswitch
-                                            @endif
-                                        @endforeach
-                                    @endforeach
+                                    @for ($i = 0; $i < 5; $i++)
+                                        <div class="carousel">
+                                            <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}"  class="link text-decoration-none text-black">
+                                                <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="" width="223">
+                                                <p>{{$produtos[$i]->PRODUTO_NOME}}</p>
+                                                <p>{{$produtos[$i]->PRODUTO_PRECO}}</p>
+                                            </a>
+                                        </div>
+                                    @endfor
                                 </div>
                             </div>
 
-                            <div class="carousel-item">
+                            <div class="carousel-item" data-bs-interval="4500">
                                 <div class="row row-cols-5 g-5">
-                                    @foreach($produtos as $produto)
-                                        @foreach($produto->produtoImagens as $imagem)
-                                            @if($imagem->IMAGEM_ID > 5 && $produto->PRODUTO_ATIVO == 1)
-                                                @switch($imagem->IMAGEM_ID)
-                                                    @case(6) @case(7)
-                                                        <div class="col">
-                                                            <div class="d-block">
-                                                                <figure class="figure">
-                                                                    <img src="/img/{{$imagem->IMAGEM_URL}}" alt="{{$imagem->IMAGEM_URL}}" class="figure-img img-fluid">
-                                                                    <figcaption class="figure-caption text-dark fw-semibold fs-6">
-                                                                        <p class="mt-2"><small>{{$produto->PRODUTO_NOME}}</small></p>
-                                                                        <p class="fw-semibold fs-5">R$ {{$produto->PRODUTO_PRECO}}</p>
-                                                                    </figcaption>
-                                                                </figure>
-                                                            </div>
-                                                        </div>
-                                                        @break
-
-                                                    @case(8)
-                                                        <div class="col">
-                                                            <div class="d-block">
-                                                                <figure class="figure d-grid justify-content-center">
-                                                                    <img src="/img/{{$imagem->IMAGEM_URL}}" alt="{{$imagem->IMAGEM_URL}}" class="figure-img img-fluid">
-                                                                    <figcaption class="figure-caption text-dark fw-semibold fs-6">
-                                                                        <p class="mt-2"><small>{{$produto->PRODUTO_NOME}}</small></p>
-                                                                        <p class="fw-semibold fs-5">R$ {{$produto->PRODUTO_PRECO}}</p>
-                                                                    </figcaption>
-                                                                </figure>
-                                                            </div>
-                                                        </div>
-                                                        @break
-
-                                                    @case(9) @case(10)
-                                                        <div class="col">
-                                                            <div class="d-block">
-                                                                <figure class="figure float-end">
-                                                                    <img src="/img/{{$imagem->IMAGEM_URL}}" alt="{{$imagem->IMAGEM_URL}}" class="figure-img img-fluid">
-                                                                    <figcaption class="figure-caption text-dark fw-semibold fs-6">
-                                                                        <p class="mt-2"><small>{{$produto->PRODUTO_NOME}}</small></p>
-                                                                        <p class="fw-semibold fs-5">R$ {{$produto->PRODUTO_PRECO}}</p>
-                                                                    </figcaption>
-                                                                </figure>
-                                                            </div>
-                                                        </div>
-                                                        @break
-
-                                                    @default
-                                                        @break
-                                                @endswitch
-                                            @endif
-                                        @endforeach
-                                    @endforeach
+                                    @for ($i = 5; $i < 10; $i++)
+                                        <div>
+                                            <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-black">
+                                                <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="" width="223">
+                                                <p>{{$produtos[$i]->PRODUTO_NOME}}</p>
+                                                <p>{{$produtos[$i]->PRODUTO_PRECO}}</p>
+                                            </a>
+                                        </div>
+                                    @endfor
                                 </div>
                             </div>
+
                         </div>
 
                         <button class="carousel-control-prev rounded-circle" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
@@ -173,6 +89,7 @@
                     <button type="button" class="btn btn-outline-dark px-5 py-2 fs-4">Conferir Lista</button>
                 </div>
 
+
                 <div class="col-12 mt-5">
                     <p class="fs-3 fw-bold" style="margin-left: 5%;">Maiores Descontos</p>
                 </div>
@@ -180,143 +97,34 @@
                 <div class="col-10 mx-auto mt-2 mb-1"><!-- carousel 2 -->
                     <div id="carouselControls2" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active" data-bs-interval="4500"><!-- item 1 -->
+
+                            <div class="carousel-item active" data-bs-interval="4500">
                                 <div class="row row-cols-5 g-5">
-                                    @foreach($produtos as $produto)
-                                        @foreach($produto->produtoImagens as $imagem)
-                                            @if($imagem->IMAGEM_ID <= 5 && $produto->PRODUTO_ATIVO == 1)
-                                                @switch($imagem->IMAGEM_ID)
-                                                    @case(1) @case(2)
-                                                        <div class="col">
-                                                            <div class="d-block">
-                                                                <figure class="figure">
-                                                                    <img src="/img/{{$imagem->IMAGEM_URL}}" alt="book4" class="figure-img img-fluid">
-                                                                    <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                                        <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5" style="bottom: 6.5rem; width: 4.5rem; left: 12rem">15%</span>
-                                                                        <p class="mt-2"><small>{{$produto->PRODUTO_NOME}}</small></p>
-                                                                        <div class="d-flex">
-                                                                            <p class="fw-semibold"><s>R$ {{$produto->PRODUTO_PRECO}}</s></p>
-                                                                            <p class="fw-semibold ms-4 fs-5">R$ {{$produto->PRODUTO_DESCONTO}}</p>
-                                                                        </div>
-                                                                    </figcaption>
-                                                                </figure>
-                                                            </div>
-                                                        </div>
-                                                        @break
-
-                                                    @case(3)
-                                                        <div class="col">
-                                                            <div class="d-block">
-                                                                <figure class="figure d-grid justify-content-center">
-                                                                    <img src="/img/{{$imagem->IMAGEM_URL}}" alt="book4" class="figure-img img-fluid">
-                                                                    <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                                        <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5" style="bottom: 6.5rem; width: 4.5rem; left: 12rem">15%</span>
-                                                                        <p class="mt-2"><small>{{$produto->PRODUTO_NOME}}</small></p>
-                                                                        <div class="d-flex">
-                                                                            <p class="fw-semibold"><s>R$ {{$produto->PRODUTO_PRECO}}</s></p>
-                                                                            <p class="fw-semibold ms-4 fs-5">R$ {{$produto->PRODUTO_DESCONTO}}</p>
-                                                                        </div>
-                                                                    </figcaption>
-                                                                </figure>
-                                                            </div>
-                                                        </div>
-                                                        @break
-
-                                                    @case(4) @case(5)
-                                                        <div class="col">
-                                                            <div class="d-block">
-                                                                <figure class="figure float-end">
-                                                                    <img src="/img/{{$imagem->IMAGEM_URL}}" alt="book4" class="figure-img img-fluid">
-                                                                    <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                                        <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5" style="bottom: 6.5rem; width: 4.5rem; left: 12rem">15%</span>
-                                                                        <p class="mt-2"><small>{{$produto->PRODUTO_NOME}}</small></p>
-                                                                        <div class="d-flex">
-                                                                            <p class="fw-semibold"><s>R$ {{$produto->PRODUTO_PRECO}}</s></p>
-                                                                            <p class="fw-semibold ms-4 fs-5">R$ {{$produto->PRODUTO_DESCONTO}}</p>
-                                                                        </div>
-                                                                    </figcaption>
-                                                                </figure>
-                                                            </div>
-                                                        </div>
-                                                        @break
-
-                                                    @default
-                                                        @break
-                                                @endswitch
-                                            @endif
-                                        @endforeach
-                                    @endforeach
+                                    @for ($i = 5; $i < 10; $i++)
+                                        <div class="carousel">
+                                            <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}"  class="link text-decoration-none text-black">
+                                                <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="" width="223">
+                                                <p>{{$produtos[$i]->PRODUTO_NOME}}</p>
+                                                <p>{{$produtos[$i]->PRODUTO_PRECO}}</p>
+                                            </a>
+                                        </div>
+                                    @endfor
                                 </div>
-                            </div><!-- // -->
+                            </div>
 
-                            <div class="carousel-item"><!-- item 2 -->
+                            <div class="carousel-item" data-bs-interval="4500">
                                 <div class="row row-cols-5 g-5">
-                                    @foreach($produtos as $produto)
-                                        @foreach($produto->produtoImagens as $imagem)
-                                            @if($produto->PRODUTO_ID > 5 && $produto->PRODUTO_ATIVO == 1)
-                                                @switch($imagem->IMAGEM_ID)
-                                                    @case(6) @case(7)
-                                                        <div class="col">
-                                                            <div class="d-block">
-                                                                <figure class="figure">
-                                                                    <img src="/img/{{$imagem->IMAGEM_URL}}" alt="book4" class="figure-img img-fluid">
-                                                                    <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                                        <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5" style="bottom: 6.5rem; width: 4.5rem; left: 12rem">15%</span>
-                                                                        <p class="mt-2"><small>{{$produto->PRODUTO_NOME}}</small></p>
-                                                                        <div class="d-flex">
-                                                                            <p class="fw-semibold"><s>R$ {{$produto->PRODUTO_PRECO}}</s></p>
-                                                                            <p class="fw-semibold ms-4 fs-5">R$ {{$produto->PRODUTO_DESCONTO}}</p>
-                                                                        </div>
-                                                                    </figcaption>
-                                                                </figure>
-                                                            </div>
-                                                        </div>
-                                                        @break
-
-                                                    @case(8)
-                                                        <div class="col">
-                                                            <div class="d-block">
-                                                                <figure class="figure d-grid justify-content-center">
-                                                                    <img src="/img/{{$imagem->IMAGEM_URL}}" alt="book4" class="figure-img img-fluid">
-                                                                    <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                                        <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5" style="bottom: 6.5rem; width: 4.5rem; left: 12rem">15%</span>
-                                                                        <p class="mt-2"><small>{{$produto->PRODUTO_NOME}}</small></p>
-                                                                        <div class="d-flex">
-                                                                            <p class="fw-semibold"><s>R$ {{$produto->PRODUTO_PRECO}}</s></p>
-                                                                            <p class="fw-semibold ms-4 fs-5">R$ {{$produto->PRODUTO_DESCONTO}}</p>
-                                                                        </div>
-                                                                    </figcaption>
-                                                                </figure>
-                                                            </div>
-                                                        </div>
-                                                        @break
-
-                                                    @case(9) @case(10)
-                                                        <div class="col">
-                                                            <div class="d-block">
-                                                                <figure class="figure float-end">
-                                                                    <img src="/img/{{$imagem->IMAGEM_URL}}" alt="book4" class="figure-img img-fluid">
-                                                                    <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                                        <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5" style="bottom: 6.5rem; width: 4.5rem; left: 12rem">15%</span>
-                                                                        <p class="mt-2"><small>{{$produto->PRODUTO_NOME}}</small></p>
-                                                                        <div class="d-flex">
-                                                                            <p class="fw-semibold"><s>R$ {{$produto->PRODUTO_PRECO}}</s></p>
-                                                                            <p class="fw-semibold ms-4 fs-5">R$ {{$produto->PRODUTO_DESCONTO}}</p>
-                                                                        </div>
-                                                                    </figcaption>
-                                                                </figure>
-                                                            </div>
-                                                        </div>
-                                                        @break
-
-                                                    @default
-                                                        @break
-                                                @endswitch
-                                            @endif
-                                        @endforeach
-                                    @endforeach
+                                    @for ($i = 5; $i < 10; $i++)
+                                        <div class="carousel">
+                                            <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}"  class="link text-decoration-none text-black">
+                                                <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="" width="223">
+                                                <p>{{$produtos[$i]->PRODUTO_NOME}}</p>
+                                                <p>{{$produtos[$i]->PRODUTO_PRECO}}</p>
+                                            </a>
+                                        </div>
+                                    @endfor
                                 </div>
-                            </div><!-- // -->
+                            </div>
                         </div>
 
                         <button class="carousel-control-prev rounded-circle" type="button" data-bs-target="#carouselControls2" data-bs-slide="prev">
@@ -341,7 +149,7 @@
                         </div>
                         <div class="col-8 my-auto text-white">
                             <p class="fs-6 fw-bold text-dark ms-5">NOVO LANÇAMENTO</p>
-                            <h1 class="display-3 ms-5"><u>Mayah: A Hegemonia de Lavender</u></h1>
+                            <h1 class="display-3 ms-5">Mayah - Lavender</h1>
                             <div class="d-block mt-5 ms-5">
                                 <button type="button" class="btn btn-outline-light rounded-pill fw-bold" style="padding: .8rem 5rem;">RESERVAR</button>
                             </div>
