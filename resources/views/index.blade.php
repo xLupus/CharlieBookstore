@@ -31,7 +31,9 @@
                     <div class="row row-cols-6 gy-3 gx-4 text-center">
                         @foreach($categorias as $categoria)
                             <div class="col">
-                                <button class="p-3 border bg-light w-100"><a href="#" class="link text-decoration-none text-black">{{$categoria->CATEGORIA_NOME}}</a></button>
+                                <button class="p-3 border bg-light w-100">
+                                    <a href="#" class="link text-decoration-none text-black">{{$categoria->CATEGORIA_NOME}}</a>
+                                </button>
                             </div>
                         @endforeach
                     </div>
