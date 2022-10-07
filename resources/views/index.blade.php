@@ -50,9 +50,13 @@
                                     @for ($i = 0; $i < 5; $i++)
                                         <div class="col">
                                             <div class="d-flex justify-content-center">
-                                                <a href="{{route('produto.show', $produtos[$i]->produtoImagens[0]->IMAGEM_ID)}}" class="link text-decoration-none text-dark">
+                                                <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                        @if(isset($produtos[$i]->produtoImagens[0]))
+                                                            <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                        @else
+                                                            <img src="https://via.placeholder.com/223x300/F8F8F8/CCC?text=Sem%20Imagem" alt="">
+                                                        @endif
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
                                                             <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
                                                             <span class="fw-semibold fs-5 d-block">R$ {{$produtos[$i]->PRODUTO_PRECO}}</span>
@@ -70,9 +74,13 @@
                                     @for ($i = 5; $i < 10; $i++)
                                         <div class="col">
                                             <div class="d-flex justify-content-center">
-                                                <a href="{{route('produto.show', $produtos[$i]->produtoImagens[0]->IMAGEM_ID)}}" class="link text-decoration-none text-dark">
+                                                <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                        @if(isset($produtos[$i]->produtoImagens[0]))
+                                                            <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                        @else
+                                                            <img src="https://via.placeholder.com/223x300/F8F8F8/CCC?text=Sem%20Imagem" alt="">
+                                                        @endif
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
                                                             <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
                                                             <span class="fw-semibold fs-5 d-block">R$ {{$produtos[$i]->PRODUTO_PRECO}}</span>
@@ -115,9 +123,13 @@
                                     @for ($i = 5; $i < 10; $i++)
                                         <div class="col">
                                             <div class="d-flex justify-content-center">
-                                                <a href="{{route('produto.show', $produtos[$i]->produtoImagens[0]->IMAGEM_ID)}}" class="link text-decoration-none text-dark">
+                                                <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                    @if(isset($produtos[$i]->produtoImagens[0]))
+                                                            <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                        @else
+                                                            <img src="https://via.placeholder.com/223x300/F8F8F8/CCC?text=Sem%20Imagem" alt="">
+                                                        @endif
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
                                                             <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">15%</span>
                                                             <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
@@ -139,9 +151,13 @@
                                     @for ($i = 5; $i < 10; $i++)
                                         <div class="col">
                                             <div class="d-flex justify-content-center">
-                                                <a href="{{route('produto.show', $produtos[$i]->produtoImagens[0]->IMAGEM_ID)}}" class="link text-decoration-none text-dark">
+                                                <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                    @if(isset($produtos[$i]->produtoImagens[0]))
+                                                            <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                        @else
+                                                            <img src="https://via.placeholder.com/223x300/F8F8F8/CCC?text=Sem%20Imagem" alt="">
+                                                        @endif
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
                                                             <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5" style="bottom: 4.5rem; width: 4.5rem; left: 12rem">15%</span>
                                                             <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
