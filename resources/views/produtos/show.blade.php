@@ -21,7 +21,7 @@
                 <div class="d-flex justify-content-center books-pictures">
                     <div class="me-3 destaque">
                         @if (isset($produto->produtoImagens[0]))
-                        <img id="book-picture" src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="" width="320">
+                            <img id="book-picture" src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="" width="320">
                         @else
                             <img class="mb-2 book-pictures" src="https://via.placeholder.com/223x300/F8F8F8/CCC?text=Sem%20Imagem" alt="" width="320">
                         @endif
