@@ -46,7 +46,6 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="6500">
                                 <div class="row row-cols-5 g-5">
-
                                     @for ($i = 0; $i < 5; $i++)
                                         <div class="col">
                                             <div class="d-flex justify-content-center">
@@ -84,7 +83,6 @@
                                     @endfor
                                 </div>
                             </div>
-
                         </div>
 
                         <button class="carousel-control-prev rounded-circle" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
@@ -101,7 +99,6 @@
                 <div class="col-12 mt-5 mb-4 d-flex justify-content-center">
                     <button type="button" class="btn btn-outline-dark px-5 py-2 fs-4">Conferir Lista</button>
                 </div>
-
 
                 <div class="col-12 mt-5">
                     <p class="fs-3 fw-bold txt" style="margin-left: 5%;">Maiores Descontos</p>
