@@ -72,7 +72,6 @@
                                     @else
                                         <li><a class="dropdown-item" href="{{route('login')}}">LOGIN</a></li>
                                     @endif
-
                             </ul>
                         </li>
 
