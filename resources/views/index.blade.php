@@ -54,7 +54,19 @@
                                                         <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
                                                             <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
-                                                            <span class="fw-semibold fs-5 d-block">R$ {{$produtos[$i]->PRODUTO_PRECO}}</span>
+
+                                                            @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
+                                                                <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
+                                                                <div class="d-flex">
+                                                                    <span class="fw-semibold me-3 fs-5">R$ {{ number_format($produtos[$i]->PRODUTO_PRECO - $produtos[$i]->PRODUTO_DESCONTO, 2) }}</span>
+                                                                    <span class="fw-semibold"><s>R$ {{$produtos[$i]->PRODUTO_PRECO}}</s></span>
+                                                                <div>
+                                                            @else
+                                                                <div class="">
+                                                                    <span class="fw-semibold fs-5">R$ {{$produtos[$i]->PRODUTO_PRECO}}</span>
+                                                                </div>
+                                                            @endif
+
                                                         </figcaption>
                                                     </figure>
                                                 </a>
@@ -74,7 +86,18 @@
                                                         <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
                                                             <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
-                                                            <span class="fw-semibold fs-5 d-block">R$ {{$produtos[$i]->PRODUTO_PRECO}}</span>
+
+                                                            @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
+                                                                <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
+                                                                <div class="d-flex">
+                                                                    <span class="fw-semibold me-3 fs-5">R$ {{ number_format($produtos[$i]->PRODUTO_PRECO - $produtos[$i]->PRODUTO_DESCONTO, 2) }}</span>
+                                                                    <span class="fw-semibold"><s>R$ {{$produtos[$i]->PRODUTO_PRECO}}</s></span>
+                                                                <div>
+                                                            @else
+                                                                <div class="">
+                                                                    <span class="fw-semibold fs-5">R$ {{$produtos[$i]->PRODUTO_PRECO}}</span>
+                                                                </div>
+                                                            @endif
                                                         </figcaption>
                                                     </figure>
                                                 </a>
@@ -116,12 +139,19 @@
                                                     <figure class="figure">
                                                             <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">15%</span>
                                                             <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
-                                                            <div class="d-flex">
-                                                                <span class="fw-semibold"><s>R$ {{$produtos[$i]->PRODUTO_PRECO}}</s></span>
-                                                                <span class="fw-semibold ms-4 fs-5">R$ {{$produtos[$i]->PRODUTO_DESCONTO}}</span>
-                                                            </div>
+
+                                                            @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
+                                                                <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
+                                                                <div class="d-flex">
+                                                                    <span class="fw-semibold me-3 fs-5">R$ {{ number_format($produtos[$i]->PRODUTO_PRECO - $produtos[$i]->PRODUTO_DESCONTO, 2) }}</span>
+                                                                    <span class="fw-semibold"><s>R$ {{$produtos[$i]->PRODUTO_PRECO}}</s></span>
+                                                                <div>
+                                                            @else
+                                                                <div class="">
+                                                                    <span class="fw-semibold fs-5">R$ {{$produtos[$i]->PRODUTO_PRECO}}</span>
+                                                                </div>
+                                                            @endif
                                                         </figcaption>
                                                     </figure>
                                                 </a>
@@ -140,12 +170,19 @@
                                                     <figure class="figure">
                                                         <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5" style="bottom: 4.5rem; width: 4.5rem; left: 12rem">15%</span>
                                                             <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
-                                                            <div class="d-flex">
-                                                                <span class="fw-semibold"><s>R$ {{$produtos[$i]->PRODUTO_PRECO}}</s></span>
-                                                                <span class="fw-semibold ms-4 fs-5">R$ {{$produtos[$i]->PRODUTO_DESCONTO}}</span>
-                                                            </div>
+
+                                                            @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
+                                                                <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
+                                                                <div class="d-flex">
+                                                                    <span class="fw-semibold me-3 fs-5">R$ {{ number_format($produtos[$i]->PRODUTO_PRECO - $produtos[$i]->PRODUTO_DESCONTO, 2) }}</span>
+                                                                    <span class="fw-semibold"><s>R$ {{$produtos[$i]->PRODUTO_PRECO}}</s></span>
+                                                                <div>
+                                                            @else
+                                                                <div class="">
+                                                                    <span class="fw-semibold fs-5">R$ {{$produtos[$i]->PRODUTO_PRECO}}</span>
+                                                                </div>
+                                                            @endif
                                                         </figcaption>
                                                     </figure>
                                                 </a>
