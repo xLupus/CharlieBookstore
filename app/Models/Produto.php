@@ -26,4 +26,8 @@ class Produto extends Model
     public function produtoEstoque() {
         return $this->belongsTo(ProdutoEstoque::class, 'PRODUTO_ID');
     }
+
+    public static function ativo() {
+        return Produto::where('PRODUTO_ATIVO', TRUE)->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)->get();
+    }
 }

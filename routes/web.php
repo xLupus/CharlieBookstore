@@ -25,8 +25,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 */
-Route::get('/', [ProdutoController::class, 'index'])->name('home');
+Route::get('/', [ProdutoController::class, 'home'])->name('home');
 Route::resource('/produto', ProdutoController::class);
-Route::get('/categoria/{categoria}', [CategoriaController::class, 'show']);
+Route::get('/categoria/{categoria}', [ProdutoController::class, 'categoria'])->name('categoria.show');
 
 require __DIR__.'/auth.php';
+
+Route::get('/catalogo', [ProdutoController::class, 'index'])->name('catalogo');
