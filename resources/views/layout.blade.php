@@ -64,14 +64,20 @@
                                 <li><a class="dropdown-item d-flex justify-content-between align-items-center" href="#">Configurações</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                     @if (Auth::user())
-                                        {{Auth::user()->USUARIO_NOME}}{{-- pega nome do usuario logado --}}
-                                        <form action="{{route('logout')}}" method="post">
-                                            @csrf
-                                            <button type="submit">LOG OUT</button>
-                                        </form>
-                                    @else
-                                        <li><a class="dropdown-item" href="{{route('login')}}">LOGIN</a></li>
-                                    @endif
+                                    <div class="d-flex justify-content-center align-items-center flex-column">
+                                        <a style="text-transform: capitalize"> Olá,
+                                            {{Auth::user()->USUARIO_NOME}} ! {{-- pega nome do usuario logado --}}
+                                        </a>
+                                            <li>
+                                                <form action="{{route('logout')}}" method="post">
+                                                    @csrf
+                                                    <button type="submit">LOG OUT</button>
+                                                </form>
+                                            </li>
+                                        @else
+                                            <li><a class="dropdown-item" href="{{route('login')}}">LOGIN</a></li>
+                                        @endif
+                                    </div>
                             </ul>
                         </li>
 
