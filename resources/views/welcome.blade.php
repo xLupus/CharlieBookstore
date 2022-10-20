@@ -7,11 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    @if (Auth::user())
-        {{Auth::user()->USUARIO_NOME}}{{-- pega nome do usuario logado --}}
-    @else
-        {{'Faça Login'}}
-    @endif
+        @if (Auth::user())
+        <p> Olá!
+            {{ Auth::user()->USUARIO_NOME }}{{-- pega nome do usuario logado --}}
+        </p>
+        @else
+            {{'Faça Login'}}
+        @endif
+
     <form action="{{route('logout')}}" method="post">
         @csrf
         <button type="submit"></button>
