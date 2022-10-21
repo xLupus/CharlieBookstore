@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProdutoController;
-use App\Http\Controllers\CategoriaController;
+//use App\Http\Controllers\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ Route::get('/dashboard', function () {
 Route::get('/', [ProdutoController::class, 'home'])->name('home');
 Route::resource('/produto', ProdutoController::class);
 Route::get('/categoria/{categoria}', [ProdutoController::class, 'categoria'])->name('categoria.show');
+Route::get('/catalogo', [ProdutoController::class, 'index'])->name('catalogo');
 
 require __DIR__.'/auth.php';
 
-Route::get('/catalogo', [ProdutoController::class, 'index'])->name('catalogo');

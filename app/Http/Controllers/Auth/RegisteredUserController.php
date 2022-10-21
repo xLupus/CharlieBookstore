@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
+//use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -47,8 +47,6 @@ class RegisteredUserController extends Controller
             'USUARIO_SENHA' => Hash::make($request->password),
             'USUARIO_CPF' => "12345678",
         ]);
-
-        dd($user);
 
         event(new Registered($user));
 

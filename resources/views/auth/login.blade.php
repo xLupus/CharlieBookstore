@@ -1,59 +1,57 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+            <link rel="stylesheet" href="/css/styles.css">
+        <title>LOGIN</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row row-cols-2">
+                <div class="col-6">
+                    <img src="/img/login.png" alt="Imagem" class="img-fluid w-100 position-relative logoImage">
+                </div>
+                <div class="col-6 d-flex justify-content-center align-items-center">
+                    <div class="w-100 d-flex flex-column align-items-center">
+                        <div class="logo d-block mb-5">
+                            <a href="{{route('home')}}" class="link">
+                                <img src="/img/Logo.png" alt="Charlie-Bookstore Logo" width="300" class="img-fluid">
+                            </a>
+                        </div>
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+                        <span class="">Bem vindo de volta!</span>
+                        <span class="h2 fw-bold mb-5">Acesse sua conta</span>
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
+                        <form class="w-50 d-flex flex-column" action="{{ route('login') }}" method="POST">
+                            @csrf
 
-            <!-- Email Address -->
-            <div>
-                <x-input-label for="email" :value="__('Email')" />
+                            <div class="mb-3">
+                                <label for="Email" class="form-label mb-2">Email</label>
+                                <input type="email" name="email" id="Email" class="form-control form-control-lg text-form">
 
-                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                                @if (!count($errors->get('email')) == 0)
+                                    <span class="text-danger fw-bold fs-6">{{$errors->get('email')[0]}}</span>{{-- retorna no indice 0 --}}
+                                @endif
+                            </div>
 
-                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                            <div class="mb-2">
+                                <label for="Password" class="form-label mb-2">Senha</label>
+                                <input type="password" name="password" id="Password" class="form-control form-control-lg text-form">
+                            </div>
+
+                            <button type="submit" name="btn_entrar" class="btn btn-primary mb-3 py-3">{{ __('Log in') }}</button>
+                        </form>
+
+                        <a href="{{route('register')}}" class="link w-50">
+                            <button type="button" class="btn btn-secondary w-100 py-3">Cadastrar</button>
+                        </a>
+                    </div>
+                </div>
             </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-input-label for="password" :value="__('Password')" />
-
-                <x-text-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-
-                <x-input-error :messages="$errors->get('password')" class="mt-2" />
-            </div>
-
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-primary-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-primary-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
-
-
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    </body>
+</html>
