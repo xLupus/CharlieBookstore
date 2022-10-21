@@ -7,7 +7,7 @@
     @section('title', 'Catalogo')
 @endif
 
-@section('script','js/catalogo.js')
+@section('script','/js/catalogo.js')
 
 @section('main')
     <main role="main">
