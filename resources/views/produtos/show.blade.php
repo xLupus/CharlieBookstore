@@ -5,17 +5,17 @@
 @section('script','/js/produto.js')
 
 @section('main')
-    <main class="container-xxl">
-        <div class="row my-4">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('catalogo')}}">Livros</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('categoria.show',$produto->produtoCategoria->CATEGORIA_ID)}}">{{ ucfirst($produto->produtoCategoria->CATEGORIA_NOME) }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ $produto->PRODUTO_NOME }}</li>
-                </ol>
-            </nav>
-        </div>
+    <div class="my-4 container-xxl">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{route('catalogo')}}">Livros</a></li>
+                <li class="breadcrumb-item"><a href="{{route('categoria.show',$produto->produtoCategoria->CATEGORIA_ID)}}">{{ ucfirst($produto->produtoCategoria->CATEGORIA_NOME) }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ $produto->PRODUTO_NOME }}</li>
+            </ol>
+        </nav>
+    </div>
 
+    <main class="container-xxl">
         <div class="d-flex justify-content-center">
             <div class="col col-5">
                 <div class="d-flex justify-content-center books-pictures">
