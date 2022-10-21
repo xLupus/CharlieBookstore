@@ -1,5 +1,5 @@
 @extends('layout')
-@section('style', 'css/catalogo-bootstrap.css')
+@section('style', '/css/catalogo-bootstrap.css')
 
 @if (Route::current()->getName() == 'categoria.show')
     @section('title', 'Livros de '.Route::current()->categoria->CATEGORIA_NOME)
