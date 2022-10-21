@@ -65,10 +65,10 @@
                 </div>
 
                 @if($produto->produtoEstoque?->PRODUTO_QTD > 0)
-                    <span class="d-block my-4">Disponivel em Estoque</span>
+                    <span class="d-block mt-4">Quantidade em Estoque: {{$produto->produtoEstoque?->PRODUTO_QTD}}</span>
                 @endif
 
-                <div class="d-flex flex-row bg-light align-items-center p-4 mb-4 rounded">
+                <div class="d-flex flex-row bg-light align-items-center p-4 my-4 rounded">
                     <i class="bi bi-cart fs-3 me-3"></i>
                     <span>Frete gratis acima de R$ 150 - exceto para Norte e Nordeste</span>
                 </div>
