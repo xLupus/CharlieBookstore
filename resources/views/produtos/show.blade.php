@@ -5,7 +5,7 @@
 @section('script','/js/produto.js')
 
 @section('main')
-    <div class="container-xxl">
+    <main class="container-xxl">
         <div class="row my-4">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -100,5 +100,5 @@
                 <p class=" d-block lh-lg" style="text-align: justify;">{{ $produto->PRODUTO_DESC }}</p>
             </div>
         </div>
-    </div>
+    </main>
 @endsection
