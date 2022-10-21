@@ -9,9 +9,14 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item active">
-                                <a class="link text-decoration-none text-dark" href="{{ route('catalogo') }}">Livros</a>
-                            </li>
+                            @if (Route::current()->getName() == 'categoria.show')
+                                <li class="breadcrumb-item">
+                                    <a class="link" href="{{ route('catalogo') }}">Livros</a>
+                                </li>
+                                <li class="breadcrumb-item active">{{ucfirst(Route::current()->categoria->CATEGORIA_NOME)}}</li>
+                            @else
+                                <li class="breadcrumb-item active">Livros<li>
+                            @endif
                         </ol>
                     </nav>
                 </div>
@@ -28,7 +33,7 @@
                             </svg>
                         </button>
                         <div class="collapse mt-2" id="collapse1">
-                            <ul class="list-unstyled ms-5 lh-lg">
+                            <ul class="list-unstyled ms-4 lh-lg">
                                 <li>Livro: A - Z</li>
                                 <li>Livro: Z - A</li>
                                 <li>Nome do Autor</li>
@@ -45,12 +50,26 @@
                         </button>
 
                         <div class="collapse mt-2" id="collapse2">
-                            <ul class="list-unstyled ms-5 lh-lg">
-                                @foreach (App\Models\Categoria::ativo() as $categoria)
-                                    <li>
-                                        <a href="{{route('categoria.show', $categoria['id'])}}" class="link text-decoration-none text-dark">{{$categoria['nome']}} ({{$categoria['quantidade']}}) </a>
-                                    </li>
-                                @endforeach
+                            <ul class="list-unstyled ms-4 lh-lg d-flex flex-column px-0">
+                                @if (Route::current()->getName() == 'categoria.show')
+                                    @foreach (App\Models\Categoria::ativo() as $categoria)
+                                        @if (Route::current()->categoria->CATEGORIA_ID == $categoria['id'])
+                                            <li class="order-first border-bottom pb-2">
+                                                <a href="{{route('categoria.show', $categoria['id'])}}" class="link text-decoration-none text-dark fw-bold">{{$categoria['nome']}} ({{$categoria['quantidade']}}) </a>
+                                            </li>
+                                        @else
+                                            <li>
+                                                <a href="{{route('categoria.show', $categoria['id'])}}" class="link text-decoration-none text-dark">{{$categoria['nome']}} ({{$categoria['quantidade']}}) </a>
+                                            </li>
+                                        @endif
+                                    @endforeach
+                                @else
+                                    @foreach (App\Models\Categoria::ativo() as $categoria)
+                                        <li>
+                                            <a href="{{route('categoria.show', $categoria['id'])}}" class="link text-decoration-none text-dark">{{$categoria['nome']}} ({{$categoria['quantidade']}}) </a>
+                                        </li>
+                                    @endforeach
+                                @endif
                             </ul>
                         </div><!-- 2 -->
 

@@ -51,7 +51,6 @@
 
                 <div class="row d-flex flex-column mb-4">
                     <span class="fs-6 mb-2">Tipo de Midia</span>
-
                     <div class="d-grid gap-2 d-md-block">
                         <button type="button" class="btn btn-light rounded-pill me-2 px-4 py-2 fw-semibold border" data-bs-toggle="button">Fisico</button>
                         <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border" data-bs-toggle="button">Digital</button>
@@ -59,7 +58,6 @@
                 </div>
                 <div class="row d-flex flex-column ">
                     <span class="fs-6 mb-2">Tipo de Capa</span>
-
                     <div class="d-grid gap-2 d-md-block">
                         <button type="button" class="btn btn-light rounded-pill me-2 px-4 py-2 fw-semibold border" data-bs-toggle="button">Normal</button>
                         <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border" data-bs-toggle="button">Dura</button>
@@ -69,7 +67,6 @@
                 @if($produto->produtoEstoque?->PRODUTO_QTD > 0)
                     <span class="d-block my-4">Disponivel em Estoque</span>
                 @endif
-
 
                 <div class="d-flex flex-row bg-light align-items-center p-4 mb-4 rounded">
                     <i class="bi bi-cart fs-3 me-3"></i>
@@ -84,8 +81,8 @@
                             <button type="button" id="qtd-mais">+</button>
                         </div>
 
-                        <div class="">
-                            <button type="submit" class="btn btn-dark rounded-pill px-5 py-2">
+                        <div class="h-100">
+                            <button type="submit" class="btn btn-dark rounded-pill px-5 py-2 h-100">
                                 <img class=" pe-2 py-1" src="assets/produto/carrinho.svg" alt="">
                                 <span class="">Adicionar ao carrinho</span>
                             </button>
