@@ -31,7 +31,7 @@
                     <div class="row row-cols-6 gy-3 gx-4 text-center">
                         @foreach($categorias as $categoria)
                             <div class="col">
-                                <a href="#" class="btn btn-default p-3 border rounded-0 bg-light w-100 text-decoration-none text-black" role="button">{{$categoria->CATEGORIA_NOME}}</a>
+                                <a href="{{route('categoria.show',  $categoria->CATEGORIA_ID)}}" class="btn btn-default p-3 border rounded-0 bg-light w-100 text-decoration-none text-black" role="button">{{$categoria->CATEGORIA_NOME}}</a>
                             </div>
                         @endforeach
                     </div>

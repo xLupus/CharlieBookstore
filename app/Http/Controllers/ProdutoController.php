@@ -16,7 +16,10 @@ class ProdutoController extends Controller
     public function home()
     {
         return view('index')->with([
-            'categorias' => Categoria::all()->take(14),
+            'categorias' => Categoria::where('CATEGORIA_ATIVO', TRUE)
+                                       ->whereRelation('produtos', 'PRODUTO_ATIVO', TRUE)
+                                       ->orderBy('CATEGORIA_NOME', 'ASC')
+                                       ->get(),
             'produtos' => Produto::all()->take(10),
         ]); //Index (recebe categorias)
     }
