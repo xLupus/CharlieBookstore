@@ -35,18 +35,28 @@
                         <form action="{{route('register')}}" method="POST" class="form-estilo">
                             @csrf
                             <label class="form-label" for="NomeCompleto">Nome Completo:</label>
-                            <input type="text" class="form-control form-tamanho" name="USUARIO_NOME">
-                            @if(!count($errors->get('USUARIO_NOME')) == 0)
-                                <span class="text-danger fw-bold fs-6">{{$errors->get('USUARIO_NOME')[0]}}</span>
+                            <input type="text" class="form-control form-tamanho" name="nome">
+                            @if(!count($errors->get('nome')) == 0)
+                                <span class="text-danger fw-bold fs-6">{{$errors->get('nome')[0]}}</span>
                             @endif
+                            
                             <label class="form-label"  for="Email">Email:</label>
-                            <input type="email" class="form-control  form-tamanho" name="USUARIO_EMAIL">
+                            <input type="email" class="form-control  form-tamanho" name="email">
+                            @if(!count($errors->get('email')) == 0)
+                                <span class="text-danger fw-bold fs-6">{{$errors->get('email')[0]}}</span>
+                            @endif
 
                             <label class="form-label"  for="Senha">Senha:</label>
-                            <input type="password" class="form-control  form-tamanho" name="USUARIO_SENHA">
+                            <input type="password" class="form-control  form-tamanho" name="senha">
+                            @if(!count($errors->get('senha')) == 0)
+                                <span class="text-danger fw-bold fs-6">{{$errors->get('senha')[0]}}</span>
+                            @endif
 
                             <label class="form-label" for="Cpf">CPF:</label>
-                            <input type="number" class="form-control  form-tamanho" name="USUARIO_CPF">
+                            <input type="number" class="form-control  form-tamanho" name="cpf">
+                            @if(!count($errors->get('cpf')) == 0)
+                                <span class="text-danger fw-bold fs-6">{{$errors->get('cpf')[0]}}</span>
+                            @endif
 
                             <div class="d-flex justify-content-center">
                                 <button type="submit" class="color shadow p-3"> {{ __('Registrar') }}</button>
