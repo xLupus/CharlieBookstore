@@ -1,5 +1,5 @@
 @extends('layout')
-@section('style', 'css/catalogo-bootstrap.css')
+@section('style', '/css/catalogo-bootstrap.css')
 
 @if (Route::current()->getName() == 'categoria.show')
     @section('title', 'Livros de '.Route::current()->categoria->CATEGORIA_NOME)
@@ -7,29 +7,27 @@
     @section('title', 'Catalogo')
 @endif
 
-@section('script','js/catalogo.js')
+@section('script','/js/catalogo.js')
 
 @section('main')
-    <main role="main">
-        <div class="container-xxl mt-5 mb-5">
-            <div class="row">
-                <div class="col-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            @if (Route::current()->getName() == 'categoria.show')
-                                <li class="breadcrumb-item">
-                                    <a class="link" href="{{ route('catalogo') }}">Livros</a>
-                                </li>
-                                <li class="breadcrumb-item active">{{ucfirst(Route::current()->categoria->CATEGORIA_NOME)}}</li>
-                            @else
-                                <li class="breadcrumb-item active">Livros<li>
-                            @endif
-                        </ol>
-                    </nav>
-                </div>
-            </div>
+    <div class="container-xxl my-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                @if (Route::current()->getName() == 'categoria.show')
+                    <li class="breadcrumb-item">
+                        <a class="link" href="{{ route('catalogo') }}">Livros</a>
+                    </li>
+                    <li class="breadcrumb-item active">{{ucfirst(Route::current()->categoria->CATEGORIA_NOME)}}</li>
+                @else
+                    <li class="breadcrumb-item active">Livros<li>
+                @endif
+            </ol>
+        </nav>
+    </div>
 
-            <div class="row row-cols-2 mt-4 gx-5">
+    <main role="main">
+        <div class="container-xxl mb-5">
+            <div class="row row-cols-2 gx-5">
                 <div class="col-3 pe-5">
                     <div class="d-block bg-light p-4 shadow-sm">
                         <span class="d-block fw-bold" id="filter">FILTROS:</span>
@@ -99,7 +97,6 @@
                 </div>
 
                 <div class="col-9">
-
                     <div class="row row-cols-4">
                         @foreach ($produtos as $produto)
                             <div class="col">
@@ -113,7 +110,6 @@
 
                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
                                             <span class="mt-2"><small>{{$produto->PRODUTO_NOME}}</small></span>
-
                                             @if ($produto->PRODUTO_DESCONTO > 0)
                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produto->PRODUTO_DESCONTO / $produto->PRODUTO_PRECO * 100, 0)}}%</span>
                                                 <div class="d-flex">
@@ -125,15 +121,14 @@
                                                     <span class="fw-semibold fs-5">R$ {{$produto->PRODUTO_PRECO}}</span>
                                                 </div>
                                             @endif
-
                                         </figcaption>
                                     </figure>
                                 </a>
                             </div>
                         @endforeach
+                    </div>
                 </div>
             </div>
-
         </div>
     </main>
 @endsection
