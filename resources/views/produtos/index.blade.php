@@ -69,7 +69,7 @@
                                         @endif
                                     @endforeach
                                 @else
-                                    @foreach (App\Models\Categoria::ativo() as $categoria)
+                                    @foreach (App\Models\Categoria::ativo() as $categoria){{-- Aparece na catalogo --}}
                                         <li>
                                             <a href="{{route('categoria.show', $categoria['id'])}}" class="link text-decoration-none text-dark">{{$categoria['nome']}} ({{$categoria['quantidade']}}) </a>
                                         </li>

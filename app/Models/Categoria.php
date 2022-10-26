@@ -19,7 +19,7 @@ class Categoria extends Model
         return $this->hasMany(Produto::class, 'CATEGORIA_ID')->where('PRODUTO_ATIVO', TRUE);
     }
 
-    public static function ativo(){
+    public static function ativo() {
         $return = [];
 
         foreach (Categoria::where('CATEGORIA_ATIVO', TRUE)->whereRelation('produtos', 'PRODUTO_ATIVO', TRUE)->get() as $categoria ) {

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
+//use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -42,13 +42,11 @@ class RegisteredUserController extends Controller
         */
 
         $user = User::create([
-            'USUARIO_NOME' => $request->name,
+            'USUARIO_NOME' => $request->nome,
             'USUARIO_EMAIL' => $request->email,
-            'USUARIO_SENHA' => Hash::make($request->password),
-            'USUARIO_CPF' => "12345678",
+            'USUARIO_SENHA' => Hash::make($request->senha),
+            'USUARIO_CPF' => $request->cpf,
         ]);
-
-        dd($user);
 
         event(new Registered($user));
 

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="/img/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="@yield('style')">
     <title>@yield('title')</title>
 </head>
@@ -19,7 +19,7 @@
                 <img src="/img/Logo.png" class="img-fluid">
             </a>
 
-            <form action="#" class="mx-auto d-none d-md-block d-xl-none w-50 mt-xl-0 position-relative" role="search">
+            <form action="#" method="#" class="mx-auto d-none d-md-block d-xl-none w-50 mt-xl-0 position-relative" role="search">
                 <input type="search" class="form-control form-control-lg" maxlength="100">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search position-absolute top-50 translate-middle-y" viewBox="0 0 16 16" style="right: 1em">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
@@ -61,41 +61,24 @@
                             </svg>
 
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Perfil</a></li>
-                                <li><a class="dropdown-item d-flex justify-content-between align-items-center" href="#">Configurações</a></li>
+                                <li><a href="#" class="dropdown-item">Perfil</a></li>
+                                <li><a href="#" class="dropdown-item">Configurações</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                    @if (Auth::user())
-                                    <div class="d-flex justify-content-center align-items-center flex-column">
-                                        <a style="text-transform: capitalize"> Olá,
-                                            {{Auth::user()->USUARIO_NOME}} ! {{-- pega nome do usuario logado --}}
-                                        </a>
-                                            <li>
-                                                <form action="{{route('logout')}}" method="post">
-                                                    @csrf
-                                                    <button type="submit">LOG OUT</button>
-                                                </form>
-                                            </li>
-                                        @else
-                                            <li><a class="dropdown-item" href="{{route('login')}}">LOGIN</a></li>
-                                        @endif
-                                    </div>
+                                @if (Auth::user())
+                                    <li>
+                                        <a href="#" class="dropdown-item disabled text-capitalize">Olá, {{Auth::user()->USUARIO_NOME}} !</a>
+                                    </li>
+                                    <li>
+                                        <form action="{{route('logout')}}" method="post" class="dropdown-item p-1">
+                                            @csrf
+                                            <button type="submit" class="btn btn-default w-100 py-0 text-start logOut">Log out</button>
+                                        </form>
+                                    </li>
+                                @else
+                                    <li><a href="{{route('login')}}" class="dropdown-item">Login</a></li>
+                                @endif
                             </ul>
                         </li>
-
-                        <li class="nav-item p-3 ps-xl-4 pe-xl-1 d-xl-none">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person" data-bs-toggle="collapse" data-bs-target="#collapseExample" viewBox="0 0 16 16">
-                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                            </svg>
-                        </li>
-                        <ul class="navbar-nav collapse d-xl-none" id="collapseExample">
-                            <li class="nav-item"><a class="nav-link" href="">Perfil</a></li>
-                            <li class="nav-item d-flex justify-content-between align-items-center">
-                                <a class="nav-link" href="#">Configurações</a>
-                            </li>
-                            <li class="nav-item"><hr class="hr"></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Log out</a></li>
-                        </ul><!-- collapse do responsivo -->
-
 
                         <li class="nav-item p-3 ps-xl-4 pe-xl-4 position-relative">
                             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"  fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
@@ -111,7 +94,7 @@
 
     @yield('main')
 
-    <footer style="background-color: #5C3D2F;">
+    <footer>
         <div class="pb-2 pt-4 px-0 container-xxl">
             <div class="row justify-content-evenly pb-2 pt-4 px-0 ">
                 <div class="col d-flex align-items-center ">
@@ -144,7 +127,7 @@
             </div>
         </div>
 
-        <hr class="hr mt-4 mb-5 p-1" style="background-color: #E0C09A;"></hr>
+        <hr class="hr mt-4 mb-5 p-1">
 
         <div class="d-flex flex-column align-items-center container-xxl px-0">
             <div class="row container-xxl d-flex justify-content-between px-0">
@@ -201,6 +184,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-    <script src="@yield('script')" charset="utf-8"></script>
+    <script src="@yield('script')"></script>
 </body>
 </html>
