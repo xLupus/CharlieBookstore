@@ -1,0 +1,7 @@
+.img-background{
+    background-image: url(login.jpg);
+    height: 100vh;
+    width: 100%;
+}
+.btn-primary{background-color: #B75C3D;}
+.btn-secondary{background-color: #5C3D2F;}

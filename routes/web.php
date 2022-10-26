@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\CategoriaController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +16,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+*/
+Route::get('/', [ProdutoController::class, 'home'])->name('home');
+Route::resource('/produto', ProdutoController::class);
+Route::get('/categoria/{categoria}', [ProdutoController::class, 'categoria'])->name('categoria.show');
+
+require __DIR__.'/auth.php';
+
+Route::get('/catalogo', [ProdutoController::class, 'index'])->name('catalogo');

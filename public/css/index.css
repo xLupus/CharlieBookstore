@@ -1,0 +1,45 @@
+/* CAROUSEL BUTTONS */
+.carousel-control-prev, .carousel-control-next {
+    margin-top: 8%;
+    width: 65px;
+    height: 65px;
+    background-color: #B75C3D;
+}
+
+.carousel-control-prev {
+    margin-left: -1.7%;
+}
+
+.carousel-control-next {
+    margin-right: -1.7%;
+}
+
+.btn-conferir,
+.btn-conferir:hover {
+    background-color: #90BDD2;
+    margin-left: 14%;
+}
+
+figcaption .badge {
+    bottom: 4.5rem;
+    width: 4.5rem;
+    left: 12rem;
+}
+
+#txt1 {
+    font-size: 100px;
+    margin-top: 7%;
+    margin-left: 14%;
+}
+
+#txt2 {
+    margin-left: 14%;
+}
+
+#div-btn {
+    margin-top: 5%;
+}
+
+.txt {
+    margin-left: 5%;
+}

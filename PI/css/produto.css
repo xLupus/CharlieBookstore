@@ -1,0 +1,107 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Breadcrumb */
+.breadcrumb-container{margin: 30px 0 30px -830px;}
+.breadcrumb {display: flex;}
+.breadcrumb-item{list-style: none;}
+.breadcrumb-item + .breadcrumb-item{margin-left: 10px;}
+
+/* LEFT - Imagens do Produto */
+.flex-row {display: flex;}
+
+.books-pictures{
+    display: flex;
+    margin-right: 65px;
+}
+.side-pictures{
+    height: 480px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+.side-pictures img{
+    width: 125px;
+    margin-bottom: 5px;
+}
+
+/* RIHT - Informções de produto */
+.shop-info-title{
+    font-size: 24px;
+    font-weight: bold;
+}
+.shop-info-price{
+    font-size: 24px;
+    font-weight: bold;
+    margin: 30px 0;
+}
+
+.shop-info-option{margin-bottom: 30px;}
+.shop-info-option span{
+    display: block;
+    margin-bottom: 15px;
+}
+.shop-info-option-type button{
+    width: 100px;
+    height: 50px;
+    border-radius: 50px;
+    border: 2px solid #DBE5F1;
+    background: none;
+    font-size: 16px;
+    font-weight: medium;
+}
+.availability {font-size: 16px;}
+
+.delivery-frete {
+    display: flex;
+    width: 520px;
+    height: 110px;
+    padding: 34px 30px;
+    align-items: center;
+}
+.delivery-frete img {
+    width: 36px;
+    margin-right: 15px;
+
+}
+.form{
+    display: flex;
+    height: 80px;
+}
+.quantity {
+    display: inline;
+    width: 175px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 50px;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+.quantity button{
+    height: 100%;
+    width: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.quantity input {
+    border: none;
+    width: 60px;
+    height: 96%;
+    text-align: center;
+    outline: none;
+}
