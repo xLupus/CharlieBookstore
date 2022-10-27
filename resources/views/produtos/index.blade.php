@@ -31,12 +31,14 @@
                 <div class="col-3 pe-5">
                     <div class="d-block bg-light p-4 shadow-sm">
                         <span class="d-block fw-bold" id="filter">FILTROS:</span>
+
                         <button class="btn btn-default d-inline-flex align-items-center mt-4 p-0 order-btn" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="#collapse1">
                             <span class="d-block fw-bold" id="order">ORDENAR POR</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-dash ms-2" viewBox="0 0 16 16" id="btnOrder">
                                 <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
                             </svg>
                         </button>
+
                         <div class="collapse mt-2" id="collapse1">
                             <ul class="list-unstyled ms-4 lh-lg">
                                 <li>Livro: A - Z</li>
@@ -84,6 +86,7 @@
                                 <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
                             </svg>
                         </button>
+                        
                         <div class="collapse mt-2" id="collapse3">
                             <form action="#">
                                 <label for="range" class="form-label">Preço Mínimo</label>
