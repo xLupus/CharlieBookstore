@@ -1,13 +1,19 @@
 
-.img-background{
-    background-image: url(login.jpg);
+.login-background{
+    background-image: url('/img/login.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
     height: 100vh;
-    width: 100%;
 }
+
+.cadastro-background{
+    background-image: url('/img/cadastro.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+}
+
 .btn-primary{background-color: #B75C3D;}
 .btn-secondary{background-color: #5C3D2F;}
-
-.logoImage {
-    left: -1rem;
-}
-

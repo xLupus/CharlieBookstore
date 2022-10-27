@@ -1,3 +1,4 @@
+@php use App\Models\Carrinho; @endphp
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -38,10 +39,10 @@
                 <div class="offcanvas-body align-items-center">
                     <ul class="navbar-nav mx-xl-auto">
                         <li class="nav-item mb-1 mb-xl-0 pe-xl-1 text-center rounded-2">
-                             <a href="#" class="nav-link fw-semibold" aria-current="page">Categorias</a>
+                             <a href="{{route('catalogo')}}" class="nav-link fw-semibold" aria-current="page">Catalogo</a>
                         </li>
                         <li class="nav-item mt-1 mt-xl-0 ps-xl-1 text-center rounded-2">
-                            <a href="#" class="nav-link fw-semibold">Lançamentos</a>
+                            <a href="#" class="nav-link fw-semibold">Categorias</a>
                         </li>
                     </ul>
 
@@ -61,32 +62,38 @@
                             </svg>
 
                             <ul class="dropdown-menu">
-                                <li><a href="#" class="dropdown-item">Perfil</a></li>
-                                <li><a href="#" class="dropdown-item">Configurações</a></li>
-                                <li><hr class="dropdown-divider"></li>
+
                                 @if (Auth::user())
                                     <li>
                                         <a href="#" class="dropdown-item disabled text-capitalize">Olá, {{Auth::user()->USUARIO_NOME}} !</a>
                                     </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a href="#" class="dropdown-item">Meus Pedidos</a></li>
+                                    <li><hr class="dropdown-divider"></li>
                                     <li>
                                         <form action="{{route('logout')}}" method="post" class="dropdown-item p-1">
                                             @csrf
-                                            <button type="submit" class="btn btn-default w-100 py-0 text-start logOut">Log out</button>
+                                            <button type="submit" class="btn btn-default w-100 py-0 text-start logOut">Sair</button>
                                         </form>
                                     </li>
                                 @else
                                     <li><a href="{{route('login')}}" class="dropdown-item">Login</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a href="{{route('register')}}" class="dropdown-item">Cadastrar</a></li>
                                 @endif
                             </ul>
                         </li>
 
 
                         <li class="nav-item p-3 ps-xl-4 pe-xl-4 position-relative">
-                            <a href="{{route('carrinho.index')}}">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"  fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                            <a href="{{route('carrinho.index')}}" class="link text-decoration-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"  fill="dark" class="bi bi-cart3" viewBox="0 0 16 16">
                                     <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                 </svg>
-                                <span class="badge rounded-5 position-absolute end-0 bottom-50 translate-middle-x" style="background-color: #B75C3D;">7</span>
+
+                                @if (Auth::user() && Carrinho::qtdCarrinho(Auth::user()->USUARIO_ID) > 0)
+                                    <span class="badge rounded-5 position-absolute end-0 bottom-50 translate-middle-x" style="background-color: #B75C3D;">{{Carrinho::qtdCarrinho(Auth::user()->USUARIO_ID)}}</span>
+                                @endif
                             </a>
                         </li>
                     </ul>
@@ -176,8 +183,15 @@
                     </div>
                 </div>
                 <div class="col col-2 px-0">
-                    <p class="text-white fw-bold fs-5 d-block mb-5">Meu Perfil:</p>
-                    <a href="#" class="link text-white">ENTRAR</a>
+                    <p class="text-white fw-bold fs-5 d-block mb-3">Meu Perfil:</p>
+
+                    @if (!Auth::user())
+                        <a href="{{route('login')}}" class="link text-white d-block py-2">Entrar</a>
+                        <a href="{{route('register')}}" class="link text-white d-block py-2">Cadastrar</a>
+                    @else
+                        <a href="#" class="link text-white d-block py-2">Meus Pedidos</a>
+                        <a href="{{route('logout')}}" class="link text-white d-block py-2">Sair</a>
+                    @endif
                 </div>
             </div>
             <div class="d-block py-4">

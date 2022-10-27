@@ -16,7 +16,6 @@ class CarrinhoController extends Controller
      */
     public function index()
     {
-
         return view('carrinho.index')->with('itens', Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)->get() );
     }
 

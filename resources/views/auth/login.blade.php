@@ -6,19 +6,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
             <link rel="stylesheet" href="/css/styles.css">
-        <title>LOGIN</title>
+        <title>Login</title>
     </head>
     <body>
         <div class="container-fluid">
             <div class="row row-cols-2">
-                <div class="col-6">
-                    <img src="/img/login.png" alt="Imagem" class="img-fluid w-100 position-relative logoImage">
-                </div>
+
+                <div class="col-6 login-background"></div>
+
                 <div class="col-6 d-flex justify-content-center align-items-center">
                     <div class="w-100 d-flex flex-column align-items-center">
                         <div class="logo d-block mb-5">
                             <a href="{{route('home')}}" class="link">
-                                <img src="/img/Logo.png" alt="Charlie-Bookstore Logo" width="300" class="img-fluid">
+                                <img src="/img/Logo.png" alt="Charlie-Bookstore Logo" width="250" class="img-fluid">
                             </a>
                         </div>
 
@@ -42,7 +42,7 @@
                                 <input type="password" name="password" id="Password" class="form-control form-control-lg text-form">
                             </div>
 
-                            <button type="submit" name="btn_entrar" class="btn btn-primary mb-3 py-3">{{ __('Log in') }}</button>
+                            <button type="submit" name="btn_entrar" class="btn btn-primary my-3 py-3">{{ __('Log in') }}</button>
                         </form>
 
                         <a href="{{route('register')}}" class="link w-50">
