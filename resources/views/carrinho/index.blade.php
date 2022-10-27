@@ -7,7 +7,11 @@
 @php
     $precoTotal    = 0;
     $descontoTotal = 0;
-    $valorTotal    = 0;
+
+    foreach ($itens as $item) {
+        $precoTotal    = $precoTotal + $item->produto->PRODUTO_PRECO * $item->ITEM_QTD;
+        $descontoTotal = $descontoTotal + $item->produto->PRODUTO_DESCONTO * $item->ITEM_QTD;
+    }
 @endphp
 
 @section('main')
@@ -114,11 +118,6 @@
                 <span class="fw-bold mb-3 h4 d-block">Preço do pedido</span>
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <span class="fw-normal fs-5 align-start">Preço total</span>
-                        @foreach ($itens as $item)
-                            @php
-                            $precoTotal = $precoTotal + $item->produto->PRODUTO_PRECO * $item->ITEM_QTD
-                            @endphp
-                        @endforeach
                         <span class="fw-normal fs-5">R$ {{number_format($precoTotal, 2)}}</span>
                     </div>
 
@@ -129,17 +128,12 @@
 
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <span class="fw-normal fs-5">Desconto</span>
-                        @foreach ($itens as $item)
-                            @php
-                            $descontoTotal = $descontoTotal + $item->produto->PRODUTO_DESCONTO * $item->ITEM_QTD
-                            @endphp
-                        @endforeach
                         <span class="fw-normal fs-5">R$ {{number_format($descontoTotal, 2)}}</span>
                     </div>
 
                     <div class= "d-flex justify-content-between align-items-center py-4 border-1 border-top border-dark">
                         <span class="fw-bold fs-5">Valor total</span>
-                        <span class="fw-semibold fs-5">R$ {{number_format($precoTotal - $descontoTotal ,2)}}</span>
+                        <span class="fw-semibold fs-5">R$ {{number_format($precoTotal - $descontoTotal, 2)}}</span>
                     </div>
                 <input type="button" value="Ir Para Verificação de Dados" class="bg-black text-white rounded-pill w-100 py-2 text-align-center ">
             </div>

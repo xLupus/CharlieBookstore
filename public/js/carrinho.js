@@ -6,27 +6,24 @@ cep.onchange = getCEP;
 function getCEP() {
     let cep_value = cep.value;
 
-    console.log(cep_value);
-    let request = new XMLHttpRequest();
-    request.open('GET',`https://viacep.com.br/ws/${cep_value}/json/`, true);
-    request.send();
-    request.onreadystatechange = function(){
-        if(request.readyState == 4 && request.status == 200){
-            let response = JSON.parse(request.responseText);
-
+    fetch(`https://viacep.com.br/ws/${cep_value}/json/`)
+        .then( (result) => {
+            return result.json();
+        })
+        .then( (json) => {
             let logradouro  = document.getElementById('logradouro');
             let bairro      = document.getElementById('bairro');
             let localidade  = document.getElementById('cidade');
             let uf          = document.getElementById('uf');
 
-            logradouro.value  = response.logradouro
-            bairro.value      = response.bairro
-            localidade.value  = response.localidade
-            uf.value          = response.uf
-
-            console.log(response);
-        }
-    }
+            logradouro.value  = json.logradouro
+            bairro.value      = json.bairro
+            localidade.value  = json.localidade
+            uf.value          = json.uf
+        })
+        .catch( (error) => {
+            console.log(error);
+        })
 }
 
 function atualizaQtd(btn, qtd) {
@@ -53,10 +50,8 @@ inputCheck.addEventListener('click', () => {
         div.appendChild(input);
         form.appendChild(div);
 
-        console.log(div, input);
     } else if (inputCheck.checked === false) {
         let div = document.getElementById('input-nome')
-
         div.remove()
     }
 })
