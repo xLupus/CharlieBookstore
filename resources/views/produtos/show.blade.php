@@ -2,6 +2,7 @@
 
 @section('style', '/css/produto.css')
 @section('title', $produto->PRODUTO_NOME)
+
 @section('script','/js/produto.js')
 
 @section('main')
@@ -13,7 +14,13 @@
                 <li class="breadcrumb-item active" aria-current="page">{{ $produto->PRODUTO_NOME }}</li>
             </ol>
         </nav>
+        @if (session()->has('message'))
+        <div class="alert alert-success" role="alert">
+            {{ session()->get('message') }}
+        </div>
+        @endif
     </div>
+
 
     <main class="container-xxl">
         <div class="d-flex justify-content-center">
@@ -74,7 +81,8 @@
                 </div>
 
                 @if($produto->produtoEstoque?->PRODUTO_QTD > 0)
-                    <form class="d-flex align-items-center" action="" method="post">
+                    <form class="d-flex align-items-center" action="{{route('carrinho.store', $produto->PRODUTO_ID)}}" method="post">
+                        @csrf
                         <div class="quantity">
                             <button type="button" id="qtd-menos">-</button>
                             <input type="number" id="produto-qtd" name="qtd" value="1" min="1" max="{{$produto->produtoEstoque->PRODUTO_QTD}}">

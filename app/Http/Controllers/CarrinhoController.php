@@ -3,28 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Carrinho;
 use App\Models\Produto;
-use App\Models\Categoria;
+use Illuminate\Support\Facades\Auth;
 
-class ProdutoController extends Controller
+class CarrinhoController extends Controller
 {
-
-    /**
-     * Return the Main Page of the application
-     * @return void
-     */
-    public function home()
-    {
-        return view('index')->with([
-            'categorias' => Categoria::where('CATEGORIA_ATIVO', TRUE)
-                                       ->whereRelation('produtos', 'PRODUTO_ATIVO', TRUE)
-                                       ->orderBy('CATEGORIA_NOME', 'ASC')
-                                       ->get(),
-            'produtos' => Produto::all()->take(10),
-        ]); //Index (recebe categorias)
-    }
-
-
     /**
      * Display a listing of the resource.
      *
@@ -32,22 +16,8 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        return view('produtos.index')->with([
-            'produtos' => Produto::ativo(),
-        ]); //Index (recebe categorias)
-    }
 
-
-
-    /**
-     * Return the page of Books from a specific category
-     * @param  Categoria $categoria  [description]
-     * @return [type] [description]
-     */
-    public function categoria(Categoria $categoria){
-        return view('produtos.index')->with([
-            'produtos' => $categoria->produtos,
-        ]);
+        return view('carrinho.index')->with('itens', Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)->get() );
     }
 
     /**
@@ -66,9 +36,43 @@ class ProdutoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        //    dd($request, $id);
+        //dd(Auth::user()->USUARIO_ID);
+        $cart = Carrinho::where([
+            'USUARIO_ID' => Auth::user()->USUARIO_ID,
+            'PRODUTO_ID' => $id,
+        ])->first(); //pega uma
+
+        if ($cart) {
+            $soma    = $request->qtd;
+
+            $estoque = Produto::where('PRODUTO_ID', $id)->first()->produtoEstoque->PRODUTO_QTD;
+
+            if ($soma > 0) {
+                $cart->update([
+                    'ITEM_QTD'=> $soma > $estoque ? $estoque : $soma //se o estoque for maior que a soma
+                ]);
+            } else{
+                $cart->update([
+                    'ITEM_QTD'=> 0
+                ]);
+            }
+
+        } else {
+            $cart = Carrinho::create([
+                'USUARIO_ID' => Auth::user()->USUARIO_ID,
+                'PRODUTO_ID' => $id,
+                'ITEM_QTD'   => $request->qtd
+            ]);
+        }
+
+        session()->flash('message', 'Adicionar com sucesso'); //zika d+
+
+        return redirect()->back();
+
+
     }
 
     /**
@@ -79,9 +83,7 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
-        $produto = Produto::find($id);
-        
-        return view('produtos.show', compact('produto'));
+        //
     }
 
     /**
