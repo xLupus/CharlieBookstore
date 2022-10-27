@@ -115,27 +115,31 @@
             </div>
 
             <div class="bg-light rounded mt-3 p-3">
-                <span class="fw-bold mb-3 h4 d-block">Preço do pedido</span>
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <span class="fw-normal fs-5 align-start">Preço total</span>
-                        <span class="fw-normal fs-5">R$ {{number_format($precoTotal, 2)}}</span>
-                    </div>
+                <span class="fw-bold mb-3 h4 d-block">Detalhes do Pedido</span>
 
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <span class="fw-normal fs-5">Frete</span>
-                        <span class="fw-normal fs-5">Gratis</span>
-                    </div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="fw-normal fs-5 align-start">Preço total</span>
+                    <span class="fw-normal fs-5">R$ {{number_format($precoTotal, 2)}}</span>
+                </div>
 
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <span class="fw-normal fs-5">Desconto</span>
-                        <span class="fw-normal fs-5">R$ {{number_format($descontoTotal, 2)}}</span>
-                    </div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="fw-normal fs-5">Frete</span>
+                    <span class="fw-normal fs-5">Gratis</span>
+                </div>
 
-                    <div class= "d-flex justify-content-between align-items-center py-4 border-1 border-top border-dark">
-                        <span class="fw-bold fs-5">Valor total</span>
-                        <span class="fw-semibold fs-5">R$ {{number_format($precoTotal - $descontoTotal, 2)}}</span>
-                    </div>
-                <input type="button" value="Ir Para Verificação de Dados" class="bg-black text-white rounded-pill w-100 py-2 text-align-center ">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <span class="fw-normal fs-5">Desconto</span>
+                    <span class="fw-normal fs-5">R$ {{number_format($descontoTotal, 2)}}</span>
+                </div>
+
+                <div class= "d-flex justify-content-between align-items-center py-4 border-1 border-top border-dark">
+                    <span class="fw-bold fs-5">Valor total</span>
+                    <span class="fw-semibold fs-5">R$ {{number_format($precoTotal - $descontoTotal, 2)}}</span>
+                </div>
+
+                <a href="{{route('confirmer')}}">
+                    <input type="button" value="Ir Para Verificação de Dados" class="bg-black text-white rounded-pill w-100 py-2 text-align-center ">
+                </a>
             </div>
         </div>
     </div>

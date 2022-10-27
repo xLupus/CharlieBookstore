@@ -11,6 +11,9 @@ Route::resource('/produto', ProdutoController::class);
 Route::get('/categoria/{categoria}', [ProdutoController::class, 'categoria'])->name('categoria.show');
 Route::get('/catalogo', [ProdutoController::class, 'index'])->name('catalogo');
 
+Route::get('/confirmer', function () {
+    return view('carrinho.confirmer');
+})->name('confirmer');
 
 Route::group( ['middleware' => ['auth'] ], function(){
     Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
