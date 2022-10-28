@@ -11,6 +11,7 @@ Route::get('/', [ProdutoController::class, 'home'])->name('home');
 Route::resource('/produto', ProdutoController::class);
 Route::get('/categoria/{categoria}', [ProdutoController::class, 'categoria'])->name('categoria.show');
 Route::get('/catalogo', [ProdutoController::class, 'index'])->name('catalogo');
+Route::get('/pesquisa', [ProdutoController::class, 'search'])->name('search');
 
 Route::get('/confirmer', function () {
     return view('carrinho.confirmer');
