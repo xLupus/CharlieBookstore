@@ -65,6 +65,17 @@ class ProdutoController extends Controller
 
     public function search(Request $request)
     {
-        dd($request);
+        $pesquisa = $request->search;
+        $campos   = explode(' ', $pesquisa);
+        $campos   = implode('%', $campos);
+
+        $produtos = Produto::where('PRODUTO_ATIVO', TRUE)
+                                ->where('PRODUTO_NOME', 'like', "%{$campos}%")
+                                ->orderBy('PRODUTO_NOME', 'ASC')
+                                ->get();
+
+        $resultados = count($produtos);
+
+        return view( 'produtos.search', compact(['produtos', 'resultados', 'pesquisa']) );
     }
 }
