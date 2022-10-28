@@ -8,7 +8,7 @@
             <span>RESULTOU EM: <strong>{{$resultados}}</strong> RESULTADOS</span>
         </div>
 
-        @if ($produtos->count() == 0)
+        @if ($resultados == 0)
             <div class="bg-light mb-5 py-3">
                 <span class="d-block ms-3 my-3">Lamentamos que você não tenha encontrado o que procura, mas antes de desistir:</span>
 
