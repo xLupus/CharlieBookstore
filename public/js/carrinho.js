@@ -1,6 +1,8 @@
 let cep        = document.getElementById('cep');
 let inputCheck = document.getElementById('input-check');
 
+inputCheck.checked = false
+
 cep.onchange = getCEP;
 
 function getCEP() {
@@ -39,15 +41,22 @@ inputCheck.addEventListener('click', () => {
     if (inputCheck.checked === true) {
         let div   = document.createElement('div')
         let input = document.createElement('input')
+        let btn   = document.createElement('input')
 
         div.id = 'input-nome'
+        div.classList = 'd-flex'
 
-        input.classList = 'rounded-pill h-100 py-2 mb-3 form-control';
+        input.classList = 'rounded-pill h-100 py-2 mb-3 form-control w-50 me-3';
         input.setAttribute('type', 'text')
         input.setAttribute('name', 'nome')
         input.setAttribute('placeholder', 'Rotulo')
 
+        btn.classList = 'h-100 btn btn-light rounded-pill px-4 py-3 border w-25';
+        btn.value     = 'Salvar'
+        btn.setAttribute('type', 'submit')
+
         div.appendChild(input);
+        div.appendChild(btn)
         form.appendChild(div);
 
     } else if (inputCheck.checked === false) {

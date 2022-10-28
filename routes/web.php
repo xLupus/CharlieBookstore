@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\EnderecoController;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [ProdutoController::class, 'home'])->name('home');
@@ -18,7 +19,7 @@ Route::get('/confirmer', function () {
 Route::group( ['middleware' => ['auth'] ], function(){
     Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
     Route::post('/carrinho/{id}', [CarrinhoController::class, 'store'])->name('carrinho.store');
-
+    Route::post('/endereco', [EnderecoController::class, 'store'])->name('endereco.store');
 });
 
 require __DIR__.'/auth.php';

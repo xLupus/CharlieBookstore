@@ -29,28 +29,35 @@
             <div class="w-75 mb-5">
                 <h2 class="mb-4">Informações de entrega</h2>
 
-                <form class="row mb-3" id="form-endereco">
+                @if (session()->has('endereco_message'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session()->get('endereco_message') }}
+                    </div>
+                @endif
+
+                <form action="{{ route('endereco.store') }}" method="post" class="row mb-3" id="form-endereco">
+                    @csrf
                     <div class="d-flex justify-content-between mb-3 ">
-                        <input type="number" id="cep" placeholder="CEP" class="rounded-pill ps-3 w-25 py-2 form-control">
-                        <input type="number" id="numero" placeholder="Nº" class="rounded-pill py-2 h-100 mb-3 text-center form-control">
-                        <input type="text" id="Complemento" placeholder="Complemento" class="rounded-pill ps-3 py-2 w-50 form-control">
+                        <input type="number" name="cep" id="cep" placeholder="CEP" class="rounded-pill ps-3 w-25 py-2 form-control">
+                        <input type="number" name="numero" id="numero" placeholder="Nº" class="rounded-pill py-2 h-100 mb-3 text-center form-control">
+                        <input type="text" name="complemento" id="Complemento" placeholder="Complemento" class="rounded-pill ps-3 py-2 w-50 form-control">
                     </div>
 
                     <div class="mb-3">
-                        <input type="text" id="logradouro" placeholder="Endereço" class="rounded-pill ps-3 w-100 py-3 form-control">
+                        <input type="text" name="logradouro" id="logradouro" placeholder="Endereço" class="rounded-pill ps-3 w-100 py-3 form-control">
                     </div>
 
                     <div class="mb-3 d-flex">
-                        <input type="text" id="bairro" placeholder="Bairro" class="rounded-pill py-3 ps-3 form-control w-50">
+                        <input type="text" name="bairro" id="bairro" placeholder="Bairro" class="rounded-pill py-3 ps-3 form-control w-50">
                     </div>
 
                     <div class="mb-3 d-flex">
-                        <input type="text" id="cidade" placeholder="Cidade" class="rounded-pill ps-3 py-2 form-control me-3 w-50">
-                        <input type="text" id="uf" placeholder="UF" class="rounded-pill h-100 py-2 mb-3 text-center form-control">
+                        <input type="text" name="cidade" id="cidade" placeholder="Cidade" class="rounded-pill ps-3 py-2 form-control me-3 w-50">
+                        <input type="text" name="uf" id="uf" placeholder="UF" class="rounded-pill h-100 py-2 mb-3 text-center form-control">
                     </div>
 
                     <div class="form-check mb-3 ms-3">
-                        <input type="checkbox" id="input-check" class="form-control form-check-input me-2">
+                        <input type="checkbox" id="input-check" class="form-check-input me-2">
                         <label class="form-check-label" for="input-check">Salvar Endereço</label>
                     </div>
                 </form>
