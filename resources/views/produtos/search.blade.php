@@ -2,8 +2,8 @@
 
 @section('title', "Pesquisa para $pesquisa")
 @section('main')
-    <div class="container-xxl my-5">
-        <div class="mb-4">
+    <main class="container-xxl">
+        <div class="my-4">
             <span>A PESQUISA POR "<strong>{{$pesquisa}}</strong>"</span>
             <span>RETORNOU: <strong>{{$resultados}}</strong> RESULTADOS</span>
         </div>
@@ -49,5 +49,5 @@
             @endforeach
             </div>
         @endif
-    </div>
+    </main>
 @endsection

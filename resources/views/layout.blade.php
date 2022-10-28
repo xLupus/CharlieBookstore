@@ -75,7 +75,7 @@
                                         <a href="#" class="dropdown-item disabled text-capitalize">Olá, {{Auth::user()->USUARIO_NOME}} !</a>
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a href="#" class="dropdown-item">Meus Pedidos</a></li>
+                                    <li><a href="{{route('pedidos')}}" class="dropdown-item">Meus Pedidos</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
                                         <form action="{{route('logout')}}" method="post" class="dropdown-item p-1">
