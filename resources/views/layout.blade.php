@@ -46,11 +46,18 @@
                         </li>
                     </ul>
 
-                    <form action="{{ route('search') }}" class="mx-auto ms-xl-auto mx-xl-0 mt-5 mt-xl-0 mt-xl-0 ps-xl-2 d-sm-block d-md-none d-xl-block w-50 align-items-center position-relative" role="search">
-                        <input type="search" name="search" class="form-control form-control-lg" maxlength="100">
-                        <button type="submit">
-                            <i class="bi bi-search position-absolute top-50 translate-middle-y"></i>
-                        </button>
+                    <form action="{{ route('search') }}" class="mx-auto ms-xl-auto mx-xl-0 mt-5 mt-xl-0 mt-xl-0 d-sm-block d-md-none d-xl-block w-50 align-items-center" role="search">
+                        <div class="d-flex border border-2 rounded">
+                            <input type="search" name="search" class="form-control form-control-lg border-0" maxlength="100">
+
+                            <div class="d-flex align-items-center ">
+                                <button type="submit" class="border-0 bg-transparent px-3 py-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search " viewBox="0 0 16 16" style="right: 1em">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
                     </form>
 
                     <hr class="hr">

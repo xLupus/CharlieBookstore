@@ -9,12 +9,14 @@
         </div>
 
         @if ($produtos->count() == 0)
-            <div class="bg-light mb-5 py-4">
-                <ul>
-                    <li class="mb-3 ">Verifique se voce digitou corretamente o que procura;</li>
-                    <li class="mb-3 ">Tente palavras menos específica;</li>
-                    <li class="mb-3 ">Tente palavras-chave diferentes;</li>
-                    <li>Se não encontrar o que procura, tente encontrar manualmente.</li>
+            <div class="bg-light mb-5 py-3">
+                <span class="d-block ms-3 my-3">Lamentamos que você não tenha encontrado o que procura, mas antes de desistir:</span>
+
+                <ul class="my-0 py-3 ms-3">
+                    <li class="mb-3">Verifique se voce digitou corretamente o que procura;</li>
+                    <li class="mb-3">Tente palavras menos específica;</li>
+                    <li class="mb-3">Tente palavras-chave diferentes;</li>
+                    <li class="mb-3">Se não encontrar o que procura, tente encontrar manualmente.</li>
                 </ul>
             </div>
         @else
