@@ -59,6 +59,8 @@ class ProdutoController extends Controller
     {
         $produto = Produto::find($id);
 
+        if (!$produto) return redirect()->route('catalogo');
+
         return view('produtos.show', compact('produto'));
     }
 
@@ -66,6 +68,9 @@ class ProdutoController extends Controller
     public function search(Request $request)
     {
         $pesquisa = $request->search;
+
+        if($pesquisa == '') return redirect()->route('catalogo');
+
         $campos   = explode(' ', $pesquisa);
         $campos   = implode('%', $campos);
 
@@ -74,7 +79,7 @@ class ProdutoController extends Controller
                                 ->orderBy('PRODUTO_NOME', 'ASC')
                                 ->get();
 
-        $resultados = count($produtos);
+        $resultados = $produtos->count();
 
         return view( 'produtos.search', compact(['produtos', 'resultados', 'pesquisa']) );
     }

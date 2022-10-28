@@ -5,7 +5,7 @@
     <div class="container-xxl my-5">
         <div class="mb-4">
             <span>A PESQUISA POR "<strong>{{$pesquisa}}</strong>"</span>
-            <span>RESULTOU EM: <strong>{{$resultados}}</strong> RESULTADOS</span>
+            <span>RETORNOU: <strong>{{$resultados}}</strong> RESULTADOS</span>
         </div>
 
         @if ($resultados == 0)
