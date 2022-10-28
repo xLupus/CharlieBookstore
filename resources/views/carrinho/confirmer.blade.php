@@ -6,8 +6,8 @@
 <div class="container-xxl mt-4">
     <nav aria-label="breadcrumb mt-4">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item">Carrinho</li>
-            <li class="breadcrumb-item">Verificação de dados</li>
+            <li class="breadcrumb-item"><a href="{{route('carrinho.index')}}" class="link text-decoration-none text-dark">Carrinho</a></li>
+            <li class="breadcrumb-item active"><a href="#" class="link text-decoration-none text-dark">Verificação de dados</a></li>
         </ol>
     </nav>
 </div>
@@ -72,7 +72,7 @@
                     <span class="fw-normal fs-5">Desconto</span>
                     <span class="fw-normal fs-5">R$</span>
                 </div>
-                
+
                 <div class= "d-flex justify-content-between align-items-center py-4 border-1 border-top border-dark">
                     <span class="fw-bold fs-5">Valor total</span>
                     <span class="fw-semibold fs-5">R$</span>
