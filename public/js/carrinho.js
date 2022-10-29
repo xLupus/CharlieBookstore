@@ -3,28 +3,25 @@ const INPUT_CHECK = document.getElementById('input-check');
 const DROP_FORM   = document.getElementById('drop_form')
 const FORM        = document.getElementById('form-endereco');
 
+if (DROP_FORM) {
+    DROP_FORM.addEventListener('click', () => {
 
+        if (DROP_FORM.value == 'show') {
+            FORM.classList.remove('d-none');
+            DROP_FORM.value = 'hide';
+            DROP_FORM.innerText = 'Fechar formulario';
 
+        } else if (DROP_FORM.value == 'hide') {
+            FORM.classList.add('d-none');
+            DROP_FORM.value = 'show';
+            DROP_FORM.innerText = 'Adicionar novo endereço';
+        }
 
-DROP_FORM.addEventListener('click', () => {
-
-    if (DROP_FORM.value == 'show') {
-        FORM.classList.remove('d-none');
-        DROP_FORM.value = 'hide';
-        DROP_FORM.innerText = 'Fechar formulario';
-
-    } else if (DROP_FORM.value == 'hide') {
-        FORM.classList.add('d-none');
-        DROP_FORM.value = 'show';
-        DROP_FORM.innerText = 'Adicionar novo endereço';
-    }
-
-})
+    })
+}
 
 CEP.oninput = function() {
     const CEP_VALUE = CEP.value;
-
-    console.log(CEP);
 
     fetch(`https://viacep.com.br/ws/${CEP_VALUE}/json/`)
     .then((result) => {

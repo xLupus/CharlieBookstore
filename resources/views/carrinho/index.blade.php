@@ -51,6 +51,7 @@
                     @endif
 
                     @if (count($enderecos) >= 1)
+                        {{$hideForm = 'd-none'}}
                         @foreach ($enderecos as $endereco)
                             <div class="bg-light w-75 d-flex p-3 rounded mb-3">
                                 <input type="radio" id="{{$endereco->ENDERECO_NOME}}" class="ms-3 me-4" name="endereco" value="{{$endereco->ENDERECO_ID}}">
@@ -68,10 +69,8 @@
                             </div>
                         @endforeach
                         <button type="button" id="drop_form" class="btn btn-light rounded-pill px-4 py-3 border my-4" value="show">Adicionar novo endereço</button>
-                    @else
-
                     @endif
-                    <form action="{{ route('endereco.store') }}" method="post" class="d-none row w-75 g-3 mb-5" id="form-endereco">
+                    <form action="{{ route('endereco.store') }}" method="post" class="{{$hideForm ?? ''}} row w-75 g-3 mb-5" id="form-endereco">
                         @csrf
                         <div class="col-3">
                             <input type="number" name="cep" id="cep" placeholder="CEP" class="rounded-pill form-control form-control-lg">
