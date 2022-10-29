@@ -17,16 +17,15 @@
                 <div class="col cadastro-background"></div>
 
                 <div class="col d-flex justify-content-center align-items-center">
-                    <div class="w-100 d-flex flex-column align-items-center">
+                    <div class="w-100 vstack mt-5 align-items-center">
                         <div class="logo d-block mb-5">
                             <a href="{{route('home')}}">
                                 <img class="logo" src="img/logo.png" alt="logo" width="250">
                             </a>
                         </div>
 
-                        <span class="">Comece a sua jornada.</span>
+                        <span class="d-block">Comece a sua jornada.</span>
                         <span class="h2 fw-bold mb-5">Faça seu cadastro</span>
-
 
                         <form action="{{route('register')}}" method="POST" class="w-50 d-flex flex-column">
                             @csrf
@@ -63,12 +62,10 @@
                                 @endif
                             </div>
 
-                            <button type="submit" class="btn btn-primary my-3 py-3"> {{ __('Registrar') }}</button>
+                            <button type="submit" class="btn btn-default p-3  mt-4 text-white"> {{ __('Registrar') }}</button>
                         </form>
 
-                        <a href="#" class="link w-50">
-                            <button class="btn btn-secondary w-100 py-3">Voltar</button>
-                        </a>
+                        <a href="{{route('login')}}" class="btn btn-link mt-4 p-3 w-50 text-decoration-none text-white" role="button">Voltar</a>
                     </div>
                 </div>
             </div>

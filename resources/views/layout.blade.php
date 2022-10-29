@@ -69,7 +69,7 @@
                             </svg>
 
                             @if (Auth::user())
-                                <span class="badge position-absolute start-100 top-50 translate-middle-x bg-success rounded-circle p-2">
+                                <span class="position-absolute translate-middle rounded-circle bg-success" style="bottom: .4rem; left: 3rem; padding: .4rem;">
                                     <span class="visually-hidden">Logado</span>
                                 </span>
                             @endif
@@ -100,17 +100,17 @@
                             @if (Auth::user())
                                 @if (Carrinho::qtdCarrinho(Auth::user()->USUARIO_ID) > 0)
                                     <a href="{{route('carrinho.index')}}" class="link text-decoration-none">
-                                        <span class="badge rounded-5 position-absolute end-0 bottom-50 translate-middle-x" style="background-color: #B75C3D;">{{Carrinho::qtdCarrinho(Auth::user()->USUARIO_ID)}}</span>
+                                        <span class="badge rounded-5 position-absolute end-0 bottom-50 translate-middle-x badge-itens">{{Carrinho::qtdCarrinho(Auth::user()->USUARIO_ID)}}</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"  fill="dark" class="bi bi-cart3" viewBox="0 0 16 16">
                                             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                         </svg>
                                     </a>
                                 @else
-                                    <button type="button" class="btn btn-default" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-title="Sem itens no carrinho">
+                                    <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-title="Sem itens no carrinho" role="button">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"  fill="dark" class="bi bi-cart3" viewBox="0 0 16 16">
                                             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                         </svg>
-                                    </button>
+                                    </a>
                                 @endif
                             @else
                                 <a href="{{route('carrinho.index')}}" class="link text-decoration-none">
@@ -168,7 +168,7 @@
                 <div class="col col-2 px-0">
                     <p class="text-white fw-bold fs-5 d-block mb-4 ms-3">Navegue Por Aqui:</p>
                     <ul class="list-group border border-0">
-                        <li class="list-group-item bg-transparent border border-0"><a href="#" class="link text-white">Categorias</a></li>
+                        <li class="list-group-item bg-transparent border border-0"><a href="{{route('catalogo')}}" class="link text-white">Catalogo</a></li>
                         <li class="list-group-item bg-transparent border border-0"><a href="#" class="link text-white">Lançamentos</a></li>
                     </ul>
                 </div>
@@ -214,7 +214,10 @@
                         <a href="{{route('register')}}" class="link text-white d-block py-2">Cadastrar</a>
                     @else
                         <a href="#" class="link text-white d-block py-2">Meus Pedidos</a>
-                        <a href="{{route('logout')}}" class="link text-white d-block py-2">Sair</a>
+                        <form action="{{route('logout')}}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-link text-white d-block p-0">Sair</button>
+                        </form>
                     @endif
                 </div>
             </div>

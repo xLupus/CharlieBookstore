@@ -15,3 +15,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .input-group-text, .bi-person, .bi-cart3, .badge {
     cursor: pointer;
 }
+
+.badge-itens {
+    background-color: #B75C3D;
+}

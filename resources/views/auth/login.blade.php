@@ -42,12 +42,10 @@
                                 <input type="password" name="password" id="Password" class="form-control form-control-lg text-form">
                             </div>
 
-                            <button type="submit" name="btn_entrar" class="btn btn-primary my-3 py-3">{{ __('Log in') }}</button>
+                            <button type="submit" name="btn_entrar" class="btn btn-default text-white my-3 py-3">{{ __('Log in') }}</button>
                         </form>
 
-                        <a href="{{route('register')}}" class="link w-50">
-                            <button type="button" class="btn btn-secondary w-100 py-3">Cadastrar</button>
-                        </a>
+                        <a href="{{route('register')}}" class="btn btn-link text-decoration-none text-white w-50 py-3">Cadastrar</a>
                     </div>
                 </div>
             </div>

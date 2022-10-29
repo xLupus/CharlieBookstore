@@ -25,7 +25,6 @@ Route::group( ['middleware' => ['auth'] ], function(){
     Route::post('/endereco', [EnderecoController::class, 'store'])->name('endereco.store');
     Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos');
     Route::get('/pedido/{id}', [PedidoController::class, 'show'])->name('pedido');
-
 });
 
 require __DIR__.'/auth.php';
