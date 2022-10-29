@@ -68,67 +68,38 @@
                             </div>
                         @endforeach
                         <button type="button" id="drop_form" class="btn btn-light rounded-pill px-4 py-3 border my-4" value="show">Adicionar novo endereço</button>
-
-                        <form action="{{ route('endereco.store') }}" method="post" class="d-none row w-75 g-3 mb-5" id="form-endereco">
-                            @csrf
-                            <div class="col-3">
-                                <input type="number" name="cep" id="cep" placeholder="CEP" class="rounded-pill form-control form-control-lg">
-                            </div>
-                            <div class="col-2">
-                                <input type="number" name="numero" id="numero" placeholder="Nº" class="rounded-pill text-center form-control form-control-lg">
-                            </div>
-                            <div class="col-7">
-                                <input type="text" name="complemento" id="Complemento" placeholder="Complemento" class="rounded-pill form-control form-control-lg">
-                            </div>
-                            <div class="col-12">
-                                <input type="text" name="logradouro" id="logradouro" placeholder="Endereço" class="rounded-pill form-control form-control-lg">
-                            </div>
-                            <div class="col-4">
-                                <input type="text" name="bairro" id="bairro" placeholder="Bairro" class="rounded-pill form-control form-control-lg">
-                            </div>
-                            <div class="col-4">
-                                <input type="text" name="cidade" id="cidade" placeholder="Cidade" class="rounded-pill form-control form-control-lg">
-                            </div>
-                            <div class="col-4">
-                                <input type="text" name="uf" id="uf" placeholder="UF" class="rounded-pill form-control form-control-lg">
-                            </div>
-                            <div class="d-inline-flex">
-                                <input type="text" name="rotulo" placeholder="Rotulo" class="rounded-pill form-control form-control-lg me-3">
-                                <input type="submit" value="Salvar endereço" class="btn btn-light btn-lg rounded-pill w-50">
-                            </div>
-                        </form>
-
                     @else
-                        <form action="{{ route('endereco.store') }}" method="post" class="row w-75 g-3 mb-5" id="form-endereco">
-                            @csrf
-                            <div class="col-3">
-                                <input type="number" name="cep" id="cep" placeholder="CEP" class="rounded-pill form-control form-control-lg">
-                            </div>
-                            <div class="col-2">
-                                <input type="number" name="numero" id="numero" placeholder="Nº" class="rounded-pill text-center form-control form-control-lg">
-                            </div>
-                            <div class="col-7">
-                                <input type="text" name="complemento" id="Complemento" placeholder="Complemento" class="rounded-pill form-control form-control-lg">
-                            </div>
-                            <div class="col-12">
-                                <input type="text" name="logradouro" id="logradouro" placeholder="Endereço" class="rounded-pill form-control form-control-lg">
-                            </div>
-                            <div class="col-4">
-                                <input type="text" name="bairro" id="bairro" placeholder="Bairro" class="rounded-pill form-control form-control-lg">
-                            </div>
-                            <div class="col-4">
-                                <input type="text" name="cidade" id="cidade" placeholder="Cidade" class="rounded-pill form-control form-control-lg">
-                            </div>
-                            <div class="col-4">
-                                <input type="text" name="uf" id="uf" placeholder="UF" class="rounded-pill form-control form-control-lg">
-                            </div>
-                            <div class="d-inline-flex">
-                                <input type="text" name="rotulo" placeholder="Rotulo" class="rounded-pill form-control form-control-lg me-3">
-                                <input type="submit" value="Salvar endereço" class="btn btn-light btn-lg rounded-pill w-50">
-                            </div>
-                        </form>
+
                     @endif
-                    
+                    <form action="{{ route('endereco.store') }}" method="post" class="d-none row w-75 g-3 mb-5" id="form-endereco">
+                        @csrf
+                        <div class="col-3">
+                            <input type="number" name="cep" id="cep" placeholder="CEP" class="rounded-pill form-control form-control-lg">
+                        </div>
+                        <div class="col-2">
+                            <input type="number" name="numero" id="numero" placeholder="Nº" class="rounded-pill text-center form-control form-control-lg">
+                        </div>
+                        <div class="col-7">
+                            <input type="text" name="complemento" id="Complemento" placeholder="Complemento" class="rounded-pill form-control form-control-lg">
+                        </div>
+                        <div class="col-12">
+                            <input type="text" name="logradouro" id="logradouro" placeholder="Endereço" class="rounded-pill form-control form-control-lg">
+                        </div>
+                        <div class="col-4">
+                            <input type="text" name="bairro" id="bairro" placeholder="Bairro" class="rounded-pill form-control form-control-lg">
+                        </div>
+                        <div class="col-4">
+                            <input type="text" name="cidade" id="cidade" placeholder="Cidade" class="rounded-pill form-control form-control-lg">
+                        </div>
+                        <div class="col-4">
+                            <input type="text" name="uf" id="uf" placeholder="UF" class="rounded-pill form-control form-control-lg">
+                        </div>
+                        <div class="d-inline-flex">
+                            <input type="text" name="rotulo" placeholder="Rotulo" class="rounded-pill form-control form-control-lg me-3">
+                            <input type="submit" value="Salvar endereço" class="btn btn-light btn-lg rounded-pill w-50">
+                        </div>
+                    </form>
+
                     <span class="d-block fw-semibold pb-2">Tempo de entrega de 1-3 dias utéis.</span>
 
                     @foreach ($itens as $item)

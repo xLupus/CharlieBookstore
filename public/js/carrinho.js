@@ -3,6 +3,9 @@ const INPUT_CHECK = document.getElementById('input-check');
 const DROP_FORM   = document.getElementById('drop_form')
 const FORM        = document.getElementById('form-endereco');
 
+
+
+
 DROP_FORM.addEventListener('click', () => {
 
     if (DROP_FORM.value == 'show') {
@@ -20,6 +23,8 @@ DROP_FORM.addEventListener('click', () => {
 
 CEP.oninput = function() {
     const CEP_VALUE = CEP.value;
+
+    console.log(CEP);
 
     fetch(`https://viacep.com.br/ws/${CEP_VALUE}/json/`)
     .then((result) => {
