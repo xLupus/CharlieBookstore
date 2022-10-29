@@ -84,14 +84,14 @@
                         <div class="col-12">
                             <input type="text" name="logradouro" id="logradouro" placeholder="Endereço" class="rounded-pill form-control form-control-lg">
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <input type="text" name="bairro" id="bairro" placeholder="Bairro" class="rounded-pill form-control form-control-lg">
                         </div>
                         <div class="col-4">
                             <input type="text" name="cidade" id="cidade" placeholder="Cidade" class="rounded-pill form-control form-control-lg">
                         </div>
-                        <div class="col-4">
-                            <input type="text" name="uf" id="uf" placeholder="UF" class="rounded-pill form-control form-control-lg">
+                        <div class="col-2">
+                            <input type="text" name="uf" id="uf" placeholder="UF" class="rounded-pill form-control form-control-lg text-center">
                         </div>
                         <div class="d-inline-flex">
                             <input type="text" name="rotulo" placeholder="Rotulo" class="rounded-pill form-control form-control-lg me-3">
