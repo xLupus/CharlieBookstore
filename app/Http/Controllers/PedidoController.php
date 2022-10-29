@@ -60,7 +60,12 @@ class PedidoController extends Controller
      */
     public function show(Pedido $pedido)
     {
-        //
+        return view('user.pedido');
+    }
+
+    public function pagamento()
+    {
+        return view('carrinho.pagamento');
     }
 
 }

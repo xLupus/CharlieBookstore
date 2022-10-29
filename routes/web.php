@@ -21,9 +21,11 @@ Route::get('/confirmer', function () {
 Route::group( ['middleware' => ['auth'] ], function(){
     Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
     Route::post('/carrinho/{id}', [CarrinhoController::class, 'store'])->name('carrinho.store');
+    Route::get('/pagamento', [PedidoController::class, 'pagamento'])->name('pagamento');
     Route::post('/endereco', [EnderecoController::class, 'store'])->name('endereco.store');
     Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos');
     Route::get('/pedido/{id}', [PedidoController::class, 'show'])->name('pedido');
+
 });
 
 require __DIR__.'/auth.php';
