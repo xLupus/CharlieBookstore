@@ -51,7 +51,7 @@
                     @endif
 
                     @if (count($enderecos) >= 1)
-                        {{$hideForm = 'd-none'}}
+                        @php $hideForm = 'd-none' @endphp
                         @foreach ($enderecos as $endereco)
                             <div class="bg-light w-75 d-flex p-3 rounded mb-3">
                                 <input type="radio" id="{{$endereco->ENDERECO_NOME}}" class="ms-3 me-4" name="endereco" value="{{$endereco->ENDERECO_ID}}">
