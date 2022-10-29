@@ -60,11 +60,11 @@
                                     <div class="">
                                         <span>{{$endereco->ENDERECO_LOGRADOURO}}, </span>
                                         <span>{{$endereco->ENDERECO_NUMERO}} - </span>
+                                        <span><i>{{($endereco->ENDERECO_COMPLEMENTO) ? $endereco->ENDERECO_COMPLEMENTO." - " : ''}}</i></span>
                                         <span>{{$endereco->ENDERECO_CIDADE}} - </span>
                                         <span>{{$endereco->ENDERECO_ESTADO}}, </span>
                                         <span>{{$endereco->ENDERECO_CEP}}</span>
                                     </div>
-                                    <span class="fw-semibold fst-italic">{{$endereco->ENDERECO_COMPLEMENTO}}</span>
                                 </label>
                             </div>
                         @endforeach
