@@ -34,46 +34,74 @@
             <div class="row row-cols-2 gx-5">
                 <div class="col-8">
                     <hr class="hr bg-light">
-                    <span class="h2">Informações de entrega</span>
+                    <span class="d-block h2 mb-4">Informações de entrega</span>
 
                     @if (session()->has('endereco_message'))
-                        <div class="alert alert-success" role="alert">
+                        <div class="alert alert-success mt-3" role="alert">
                             {{ session()->get('endereco_message') }}
                         </div>
                     @endif
 
-                    <form action="{{ route('endereco.store') }}" method="post" class="row w-75 g-3 mt-3 mb-5" id="form-endereco">
+                    @if (count($errors->all()) > 0))
+                        <ul class="alert alert-danger mt-3">
+                            @foreach ($errors->all() as $error)
+                                <li class="ms-3">{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+
+                    @if (count($enderecos) > 0)
+                        @foreach ($enderecos as $endereco)
+                            <div class="bg-light w-75 d-flex p-3 rounded mb-3">
+                                <input type="radio" id="{{$endereco->ENDERECO_NOME}}" class="ms-3 me-4" name="endereco">
+                                <label for="{{$endereco->ENDERECO_NOME}}" class="ms-1">
+                                    {{-- <span>{{$endereco->ENDERECO_ID}}</span> --}}
+                                    <span class="d-block mb-2"><strong>{{strtoupper($endereco->ENDERECO_NOME)}}</strong></span>
+                                    <div class="">
+                                        <span>{{$endereco->ENDERECO_LOGRADOURO}}, </span>
+                                        <span>{{$endereco->ENDERECO_NUMERO}} - </span>
+                                        <span>{{$endereco->ENDERECO_CIDADE}} - </span>
+                                        <span>{{$endereco->ENDERECO_ESTADO}}, </span>
+                                        <span>{{$endereco->ENDERECO_CEP}}</span>
+                                    </div>
+                                    <span class="fw-semibold fst-italic">{{$endereco->ENDERECO_COMPLEMENTO}}</span>
+                                </label>
+                            </div>
+                        @endforeach
+                        <button type="button" id="drop_form" class="btn btn-light rounded-pill px-4 py-3 border my-4" value="show">Adicionar novo endereço</button>
+                    @else
+
+                    @endif
+                    <form action="{{ route('endereco.store') }}" method="post" class="d-none row w-75 g-3 mb-5" id="form-endereco">
                         @csrf
                         <div class="col-3">
-                            <input type="number" id="cep" placeholder="CEP" class="rounded-pill form-control form-control-lg">
+                            <input type="number" name="cep" id="cep" placeholder="CEP" class="rounded-pill form-control form-control-lg">
                         </div>
                         <div class="col-2">
-                            <input type="number" id="numero" placeholder="Nº" class="rounded-pill text-center form-control form-control-lg">
+                            <input type="number" name="numero" id="numero" placeholder="Nº" class="rounded-pill text-center form-control form-control-lg">
                         </div>
                         <div class="col-7">
-                            <input type="text" id="Complemento" placeholder="Complemento" class="rounded-pill form-control form-control-lg">
+                            <input type="text" name="complemento" id="Complemento" placeholder="Complemento" class="rounded-pill form-control form-control-lg">
                         </div>
                         <div class="col-12">
-                            <input type="text" id="logradouro" placeholder="Endereço" class="rounded-pill form-control form-control-lg">
+                            <input type="text" name="logradouro" id="logradouro" placeholder="Endereço" class="rounded-pill form-control form-control-lg">
                         </div>
                         <div class="col-4">
-                            <input type="text" id="bairro" placeholder="Bairro" class="rounded-pill form-control form-control-lg">
+                            <input type="text" name="bairro" id="bairro" placeholder="Bairro" class="rounded-pill form-control form-control-lg">
                         </div>
                         <div class="col-4">
-                            <input type="text" id="cidade" placeholder="Cidade" class="rounded-pill form-control form-control-lg">
+                            <input type="text" name="cidade" id="cidade" placeholder="Cidade" class="rounded-pill form-control form-control-lg">
                         </div>
                         <div class="col-4">
-                            <input type="text" id="uf" placeholder="UF" class="rounded-pill form-control form-control-lg">
+                            <input type="text" name="uf" id="uf" placeholder="UF" class="rounded-pill form-control form-control-lg">
                         </div>
-                        <div class="col-12">
-                            <div class="form-check">
-                                <input type="checkbox" id="input-check" class="form-check-input">
-                                <label class="form-check-label" for="input-check">Salvar Endereço</label>
-                            </div>
+                        <div class="d-inline-flex">
+                            <input type="text" name="rotulo" placeholder="Rotulo" class="rounded-pill form-control form-control-lg me-3">
+                            <input type="submit" value="Salvar endereço" class="btn btn-light btn-lg rounded-pill w-50">
                         </div>
                     </form>
 
-                    <span class="fw-semibold pb-2">Tempo de entrega de 1-3 dias utéis.</span>
+                    <span class="d-block fw-semibold pb-2">Tempo de entrega de 1-3 dias utéis.</span>
 
                     @foreach ($itens as $item)
                         <hr class="hr bg-light">
