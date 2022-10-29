@@ -17,9 +17,14 @@ class CarrinhoController extends Controller
      */
     public function index()
     {
+
         $itensCarrinho = Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
                                         ->where('ITEM_QTD', '>', 0)
                                         ->get();
+
+        if (!count($itensCarrinho)) {
+            return redirect(route('home'));
+        }
 
         $enderecos = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID )->get();
 
