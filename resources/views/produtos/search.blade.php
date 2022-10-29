@@ -2,7 +2,7 @@
 
 @section('title', "Pesquisa para $pesquisa")
 @section('main')
-    <main class="container-xxl">
+    <main class="container-xxl my-4">
         <div class="my-4">
             <span>A PESQUISA POR "<strong>{{$pesquisa}}</strong>"</span>
             <span>RETORNOU: <strong>{{$resultados}}</strong> RESULTADOS</span>
@@ -20,7 +20,7 @@
                 </ul>
             </div>
         @else
-            <div class="d-flex flex-wrap gap-4 ps-4">
+            <div class="d-flex flex-wrap gap-4 ps-4 mb-5 mt-5">
             @foreach ($produtos as $produto)
                 <a href="{{ route('produto.show', $produto->PRODUTO_ID) }}">
                     <figure class="figure">
