@@ -35,6 +35,6 @@ class Carrinho extends Model
 
     public static function qtdCarrinho($id)
     {
-        return count(Carrinho::where('USUARIO_ID', $id)->get());
+        return count(Carrinho::where('USUARIO_ID', $id)->where('ITEM_QTD', '>', 0)->get());
     }
 }
