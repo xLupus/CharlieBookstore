@@ -42,27 +42,19 @@ class CarrinhoController extends Controller
      */
     public function store(Request $request, $id)
     {
-        //    dd($request, $id);
-        //dd(Auth::user()->USUARIO_ID);
         $cart = Carrinho::where([
             'USUARIO_ID' => Auth::user()->USUARIO_ID,
             'PRODUTO_ID' => $id,
         ])->first(); //pega uma
 
         if ($cart) {
-            $soma    = $request->qtd;
-
             $estoque = Produto::where('PRODUTO_ID', $id)->first()->produtoEstoque->PRODUTO_QTD;
 
-            if ($soma > 0) {
-                $cart->update([
-                    'ITEM_QTD'=> $soma > $estoque ? $estoque : $soma //se o estoque for maior que a soma
-                ]);
-            } else{
-                $cart->update([
-                    'ITEM_QTD'=> 0
-                ]);
-            }
+            if ($request->qtd > 0) //se o estoque for maior que a soma
+                $cart->update(['ITEM_QTD'=> $request->qtd > $estoque ? $estoque : $request->qtd]);
+
+            else
+                $cart->update(['ITEM_QTD'=> 0]);
 
         } else {
             $cart = Carrinho::create([
@@ -75,7 +67,5 @@ class CarrinhoController extends Controller
         session()->flash('message', 'Adicionado com sucesso'); //zika d+
 
         return redirect()->back();
-
-
     }
 }
