@@ -1,3 +1,4 @@
+@php use App\Models\Carrinho; @endphp
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -15,7 +16,7 @@
 <body>
     <header class="navbar navbar-expand-xl">
         <nav class="container-xxl">
-            <a href="{{route('home')}}" class="navbar-brand">
+            <a href="{{route('home')}}" class="link text-decoration-none text-dark navbar-brand">
                 <img src="/img/Logo.png" class="img-fluid">
             </a>
 
@@ -38,53 +39,86 @@
                 <div class="offcanvas-body align-items-center">
                     <ul class="navbar-nav mx-xl-auto">
                         <li class="nav-item mb-1 mb-xl-0 pe-xl-1 text-center rounded-2">
-                             <a href="#" class="nav-link fw-semibold" aria-current="page">Categorias</a>
+                            <a href="{{route('catalogo')}}" class="nav-link fw-semibold" aria-current="page">Catalogo</a>
                         </li>
                         <li class="nav-item mt-1 mt-xl-0 ps-xl-1 text-center rounded-2">
-                            <a href="#" class="nav-link fw-semibold">Lançamentos</a>
+                            <a href="#" class="nav-link fw-semibold">Categorias</a>
                         </li>
                     </ul>
 
-                    <form action="#" class="mx-auto ms-xl-auto mx-xl-0 mt-5 mt-xl-0 mt-xl-0 ps-xl-2 d-sm-block d-md-none d-xl-block w-50 align-items-center position-relative" role="search">
-                        <input type="search" class="form-control form-control-lg" maxlength="100">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search position-absolute top-50 translate-middle-y" viewBox="0 0 16 16" style="right: 1em">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                        </svg>
+                    <form action="{{ route('search') }}" class="mx-auto ms-xl-auto mx-xl-0 mt-5 mt-xl-0 mt-xl-0 d-sm-block d-md-none d-xl-block w-50 align-items-center" role="search">
+                        <div class="d-flex border border-2 rounded">
+                            <input type="search" name="search" class="form-control form-control-lg border-0" maxlength="100">
+
+                            <div class="d-flex align-items-center ">
+                                <button type="submit" class="border-0 bg-transparent px-3 py-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search " viewBox="0 0 16 16" style="right: 1em">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
                     </form>
 
                     <hr class="hr">
 
                     <ul class="navbar-nav flex-collumn flex-xl-row mt-2 mt-xl-0 pt-xl-0 justify-content-center justify-content-xl-none align-items-center align-items-xl-none">
-                        <li class="nav-item dropdown p-3 ps-xl-4 pe-xl-1 d-none d-xl-block">
+                        <li class="nav-item dropdown p-3 ps-xl-4 pe-xl-1 d-none d-xl-block position-relative">
                             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person dropdown-toggle" data-bs-toggle="dropdown" viewBox="0 0 16 16">
                                 <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                             </svg>
 
+                            @if (Auth::user())
+                                <span class="position-absolute translate-middle rounded-circle bg-success" style="bottom: .4rem; left: 3rem; padding: .4rem;">
+                                    <span class="visually-hidden">Logado</span>
+                                </span>
+                            @endif
+
                             <ul class="dropdown-menu">
-                                <li><a href="#" class="dropdown-item">Perfil</a></li>
-                                <li><a href="#" class="dropdown-item">Configurações</a></li>
-                                <li><hr class="dropdown-divider"></li>
                                 @if (Auth::user())
                                     <li>
                                         <a href="#" class="dropdown-item disabled text-capitalize">Olá, {{Auth::user()->USUARIO_NOME}} !</a>
                                     </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a href="{{route('pedidos')}}" class="dropdown-item">Meus Pedidos</a></li>
+                                    <li><hr class="dropdown-divider"></li>
                                     <li>
                                         <form action="{{route('logout')}}" method="post" class="dropdown-item p-1">
                                             @csrf
-                                            <button type="submit" class="btn btn-default w-100 py-0 text-start logOut">Log out</button>
+                                            <button type="submit" class="btn btn-default w-100 py-0 text-start logOut">Sair</button>
                                         </form>
                                     </li>
                                 @else
                                     <li><a href="{{route('login')}}" class="dropdown-item">Login</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a href="{{route('register')}}" class="dropdown-item">Cadastrar</a></li>
                                 @endif
                             </ul>
                         </li>
 
                         <li class="nav-item p-3 ps-xl-4 pe-xl-4 position-relative">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"  fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
-                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                            </svg>
-                            <span class="badge rounded-5 position-absolute end-0 bottom-50 translate-middle-x" style="background-color: #B75C3D;">7</span>
+                            @if (Auth::user())
+                                @if (Carrinho::qtdCarrinho(Auth::user()->USUARIO_ID) > 0)
+                                    <a href="{{route('carrinho.index')}}" class="link text-decoration-none">
+                                        <span class="badge rounded-5 position-absolute end-0 bottom-50 translate-middle-x badge-itens">{{Carrinho::qtdCarrinho(Auth::user()->USUARIO_ID)}}</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"  fill="dark" class="bi bi-cart3" viewBox="0 0 16 16">
+                                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                        </svg>
+                                    </a>
+                                @else
+                                    <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-title="Sem itens no carrinho" role="button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"  fill="dark" class="bi bi-cart3" viewBox="0 0 16 16">
+                                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                        </svg>
+                                    </a>
+                                @endif
+                            @else
+                                <a href="{{route('carrinho.index')}}" class="link text-decoration-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"  fill="dark" class="bi bi-cart3" viewBox="0 0 16 16">
+                                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                    </svg>
+                                </a>
+                            @endif
                         </li>
                     </ul>
                 </div>
@@ -134,7 +168,7 @@
                 <div class="col col-2 px-0">
                     <p class="text-white fw-bold fs-5 d-block mb-4 ms-3">Navegue Por Aqui:</p>
                     <ul class="list-group border border-0">
-                        <li class="list-group-item bg-transparent border border-0"><a href="#" class="link text-white">Categorias</a></li>
+                        <li class="list-group-item bg-transparent border border-0"><a href="{{route('catalogo')}}" class="link text-white">Catalogo</a></li>
                         <li class="list-group-item bg-transparent border border-0"><a href="#" class="link text-white">Lançamentos</a></li>
                     </ul>
                 </div>
@@ -173,8 +207,18 @@
                     </div>
                 </div>
                 <div class="col col-2 px-0">
-                    <p class="text-white fw-bold fs-5 d-block mb-5">Meu Perfil:</p>
-                    <a href="#" class="link text-white">ENTRAR</a>
+                    <p class="text-white fw-bold fs-5 d-block mb-3">Meu Perfil:</p>
+
+                    @if (!Auth::user())
+                        <a href="{{route('login')}}" class="link text-white d-block py-2">Entrar</a>
+                        <a href="{{route('register')}}" class="link text-white d-block py-2">Cadastrar</a>
+                    @else
+                        <a href="#" class="link text-white d-block py-2">Meus Pedidos</a>
+                        <form action="{{route('logout')}}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-link text-white d-block p-0">Sair</button>
+                        </form>
+                    @endif
                 </div>
             </div>
             <div class="d-block py-4">
@@ -182,8 +226,9 @@
             </div>
         </div>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
     <script src="@yield('script')"></script>
+    <script src="/js/tooltip.js"></script>
 </body>
 </html>

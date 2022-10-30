@@ -31,12 +31,14 @@
                 <div class="col-3 pe-5">
                     <div class="d-block bg-light p-4 shadow-sm">
                         <span class="d-block fw-bold" id="filter">FILTROS:</span>
+
                         <button class="btn btn-default d-inline-flex align-items-center mt-4 p-0 order-btn" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="#collapse1">
                             <span class="d-block fw-bold" id="order">ORDENAR POR</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-dash ms-2" viewBox="0 0 16 16" id="btnOrder">
                                 <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
                             </svg>
                         </button>
+
                         <div class="collapse mt-2" id="collapse1">
                             <ul class="list-unstyled ms-4 lh-lg">
                                 <li>Livro: A - Z</li>
@@ -84,6 +86,7 @@
                                 <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
                             </svg>
                         </button>
+
                         <div class="collapse mt-2" id="collapse3">
                             <form action="#">
                                 <label for="range" class="form-label">Preço Mínimo</label>
@@ -111,7 +114,7 @@
                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
                                             <span class="mt-2"><small>{{$produto->PRODUTO_NOME}}</small></span>
                                             @if ($produto->PRODUTO_DESCONTO > 0)
-                                                <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produto->PRODUTO_DESCONTO / $produto->PRODUTO_PRECO * 100, 0)}}%</span>
+                                                <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5 desconto">{{number_format($produto->PRODUTO_DESCONTO / $produto->PRODUTO_PRECO * 100, 0)}}%</span>
                                                 <div class="d-flex">
                                                     <span class="fw-semibold me-3 fs-5">R$ {{ number_format($produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO, 2) }}</span>
                                                     <span class="fw-semibold"><s>R$ {{$produto->PRODUTO_PRECO}}</s></span>

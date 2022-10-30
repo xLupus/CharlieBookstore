@@ -8,7 +8,6 @@ use App\Models\Categoria;
 
 class ProdutoController extends Controller
 {
-
     /**
      * Return the Main Page of the application
      * @return void
@@ -38,7 +37,6 @@ class ProdutoController extends Controller
     }
 
 
-
     /**
      * Return the page of Books from a specific category
      * @param  Categoria $categoria  [description]
@@ -50,26 +48,6 @@ class ProdutoController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -80,40 +58,29 @@ class ProdutoController extends Controller
     public function show($id)
     {
         $produto = Produto::find($id);
+
+        if (!$produto) return redirect()->route('catalogo');
+
         return view('produtos.show', compact('produto'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function search(Request $request)
     {
-        //
-    }
+        $pesquisa = $request->search;
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        if($pesquisa == '') return redirect()->route('catalogo');
+
+        $campos   = explode(' ', $pesquisa);
+        $campos   = implode('%', $campos);
+
+        $produtos = Produto::where('PRODUTO_ATIVO', TRUE)
+                                ->where('PRODUTO_NOME', 'like', "%{$campos}%")
+                                ->orderBy('PRODUTO_NOME', 'ASC')
+                                ->get();
+
+        $resultados = $produtos->count();
+
+        return view( 'produtos.search', compact(['produtos', 'resultados', 'pesquisa']) );
     }
 }

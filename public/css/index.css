@@ -16,7 +16,7 @@
 
 .btn-conferir,
 .btn-conferir:hover {
-    background-color: #90BDD2;
+    background-color: #90BDD2 !important;
     margin-left: 14%;
 }
 
