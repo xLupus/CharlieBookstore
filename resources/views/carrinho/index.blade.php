@@ -18,14 +18,6 @@
     <main role="main">
         <div class="container-xxl mt-5 mb-5">
             <div class="row row-cols-2">
-                <div class="col-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#" class="link text-decoration-none text-dark">Carrinho</a></li>
-                        </ol>
-                    </nav>
-                </div>
-
                 <div class="col-12 mt-2 mb-2">
                     <span class="d-block fs-3 fw-bold">CARRINHO</span>
                 </div>
@@ -53,8 +45,8 @@
                     @if (count($enderecos) >= 1)
                         @php $hideForm = 'd-none' @endphp
                         @foreach ($enderecos as $endereco)
-                            <div class="bg-light w-75 d-flex p-3 rounded mb-3">
-                                <input type="radio" id="{{$endereco->ENDERECO_NOME}}" class="ms-3 me-4" name="endereco" value="{{$endereco->ENDERECO_ID}}">
+                            <div class="bg-light w-75 hstack p-3 rounded mb-3">
+                                <input type="radio" id="{{$endereco->ENDERECO_NOME}}" class="form-check-input ms-3 me-4" name="endereco" value="{{$endereco->ENDERECO_ID}}">
                                 <label for="{{$endereco->ENDERECO_NOME}}" class="ms-1">
                                     <span class="d-block mb-2"><strong>{{strtoupper($endereco->ENDERECO_NOME)}}</strong></span>
                                     <div class="">

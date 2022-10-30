@@ -6,8 +6,8 @@
 <div class="container-xxl mt-4">
     <nav aria-label="breadcrumb mt-4">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{route('carrinho.index')}}" class="link text-decoration-none text-dark">Carrinho</a></li>
-            <li class="breadcrumb-item active"><a href="#" class="link text-decoration-none text-dark">Verificação de dados</a></li>
+            <li class="breadcrumb-item"><a href="{{route('carrinho.index')}}" class="link">Carrinho</a></li>
+            <li class="breadcrumb-item active">Verificação de dados</li>
         </ol>
     </nav>
 </div>
