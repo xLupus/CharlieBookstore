@@ -29,11 +29,33 @@ class ProdutoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('produtos.index')->with([
-            'produtos' => Produto::ativo(),
-        ]); //Index (recebe categorias)
+        $produtos = Produto::ativo();
+
+        if ($request->order) {
+            if ($request->order == 'a-z')
+                $produtos = Produto::ativo()->sortby(function($produto) {
+                    return $produto->PRODUTO_NOME;
+                });
+
+            if ($request->order == 'z-a')
+                $produtos = Produto::ativo()->sortbyDesc(function($produto) {
+                    return $produto->PRODUTO_NOME;
+                });
+
+            if ($request->order == 'menores-precos')
+                $produtos = Produto::ativo()->sortby(function($produto) {
+                    return $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO;
+                });
+
+            if ($request->order == 'maiores-precos')
+                $produtos = Produto::ativo()->sortbyDesc(function($produto) {
+                    return $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO;
+                });
+        }
+
+        return view('produtos.index', compact('produtos'));
     }
 
 
@@ -69,7 +91,7 @@ class ProdutoController extends Controller
     {
         $pesquisa = $request->search;
 
-        if($pesquisa == '') return redirect()->route('catalogo');
+        if(!$pesquisa) return redirect()->route('catalogo');
 
         $campos   = explode(' ', $pesquisa);
         $campos   = implode('%', $campos);

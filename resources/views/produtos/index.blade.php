@@ -41,11 +41,10 @@
 
                         <div class="collapse mt-2" id="collapse1">
                             <ul class="list-unstyled ms-4 lh-lg">
-                                <li>Livro: A - Z</li>
-                                <li>Livro: Z - A</li>
-                                <li>Nome do Autor</li>
-                                <li>Preço Crescente</li>
-                                <li>Preço Decrescente</li>
+                                <li><a href="?order=a-z" class="link text-decoration-none text-dark">Livro: A - Z</a></li>
+                                <li><a href="?order=z-a" class="link text-decoration-none text-dark">Livro: Z - A</a></li>
+                                <li><a href="?order=menores-precos" class="link text-decoration-none text-dark">Menores Preços</a></li>
+                                <li><a href="?order=maiores-precos" class="link text-decoration-none text-dark">Maiores Preços</a></li>
                             </ul>
                         </div><!-- 1 -->
 
