@@ -31,6 +31,12 @@ class ProdutoController extends Controller
      */
     public function index(Request $request)
     {
+        /*
+        $produtos = Produto::where('PRODUTO_ATIVO', TRUE)
+                            ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
+                            ->paginate(10);
+
+        */
         $produtos = Produto::ativo();
 
         if ($request->order) {
@@ -65,9 +71,32 @@ class ProdutoController extends Controller
      * @return [type] [description]
      */
     public function categoria(Categoria $categoria){
-        return view('produtos.index')->with([
-            'produtos' => $categoria->produtos,
-        ]);
+
+        $produtos = $categoria->produtos;
+        /*
+        if ($request->order) {
+            if ($request->order == 'a-z')
+                $produtos = $produtos->sortby(function($produto) {
+                    return $produto->PRODUTO_NOME;
+                });
+
+            if ($request->order == 'z-a')
+                $produtos = $produtos->sortbyDesc(function($produto) {
+                    return $produto->PRODUTO_NOME;
+                });
+
+            if ($request->order == 'menores-precos')
+                $produtos = $produtos->sortby(function($produto) {
+                    return $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO;
+                });
+
+            if ($request->order == 'maiores-precos')
+                $produtos = $produtos->sortbyDesc(function($produto) {
+                    return $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO;
+                });
+        }
+        */      
+        return view('produtos.index',compact('produtos'));
     }
 
 

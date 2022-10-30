@@ -7,8 +7,9 @@
                     <div class="col-12">
                         <nav aria-label="breadcrumb">
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="" class="link text-decoration-none text-dark">Perfil</a></li>
-                                <li class="breadcrumb-item active"><a href="" class="link text-decoration-none text-dark">Meus Pedidos</a></li>
+                                <li class="breadcrumb-item"><a href="#" class="link text-decoration-none text-dark">Perfil</a></li>
+                                <li class="breadcrumb-item active"><a href="{{route('pedidos')}}" class="link text-decoration-none text-dark">Meus Pedidos</a></li>
+                                <li class="breadcrumb-item ">Pedido</li>
                             </ul>
                         </nav>
                     </div>
@@ -19,65 +20,42 @@
 
                 <div class="row row-cols-2 mt-5 gx-5">
                     <div class="col-8">
-                        <div class="row row-cols-3 fs-5 py-4">
-                            <div class="col-2">
-                                <img src="/PI/assets/header/book6.png" alt="...">
-                            </div>
-                            <div class="col-6 ps-5 lh-lg">
-                                <span class="d-block fw-bold mb-3">O senhor dos Anéis: Os Anéis de Poder</span>
-                                <span class="d-block"><b>Autor:</b> J. R. R. Tolkien</span>
-                                <span class="d-block"><b>Ano:</b> 1954</span>
-                                <span class="d-block"><b>Quantidade:</b> 01</span>
-                            </div>
-                            <div class="col-4">
-                                <span class="d-flex justify-content-center fw-bold fs-3 pt-5">R$: 36,00</span>
-                            </div>
-                        </div>
 
-                        <div class="row row-cols-3 fs-5 py-4">
-                            <div class="col-2">
-                                <img src="/PI/assets/header/book6.png" alt="...">
-                            </div>
-                            <div class="col-6 ps-5 lh-lg">
-                                <span class="d-block fw-bold mb-3">O senhor dos Anéis: Os Anéis de Poder</span>
-                                <span class="d-block"><b>Autor:</b> J. R. R. Tolkien</span>
-                                <span class="d-block"><b>Ano:</b> 1954</span>
-                                <span class="d-block"><b>Quantidade:</b> 01</span>
-                            </div>
-                            <div class="col-4">
-                                <span class="d-flex justify-content-center fw-bold fs-3 pt-5">R$: 36,00</span>
-                            </div>
-                        </div>
+                        @foreach ($pedidos as $pedido)
+                            <hr class="hr bg-light">
+                            <div class="row py-2">
+                                <div class="col-2">
+                                    <img src="{{$pedido->pedidoItens->produtoImagens[0]->IMAGEM_URL}}" width="140" class="img-fluid rounded-4">
+                                </div>
 
-                        <div class="row row-cols-3 fs-5 py-4">
-                            <div class="col-2">
-                                <img src="/PI/assets/header/book6.png" alt="...">
-                            </div>
-                            <div class="col-6 ps-5 lh-lg">
-                                <span class="d-block fw-bold mb-3">O senhor dos Anéis: Os Anéis de Poder</span>
-                                <span class="d-block"><b>Autor:</b> J. R. R. Tolkien</span>
-                                <span class="d-block"><b>Ano:</b> 1954</span>
-                                <span class="d-block"><b>Quantidade:</b> 01</span>
-                            </div>
-                            <div class="col-4">
-                                <span class="d-flex justify-content-center fw-bold fs-3 pt-5">R$: 36,00</span>
-                            </div>
-                        </div>
+                                <div class="col-6 vstack justify-content-around">
+                                    <div>
+                                        <span class="fw-bold">Titulo: </span>
+                                        <span>{{ $pedido->pedidoItens->PRODUTO_NOME }}</span>
+                                    </div>
 
-                        <div class="row row-cols-3 fs-5 py-4">
-                            <div class="col-2">
-                                <img src="/PI/assets/header/book6.png" alt="...">
+                                    <div>
+                                        <span class="fw-bold">Categoria: </span>
+                                        <span>{{ $pedido->pedidoItens->produtoCategoria->CATEGORIA_NOME }}</span>
+                                    </div>
+
+                                    <div>
+                                        <span class="fw-bold">Quantidade: </span>
+                                        <span>{{$pedido->ITEM_QTD}} unidade(s)</span>
+                                    </div>
+
+                                    <div>
+                                        <span class="fw-bold">Preço Unitario: </span>
+                                        <span>R$ {{number_format( $pedido->pedidoItens->PRODUTO_PRECO - $pedido->pedidoItens->PRODUTO_DESCONTO, 2)}}</span>
+                                    </div>
+
+                                    <div>
+                                        <span class="fw-bold">Valor Total do Item: </span>
+                                        <span>R${{number_format(($pedido->pedidoItens->PRODUTO_PRECO - $pedido->pedidoItens->PRODUTO_DESCONTO) * $pedido->ITEM_QTD, 2)}}</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-6 ps-5 lh-lg">
-                                <span class="d-block fw-bold mb-3">O senhor dos Anéis: Os Anéis de Poder</span>
-                                <span class="d-block"><b>Autor:</b> J. R. R. Tolkien</span>
-                                <span class="d-block"><b>Ano:</b> 1954</span>
-                                <span class="d-block"><b>Quantidade:</b> 01</span>
-                            </div>
-                            <div class="col-4">
-                                <span class="d-flex justify-content-center fw-bold fs-3 pt-5">R$: 36,00</span>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
 
                     <div class="col-4">

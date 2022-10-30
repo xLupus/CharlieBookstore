@@ -17,26 +17,37 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">DATA DA COMPRA</th>
-                        <th scope="col">METODO DE PAGAMENTO</th>
-                        <th scope="col">STATUS</th>
-                        <th scope="col">N DE ITENS</th>
-                        <th scope="col">TOTAL DA COMPRA</th>
+                        <th scope="col" class="text-center">ID</th>
+                        <th scope="col" class="text-center">DATA DA COMPRA</th>
+                        <th scope="col" class="text-center">METODO DE PAGAMENTO</th>
+                        <th scope="col" class="text-center">STATUS</th>
+                        <th scope="col" class="text-center">N DE ITENS</th>
+                        <th scope="col" class="text-center">TOTAL DA COMPRA</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @php
-                        $pedidos = 0
-                    @endphp
-                    @if ($pedidos== 0 )
+                    @if ($pedidos)
+                        @foreach ($pedidos as $pedido)
+                            @php
+                                $precoTotal = [];
+
+                                foreach ($pedido->pedidoItens as $item)
+                                    $precoTotal[] = $item->ITEM_QTD * $item->ITEM_PRECO;
+                            @endphp
+                            <tr>
+                                <td class="text-center py-3"><a href="{{route('pedido', $pedido->PEDIDO_ID)}}" class="link text-dark">#{{$pedido->PEDIDO_ID}}</a></td>
+                                <td class="text-center py-3">{{$pedido->PEDIDO_DATA}}</td>
+                                <td class="text-center py-3">Boleto</td>
+                                <td class="text-center py-3">{{$pedido->pedidoStatus->STATUS_DESC}}</td>
+                                <td class="text-center py-3">{{$pedido->pedidoItens->count()}}</td>
+                                <td class="text-center py-3">R$ {{number_format(array_sum($precoTotal), 2)}}</td>
+                            </tr>
+                        @endforeach
+                    @else
                         <tr>
                             <td colspan="6" class="text-center py-3">Você não possui nenhum pedido</td>
                         </tr>
                     @endif
-                    <tr>
-
-                    </tr>
                 </tbody>
             </table>
         </div>
