@@ -103,7 +103,11 @@
                         <hr class="hr bg-light">
                         <div class="row py-2">
                             <div class="col-2">
-                                <img src="{{$item->produto->produtoImagens[0]->IMAGEM_URL}}" width="140" class="img-fluid rounded-4">
+                                @if (isset($item->produto->produtoImagens[0]))
+                                    <img src="{{$item->produto->produtoImagens[0]->IMAGEM_URL}}" alt="" class="figure-img img-fluid">
+                                @else
+                                    <img src="https://via.placeholder.com/223x300/F8F8F8/CCC?text=Sem%20Imagem" alt="" class=" figure-img img-fluid">
+                                @endif
                             </div>
 
                             <div class="col-6 vstack">
