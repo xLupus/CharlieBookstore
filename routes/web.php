@@ -14,9 +14,6 @@ Route::get('/categoria/{categoria}', [ProdutoController::class, 'categoria'])->n
 Route::get('/catalogo', [ProdutoController::class, 'index'])->name('catalogo');
 Route::get('/pesquisa', [ProdutoController::class, 'search'])->name('search');
 
-Route::get('/confirmer', function () {
-    return view('carrinho.confirmer');
-})->name('confirmer');
 
 Route::group( ['middleware' => ['auth'] ], function(){
     Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
@@ -25,6 +22,7 @@ Route::group( ['middleware' => ['auth'] ], function(){
     Route::post('/endereco', [EnderecoController::class, 'store'])->name('endereco.store');
     Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos');
     Route::get('/pedido/{id}', [PedidoController::class, 'show'])->name('pedido');
+    Route::get('/confirmer', [PedidoController::class, 'create'])->name('confirmer');
 });
 
 require __DIR__.'/auth.php';

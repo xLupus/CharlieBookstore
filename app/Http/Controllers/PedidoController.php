@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Pedido;
 use App\Models\PedidoItem;
 use App\Models\PedidoStatus;
+use App\Models\Endereco;
+use App\Models\Carrinho;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,7 +31,18 @@ class PedidoController extends Controller
      */
     public function create()
     {
-        //
+        $usuario  = Auth::user();
+
+        $endereco = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)
+                                    ->get()
+                                    ->first();
+                                    
+        $produtos = Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
+                                    ->where('ITEM_QTD', '>', 0)
+                                    ->get()
+                                    ->all();
+
+        return view('carrinho.confirmer', compact('usuario', 'endereco', 'produtos'));
     }
 
     /**
@@ -51,11 +64,10 @@ class PedidoController extends Controller
      */
     public function show(Request $request)
     {
-        $pedidos = PedidoItem::where('PEDIDO_ID', $request->id)->get();
+        //PRECISA FILTRA OS PEDIDOS APENAS DO USUARIO
+        $items = PedidoItem::where('PEDIDO_ID', $request->id)->get();
 
-        
-        //dd($pedidos, $pedidos[1]->pedidoItens);
-        return view('user.pedido', compact('pedidos'));
+        return view('user.pedido', compact('items'));
     }
 
     public function pagamento()

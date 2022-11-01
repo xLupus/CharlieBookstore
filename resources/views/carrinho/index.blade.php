@@ -16,9 +16,9 @@
 
 @section('main')
     <main role="main">
-        <div class="container-xxl mt-5 mb-5">
+        <div class="container-xxl mt-4 mb-5">
             <div class="row row-cols-2">
-                <div class="col-12 mt-2 mb-2">
+                <div class="col-12 mb-2">
                     <span class="d-block fs-3 fw-bold">CARRINHO</span>
                 </div>
             </div>
@@ -28,9 +28,15 @@
                     <hr class="hr bg-light">
                     <span class="d-block h2 mb-4">Informações de entrega</span>
 
-                    @if (session()->has('endereco_message'))
+                    @if (session()->has('success-message'))
                         <div class="alert alert-success mt-3" role="alert">
-                            {{ session()->get('endereco_message') }}
+                            {{ session()->get('success-message') }}
+                        </div>
+                    @endif
+
+                    @if (session()->has('error-message'))
+                        <div class="alert alert-danger mt-3" role="alert">
+                            {{ session()->get('error-message') }}
                         </div>
                     @endif
 
@@ -95,7 +101,7 @@
 
                     @foreach ($itens as $item)
                         <hr class="hr bg-light">
-                        <div class="row py-4">
+                        <div class="row py-2">
                             <div class="col-2">
                                 <img src="{{$item->produto->produtoImagens[0]->IMAGEM_URL}}" width="140" class="img-fluid rounded-4">
                             </div>
@@ -112,12 +118,12 @@
                                 </div>
 
                                 @if ($item->produto->PRODUTO_DESCONTO > 0)
-                                    <div class="mb-3">
+                                    <div>
                                         <span class="d-block fs-5 fw-semibold">R$ {{number_format( $item->produto->PRODUTO_PRECO - $item->produto->PRODUTO_DESCONTO, 2)}}</span>
                                         <span class="d-block fs-5 ms-2"><sup>R$ <s>{{ $item->produto->PRODUTO_PRECO }}</s></sup></span>
                                     </div>
                                 @else
-                                    <div class="mb-3">
+                                    <div>
                                         <span class="d-block fs-5 fw-semibold">R$ {{$item->produto->PRODUTO_PRECO}}</span>
                                     </div>
                                 @endif

@@ -1,10 +1,13 @@
 @extends('layout')
 
+@php $pagamento = ['Boleto', 'Pix', 'Cartão de Credito', 'Transferencia Bancaria']; @endphp
+
+@section('title', 'Meus Pedidios')
 @section('main')
     <div class="container-xxl mt-4">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item">Perfil</li>
+                <li class="breadcrumb-item"><a href="#" class="link">Perfil</a></li>
                 <li class="breadcrumb-item active">Meus Pedidos</li>
             </ol>
         </nav>
@@ -32,12 +35,12 @@
                                 $precoTotal = [];
 
                                 foreach ($pedido->pedidoItens as $item)
-                                    $precoTotal[] = $item->ITEM_QTD * $item->ITEM_PRECO;
+                                    $precoTotal[] = $item->ITEM_QTD * ($item->ITEM_PRECO);
                             @endphp
                             <tr>
                                 <td class="text-center py-3"><a href="{{route('pedido', $pedido->PEDIDO_ID)}}" class="link text-dark">#{{$pedido->PEDIDO_ID}}</a></td>
                                 <td class="text-center py-3">{{$pedido->PEDIDO_DATA}}</td>
-                                <td class="text-center py-3">Boleto</td>
+                                <td class="text-center py-3">{{$pagamento[rand(0,3)]}}</td>
                                 <td class="text-center py-3">{{$pedido->pedidoStatus->STATUS_DESC}}</td>
                                 <td class="text-center py-3">{{$pedido->pedidoItens->count()}}</td>
                                 <td class="text-center py-3">R$ {{number_format(array_sum($precoTotal), 2)}}</td>
