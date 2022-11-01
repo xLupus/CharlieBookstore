@@ -70,10 +70,10 @@ class ProdutoController extends Controller
      * @param  Categoria $categoria  [description]
      * @return [type] [description]
      */
-    public function categoria(Categoria $categoria){
+    public function categoria(Categoria $categoria, Request $request){
 
         $produtos = $categoria->produtos;
-        /*
+
         if ($request->order) {
             if ($request->order == 'a-z')
                 $produtos = $produtos->sortby(function($produto) {
@@ -95,7 +95,7 @@ class ProdutoController extends Controller
                     return $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO;
                 });
         }
-        */      
+        
         return view('produtos.index',compact('produtos'));
     }
 
