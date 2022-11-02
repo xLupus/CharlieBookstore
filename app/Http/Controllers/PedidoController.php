@@ -7,6 +7,7 @@ use App\Models\PedidoItem;
 use App\Models\PedidoStatus;
 use App\Models\Endereco;
 use App\Models\Carrinho;
+use App\Models\ProdutoEstoque;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,7 +20,8 @@ class PedidoController extends Controller
      */
     public function index()
     {
-       $pedidos = Pedido::where('USUARIO_ID', Auth::user()->USUARIO_ID)->get()->all();
+       $pedidos = Pedido::where('USUARIO_ID', Auth::user()->USUARIO_ID)
+                                ->paginate(10);
 
         return view('user.pedidos', compact('pedidos'));
     }
@@ -53,16 +55,39 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        $usuario      = Auth::user()->USUARIO_ID;
-        $dataCompra   = new \DateTime('', new \DateTimeZone('America/Sao_Paulo'));
-        $pedidoStatus = 1; //Pendente
+        $dataCompra = new \DateTime(null, new \DateTimeZone('America/Sao_Paulo'));
 
-        $produtos = Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
-                                    ->where('ITEM_QTD', '>', 0)
-                                    ->get()
-                                    ->all();
+        $produtosCarrinho = Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
+                                            ->where('ITEM_QTD', '>', 0)->get()->all();
 
-        dd($dataCompra->format('Y-m-d'), $usuario, $produtos);
+        $pedido = Pedido::create([
+            'USUARIO_ID'  => Auth::user()->USUARIO_ID,
+            'STATUS_ID'   => 1, //pendente
+            'PEDIDO_DATA' => $dataCompra->format('Y-m-d')
+        ]);
+
+        if ( isset($pedido->PEDIDO_ID) ) {
+            foreach ($produtosCarrinho as $livro) {
+                PedidoItem::create([
+                    'PRODUTO_ID' => $livro->PRODUTO_ID,
+                    'PEDIDO_ID'  => $pedido->PEDIDO_ID,
+                    'ITEM_QTD'   => $livro->ITEM_QTD,
+                    'ITEM_PRECO' => $livro->produto->PRODUTO_PRECO - $livro->produto->PRODUTO_DESCONTO
+                ]);
+
+                $estoqueAtual = ProdutoEstoque::where('PRODUTO_ID', $livro->PRODUTO_ID)->get()>first();
+
+                ProdutoEstoque::where('PRODUTO_ID',  $livro->PRODUTO_ID)
+                                      ->update(['PRODUTO_QTD' => $estoqueAtual->PRODUTO_QTD - $livro->ITEM_QTD]);
+            }
+
+            Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
+                            ->update(['ITEM_QTD' => 0]);
+        }
+
+        session()->flash('success', 'Pedido Realizado com Sucesso');
+
+        return redirect()->route('pedido', $pedido->PEDIDO_ID);
     }
 
     /**

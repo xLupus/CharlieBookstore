@@ -16,8 +16,8 @@
     <main class="container-xxl">
         <h1 class="h4 fw-bold">Meus Pedidos</h1>
 
-        <div class="d-flex justify-content-center mt-4">
-            <table class="table table-striped">
+        <div class="d-flex flex-column align-items-center mt-4 mb-5">
+            <table class="table table-striped mb-5">
                 <thead>
                     <tr>
                         <th scope="col" class="text-center">ID</th>
@@ -29,7 +29,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if ($pedidos)
+                    @if ($pedidos->count() != 0)
                         @foreach ($pedidos as $pedido)
                             @php
                                 $precoTotal = [];
@@ -53,6 +53,8 @@
                     @endif
                 </tbody>
             </table>
+
+            {{ $pedidos->links() }}
         </div>
     </main>
 @endsection

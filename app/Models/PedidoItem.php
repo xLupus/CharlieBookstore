@@ -14,6 +14,13 @@ class PedidoItem extends Model
 
     public $timestamps = false;
 
+    protected $fillable = [
+        'PRODUTO_ID',
+        'PEDIDO_ID',
+        'ITEM_QTD',
+        'ITEM_PRECO'
+    ];
+
     public function pedidoItens() {
         return $this->belongsTo(PRODUTO::class, 'PRODUTO_ID');
     }

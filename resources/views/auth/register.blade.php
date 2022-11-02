@@ -14,10 +14,12 @@
         <div class="container-fluid">
             <div class="row row-cols-2">
 
-                <div class="col cadastro-background"></div>
+                <div class="col cadastro-background">
+                    {{-- Imagem lateral --}}
+                </div>
 
                 <div class="col d-flex justify-content-center align-items-center">
-                    <div class="w-100 vstack mt-5 align-items-center">
+                    <div class="w-100 d-flex flex-column align-items-center">
                         <div class="logo d-block mb-5">
                             <a href="{{route('home')}}">
                                 <img class="logo" src="img/logo.png" alt="logo" width="250">
@@ -65,7 +67,7 @@
                             <button type="submit" class="btn btn-default p-3  mt-4 text-white"> {{ __('Registrar') }}</button>
                         </form>
 
-                        <a href="{{route('login')}}" class="btn btn-link mt-4 p-3 w-50 text-decoration-none text-white" role="button">Voltar</a>
+                        <a href="{{route('login')}}" class="btn btn-link mt-4 p-3 w-50 text-decoration-none text-white" role="button">Login</a>
                     </div>
                 </div>
             </div>

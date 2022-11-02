@@ -16,6 +16,12 @@ class Pedido extends Model
 
     protected $primaryKey = 'PEDIDO_ID';
 
+    protected $fillable = [
+        'USUARIO_ID',
+        'STATUS_ID',
+        'PEDIDO_DATA'
+    ];
+
     public $timestamps = false;
 
     public function pedidoStatus() {

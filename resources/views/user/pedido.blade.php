@@ -21,6 +21,13 @@
 
                 <div class="row row-cols-2 gx-5">
                     <div class="col-8">
+
+                        @if (session()->has('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session()->get('success') }}
+                            </div>
+                        @endif
+
                         @foreach ($items as $item)
                             <hr class="hr bg-light">
 
