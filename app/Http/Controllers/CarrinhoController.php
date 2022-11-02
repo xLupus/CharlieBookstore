@@ -23,7 +23,10 @@ class CarrinhoController extends Controller
 
         if (!count($itensCarrinho)) return redirect(route('home'));
 
-        $enderecos = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID )->get();
+        $enderecos = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID )
+                                    ->paginate(3);
+
+        //dd($enderecos->links());
 
         return view('carrinho.index')->with([
             'itens'     => $itensCarrinho,

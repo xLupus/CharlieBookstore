@@ -42,18 +42,6 @@
                         <span>{{$usuario->USUARIO_EMAIL}}</span>
                     </div>
                 </div>
-
-                {{-- <form>
-                    <div class="d-flex mb-3">
-                        <input type="text" class="form-control rounded-pill w-100 py-3 me-5" placeholder="Nome">
-                        <input type="text" class="form-control rounded-pill w-100 py-3" placeholder="Sobrenome">
-                    </div>
-
-                    <div class="d-flex">
-                        <input type="text" class="form-control rounded-pill w-100 py-3 me-5" placeholder="Email">
-                        <input type="text" class="form-control rounded-pill w-100 py-3" placeholder="Telefone">
-                    </div>
-                </form> --}}
             </div>
 
             <div class="row mb-4">
@@ -65,7 +53,6 @@
                         <span>{{$endereco->ENDERECO_LOGRADOURO}}, {{$endereco->ENDERECO_NUMERO}}- {{$endereco->ENDERECO_COMPLEMENTO}} - {{$endereco->ENDERECO_CIDADE}} - {{$endereco->ENDERECO_ESTADO}}, {{$endereco->ENDERECO_CEP}}</span>
                     </div>
                 </div>
-
             </div>
 
             <div class="row mb-4">
@@ -95,14 +82,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($produtos as $livro)
-                                <tr>
-                                    <td>{{$livro->ITEM_QTD}}x</td>
-                                    <td>{{$livro->produto->PRODUTO_NOME}}</td>
-                                    <td>R$ {{number_format(($livro->produto->PRODUTO_PRECO - $livro->produto->PRODUTO_DESCONTO), 2)}}</td>
-                                    <td>R$ {{number_format(($livro->produto->PRODUTO_PRECO - $livro->produto->PRODUTO_DESCONTO) * $livro->ITEM_QTD, 2)}}</td>
-                                </tr>
-                            @endforeach
+                        @foreach ($produtos as $livro)
+                            <tr>
+                                <td>{{$livro->ITEM_QTD}}x</td>
+                                <td>{{$livro->produto->PRODUTO_NOME}}</td>
+                                <td>R$ {{number_format(($livro->produto->PRODUTO_PRECO - $livro->produto->PRODUTO_DESCONTO), 2)}}</td>
+                                <td>R$ {{number_format(($livro->produto->PRODUTO_PRECO - $livro->produto->PRODUTO_DESCONTO) * $livro->ITEM_QTD, 2)}}</td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -133,7 +120,10 @@
                     <span class="fw-semibold fs-5">R$ {{number_format($precoTotal - $descontoTotal, 2)}}</span>
                 </div>
 
-                <input type="button" value="Ir Para..." class="bg-black text-white rounded-pill w-100 py-2 text-align-center ">
+                <form class="" action="{{route('realizar-pedido')}}" method="post">
+                    @csrf
+                    <input type="submit" name="" value="Efetuar Pedido" class="d-block bg-black w-100 text-white rounded-pill w-100 py-2 text-center">
+                </form>
             </div>
         </div>
     </div>

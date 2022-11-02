@@ -1,8 +1,8 @@
 @extends('layout')
 
-@php $pagamento = ['Boleto', 'Pix', 'Cartão de Credito', 'Transferencia Bancaria']; @endphp
-
 @section('title', 'Meus Pedidios')
+@section('script', '/js/pedidos.js')
+
 @section('main')
     <div class="container-xxl mt-4">
         <nav aria-label="breadcrumb">
@@ -40,7 +40,7 @@
                             <tr>
                                 <td class="text-center py-3"><a href="{{route('pedido', $pedido->PEDIDO_ID)}}" class="link text-dark">#{{$pedido->PEDIDO_ID}}</a></td>
                                 <td class="text-center py-3">{{$pedido->PEDIDO_DATA}}</td>
-                                <td class="text-center py-3">{{$pagamento[rand(0,3)]}}</td>
+                                <td class="text-center py-3 pagamento"></td>
                                 <td class="text-center py-3">{{$pedido->pedidoStatus->STATUS_DESC}}</td>
                                 <td class="text-center py-3">{{$pedido->pedidoItens->count()}}</td>
                                 <td class="text-center py-3">R$ {{number_format(array_sum($precoTotal), 2)}}</td>
@@ -54,7 +54,5 @@
                 </tbody>
             </table>
         </div>
-
     </main>
-
 @endsection

@@ -66,6 +66,9 @@
                                 </label>
                             </div>
                         @endforeach
+
+                        {!! $enderecos->links() !!}
+
                         <button type="button" id="drop_form" class="btn btn-light rounded-pill px-4 py-3 border my-4" value="show">Adicionar novo endereço</button>
                     @endif
                     <form action="{{ route('endereco.store') }}" method="post" class="{{$hideForm ?? ''}} row w-75 g-3 mb-5" id="form-endereco">
@@ -192,8 +195,8 @@
                                 <span class="fw-semibold fs-5">R$ {{number_format($precoTotal - $descontoTotal, 2)}}</span>
                             </div>
 
-                            <a href="{{route('confirmer')}}">
-                                <input type="button" value="Ir Para Verificação de Dados" class="bg-black text-white rounded-pill w-100 py-2 text-align-center">
+                            <a href="{{route('checkout')}}">
+                                <input type="button" value="Checkout" class="bg-black text-white rounded-pill w-100 py-2 text-align-center">
                             </a>
                         </div>
                     </div>

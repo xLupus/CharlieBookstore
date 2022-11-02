@@ -1,5 +1,7 @@
 @extends('layout')
 
+@section('title', "Pedido #{$items[0]->PEDIDO_ID}")
+
 @section('main')
     <div class="container-xxl mt-4">
         <nav aria-label="breadcrumb">
@@ -17,7 +19,7 @@
                     <span class="d-block fw-bold h4">Pedido #{{$items[0]->PEDIDO_ID}}</span>
                 </div>
 
-                <div class="row row-cols-2 mt-3 gx-5">
+                <div class="row row-cols-2 gx-5">
                     <div class="col-8">
                         @foreach ($items as $item)
                             <hr class="hr bg-light">

@@ -35,14 +35,14 @@ class PedidoController extends Controller
 
         $endereco = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)
                                     ->get()
-                                    ->first();
-                                    
+                                    ->last();
+
         $produtos = Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
                                     ->where('ITEM_QTD', '>', 0)
                                     ->get()
                                     ->all();
 
-        return view('carrinho.confirmer', compact('usuario', 'endereco', 'produtos'));
+        return view('carrinho.checkout', compact('usuario', 'endereco', 'produtos'));
     }
 
     /**
@@ -53,7 +53,16 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $usuario      = Auth::user()->USUARIO_ID;
+        $dataCompra   = new \DateTime('', new \DateTimeZone('America/Sao_Paulo'));
+        $pedidoStatus = 1; //Pendente
+
+        $produtos = Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
+                                    ->where('ITEM_QTD', '>', 0)
+                                    ->get()
+                                    ->all();
+
+        dd($dataCompra->format('Y-m-d'), $usuario, $produtos);
     }
 
     /**
@@ -69,10 +78,4 @@ class PedidoController extends Controller
 
         return view('user.pedido', compact('items'));
     }
-
-    public function pagamento()
-    {
-        return view('carrinho.pagamento');
-    }
-
 }

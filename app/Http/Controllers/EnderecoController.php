@@ -32,8 +32,9 @@ class EnderecoController extends Controller
                                         ->where('ENDERECO_NOME', $request->rotulo)
                                         ->get();
 
-        if ($verification) {
+        if ($verification->count() != 0) {            
             session()->flash('error-message', 'Endereço com Rotulo já cadastrado');
+
             return redirect()->back();
         }
 
