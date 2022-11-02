@@ -40,11 +40,22 @@
                         </button>
 
                         <div class="collapse mt-2" id="collapse1">
-                            <ul class="list-unstyled ms-4 lh-lg">
-                                <li><a href="?order=a-z" class="link text-decoration-none text-dark">Livro: A - Z</a></li>
-                                <li><a href="?order=z-a" class="link text-decoration-none text-dark">Livro: Z - A</a></li>
-                                <li><a href="?order=menores-precos" class="link text-decoration-none text-dark">Menores Preços</a></li>
-                                <li><a href="?order=maiores-precos" class="link text-decoration-none text-dark">Maiores Preços</a></li>
+                            <ul class="list-unstyled ms-4 lh-lg d-flex flex-column">
+                                <li class="{{($order_az) ? 'order-first border-bottom pb-2 fw-bold' : ''}}">
+                                    <a href="{{($order_az) ? route('catalogo') : '?order=a-z'}}" class="link text-decoration-none text-dark">Livro: A - Z</a>
+                                </li>
+
+                                <li class="{{($order_za) ? 'order-first border-bottom pb-2 fw-bold' : ''}}">
+                                    <a href="{{($order_za) ? route('catalogo') : '?order=z-a'}}" class="link text-decoration-none text-dark">Livro: Z - A</a>
+                                </li>
+
+                                <li class="{{($order_menor_preco) ? 'order-first border-bottom pb-2 fw-bold' : ''}}">
+                                    <a href="{{($order_menor_preco) ? route('catalogo') : '?order=menores-precos'}}" class="link text-decoration-none text-dark">Menores Preços</a>
+                                </li>
+
+                                <li class="{{($order_maior_preco) ? 'order-first border-bottom pb-2 fw-bold' : ''}}">
+                                    <a href="{{($order_maior_preco) ? route('catalogo') : '?order=maiores-precos'}}" class="link text-decoration-none text-dark">Maiores Preços</a>
+                                </li>
                             </ul>
                         </div><!-- 1 -->
 
@@ -102,7 +113,7 @@
                     <div class="row row-cols-4">
                         @foreach ($produtos as $produto)
                             <div class="col">
-                                <a href="{{ route('produto.show', $produto->PRODUTO_ID) }}">
+                                <a href="{{route('produto.show', $produto->PRODUTO_ID)}}">
                                     <figure class="figure">
                                         @if (isset($produto->produtoImagens[0]))
                                             <img src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="" class="figure-img img-fluid">

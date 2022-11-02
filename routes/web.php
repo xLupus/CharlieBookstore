@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [ProdutoController::class, 'home'])->name('home');
 Route::get('/catalogo', [ProdutoController::class, 'index'])->name('catalogo');
-Route::get('/categoria/{categoria}', [ProdutoController::class, 'categoria'])->name('categoria.show');
+Route::get('/categoria/{categoria}', [ProdutoController::class, 'index'])->name('categoria.show');
 Route::resource('/produto', ProdutoController::class);
 Route::get('/pesquisa', [ProdutoController::class, 'search'])->name('search');
 

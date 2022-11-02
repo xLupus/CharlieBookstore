@@ -29,7 +29,7 @@ class ProdutoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, Categoria $categoria)
     {
         /*
         $produtos = Produto::where('PRODUTO_ATIVO', TRUE)
@@ -37,66 +37,43 @@ class ProdutoController extends Controller
                             ->paginate(10);
 
         */
-        $produtos = Produto::ativo();
+
+        if ($categoria->produtos->count() != 0 )
+            $produtos = $categoria->produtos;
+        else
+            $produtos = Produto::ativo();
+
+        $order_az          = false;
+        $order_za          = false;
+        $order_menor_preco = false;
+        $order_maior_preco = false;
 
         if ($request->order) {
-            if ($request->order == 'a-z')
-                $produtos = $produtos->sortby(function($produto) {
-                    return $produto->PRODUTO_NOME;
-                });
+            if ($request->order == 'a-z') {
+                $produtos = $produtos->sortby(fn($produto) => $produto->PRODUTO_NOME);
+                $order_az = true;
 
-            if ($request->order == 'z-a')
-                $produtos = $produtos->sortbyDesc(function($produto) {
-                    return $produto->PRODUTO_NOME;
-                });
+            } elseif ($request->order == 'z-a') {
+                $produtos = $produtos->sortbyDesc(fn($produto) => $produto->PRODUTO_NOME);
+                $order_za = true;
 
-            if ($request->order == 'menores-precos')
-                $produtos = $produtos->sortby(function($produto) {
-                    return $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO;
-                });
+            } elseif ($request->order == 'menores-precos') {
+                $produtos = $produtos->sortby(fn($produto) => $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO);
+                $order_menor_preco = true;
 
-            if ($request->order == 'maiores-precos')
-                $produtos = $produtos->sortbyDesc(function($produto) {
-                    return $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO;
-                });
+            } elseif ($request->order == 'maiores-precos') {
+                $produtos = $produtos->sortbyDesc(fn($produto) => $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO);
+                $order_maior_preco = true;
+            }
         }
 
-        return view('produtos.index', compact('produtos'));
-    }
-
-
-    /**
-     * Return the page of Books from a specific category
-     * @param  Categoria $categoria  [description]
-     * @return [type] [description]
-     */
-    public function categoria(Categoria $categoria, Request $request){
-
-        $produtos = $categoria->produtos;
-
-        if ($request->order) {
-            if ($request->order == 'a-z')
-                $produtos = $produtos->sortby(function($produto) {
-                    return $produto->PRODUTO_NOME;
-                });
-
-            if ($request->order == 'z-a')
-                $produtos = $produtos->sortbyDesc(function($produto) {
-                    return $produto->PRODUTO_NOME;
-                });
-
-            if ($request->order == 'menores-precos')
-                $produtos = $produtos->sortby(function($produto) {
-                    return $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO;
-                });
-
-            if ($request->order == 'maiores-precos')
-                $produtos = $produtos->sortbyDesc(function($produto) {
-                    return $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO;
-                });
-        }
-        
-        return view('produtos.index',compact('produtos'));
+        return view('produtos.index')->with([
+            'produtos'          => $produtos,
+            "order_az"          => $order_az,
+            "order_za"          => $order_za,
+            "order_menor_preco" => $order_menor_preco,
+            "order_maior_preco" => $order_maior_preco
+        ]);
     }
 
 
