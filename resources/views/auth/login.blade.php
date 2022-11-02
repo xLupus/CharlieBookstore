@@ -30,7 +30,7 @@
 
                             <div class="mb-3">
                                 <label for="Email" class="form-label mb-2">Email</label>
-                                <input type="email" name="email" id="Email" class="form-control form-control-lg text-form">
+                                <input type="email" name="email" value="{{ old('email') }}" id="Email" class="form-control form-control-lg text-form @error('email') is-invalid @enderror">
 
                                 @if (!count($errors->get('email')) == 0)
                                     <span class="text-danger fw-bold fs-6">{{$errors->get('email')[0]}}</span>{{-- retorna no indice 0 --}}
@@ -39,7 +39,10 @@
 
                             <div class="mb-2">
                                 <label for="Password" class="form-label mb-2">Senha</label>
-                                <input type="password" name="password" id="Password" class="form-control form-control-lg text-form">
+                                <input type="password" name="password" id="Password" class="form-control form-control-lg text-form @error('password') is-invalid @enderror">
+                                @if (!count($errors->get('password')) == 0)
+                                    <span class="text-danger fw-bold fs-6">{{$errors->get('password')[0]}}</span>{{-- retorna no indice 0 --}}
+                                @endif
                             </div>
 
                             <button type="submit" name="btn_entrar" class="btn btn-default text-white my-3 py-3">{{ __('Log in') }}</button>

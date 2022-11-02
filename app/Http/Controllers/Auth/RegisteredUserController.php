@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 //use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
+use App\Http\Requests\Auth\RegisterRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -31,21 +32,18 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function store(RegisterRequest $request)
     {
-        /*
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
-        */
+       $request->validated();
+       $request->old('nome');
+       $request->old('email');
+       $request->old('cpf');
 
         $user = User::create([
-            'USUARIO_NOME' => $request->nome,
+            'USUARIO_NOME'  => $request->nome,
             'USUARIO_EMAIL' => $request->email,
             'USUARIO_SENHA' => Hash::make($request->senha),
-            'USUARIO_CPF' => $request->cpf,
+            'USUARIO_CPF'   => $request->cpf,
         ]);
 
         event(new Registered($user));

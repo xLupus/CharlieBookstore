@@ -28,6 +28,8 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request) //recebe um request do cara chamado login request (traz somentes os CAMPOS DO LOGIN e não outros)
     {
+        $email = $request->old('email');
+        
         $request->authenticate(); //cria essa função para autenticar
 
         $request->session()->regenerate();
