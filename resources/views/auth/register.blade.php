@@ -34,7 +34,7 @@
 
                             <div class="mb-2">
                                 <label class="form-label mb-2" for="NomeCompleto">Nome Completo:</label>
-                                <input type="text" class="form-control form-control-lg text-form @error('nome') is-invalid @enderror" name="nome" value="{{ old('nome') }}">
+                                <input type="text" name="nome" value="{{old('nome')}}" class="form-control form-control-lg text-form @error('nome') is-invalid @enderror">
                                 @if(!count($errors->get('nome')) == 0)
                                     <span class="text-danger fw-bold fs-6">{{$errors->get('nome')[0]}}</span>
                                 @endif
@@ -42,7 +42,7 @@
 
                             <div class="mb-2">
                                 <label class="form-label mb-2" for="Email">Email:</label>
-                                <input type="email" class="form-control form-control-lg text-form @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+                                <input type="email" name="email" value="{{old('email')}}" class="form-control form-control-lg text-form @error('email') is-invalid @enderror">
                                 @if(!count($errors->get('email')) == 0)
                                     <span class="text-danger fw-bold fs-6">{{$errors->get('email')[0]}}</span>
                                 @endif
@@ -50,7 +50,7 @@
 
                             <div class="mb-2">
                                 <label class="form-label mb-2" for="Senha">Senha:</label>
-                                <input type="password" class="form-control form-control-lg text-form @error('senha') is-invalid @enderror" name="senha">
+                                <input type="password" name="senha" class="form-control form-control-lg text-form @error('senha') is-invalid @enderror">
                                 @if(!count($errors->get('senha')) == 0)
                                     <span class="text-danger fw-bold fs-6">{{$errors->get('senha')[0]}}</span>
                                 @endif
@@ -58,7 +58,7 @@
 
                             <div class="mb-2">
                                 <label class="form-label mb-2" for="Cpf">CPF:</label>
-                                <input type="text" class="form-control form-control-lg text-form @error('cpf') is-invalid @enderror" name="cpf" value="{{ old('cpf') }}">
+                                <input type="text" name="cpf" value="{{old('cpf')}}" class="form-control form-control-lg text-form @error('cpf') is-invalid @enderror" >
                                 @if(!count($errors->get('cpf')) == 0)
                                     <span class="text-danger fw-bold fs-6">{{$errors->get('cpf')[0]}}</span>
                                 @endif

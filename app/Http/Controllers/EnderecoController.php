@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Endereco;
 use Illuminate\Http\Request;
+use App\Http\Requests\Auth\EnderecoRequest;
 use Illuminate\Support\Facades\Auth;
 
 class EnderecoController extends Controller
@@ -15,24 +16,15 @@ class EnderecoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EnderecoRequest $request)
     {
-        $validation = $request->validate([
-            'cep'         => 'required|min:8|max:8',
-            'numero'      => 'required|integer',
-            'complemento' => 'nullable',
-            'logradouro'  => 'required|string',
-            'bairro'      => 'required|string',
-            'cidade'      => 'required|string',
-            'uf'          => 'required|min:2|max:2|string',
-            'rotulo'      => 'required|string'
-        ]);
+        $request->validated();
 
         $verification = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)
                                         ->where('ENDERECO_NOME', $request->rotulo)
                                         ->get();
 
-        if ($verification->count() != 0) {            
+        if ($verification->count() != 0) {
             session()->flash('error-message', 'Endereço com Rotulo já cadastrado');
 
             return redirect()->back();

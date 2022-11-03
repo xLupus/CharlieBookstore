@@ -3,7 +3,6 @@
 namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\User;
 
 class RegisterRequest extends FormRequest
 {
@@ -28,7 +27,7 @@ class RegisterRequest extends FormRequest
             'nome'  => ['required', 'string'],
             'email' => ['required', 'email:rfc,dns'],
             'senha' => ['required', 'string'],
-            'cpf'   => ['required']
+            'cpf'   => ['required', 'numeric']
         ];
     }
 
@@ -40,11 +39,12 @@ class RegisterRequest extends FormRequest
     public function messages()
     {
         return [
-            'nome.required' => 'Preencha o campo',
+            'nome.required'  => 'Preencha o campo',
             'email.required' => 'Preencha o campo',
-            'email.email' => 'Insira um formato de e-mail valido',
+            'email.email'    => 'Insira um formato de e-mail valido',
             'senha.required' => 'Preencha o campo',
-            'cpf.required' => 'Preencha o campo',
+            'cpf.required'   => 'Preencha o campo',
+            'cpf.numeric'    => 'Esse campo só aceita numeros'
         ];
     }
 }
