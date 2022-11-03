@@ -24,12 +24,12 @@ class EnderecoRequest extends FormRequest
     public function rules()
     {
         return [
-            'cep'         => ['required', 'min:8', 'max:8'],
+            'cep'         => ['required', 'min_digits:8', 'max_digits:8'],
             'numero'      => ['required', 'numeric'],
             'complemento' => ['nullable', 'string'],
             'logradouro'  => ['required', 'string'],
             'cidade'      => ['required', 'string'],
-            'uf'          => ['required','min:2', 'max:2', 'string'],
+            'uf'          => ['required', 'min:2', 'max:2', 'string'],
             'rotulo'      => ['required', 'string'],
         ];
     }
@@ -43,6 +43,8 @@ class EnderecoRequest extends FormRequest
     {
         return [
             'cep.required'        => 'O campo CEP é obrigatorio',
+            'cep.min_digits'      => 'O campo CEP deve conter 8 digitos',
+            'cep.max_digits'      => 'O campo CEP deve apenas 8 digitos',
             'numero.required'     => 'O campo Numero é obrigatorio',
             'complemento'         => '',
             'logradouro.required' => 'O campo Endereco é obrigatorio',
