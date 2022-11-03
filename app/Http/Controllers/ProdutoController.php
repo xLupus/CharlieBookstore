@@ -37,34 +37,33 @@ class ProdutoController extends Controller
                             ->paginate(10);
 
         */
+        $produtos = $categoria->produtos->count() != 0 ? $categoria->produtos : Produto::ativo();
 
-        if ($categoria->produtos->count() != 0 )
-            $produtos = $categoria->produtos;
-        else
-            $produtos = Produto::ativo();
+        $order_az = $order_za = $order_menor_preco = $order_maior_preco = false;
 
-        $order_az          = false;
-        $order_za          = false;
-        $order_menor_preco = false;
-        $order_maior_preco = false;
-
-        if ($request->order) {
-            if ($request->order == 'a-z') {
+        switch ($request->order) {
+            case 'a-z':
                 $produtos = $produtos->sortby(fn($produto) => $produto->PRODUTO_NOME);
                 $order_az = true;
+                break;
 
-            } elseif ($request->order == 'z-a') {
+            case 'z-a':
                 $produtos = $produtos->sortbyDesc(fn($produto) => $produto->PRODUTO_NOME);
                 $order_za = true;
+                break;
 
-            } elseif ($request->order == 'menores-precos') {
+            case 'menores-precos':
                 $produtos = $produtos->sortby(fn($produto) => $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO);
                 $order_menor_preco = true;
+                break;
 
-            } elseif ($request->order == 'maiores-precos') {
+            case 'maiores-precos':
                 $produtos = $produtos->sortbyDesc(fn($produto) => $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO);
                 $order_maior_preco = true;
-            }
+                break;
+
+            default:
+                break;
         }
 
         return view('produtos.index')->with([
@@ -75,7 +74,6 @@ class ProdutoController extends Controller
             "order_maior_preco" => $order_maior_preco
         ]);
     }
-
 
     /**
      * Display the specified resource.
@@ -91,7 +89,6 @@ class ProdutoController extends Controller
 
         return view('produtos.show', compact('produto'));
     }
-
 
     public function search(Request $request)
     {
