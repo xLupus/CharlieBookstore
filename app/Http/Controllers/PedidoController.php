@@ -35,14 +35,10 @@ class PedidoController extends Controller
     {
         $usuario  = Auth::user();
 
-        $endereco = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)
-                                    ->get()
-                                    ->last();
+        $endereco = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)->get()->last();
 
         $produtos = Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
-                                    ->where('ITEM_QTD', '>', 0)
-                                    ->get()
-                                    ->all();
+                                    ->where('ITEM_QTD', '>', 0)->get()->all();
 
         return view('carrinho.checkout', compact('usuario', 'endereco', 'produtos'));
     }
@@ -75,14 +71,15 @@ class PedidoController extends Controller
                     'ITEM_PRECO' => $livro->produto->PRODUTO_PRECO - $livro->produto->PRODUTO_DESCONTO
                 ]);
 
-                $estoqueAtual = ProdutoEstoque::where('PRODUTO_ID', $livro->PRODUTO_ID)->get()>first();
+                $estoqueAtual = ProdutoEstoque::where('PRODUTO_ID', $livro->PRODUTO_ID)->first()->PRODUTO_QTD;
 
                 ProdutoEstoque::where('PRODUTO_ID',  $livro->PRODUTO_ID)
-                                      ->update(['PRODUTO_QTD' => $estoqueAtual->PRODUTO_QTD - $livro->ITEM_QTD]);
-            }
+                                      ->update(['PRODUTO_QTD' => $estoqueAtual - $livro->ITEM_QTD]);
 
-            Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
-                            ->update(['ITEM_QTD' => 0]);
+                Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
+                                ->where('PRODUTO_ID',  $livro->PRODUTO_ID)
+                                ->update(['ITEM_QTD' => 0]);
+            }
         }
 
         session()->flash('success', 'Pedido Realizado com Sucesso');
@@ -98,9 +95,17 @@ class PedidoController extends Controller
      */
     public function show(Request $request)
     {
-        //PRECISA FILTRA OS PEDIDOS APENAS DO USUARIO
-        $items = PedidoItem::where('PEDIDO_ID', $request->id)->get();
+        $precoTotal = 0;
+        $endereco   = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)->get()->last();
+        $items      = PedidoItem::where('PEDIDO_ID', $request->id)->get(); //PRECISA FILTRA OS PEDIDOS APENAS DO USUARIO
 
-        return view('user.pedido', compact('items'));
+        foreach ($items as $item)
+            $precoTotal += $item->ITEM_QTD * $item->ITEM_PRECO;
+
+        return view('user.pedido')->with([
+            'items'      => $items,
+            'precoTotal' => $precoTotal,
+            'endereco'   => $endereco
+        ]);
     }
 }

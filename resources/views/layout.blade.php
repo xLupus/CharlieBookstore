@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     {{-- Tailwind Css --}}
-    {{-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">  --}} 
+    {{-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">  --}}
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/style.css">
@@ -50,7 +50,7 @@
 
                     <form action="{{ route('search') }}" class="mx-auto ms-xl-auto mx-xl-0 mt-5 mt-xl-0 mt-xl-0 d-sm-block d-md-none d-xl-block w-50 align-items-center" role="search">
                         <div class="d-flex border border-2 rounded">
-                            <input type="search" name="search" class="form-control form-control-lg border-0" maxlength="100">
+                            <input type="search" name="search" class="form-control form-control-lg border-0" maxlength="100" value="{{$pesquisa ?? ''}}">
 
                             <div class="d-flex align-items-center ">
                                 <button type="submit" class="border-0 bg-transparent px-3 py-2">

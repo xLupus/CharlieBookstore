@@ -31,7 +31,7 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required', 'string', 'email'],
+            'email'    => ['required', 'string', 'email:rfc,dns'],
             'password' => ['required', 'string'],
         ];
     }
@@ -69,7 +69,7 @@ class LoginRequest extends FormRequest
             return redirect(route('home')); //retorna para a index
         } else {
             throw ValidationException::withMessages([
-                'email' => trans('CREDENCIAIS INCORRETAS'),
+                'invalid' => trans('*CREDENCIAIS INCORRETAS'),
             ]);
         }
 
@@ -119,8 +119,8 @@ class LoginRequest extends FormRequest
     public function messages()
     {
         return [
-            'email.required' => 'Preencha o campo',
-            'email.email' => 'Insira um formato de e-mail valido',
+            'email.required'    => 'Preencha o campo',
+            'email.email'       => 'Formato de e-mail invalido',
             'password.required' => 'Preencha o campo'
         ];
     }

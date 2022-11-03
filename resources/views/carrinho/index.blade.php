@@ -4,16 +4,6 @@
 @section('script', '/js/carrinho.js')
 @section('style', '/css/carrinho.css')
 
-@php
-    $precoTotal    = 0;
-    $descontoTotal = 0;
-
-    foreach ($itens as $item) {
-        $precoTotal    = $precoTotal + $item->produto->PRODUTO_PRECO * $item->ITEM_QTD;
-        $descontoTotal = $descontoTotal + $item->produto->PRODUTO_DESCONTO * $item->ITEM_QTD;
-    }
-@endphp
-
 @section('main')
     <main role="main">
         <div class="container-xxl mt-4 mb-5">

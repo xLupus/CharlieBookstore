@@ -31,22 +31,12 @@ class ProdutoController extends Controller
      */
     public function index(Request $request, Categoria $categoria)
     {
-        /*
-        $produtos = Produto::where('PRODUTO_ATIVO', TRUE)
-                            ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
-                            ->paginate(10);
-
-        */
-
-        if ($categoria->produtos->count() != 0 )
-            $produtos = $categoria->produtos;
-        else
-            $produtos = Produto::ativo();
-
         $order_az          = false;
         $order_za          = false;
         $order_menor_preco = false;
         $order_maior_preco = false;
+
+        $produtos = ($categoria->produtos->count() != 0) ? $categoria->produtos : Produto::ativo();
 
         if ($request->order) {
             if ($request->order == 'a-z') {
