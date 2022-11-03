@@ -48,6 +48,10 @@
                 </a>
             @endforeach
             </div>
+
+            <div class="d-flex justify-content-center">
+                {{$produtos->links()}}
+            </div>
         @endif
     </main>
 @endsection

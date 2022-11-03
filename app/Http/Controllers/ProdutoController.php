@@ -103,11 +103,13 @@ class ProdutoController extends Controller
         $campos   = implode('%', $campos);
 
         $produtos = Produto::where('PRODUTO_ATIVO', TRUE)
-                                ->where('PRODUTO_NOME', 'like', "%{$campos}%")
-                                ->orderBy('PRODUTO_NOME', 'ASC')
-                                ->get();
+                                    ->where('PRODUTO_NOME', 'like', "%{$campos}%")
+                                    ->orderBy('PRODUTO_NOME', 'ASC')
+                                    ->paginate(10);
 
-        $resultados = $produtos->count();
+        $produtos->withPath("pesquisa?search={$request->search}");
+
+        $resultados = $produtos->total();
 
         return view( 'produtos.search', compact(['produtos', 'resultados', 'pesquisa']) );
     }
