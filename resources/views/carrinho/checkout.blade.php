@@ -37,7 +37,7 @@
                         <span class="fw-bold">CPF: </span>
                         <span>{{$usuario->USUARIO_CPF}}</span>
                     </div>
-                    <div class="">
+                    <div>
                         <span class="fw-bold">Email: </span>
                         <span>{{$usuario->USUARIO_EMAIL}}</span>
                     </div>
@@ -50,7 +50,14 @@
 
                     <div class="">
                         <span class="d-block fw-bold">{{strtoupper($endereco->ENDERECO_NOME)}}: </span>
-                        <span>{{$endereco->ENDERECO_LOGRADOURO}}, {{$endereco->ENDERECO_NUMERO}}- {{$endereco->ENDERECO_COMPLEMENTO}} - {{$endereco->ENDERECO_CIDADE}} - {{$endereco->ENDERECO_ESTADO}}, {{$endereco->ENDERECO_CEP}}</span>
+                        <div>
+                            <span>{{$endereco->ENDERECO_LOGRADOURO}}, </span>
+                            <span>{{$endereco->ENDERECO_NUMERO}}- </span>
+                            <span>{{$endereco->ENDERECO_COMPLEMENTO}}</span>
+                            <span>{{$endereco->ENDERECO_CIDADE}} -</span>
+                            <span>{{$endereco->ENDERECO_ESTADO}},</span>
+                            <span>{{$endereco->ENDERECO_CEP}}</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -77,7 +84,7 @@
                             <tr>
                                 <th>QTD</th>
                                 <th>NOME DO PRODUTO</th>
-                                <th>Valor Unitario</th>
+                                <th>VALOR UNITARIO</th>
                                 <th>VALOR TOTAL</th>
                             </tr>
                         </thead>

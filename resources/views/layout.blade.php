@@ -45,7 +45,7 @@
 
                     <form action="{{ route('search') }}" class="mx-auto ms-xl-auto mx-xl-0 mt-5 mt-xl-0 mt-xl-0 d-sm-block d-md-none d-xl-block w-50 align-items-center" role="search">
                         <div class="d-flex border border-2 rounded">
-                            <input type="search" name="search" class="form-control form-control-lg border-0" maxlength="100">
+                            <input type="search" name="search" class="form-control form-control-lg border-0" maxlength="100" value="{{$pesquisa ?? ''}}">
 
                             <div class="d-flex align-items-center ">
                                 <button type="submit" class="border-0 bg-transparent px-3 py-2">

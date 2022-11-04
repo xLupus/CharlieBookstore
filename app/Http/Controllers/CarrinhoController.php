@@ -17,20 +17,27 @@ class CarrinhoController extends Controller
      */
     public function index()
     {
+        $precoTotal    = 0;
+        $descontoTotal = 0;
+
         $itensCarrinho = Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
-                                        ->where('ITEM_QTD', '>', 0)
-                                        ->get();
+                                        ->where('ITEM_QTD', '>', 0)->get();
+
+        foreach ($itensCarrinho as $item) {
+            $precoTotal    += $item->produto->PRODUTO_PRECO    * $item->ITEM_QTD;
+            $descontoTotal += $item->produto->PRODUTO_DESCONTO * $item->ITEM_QTD;
+        }
 
         if (!count($itensCarrinho)) return redirect(route('home'));
 
         $enderecos = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID )
                                     ->paginate(3);
 
-        //dd($enderecos->links());
-
         return view('carrinho.index')->with([
-            'itens'     => $itensCarrinho,
-            'enderecos' => $enderecos
+            'itens'         => $itensCarrinho,
+            'enderecos'     => $enderecos,
+            'precoTotal'    => $precoTotal,
+            'descontoTotal' => $descontoTotal
         ]);
     }
 
@@ -44,17 +51,17 @@ class CarrinhoController extends Controller
     {
         $cart = Carrinho::where([
             'USUARIO_ID' => Auth::user()->USUARIO_ID,
-            'PRODUTO_ID' => $id,
+            'PRODUTO_ID' => $id
         ])->first(); //pega uma
 
         if ($cart) {
             $estoque = Produto::where('PRODUTO_ID', $id)->first()->produtoEstoque->PRODUTO_QTD;
 
             if ($request->qtd > 0) //se o estoque for maior que a soma
-                $cart->update(['ITEM_QTD'=> $request->qtd > $estoque ? $estoque : $request->qtd]);
+                $cart->update(['ITEM_QTD' => $request->qtd > $estoque ? $estoque : $request->qtd]);
 
             else
-                $cart->update(['ITEM_QTD'=> 0]);
+                $cart->update(['ITEM_QTD' => 0]);
 
         } else {
             $cart = Carrinho::create([
@@ -64,7 +71,7 @@ class CarrinhoController extends Controller
             ]);
         }
 
-        session()->flash('message', 'Adicionado com sucesso'); //zika d+
+        session()->flash('message', 'Produto adicionado ao carrinho com sucesso'); //zika d+
 
         return redirect()->back();
     }

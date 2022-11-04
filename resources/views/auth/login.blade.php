@@ -45,6 +45,10 @@
                                 @endif
                             </div>
 
+                            @if (!count($errors->get('invalid')) == 0)
+                                <span class="text-danger fw-bold fs-6">{{$errors->get('invalid')[0]}}</span>{{-- retorna no indice 0 --}}
+                            @endif
+
                             <button type="submit" name="btn_entrar" class="btn btn-default text-white my-3 py-3">{{ __('Log in') }}</button>
                         </form>
 

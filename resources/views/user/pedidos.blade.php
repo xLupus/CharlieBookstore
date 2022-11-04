@@ -41,7 +41,7 @@
                             @endphp
                             <tr>
                                 <td class="text-center py-3"><a href="{{route('pedido', $pedido->PEDIDO_ID)}}" class="link text-dark">#{{$pedido->PEDIDO_ID}}</a></td>
-                                <td class="text-center py-3">{{$pedido->PEDIDO_DATA}}</td>
+                                <td class="text-center py-3">{{implode('/', array_reverse(explode('-', $pedido->PEDIDO_DATA)) )}}</td>
                                 <td class="text-center py-3 pagamento"></td>
                                 <td class="text-center py-3 status">
                                     <span class="badge rounded-pill">{{$pedido->pedidoStatus->STATUS_DESC}}</span>

@@ -14,9 +14,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 @if (Route::current()->getName() == 'categoria.show')
-                    <li class="breadcrumb-item">
-                        <a class="link" href="{{ route('catalogo') }}">Livros</a>
-                    </li>
+                    <li class="breadcrumb-item"><a class="link" href="{{route('catalogo')}}">Livros</a></li>
                     <li class="breadcrumb-item active">{{ucfirst(Route::current()->categoria->CATEGORIA_NOME)}}</li>
                 @else
                     <li class="breadcrumb-item active">Livros<li>
@@ -72,11 +70,11 @@
                                     @foreach (App\Models\Categoria::ativo() as $categoria)
                                         @if (Route::current()->categoria->CATEGORIA_ID == $categoria['id'])
                                             <li class="order-first border-bottom pb-2">
-                                                <a href="{{route('categoria.show', $categoria['id'])}}" class="link text-decoration-none text-dark fw-bold">{{$categoria['nome']}} ({{$categoria['quantidade']}}) </a>
+                                                <a href="{{route('categoria.show', $categoria['id'])}}" class="link text-decoration-none text-dark fw-bold">{{$categoria['nome']}} ({{$categoria['quantidade']}})</a>
                                             </li>
                                         @else
                                             <li>
-                                                <a href="{{route('categoria.show', $categoria['id'])}}" class="link text-decoration-none text-dark">{{$categoria['nome']}} ({{$categoria['quantidade']}}) </a>
+                                                <a href="{{route('categoria.show', $categoria['id'])}}" class="link text-decoration-none text-dark">{{$categoria['nome']}} ({{$categoria['quantidade']}})</a>
                                             </li>
                                         @endif
                                     @endforeach
@@ -129,9 +127,9 @@
                                             @if ($produto->PRODUTO_DESCONTO > 0)
                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5 desconto">{{number_format($produto->PRODUTO_DESCONTO / $produto->PRODUTO_PRECO * 100, 0)}}%</span>
                                                 <div class="d-flex">
-                                                    <span class="fw-semibold me-3 fs-5">R$ {{ number_format($produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO, 2) }}</span>
+                                                    <span class="fw-semibold me-3 fs-5">R$ {{number_format($produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO, 2)}}</span>
                                                     <span class="fw-semibold"><s>R$ {{$produto->PRODUTO_PRECO}}</s></span>
-                                                <div>
+                                                </div>
                                             @else
                                                 <div class="d-block">
                                                     <span class="fw-semibold fs-5">R$ {{$produto->PRODUTO_PRECO}}</span>

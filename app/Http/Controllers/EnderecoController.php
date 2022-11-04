@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class EnderecoController extends Controller
 {
-
     /**
      * Store a newly created resource in storage.
      *

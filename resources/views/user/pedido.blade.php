@@ -65,7 +65,7 @@
                     <div class="col-4">
                         <div class="d-block bg-light shadow-sm p-4">
                             <span class="d-block fw-bold">ENDEREÇO DE ENTREGA</span>
-                            <span class="d-block fs-5 mt-3">Av. Eng. Eusébio Stevaux, 823 - Santo Amaro, São Paulo - SP, 04696-000</span>
+                            <span class="d-block fs-5 mt-3">{{$endereco->ENDERECO_LOGRADOURO}}, {{$endereco->ENDERECO_NUMERO}} - {{$endereco->ENDERECO_COMPLEMENTO}}{{$endereco->ENDERECO_CIDADE}} - {{$endereco->ENDERECO_ESTADO}}, {{$endereco->ENDERECO_CEP}}</span>
 
                             <hr class="hr bg-dark my-4">
 
@@ -74,11 +74,11 @@
                                     <span class="d-block fw-bold">PREÇO DO PEDIDO</span>
                                 </div>
                                 <div class="col-6">
-                                    <span class="d-block">PREÇO TOTAL</span>
+                                    <span class="d-block">TOTAL PAGO</span>
                                     <span class="d-block">FRETE</span>
                                 </div>
                                 <div class="col-6 d-flex flex-column align-items-end fw-bold">
-                                    <span class="d-block">R$ 159,98</span>
+                                    <span class="d-block">R$ {{$precoTotal}}</span>
                                     <span class="d-block">Gratis</span>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@
                                     <span class="d-block">VALOR TOTAL</span>
                                 </div>
                                 <div class="col-6 d-flex justify-content-end">
-                                    <span class="d-block">R$ 169,58</span>
+                                    <span class="d-block">R$ {{$precoTotal}}</span>
                                 </div>
                             </div>
                         </div>
