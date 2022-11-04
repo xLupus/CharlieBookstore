@@ -115,10 +115,13 @@
                             <div class="col">
                                 <a href="{{route('produto.show', $produto->PRODUTO_ID)}}">
                                     <figure class="figure">
+                                        @php
+                                            $idProduto = isset($produto->produtoEstoque->PRODUTO_ID) ? true : false;
+                                        @endphp
                                         @if (isset($produto->produtoImagens[0]))
-                                            <img src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="" class="figure-img img-fluid">
+                                            <img src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid" style="{{$idProduto && $produto->produtoEstoque->PRODUTO_QTD != 0 ? '' : 'filter: grayscale(85%);'}}">
                                         @else
-                                            <img src="https://via.placeholder.com/223x300/F8F8F8/CCC?text=Sem%20Imagem" alt="" class=" figure-img img-fluid">
+                                            <img src="https://via.placeholder.com/223x300/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class=" figure-img img-fluid">
                                         @endif
 
                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
@@ -130,7 +133,7 @@
                                                     <span class="fw-semibold"><s>R$ {{$produto->PRODUTO_PRECO}}</s></span>
                                                 <div>
                                             @else
-                                                <div class="">
+                                                <div class="d-block">
                                                     <span class="fw-semibold fs-5">R$ {{$produto->PRODUTO_PRECO}}</span>
                                                 </div>
                                             @endif

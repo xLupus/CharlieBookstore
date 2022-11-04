@@ -5,14 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    {{-- Tailwind Css --}}
-    {{-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">  --}} 
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="@yield('style')">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="@yield('style')">
     <title>@yield('title')</title>
 </head>
 <body>
@@ -41,10 +39,7 @@
                 <div class="offcanvas-body align-items-center">
                     <ul class="navbar-nav mx-xl-auto">
                         <li class="nav-item mb-1 mb-xl-0 pe-xl-1 text-center rounded-2">
-                            <a href="{{route('catalogo')}}" class="nav-link fw-semibold" aria-current="page">Catalogo</a>
-                        </li>
-                        <li class="nav-item mt-1 mt-xl-0 ps-xl-1 text-center rounded-2">
-                            <a href="#" class="nav-link fw-semibold">Categorias</a>
+                            <a href="{{route('catalogo')}}" class="nav-link fw-semibold fs-4" aria-current="page">Catalogo</a>
                         </li>
                     </ul>
 
@@ -171,7 +166,6 @@
                     <p class="text-white fw-bold fs-5 d-block mb-4 ms-3">Navegue Por Aqui:</p>
                     <ul class="list-group border border-0">
                         <li class="list-group-item bg-transparent border border-0"><a href="{{route('catalogo')}}" class="link text-white">Catalogo</a></li>
-                        <li class="list-group-item bg-transparent border border-0"><a href="#" class="link text-white">Lançamentos</a></li>
                     </ul>
                 </div>
                 <div class="col col-3 px-0">

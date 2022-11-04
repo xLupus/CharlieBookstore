@@ -1,7 +1,8 @@
 @extends('layout')
 
-@section('title', 'Meus Pedidios')
+@section('title', 'Meus Pedidos')
 @section('script', '/js/pedidos.js')
+@section('style', '/css/pedidos.css')
 
 @section('main')
     <div class="container-xxl mt-4">
@@ -34,14 +35,17 @@
                             @php
                                 $precoTotal = [];
 
-                                foreach ($pedido->pedidoItens as $item)
+                                foreach ($pedido->pedidoItens as $item) {
                                     $precoTotal[] = $item->ITEM_QTD * ($item->ITEM_PRECO);
+                                }
                             @endphp
                             <tr>
                                 <td class="text-center py-3"><a href="{{route('pedido', $pedido->PEDIDO_ID)}}" class="link text-dark">#{{$pedido->PEDIDO_ID}}</a></td>
                                 <td class="text-center py-3">{{$pedido->PEDIDO_DATA}}</td>
                                 <td class="text-center py-3 pagamento"></td>
-                                <td class="text-center py-3">{{$pedido->pedidoStatus->STATUS_DESC}}</td>
+                                <td class="text-center py-3 status">
+                                    <span class="badge rounded-pill">{{$pedido->pedidoStatus->STATUS_DESC}}</span>
+                                </td>
                                 <td class="text-center py-3">{{$pedido->pedidoItens->count()}}</td>
                                 <td class="text-center py-3">R$ {{number_format(array_sum($precoTotal), 2)}}</td>
                             </tr>
