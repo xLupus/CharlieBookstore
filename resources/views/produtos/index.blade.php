@@ -7,7 +7,8 @@
     @section('title', 'Catalogo')
 @endif
 
-@section('script','/js/catalogo.js')
+@section('script', '/js/catalogo.js')
+@section('filtro', '/js/filtro.js')
 
 @section('main')
     <div class="container-xxl my-4">
@@ -96,12 +97,21 @@
                         </button>
 
                         <div class="collapse mt-2" id="collapse3">
-                            <form action="#">
-                                <label for="range" class="form-label">Preço Mínimo</label>
-                                <input type="range" class="form-range" min="0" max="100" value="10" id="range">
+                            <form action="#" method="#">
+                                @csrf
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <label for="range" class="form-label">Preço Mínimo</label>
+                                    <span class="d-block">R$: <span id="precoMin">222</span></span>
+                                </div>
+                                <input type="range" class="form-range" min="{{preco_min}}" value="10" id="range">
 
-                                <label for="range" class="form-label mt-2">Preço Máximo</label>
-                                <input type="range" class="form-range" min="0" max="100" value="75" id="range">
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <label for="range" class="form-label">Preço Máximo</label>
+                                    <span class="d-block">R$: <span id="precoMax">222</span></span>
+                                </div>
+                                <input type="range" class="form-range" max="{{preco_max}}" value="75" id="range">
+
+                                <button type="submit" class="btn btn-outline-secondary w-100 mt-3">APLICAR</button>
                             </form>
                         </div><!-- 3 -->
                     </div>

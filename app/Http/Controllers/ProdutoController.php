@@ -35,9 +35,14 @@ class ProdutoController extends Controller
         $produtos = Produto::where('PRODUTO_ATIVO', TRUE)
                             ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
                             ->paginate(10);
-
         */
         $produtos = $categoria->produtos->count() != 0 ? $categoria->produtos : Produto::ativo();
+
+        foreach($produtos as $produto)
+            $valores[] = $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO;
+
+        $minPreco = min($valores);
+        $maxPreco = max($valores);
 
         $order_az = $order_za = $order_menor_preco = $order_maior_preco = false;
 
@@ -65,13 +70,16 @@ class ProdutoController extends Controller
             default:
                 break;
         }
-
+dd(round($minPreco));
         return view('produtos.index')->with([
             'produtos'          => $produtos,
             "order_az"          => $order_az,
             "order_za"          => $order_za,
             "order_menor_preco" => $order_menor_preco,
-            "order_maior_preco" => $order_maior_preco
+            "order_maior_preco" => $order_maior_preco,
+            "preco_max"         => $maxPreco,
+            "preco_min"         => $minPreco
+
         ]);
     }
 

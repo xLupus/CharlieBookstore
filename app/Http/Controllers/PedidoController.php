@@ -51,7 +51,7 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        $dataCompra = new \DateTime(null, new \DateTimeZone('America/Sao_Paulo'));
+        $dataCompra = new \DateTime('', new \DateTimeZone('America/Sao_Paulo'));
 
         $produtosCarrinho = Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
                                             ->where('ITEM_QTD', '>', 0)->get()->all();
