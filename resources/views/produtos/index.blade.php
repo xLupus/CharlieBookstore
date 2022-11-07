@@ -101,15 +101,15 @@
                                 @csrf
                                 <div class="d-flex justify-content-between align-items-center">
                                     <label for="range" class="form-label">Preço Mínimo</label>
-                                    <span class="d-block">R$: <span id="precoMin">222</span></span>
+                                    <span class="d-block">R$: <span id="precoMin">0, 00</span></span>
                                 </div>
-                                <input type="range" class="form-range" min="{{preco_min}}" value="10" id="range">
+                                <input type="range" class="form-range" min="{{$preco_min}}" max="{{$preco_max - 1}}" value="0" id="range">
 
                                 <div class="d-flex justify-content-between align-items-center mt-3">
                                     <label for="range" class="form-label">Preço Máximo</label>
-                                    <span class="d-block">R$: <span id="precoMax">222</span></span>
+                                    <span class="d-block">R$: <span id="precoMax">1, 00</span></span>
                                 </div>
-                                <input type="range" class="form-range" max="{{preco_max}}" value="75" id="range">
+                                <input type="range" class="form-range" min="{{$preco_min + 1}}" max="{{$preco_max}}" value="0" id="range">
 
                                 <button type="submit" class="btn btn-outline-secondary w-100 mt-3">APLICAR</button>
                             </form>
@@ -123,11 +123,8 @@
                             <div class="col">
                                 <a href="{{route('produto.show', $produto->PRODUTO_ID)}}">
                                     <figure class="figure">
-                                        @php
-                                            $idProduto = isset($produto->produtoEstoque->PRODUTO_ID) ? true : false;
-                                        @endphp
                                         @if (isset($produto->produtoImagens[0]))
-                                            <img src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid" style="{{$idProduto && $produto->produtoEstoque->PRODUTO_QTD != 0 ? '' : 'filter: grayscale(85%);'}}">
+                                            <img src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid" style="{{isset($produto->produtoEstoque->PRODUTO_ID) && $produto->produtoEstoque->PRODUTO_QTD != 0 ? '' : 'filter: grayscale(85%);'}}">
                                         @else
                                             <img src="https://via.placeholder.com/223x300/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class=" figure-img img-fluid">
                                         @endif

@@ -127,9 +127,9 @@
                     <span class="fw-semibold fs-5">R$ {{number_format($precoTotal - $descontoTotal, 2)}}</span>
                 </div>
 
-                <form class="" action="{{route('realizar-pedido')}}" method="post">
+                <form class="#" action="{{route('realizar-pedido')}}" method="post">
                     @csrf
-                    <input type="submit" name="" value="Efetuar Pedido" class="d-block bg-black w-100 text-white rounded-pill w-100 py-2 text-center">
+                    <input type="submit" name="#" value="Efetuar Pedido" class="d-block bg-black w-100 text-white rounded-pill w-100 py-2 text-center">
                 </form>
             </div>
         </div>

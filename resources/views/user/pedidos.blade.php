@@ -25,7 +25,7 @@
                         <th scope="col" class="text-center">DATA DA COMPRA</th>
                         <th scope="col" class="text-center">METODO DE PAGAMENTO</th>
                         <th scope="col" class="text-center">STATUS</th>
-                        <th scope="col" class="text-center">N DE ITENS</th>
+                        <th scope="col" class="text-center">Nº DE ITENS</th>
                         <th scope="col" class="text-center">TOTAL DA COMPRA</th>
                     </tr>
                 </thead>

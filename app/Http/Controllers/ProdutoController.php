@@ -70,7 +70,7 @@ class ProdutoController extends Controller
             default:
                 break;
         }
-dd(round($minPreco));
+
         return view('produtos.index')->with([
             'produtos'          => $produtos,
             "order_az"          => $order_az,
