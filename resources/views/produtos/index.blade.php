@@ -97,19 +97,19 @@
                         </button>
 
                         <div class="collapse mt-2" id="collapse3">
-                            <form action="#" method="#">
+                            <form action="{{route('price')}}" method="get">
                                 @csrf
                                 <div class="d-flex justify-content-between align-items-center">
                                     <label for="range" class="form-label">Preço Mínimo</label>
                                     <span class="d-block">R$: <span id="precoMin">0, 00</span></span>
                                 </div>
-                                <input type="range" class="form-range" min="{{$preco_min}}" max="{{$preco_max - 1}}" value="0" id="range">
+                                <input type="range" class="form-range" min="{{$preco_min}}" max="{{$preco_max - 1}}" value="0" id="range" name="precoMin">
 
                                 <div class="d-flex justify-content-between align-items-center mt-3">
                                     <label for="range" class="form-label">Preço Máximo</label>
                                     <span class="d-block">R$: <span id="precoMax">1, 00</span></span>
                                 </div>
-                                <input type="range" class="form-range" min="{{$preco_min + 1}}" max="{{$preco_max}}" value="0" id="range">
+                                <input type="range" class="form-range" min="{{$preco_min + 1}}" max="{{$preco_max}}" value="1" id="range" name="precoMax">
 
                                 <button type="submit" class="btn btn-outline-secondary w-100 mt-3">APLICAR</button>
                             </form>

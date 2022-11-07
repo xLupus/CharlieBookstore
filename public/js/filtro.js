@@ -7,7 +7,6 @@ INPUT_RANGE[0].oninput = function() { //min
         PRECO_MIN.textContent = `${this.value}, 00`;
         this.max = INPUT_RANGE[1].value - 1;
     } else {
-        console.log('entroy aqyi2');
         PRECO_MIN.textContent = `${this.value}, 00`;
     }
 }

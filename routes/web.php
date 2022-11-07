@@ -12,6 +12,7 @@ Route::get('/catalogo', [ProdutoController::class, 'index'])->name('catalogo');
 Route::get('/categoria/{categoria}', [ProdutoController::class, 'index'])->name('categoria.show');
 Route::resource('/produto', ProdutoController::class);
 Route::get('/pesquisa', [ProdutoController::class, 'search'])->name('search');
+Route::get('/preco', [ProdutoController::class, 'filter'])->name('price');
 
 Route::group( ['middleware' => ['auth'] ], function(){
     Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');

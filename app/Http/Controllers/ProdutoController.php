@@ -36,6 +36,7 @@ class ProdutoController extends Controller
                             ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
                             ->paginate(10);
         */
+
         $produtos = $categoria->produtos->count() != 0 ? $categoria->produtos : Produto::ativo();
 
         foreach($produtos as $produto)
@@ -78,8 +79,7 @@ class ProdutoController extends Controller
             "order_menor_preco" => $order_menor_preco,
             "order_maior_preco" => $order_maior_preco,
             "preco_max"         => $maxPreco,
-            "preco_min"         => $minPreco
-
+            "preco_min"         => $minPreco,
         ]);
     }
 
@@ -117,6 +117,17 @@ class ProdutoController extends Controller
 
         $resultados = $produtos->total();
 
-        return view( 'produtos.search', compact(['produtos', 'resultados', 'pesquisa']) );
+        return view('produtos.search', compact(['produtos', 'resultados', 'pesquisa']));
+    }
+
+    public function filter(Request $request) {
+        $resultado = Produto::whereBetween('PRODUTO_PRECO', [$request->precoMin, $request->precoMax])->get();
+        dd($resultado);
+        /*
+        return view('produtos.index')->with(
+            'url', "preco?price={$request->precoMin}&{$request->precoMax}",
+            ['resultado' => $resultado]
+        );
+        */
     }
 }
