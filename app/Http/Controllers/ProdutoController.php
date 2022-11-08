@@ -101,7 +101,7 @@ class ProdutoController extends Controller
     public function search(Request $request)
     {
         $pesquisa = $request->search;
-        $pesquisa = str_replace(['_', '%'], '', $pesquisa);
+        $pesquisa = str_replace(['_', '%'], '', $pesquisa); //converter para string
 
         if(!$pesquisa) return redirect()->route('catalogo');
 
