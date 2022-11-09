@@ -120,7 +120,7 @@
                 <div class="col-9">
                     <div class="row row-cols-4">
                         @foreach ($produtos as $produto)
-                            <div class="col">
+                            <div class="col">\
                                 <a href="{{route('produto.show', $produto->PRODUTO_ID)}}">
                                     <figure class="figure">
                                         @if (isset($produto->produtoImagens[0]))
@@ -132,7 +132,7 @@
                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
                                             <span class="mt-2"><small>{{$produto->PRODUTO_NOME}}</small></span>
                                             @if ($produto->PRODUTO_DESCONTO > 0)
-                                                <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5 desconto">{{number_format($produto->PRODUTO_DESCONTO / $produto->PRODUTO_PRECO * 100, 0)}}%</span>
+                                                <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5 desconto" style="{{isset($produto->produtoEstoque->PRODUTO_ID) && $produto->produtoEstoque->PRODUTO_QTD != 0 ? '' : 'filter: grayscale(85%);'}}">{{number_format($produto->PRODUTO_DESCONTO / $produto->PRODUTO_PRECO * 100, 0)}}%</span>
                                                 <div class="d-flex">
                                                     <span class="fw-semibold me-3 fs-5">R$ {{number_format($produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO, 2)}}</span>
                                                     <span class="fw-semibold"><s>R$ {{$produto->PRODUTO_PRECO}}</s></span>
