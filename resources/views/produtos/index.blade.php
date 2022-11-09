@@ -110,7 +110,7 @@
                                     <span class="d-block">R$: <span id="precoMax">1, 00</span></span>
                                 </div>
                                 <input type="range" class="form-range" min="{{$preco_min + 1}}" max="{{$preco_max}}" value="1" id="range" name="precoMax">
-                                <a href="{{($teste) ? route('catalogo') : '?price=menores-precos'}}" class="link text-decoration-none text-dark">Menores Preços</a>
+                               
                                 <button type="submit" class="btn btn-outline-secondary w-100 mt-3">APLICAR</button>
                             </form>
                         </div><!-- 3 -->
