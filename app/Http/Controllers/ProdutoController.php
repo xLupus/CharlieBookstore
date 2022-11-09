@@ -96,6 +96,7 @@ class ProdutoController extends Controller
         return view('produtos.show', compact('produto'));
     }
 
+
     public function search(Request $request)
     {
         $pesquisa = str_replace(['%', '_'], '', $request->search);

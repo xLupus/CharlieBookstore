@@ -39,7 +39,7 @@
                 <div class="offcanvas-body align-items-center">
                     <ul class="navbar-nav mx-xl-auto">
                         <li class="nav-item mb-1 mb-xl-0 pe-xl-1 text-center rounded-2">
-                            <a href="{{route('catalogo')}}" class="nav-link fw-semibold fs-4" aria-current="page">Catalogo</a>
+                            <a href="{{route('catalogo')}}" class="nav-link fw-semibold fs-5" aria-current="page">Catalogo</a>
                         </li>
                     </ul>
 

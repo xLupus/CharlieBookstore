@@ -24,10 +24,10 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome'  => ['required', 'alpha'],
+            'nome'  => ['required', 'string'],
             'email' => ['required', 'email:rfc,dns', 'unique:App\Models\User,USUARIO_EMAIL'],
             'senha' => ['required', 'string'],
-            'cpf'   => ['required', 'numeric', 'min_digits:11', 'max_digits:11']
+            'cpf'   => ['required', 'numeric', 'min_digits:11', 'max_digits:11', 'unique:App\Models\User,USUARIO_CPF']
         ];
     }
 
@@ -40,7 +40,7 @@ class RegisterRequest extends FormRequest
     {
         return [
             'nome.required'  => 'Preencha o campo',
-            'nome.alpha'     => 'Esse campo deve conter apenas letras',
+            'nome.string'    => 'Esse campo deve conter apenas texto',
             'email.required' => 'Preencha o campo',
             'email.email'    => 'Insira um formato de e-mail valido',
             'email.unique'   => 'E-mail já cadastrado',
@@ -48,7 +48,8 @@ class RegisterRequest extends FormRequest
             'cpf.required'   => 'Preencha o campo',
             'cpf.numeric'    => 'Esse campo deve conter apenas numeros',
             'cpf.min_digits' => 'Esse campo deve ter 11 digitos',
-            'cpf.max_digits' => 'Esse campo deve ter 11 digitos'
+            'cpf.max_digits' => 'Esse campo deve ter 11 digitos',
+            'cpf.unique'     => 'CPF informado já cadastrado'
         ];
     }
 }
