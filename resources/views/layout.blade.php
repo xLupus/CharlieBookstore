@@ -208,7 +208,7 @@
                         <a href="{{route('login')}}" class="link text-white d-block py-2">Entrar</a>
                         <a href="{{route('register')}}" class="link text-white d-block py-2">Cadastrar</a>
                     @else
-                        <a href="#" class="link text-white d-block py-2">Meus Pedidos</a>
+                        <a href="{{route('pedidos')}}" class="link text-white d-block py-2">Meus Pedidos</a>
                         <form action="{{route('logout')}}" method="post">
                             @csrf
                             <button type="submit" class="btn btn-link text-white d-block p-0">Sair</button>

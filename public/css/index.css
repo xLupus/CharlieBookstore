@@ -1,5 +1,6 @@
 /* CAROUSEL BUTTONS */
-.carousel-control-prev, .carousel-control-next {
+.carousel-control-prev,
+.carousel-control-next {
     margin-top: 8%;
     width: 65px;
     height: 65px;
@@ -21,9 +22,9 @@
 }
 
 figcaption .badge {
-    bottom: 4.5rem;
-    width: 4.5rem;
-    left: 12rem;
+    top: -3.5rem;
+    width: 4.1rem;
+    right: -2.5rem;
 }
 
 #txt1 {

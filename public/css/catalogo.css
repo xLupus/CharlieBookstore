@@ -11,6 +11,7 @@ ul.list-unstyled {font-size: 16px;}
 .order-btn, .order-btn:active {border: 0;}
 
 .desconto {
+    width: 4.1rem;
     right: -2.5rem;
     top: -3.5rem;
 }

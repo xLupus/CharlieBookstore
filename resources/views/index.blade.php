@@ -137,10 +137,9 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                            <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                        <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
                                                             <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
-
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -148,7 +147,7 @@
                                                                     <span class="fw-semibold"><s>R$ {{$produtos[$i]->PRODUTO_PRECO}}</s></span>
                                                                 <div>
                                                             @else
-                                                                <div class="">
+                                                                <div class="d-block">
                                                                     <span class="fw-semibold fs-5">R$ {{$produtos[$i]->PRODUTO_PRECO}}</span>
                                                                 </div>
                                                             @endif

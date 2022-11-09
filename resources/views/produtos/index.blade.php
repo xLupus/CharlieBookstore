@@ -1,5 +1,5 @@
 @extends('layout')
-@section('style', '/css/catalogo-bootstrap.css')
+@section('style', '/css/catalogo.css')
 
 @if (Route::current()->getName() == 'categoria.show')
     @section('title', 'Livros de '.Route::current()->categoria->CATEGORIA_NOME)
@@ -110,7 +110,7 @@
                                     <span class="d-block">R$: <span id="precoMax">1, 00</span></span>
                                 </div>
                                 <input type="range" class="form-range" min="{{$preco_min + 1}}" max="{{$preco_max}}" value="1" id="range" name="precoMax">
-                               
+
                                 <button type="submit" class="btn btn-outline-secondary w-100 mt-3">APLICAR</button>
                             </form>
                         </div><!-- 3 -->
