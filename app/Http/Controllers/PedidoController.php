@@ -97,6 +97,7 @@ class PedidoController extends Controller
     {
         $precoTotal = 0;
         $endereco   = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)->get()->last();
+
         $items      = PedidoItem::where('PEDIDO_ID', $request->id)->get(); //PRECISA FILTRA OS PEDIDOS APENAS DO USUARIO
 
         foreach ($items as $item)

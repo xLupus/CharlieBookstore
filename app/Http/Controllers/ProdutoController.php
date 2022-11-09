@@ -16,9 +16,9 @@ class ProdutoController extends Controller
     {
         return view('index')->with([
             'categorias' => Categoria::where('CATEGORIA_ATIVO', TRUE)
-                                       ->whereRelation('produtos', 'PRODUTO_ATIVO', TRUE)
-                                       ->orderBy('CATEGORIA_NOME', 'ASC')
-                                       ->get(),
+                ->whereRelation('produtos', 'PRODUTO_ATIVO', TRUE)
+                ->orderBy('CATEGORIA_NOME', 'ASC')
+                ->get(),
             'produtos' => Produto::all()->take(10),
         ]); //Index (recebe categorias)
     }
@@ -45,7 +45,6 @@ class ProdutoController extends Controller
         if ($request->precoMin && $request->precoMax)
             $produtos = Produto::whereRaw("(PRODUTO_PRECO - PRODUTO_DESCONTO) BETWEEN {$request->precoMin} AND {$request->precoMax}")->get();
 
-       // dd($request->price);
         switch ($request->order) {
             case 'a-z':
                 $produtos = $produtos->sortby(fn($produto) => $produto->PRODUTO_NOME);
@@ -99,7 +98,7 @@ class ProdutoController extends Controller
 
     public function search(Request $request)
     {
-        $pesquisa = strval($request->search);
+        $pesquisa = str_replace(['%', '_'], '', $request->search);
 
         if(!$pesquisa) return redirect()->route('catalogo');
 
@@ -107,9 +106,9 @@ class ProdutoController extends Controller
         $campos   = implode('%', $campos);
 
         $produtos = Produto::where('PRODUTO_ATIVO', TRUE)
-                                    ->where('PRODUTO_NOME', 'like', "%{$campos}%")
-                                    ->orderBy('PRODUTO_NOME', 'ASC')
-                                    ->paginate(10);
+            ->where('PRODUTO_NOME', 'like', "%{$campos}%")
+            ->orderBy('PRODUTO_NOME', 'ASC')
+            ->paginate(10);
 
         $produtos->withPath("pesquisa?search={$request->search}");
 

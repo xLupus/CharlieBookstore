@@ -120,7 +120,7 @@
                 <div class="col-9">
                     <div class="row row-cols-4">
                         @foreach ($produtos as $produto)
-                            <div class="col">\
+                            <div class="col">
                                 <a href="{{route('produto.show', $produto->PRODUTO_ID)}}">
                                     <figure class="figure">
                                         @if (isset($produto->produtoImagens[0]))
