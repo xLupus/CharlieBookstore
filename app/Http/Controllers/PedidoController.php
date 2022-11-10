@@ -97,8 +97,10 @@ class PedidoController extends Controller
     {
         $precoTotal = 0;
         $endereco   = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)->get()->last();
-
         $items      = PedidoItem::where('PEDIDO_ID', $request->id)->get(); //PRECISA FILTRA OS PEDIDOS APENAS DO USUARIO
+
+        if (!isset($items[0]) || $items[0]->pedido->USUARIO_ID != Auth::user()->USUARIO_ID)
+            return redirect()->route('pedidos');
 
         foreach ($items as $item)
             $precoTotal += $item->ITEM_QTD * $item->ITEM_PRECO;
