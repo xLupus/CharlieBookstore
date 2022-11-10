@@ -98,7 +98,6 @@
 
                         <div class="collapse mt-2" id="collapse3">
                             <form action="{{route('catalogo')}}" method="get">
-                                @csrf
                                 <span class="d-none" id="numMax">{{$preco_max}}</span>{{-- pega o val máx --}}
 
                                 <input type="hidden" class="form-control" id="range1" name="precoMin">
