@@ -99,17 +99,18 @@
                         <div class="collapse mt-2" id="collapse3">
                             <form action="{{route('catalogo')}}" method="get">
                                 @csrf
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <label for="range" class="form-label">Preço Mínimo</label>
-                                    <span class="d-block">R$: <span id="precoMin">0, 00</span></span>
-                                </div>
-                                <input type="range" class="form-range" min="{{$preco_min}}" max="{{$preco_max - 1}}" value="0" id="range" name="precoMin">
+                                <span class="d-none" id="numMax">{{$preco_max}}</span>{{-- pega o val máx --}}
 
-                                <div class="d-flex justify-content-between align-items-center mt-3">
-                                    <label for="range" class="form-label">Preço Máximo</label>
-                                    <span class="d-block">R$: <span id="precoMax">1, 00</span></span>
+                                <input type="hidden" class="form-control" id="range1" name="precoMin">
+                                <input type="hidden" class="form-control" id="range2" name="precoMax">
+
+                                <span class="d-block">Intervalo de preço:</span>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <span class="hstack">R$: <span class="d-block ms-2" id="val1">0</span>,00</span>
+                                    <span class="hstack">R$: <span class="d-block ms-2" id="val2">0</span>,00</span>
                                 </div>
-                                <input type="range" class="form-range" min="{{$preco_min + 1}}" max="{{$preco_max}}" value="1" id="range" name="precoMax">
+
+                                <div id="slider"></div>
 
                                 <button type="submit" class="btn btn-outline-secondary w-100 mt-3">APLICAR</button>
                             </form>
@@ -130,7 +131,7 @@
                                                 <img src="https://via.placeholder.com/223x320/F8F8F8/CCC?text=Sem%20Imagem" alt="...">
                                             @endif
                                         </div>
-                                        
+
                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
                                             <span class="mt-2"><small>{{$produto->PRODUTO_NOME}}</small></span>
                                             @if ($produto->PRODUTO_DESCONTO > 0)

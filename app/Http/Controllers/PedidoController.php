@@ -37,7 +37,7 @@ class PedidoController extends Controller
         $endereco = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)->get()->last();
 
         $produtos = Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
-                                    ->where('ITEM_QTD', '>', 0)->get()->all();
+            ->where('ITEM_QTD', '>', 0)->get()->all();
 
         return view('carrinho.checkout', compact('usuario', 'endereco', 'produtos'));
     }
@@ -53,7 +53,7 @@ class PedidoController extends Controller
         $dataCompra = new \DateTime('', new \DateTimeZone('America/Sao_Paulo'));
 
         $produtosCarrinho = Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
-                                            ->where('ITEM_QTD', '>', 0)->get()->all();
+            ->where('ITEM_QTD', '>', 0)->get()->all();
 
         $pedido = Pedido::create([
             'USUARIO_ID'  => Auth::user()->USUARIO_ID,
@@ -73,11 +73,11 @@ class PedidoController extends Controller
                 $estoqueAtual = ProdutoEstoque::where('PRODUTO_ID', $livro->PRODUTO_ID)->first()->PRODUTO_QTD;
 
                 ProdutoEstoque::where('PRODUTO_ID',  $livro->PRODUTO_ID)
-                                      ->update(['PRODUTO_QTD' => $estoqueAtual - $livro->ITEM_QTD]);
+                    ->update(['PRODUTO_QTD' => $estoqueAtual - $livro->ITEM_QTD]);
 
                 Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
-                                ->where('PRODUTO_ID',  $livro->PRODUTO_ID)
-                                ->update(['ITEM_QTD' => 0]);
+                    ->where('PRODUTO_ID',  $livro->PRODUTO_ID)
+                    ->update(['ITEM_QTD' => 0]);
             }
         }
 
@@ -96,7 +96,7 @@ class PedidoController extends Controller
     {
         $precoTotal = 0;
         $endereco   = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)->get()->last();
-        $items      = PedidoItem::where('PEDIDO_ID', $request->id)->get(); //PRECISA FILTRA OS PEDIDOS APENAS DO USUARIO
+        $items      = PedidoItem::where('PEDIDO_ID', $request->id)->get();
 
         if (!isset($items[0]) || $items[0]->pedido->USUARIO_ID != Auth::user()->USUARIO_ID)
             return redirect()->route('pedidos');
