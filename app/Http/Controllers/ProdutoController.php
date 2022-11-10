@@ -23,7 +23,6 @@ class ProdutoController extends Controller
         ]); //Index (recebe categorias)
     }
 
-
     /**
      * Display a listing of the resource.
      *
@@ -32,18 +31,21 @@ class ProdutoController extends Controller
     public function index(Request $request, Categoria $categoria)
     {
         $order_az = $order_za = $order_menor_preco = $order_maior_preco = false;
-        $minPreco = $maxPreco = null;
+        $maxPreco = null;
 
         $produtos = $categoria->produtos->count() != 0 ? $categoria->produtos : Produto::ativo();
 
-        foreach($produtos as $produto)
+        $produtosAtivos = Produto::ativo();
+
+        foreach($produtosAtivos as $produto)
             $valores[] = $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO;
 
-        $minPreco = min($valores);
         $maxPreco = max($valores);
+        $minPreco = min($valores);
 
-        if ($request->precoMin && $request->precoMax)
+        if ($request->precoMin && $request->precoMax) {
             $produtos = Produto::whereRaw("(PRODUTO_PRECO - PRODUTO_DESCONTO) BETWEEN {$request->precoMin} AND {$request->precoMax}")->get();
+        }
 
         switch ($request->order) {
             case 'a-z':
@@ -77,7 +79,7 @@ class ProdutoController extends Controller
             "order_menor_preco" => $order_menor_preco,
             "order_maior_preco" => $order_maior_preco,
             "preco_max"         => $maxPreco,
-            "preco_min"         => $minPreco
+            "preco_min"         => $minPreco,
         ]);
     }
 
@@ -95,7 +97,6 @@ class ProdutoController extends Controller
 
         return view('produtos.show', compact('produto'));
     }
-
 
     public function search(Request $request)
     {

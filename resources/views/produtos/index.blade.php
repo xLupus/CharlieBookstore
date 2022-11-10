@@ -110,9 +110,9 @@
                                     <span class="hstack">R$: <span class="d-block ms-2" id="val2">0</span>,00</span>
                                 </div>
 
-                                <div id="slider"></div>
+                                <div class="w-75 mx-auto" id="slider"></div>
 
-                                <button type="submit" class="btn btn-outline-secondary w-100 mt-3">APLICAR</button>
+                                <button type="submit" class="btn btn-outline-secondary w-100 mt-4">APLICAR</button>
                             </form>
                         </div><!-- 3 -->
                     </div>
