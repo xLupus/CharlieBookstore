@@ -123,12 +123,14 @@
                             <div class="col">
                                 <a href="{{route('produto.show', $produto->PRODUTO_ID)}}">
                                     <figure class="figure">
-                                        @if (isset($produto->produtoImagens[0]))
-                                            <img src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid" style="{{isset($produto->produtoEstoque->PRODUTO_ID) && $produto->produtoEstoque->PRODUTO_QTD != 0 ? '' : 'filter: grayscale(85%);'}}">
-                                        @else
-                                            <img src="https://via.placeholder.com/223x300/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class=" figure-img img-fluid">
-                                        @endif
-
+                                        <div style="width: 223px; height: 320px" class="overflow-hidden rounded-4">
+                                            @if (isset($produto->produtoImagens[0]))
+                                                <img src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid" style="{{isset($produto->produtoEstoque->PRODUTO_ID) && $produto->produtoEstoque->PRODUTO_QTD != 0 ? '' : 'filter: grayscale(85%);'}}">
+                                            @else
+                                                <img src="https://via.placeholder.com/223x320/F8F8F8/CCC?text=Sem%20Imagem" alt="...">
+                                            @endif
+                                        </div>
+                                        
                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
                                             <span class="mt-2"><small>{{$produto->PRODUTO_NOME}}</small></span>
                                             @if ($produto->PRODUTO_DESCONTO > 0)
