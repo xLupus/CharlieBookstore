@@ -20,10 +20,9 @@ class PedidoController extends Controller
      */
     public function index()
     {
-       $pedidos = Pedido::where('USUARIO_ID', Auth::user()->USUARIO_ID)
-                                ->paginate(10);
+       $pedidos = Pedido::where('USUARIO_ID', Auth::user()->USUARIO_ID)->paginate(10);
 
-        return view('user.pedidos', compact('pedidos'));
+       return view('user.pedidos', compact('pedidos'));
     }
 
     /**

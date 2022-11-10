@@ -34,19 +34,19 @@
                         @foreach ($pedidos as $pedido)
                             @php
                                 $precoTotal = [];
+                                $itensTotal = 0;
 
                                 foreach ($pedido->pedidoItens as $item) {
                                     $precoTotal[] = $item->ITEM_QTD * ($item->ITEM_PRECO);
+                                    $itensTotal   += $item->ITEM_QTD;
                                 }
                             @endphp
                             <tr>
                                 <td class="text-center py-3"><a href="{{route('pedido', $pedido->PEDIDO_ID)}}" class="link text-dark">#{{$pedido->PEDIDO_ID}}</a></td>
-                                <td class="text-center py-3">{{implode('/', array_reverse(explode('-', $pedido->PEDIDO_DATA)) )}}</td>
+                                <td class="text-center py-3">{{implode('/', array_reverse(explode('-', $pedido->PEDIDO_DATA)))}}</td>
                                 <td class="text-center py-3 pagamento"></td>
-                                <td class="text-center py-3 status">
-                                    <span class="badge rounded-pill">{{$pedido->pedidoStatus->STATUS_DESC}}</span>
-                                </td>
-                                <td class="text-center py-3">{{$pedido->pedidoItens->count()}}</td>
+                                <td class="text-center py-3 status"><span class="badge rounded-pill">{{$pedido->pedidoStatus->STATUS_DESC}}</span></td>
+                                <td class="text-center py-3">{{$itensTotal}}</td>
                                 <td class="text-center py-3">R$ {{number_format(array_sum($precoTotal), 2)}}</td>
                             </tr>
                         @endforeach
