@@ -31,7 +31,6 @@ class ProdutoController extends Controller
     public function index(Request $request, Categoria $categoria)
     {
         $order_az = $order_za = $order_menor_preco = $order_maior_preco = false;
-        $maxPreco = null;
 
         $produtos = $categoria->produtos->count() != 0 ? $categoria->produtos : Produto::ativo();
 
