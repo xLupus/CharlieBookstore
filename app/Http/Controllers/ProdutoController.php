@@ -108,6 +108,7 @@ class ProdutoController extends Controller
 
         $produtos = Produto::where('PRODUTO_ATIVO', TRUE)
             ->where('PRODUTO_NOME', 'like', "%{$campos}%")
+            ->whereRelation('produtoEstoque', 'PRODUTO_QTD', '>', 0)
             ->orderBy('PRODUTO_NOME', 'ASC')
             ->paginate(10);
 
