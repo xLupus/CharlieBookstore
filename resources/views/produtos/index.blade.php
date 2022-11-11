@@ -105,8 +105,8 @@
 
                                 <span class="d-block">Intervalo de preço:</span>
                                 <div class="d-flex justify-content-between align-items-center mt-2">
-                                    <span class="hstack">R$: <span class="d-block ms-2" id="val1">0</span>,00</span>
-                                    <span class="hstack">R$: <span class="d-block ms-2" id="val2">0</span>,00</span>
+                                    <span class="hstack">R$: <span class="d-block ms-2" id="val1">{{isset($min) ? $min : '0'}}</span>.00</span>
+                                    <span class="hstack">R$: <span class="d-block ms-2" id="val2">{{isset($max) ? $max : ceil($preco_max)}}</span>.00</span>
                                 </div>
 
                                 <div class="w-75 mx-auto" id="slider"></div>

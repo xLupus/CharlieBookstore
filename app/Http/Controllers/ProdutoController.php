@@ -79,6 +79,8 @@ class ProdutoController extends Controller
             "order_maior_preco" => $order_maior_preco,
             "preco_max"         => $maxPreco,
             "preco_min"         => $minPreco,
+            "min"               => $request->precoMin,
+            "max"               => $request->precoMax,
         ]);
     }
 

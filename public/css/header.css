@@ -19,3 +19,18 @@ input[type="search"]::-webkit-search-results-decoration {
 .badge-itens {
     background-color: #B75C3D;
 }
+
+.dropdown-toggle::after {display: none;}
+
+.user {
+    bottom: 1rem;
+    left: 3rem;
+    padding: .35rem;
+}
+
+@media screen and (max-width: 1200px) {
+    .user {
+        bottom: .55rem;
+        left: 2rem;
+    }
+}

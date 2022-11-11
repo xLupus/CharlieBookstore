@@ -28,13 +28,16 @@
                 <img src="/img/Logo.png" class="img-fluid">
             </a>
 
-            <form action="#" method="#" class="mx-auto d-none d-md-block d-xl-none w-50 mt-xl-0 position-relative" role="search">
-                <input type="search" class="form-control form-control-lg" maxlength="100">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search position-absolute top-50 translate-middle-y" viewBox="0 0 16 16" style="right: 1em">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                </svg>
+            <form action="{{route('search')}}" method="#" class="mx-auto d-none d-md-block d-xl-none w-50 mt-xl-0 position-relative" role="search">
+                <input type="search" class="form-control form-control-lg" maxlength="100" name="search" value="{{$pesquisa ?? ''}}">
+                    <button type="submit" class="btn btn-default p-0 border-0 position-absolute top-50 translate-middle-y" style="right: 1em">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </button>
             </form>
 
+            {{-- OFF CANVAS --}}
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffCanvas" aria-controls="navbarSupportedContent" aria-expanded="false">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -51,29 +54,27 @@
                         </li>
                     </ul>
 
-                    <form action="{{ route('search') }}" class="mx-auto ms-xl-auto mx-xl-0 mt-5 mt-xl-0 mt-xl-0 d-sm-block d-md-none d-xl-block w-50 align-items-center" role="search">
-                        <div class="d-flex border border-2 rounded">
-                            <input type="search" name="search" class="form-control form-control-lg border-0" maxlength="100" value="{{$pesquisa ?? ''}}">
-                            <div class="d-flex align-items-center ">
-                                <button type="submit" class="border-0 bg-transparent px-3 py-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search " viewBox="0 0 16 16" style="right: 1em">
-                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
+                    <form action="{{ route('search') }}" method="#" class="mx-auto ms-xl-auto mx-xl-0 mt-4 mt-xl-0 mt-xl-0 d-sm-block d-md-none d-xl-block w-50 position-relative" role="search">
+                        <input type="search" class="form-control form-control-lg" maxlength="100" name="search" value="{{$pesquisa ?? ''}}">
+                        <button type="submit" class="btn btn-default p-0 border-0 position-absolute top-50 translate-middle-y" style="right: 1em">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                        </button>
                     </form>
 
                     <hr class="hr">
 
-                    <ul class="navbar-nav flex-collumn flex-xl-row mt-2 mt-xl-0 pt-xl-0 justify-content-center justify-content-xl-none align-items-center align-items-xl-none">
-                        <li class="nav-item dropdown p-3 ps-xl-4 pe-xl-1 d-none d-xl-block position-relative">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person dropdown-toggle" data-bs-toggle="dropdown" viewBox="0 0 16 16">
-                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                            </svg>
+                    <ul class="navbar-nav flex-collumn mt-2 mt-xl-0 pt-xl-0 justify-content-center justify-content-xl-none align-items-center align-items-xl-none">
+                        <li class="nav-item dropdown p-2 p-xl-3 position-relative d-none d-xl-block">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="dark" class="bi bi-person" viewBox="0 0 16 16">
+                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                                </svg>
+                            </a>
 
                             @if (Auth::user())
-                                <span class="position-absolute translate-middle rounded-circle bg-success" style="bottom: .4rem; left: 3rem; padding: .4rem;">
+                                <span class="position-absolute translate-middle rounded-circle bg-success user">
                                     <span class="visually-hidden">Logado</span>
                                 </span>
                             @endif
@@ -100,24 +101,59 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item p-3 ps-xl-4 pe-xl-4 position-relative">
+                        <li class="nav-item dropdown p-2 p-xl-3 position-relative d-block d-xl-none">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="dark" class="bi bi-person" viewBox="0 0 16 16">
+                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                                </svg>
+                            </a>
+
+                            @if (Auth::user())
+                                <span class="position-absolute translate-middle rounded-circle bg-success user">
+                                    <span class="visually-hidden">Logado</span>
+                                </span>
+                            @endif
+
+                            <ul class="dropdown-menu">
+                                @if (Auth::user())
+                                    <li>
+                                        <a href="#" class="dropdown-item disabled text-capitalize">Olá, {{Auth::user()->USUARIO_NOME}} !</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a href="{{route('pedidos')}}" class="dropdown-item">Meus Pedidos</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <form action="{{route('logout')}}" method="post" class="dropdown-item p-1">
+                                            @csrf
+                                            <button type="submit" class="btn btn-default w-100 py-0 text-start logOut">Sair</button>
+                                        </form>
+                                    </li>
+                                @else
+                                    <li><a href="{{route('login')}}" class="dropdown-item">Login</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a href="{{route('register')}}" class="dropdown-item">Cadastrar</a></li>
+                                @endif
+                            </ul>
+                        </li>
+
+                        <li class="nav-item p-2 p-xl-3 position-relative">
                             @if (Auth::user())
                                 @if (Carrinho::qtdCarrinho(Auth::user()->USUARIO_ID) > 0)
-                                    <a href="{{route('carrinho.index')}}" class="link text-decoration-none">
+                                    <a href="{{route('carrinho.index')}}" class="nav-link">
                                         <span class="badge rounded-5 position-absolute end-0 bottom-50 translate-middle-x badge-itens">{{Carrinho::qtdCarrinho(Auth::user()->USUARIO_ID)}}</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"  fill="dark" class="bi bi-cart3" viewBox="0 0 16 16">
                                             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                         </svg>
                                     </a>
                                 @else
-                                    <a href="#" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-title="Sem itens no carrinho" role="button">
+                                    <a href="#" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip" data-bs-title="Sem itens no carrinho" role="button">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"  fill="dark" class="bi bi-cart3" viewBox="0 0 16 16">
                                             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                         </svg>
                                     </a>
                                 @endif
                             @else
-                                <a href="{{route('carrinho.index')}}" class="link text-decoration-none">
+                                <a href="{{route('carrinho.index')}}" class="nav-link">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"  fill="dark" class="bi bi-cart3" viewBox="0 0 16 16">
                                         <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                     </svg>
