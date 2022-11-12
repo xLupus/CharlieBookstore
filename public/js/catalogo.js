@@ -2,7 +2,7 @@ const BTN = document.querySelectorAll('.order-btn');
 let svg = new Array();
 let path = '';
 
-for (let i = 4, j = 0; i <= 6; j++, i++) {
+for (let i = 5, j = 0; i <= 7; j++, i++) {
     svg[j] = document.querySelectorAll('svg')[i];
 }
 
@@ -14,7 +14,7 @@ BTN.forEach(function(btn) {
 
 function changeSVG(className, pathValue, currentBtn) {
     currentBtn.lastElementChild.classList = className;
-    currentBtn.lastElementChild.id === 'btnOrder' ? changePATH('d', pathValue, 4) : (currentBtn.lastElementChild.id === 'btnCategory' ? changePATH('d', pathValue, 5) : changePATH('d', pathValue, 6));
+    currentBtn.lastElementChild.id === 'btnOrder' ? changePATH('d', pathValue, 5) : (currentBtn.lastElementChild.id === 'btnCategory' ? changePATH('d', pathValue, 6) : changePATH('d', pathValue, 7));
 
     function changePATH(pathAtribute, pathValue, index) {
         path = document.querySelectorAll('path')[index];
