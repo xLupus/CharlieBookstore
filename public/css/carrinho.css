@@ -29,3 +29,7 @@ input[type=number] {appearance: textfield;}
     text-align: center;
     outline: none;
 }
+
+main {
+    margin-top: 6%;
+}

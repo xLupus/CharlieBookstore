@@ -1,8 +1,3 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
 
 body {
     display: flex;
@@ -11,4 +6,14 @@ body {
 }
 
 /* ARRUMA O FOOTER */
-main {flex: 1 0 auto;}
+main {
+    flex: 1 0 auto;
+}
+
+.breadcrumb {
+    margin-top: 8.5%;
+}
+
+header, footer {
+    font-family: 'Lora', serif;
+}

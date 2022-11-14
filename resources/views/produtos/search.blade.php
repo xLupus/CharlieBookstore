@@ -4,7 +4,7 @@
 @section('style' , '/css/pesquisa.css')
 
 @section('main')
-    <main class="container-xxl my-4">
+    <main class="container-xxl">
         <div class="my-4">
             <span>A PESQUISA POR "<strong>{{$pesquisa}}</strong>"</span>
             <span>RETORNOU: <strong>{{$resultados}}</strong> RESULTADOS</span>

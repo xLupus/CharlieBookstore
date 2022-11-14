@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
-header {
-    font-family: 'Lora', serif;
-}
+
 
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
@@ -10,6 +8,10 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
     appearance: none;
     width: 21px;
+}
+
+.offcanvas-body form {
+    width: 50%;
 }
 
 .input-group-text, .bi-person, .bi-cart3, .badge {
@@ -34,3 +36,10 @@ input[type="search"]::-webkit-search-results-decoration {
         left: 2rem;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .offcanvas-body form {
+        width: 100%;
+    }
+}
+

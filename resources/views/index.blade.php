@@ -5,7 +5,7 @@
 
 @section('main')
     <main role="main">
-        <div class="container-fluid mt-5 mb-5">
+        <div class="container-fluid mb-5">
             <div class="row">
                 <div class="col-4">
                     <img src="/img/Image.png" alt="image" class="img-fluid position-relative" style="right: .8rem;">

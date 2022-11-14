@@ -31,7 +31,7 @@
                     <div class="d-block bg-light p-4 shadow-sm">
                         <span class="d-block fw-bold" id="filter">FILTROS:</span>
 
-                        <button class="btn btn-default d-inline-flex align-items-center mt-4 p-0 order-btn" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="#collapse1">
+                        <button class="btn btn-default d-inline-flex justify-content-between align-items-center mt-4 p-0 w-100 order-btn" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="#collapse1">
                             <span class="d-block fw-bold" id="order">ORDENAR POR</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-dash ms-2" viewBox="0 0 16 16" id="btnOrder">
                                 <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
@@ -58,7 +58,7 @@
                             </ul>
                         </div><!-- 1 -->
 
-                        <button class="btn btn-default d-inline-flex align-items-center mt-4 p-0 order-btn" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="#collapse2">
+                        <button class="btn btn-default d-inline-flex justify-content-between align-items-center mt-4 p-0 w-100 order-btn" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="#collapse2">
                             <span class="d-block fw-bold" id="categorie">CATEGORIAS</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-dash ms-2" viewBox="0 0 16 16" id="btnCategory">
                                 <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
@@ -89,8 +89,8 @@
                             </ul>
                         </div><!-- 2 -->
 
-                        <button class="btn btn-default d-inline-flex align-items-center mt-4 p-0 order-btn" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="#collapse3">
-                            <span class="d-block fw-bold" id="price">FAIXA DE PREÇO</span>
+                        <button class="btn btn-default d-inline-flex justify-content-between align-items-center mt-4 p-0 w-100 order-btn" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="#collapse3">
+                            <span class="d-block fw-bold" id="price">PREÇO</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-dash ms-2" viewBox="0 0 16 16" id="btnPrice">
                                 <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
                             </svg>
@@ -98,18 +98,16 @@
 
                         <div class="collapse mt-2" id="collapse3">
                             <form action="{{route('catalogo')}}" method="get">
-                                <span class="d-none" id="numMax">{{$preco_max}}</span>{{-- pega o val máx --}}
-
-                                <input type="hidden" class="form-control" id="range1" name="precoMin">
-                                <input type="hidden" class="form-control" id="range2" name="precoMax">
-
+                                {{-- Pega o val max --}}
+                                    <input type="hidden" class="form-control" id="preco-max" value="{{$preco_max}}"></span>
+                                {{--  --}}
                                 <span class="d-block">Intervalo de preço:</span>
                                 <div class="d-flex justify-content-between align-items-center mt-2">
-                                    <span class="hstack">R$: <span class="d-block ms-2" id="val1">{{isset($min) ? $min : '0'}}</span>.00</span>
-                                    <span class="hstack">R$: <span class="d-block ms-2" id="val2">{{isset($max) ? $max : ceil($preco_max)}}</span>.00</span>
+                                    <span class="hstack me-2">R$: <input class="form-control form-control-sm ms-auto" id="val1" name="precoMin" value="{{isset($min) ? $min : '0'}}" readonly></span>
+                                    <span class="hstack ms-2">R$: <input class="form-control form-control-sm ms-auto" id="val2" name="precoMax"  value="{{isset($max) ? $max : ceil($preco_max)}}" readonly></span>
                                 </div>
 
-                                <div class="w-75 mx-auto" id="slider"></div>
+                                <div class="mx-auto mt-3" id="slider"></div>
 
                                 <button type="submit" class="btn btn-outline-secondary w-100 mt-4">APLICAR</button>
                             </form>
