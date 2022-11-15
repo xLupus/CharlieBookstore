@@ -251,12 +251,12 @@
         <hr class="hr py-1">
 
         <div class="container-xxl">
-            <div class="row row-cols-3 mt-4 flex-wrap">
-                <div class="col-4">
+            <div class="row row-cols-1 row-cols-md-3 mt-4">
+                <div class="col d-flex d-md-block flex-column align-items-center justify-content-center">
                     <span class="text-white fw-bold fs-5 d-block mb-4">Navegue Por Aqui:</span>
                     <a href="{{route('catalogo')}}" class="link text-white">Catalogo</a>
                 </div>
-                <div class="col-4 d-flex flex-column align-items-center justify-content-center">
+                <div class="col d-flex flex-column align-items-center justify-content-center mt-5 mt-md-0">
                     <span class="text-white fw-bold fs-5">Confira Nossas Redes:</span>
 
                     <ul class="list-group list-group-horizontal border border-0 ms-0 mt-4">
@@ -286,7 +286,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-4 d-flex flex-column align-items-end justify-content-center">
+                <div class="col d-flex flex-column align-items-center align-items-md-end justify-content-center mt-5 mt-md-0">
                     <span class="text-white fw-bold fs-5 d-block mb-4">Meu Perfil:</span>
 
                     @if (!Auth::user())

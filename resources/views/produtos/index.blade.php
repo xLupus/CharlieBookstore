@@ -11,7 +11,7 @@
 @section('filtro', '/js/filtro.js')
 
 @section('main')
-    <div class="container-xxl my-4">
+    <div class="container-xxl" style="margin-top: 8.5%">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 @if (Route::current()->getName() == 'categoria.show')
@@ -26,8 +26,8 @@
 
     <main role="main">
         <div class="container-xxl mb-5">
-            <div class="row row-cols-2 gx-5">
-                <div class="col-3 pe-5">
+            <div class="row row-cols-1 row-cols-md-2">
+                <div class="col-md-3 col-12 pe-md-5 px-3 px-md-0 pe-0">
                     <div class="d-block bg-light p-4 shadow-sm">
                         <span class="d-block fw-bold" id="filter">FILTROS:</span>
 
@@ -115,17 +115,17 @@
                     </div>
                 </div>
 
-                <div class="col-9">
-                    <div class="row row-cols-4">
+                <div class="col-md-9 col-12 mt-5 mt-md-0">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gx-5">
                         @foreach ($produtos as $produto)
-                            <div class="col">
+                            <div class="col d-flex justify-content-center">
                                 <a href="{{route('produto.show', $produto->PRODUTO_ID)}}">
                                     <figure class="figure">
-                                        <div style="width: 223px; height: 320px" class="overflow-hidden rounded-4">
+                                        <div class="overflow-hidden rounded-4" style="width: 223px; height: 320px">
                                             @if (isset($produto->produtoImagens[0]))
                                                 <img src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid" style="{{isset($produto->produtoEstoque->PRODUTO_ID) && $produto->produtoEstoque->PRODUTO_QTD != 0 ? '' : 'filter: grayscale(85%);'}}">
                                             @else
-                                                <img src="https://via.placeholder.com/223x320/F8F8F8/CCC?text=Sem%20Imagem" alt="...">
+                                                <img src="https://via.placeholder.com/223x320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                             @endif
                                         </div>
 
