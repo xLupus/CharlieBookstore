@@ -11,23 +11,23 @@
 @section('filtro', '/js/filtro.js')
 
 @section('main')
-    <div class="container-xxl" style="margin-top: 8.5%">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                @if (Route::current()->getName() == 'categoria.show')
-                    <li class="breadcrumb-item"><a class="link" href="{{route('catalogo')}}">Livros</a></li>
-                    <li class="breadcrumb-item active">{{ucfirst(Route::current()->categoria->CATEGORIA_NOME)}}</li>
-                @else
-                    <li class="breadcrumb-item active">Livros<li>
-                @endif
-            </ol>
-        </nav>
-    </div>
-
     <main role="main">
+        <div class="container-xxl" style="margin-top: 8.5%">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    @if (Route::current()->getName() == 'categoria.show')
+                        <li class="breadcrumb-item"><a class="link" href="{{route('catalogo')}}">Livros</a></li>
+                        <li class="breadcrumb-item active">{{ucfirst(Route::current()->categoria->CATEGORIA_NOME)}}</li>
+                    @else
+                        <li class="breadcrumb-item active">Livros<li>
+                    @endif
+                </ol>
+            </nav>
+        </div>
+
         <div class="container-xxl mb-5">
-            <div class="row row-cols-1 row-cols-md-2">
-                <div class="col-md-3 col-12 pe-md-5 px-3 px-md-0 pe-0">
+            <div class="row row-cols-1 row-cols-lg-2">
+                <div class="col-xl-3 col-12 mt-5 mt-xl-0">
                     <div class="d-block bg-light p-4 shadow-sm">
                         <span class="d-block fw-bold" id="filter">FILTROS:</span>
 
@@ -115,22 +115,22 @@
                     </div>
                 </div>
 
-                <div class="col-md-9 col-12 mt-5 mt-md-0">
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gx-5">
+                <div class="col-xl-9 col-12 mt-5 mt-xl-0">
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
                         @foreach ($produtos as $produto)
                             <div class="col d-flex justify-content-center">
                                 <a href="{{route('produto.show', $produto->PRODUTO_ID)}}">
                                     <figure class="figure">
-                                        <div class="overflow-hidden rounded-4" style="width: 223px; height: 320px">
+                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                             @if (isset($produto->produtoImagens[0]))
                                                 <img src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid" style="{{isset($produto->produtoEstoque->PRODUTO_ID) && $produto->produtoEstoque->PRODUTO_QTD != 0 ? '' : 'filter: grayscale(85%);'}}">
                                             @else
-                                                <img src="https://via.placeholder.com/223x320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                             @endif
                                         </div>
 
-                                        <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                            <span class="mt-2"><small>{{$produto->PRODUTO_NOME}}</small></span>
+                                        <figcaption class="figure-caption text-dark fw-semibold position-relative">
+                                            <span class="fs-6">{{$produto->PRODUTO_NOME}}</span>
                                             @if ($produto->PRODUTO_DESCONTO > 0)
                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5 desconto" style="{{isset($produto->produtoEstoque->PRODUTO_ID) && $produto->produtoEstoque->PRODUTO_QTD != 0 ? '' : 'filter: grayscale(85%);'}}">{{number_format($produto->PRODUTO_DESCONTO / $produto->PRODUTO_PRECO * 100, 0)}}%</span>
                                                 <div class="d-flex">

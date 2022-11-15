@@ -17,3 +17,8 @@ main {
 header, footer {
     font-family: 'Lora', serif;
 }
+
+.container {
+        position: relative;
+        left: 1;
+}
