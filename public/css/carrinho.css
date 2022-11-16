@@ -34,3 +34,13 @@ input[type=number] {appearance: textfield;}
 main {
     margin-top: 6%;
 }
+
+.cart {
+    margin-top: 3.5rem;
+}
+
+.form-endereco {width: 75%;}
+
+@media screen and (max-width: 576px) {
+    .form-endereco, .enderecoNovo {width: 100%;}
+}

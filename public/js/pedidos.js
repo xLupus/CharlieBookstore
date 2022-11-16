@@ -1,4 +1,4 @@
-const STATUS  = document.querySelectorAll('.status');
+const STATUS = document.querySelectorAll('.status');
 const PAGAMENTO = document.querySelectorAll('.pagamento');
 const METODO_PAGAMENTO = ['Boleto', 'Pix', 'Cartão de Credito', 'Transferencia Bancaria'];
 
@@ -31,5 +31,5 @@ STATUS.forEach(item => {
 });
 
 function mudarEstilo(item, bgColor) {
-    item.firstElementChild.classList.add(bgColor);
+    item.classList.add(bgColor);
 }

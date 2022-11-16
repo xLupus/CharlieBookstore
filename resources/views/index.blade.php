@@ -660,7 +660,7 @@
                     <p class="fs-3 fw-bold txt">Maiores Descontos</p>
                 </div>
 
-                <div class="col-10 mx-auto mt-2 mb-1"><!-- carousel 1 -->
+                <div class="col-10 mx-auto mt-2 mb-1"><!-- carousel 2 -->
                     <div id="carouselControls5" class="carousel slide d-none d-xl-block" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="6500">

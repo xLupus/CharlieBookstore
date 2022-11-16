@@ -7,8 +7,6 @@ body {
 
 main {flex: 1 0 auto;}
 
-footer {margin-top: 3.5rem;}
-
 .breadcrumb {margin-top: 9rem;}
 
 header, footer {font-family: 'Lora', serif;}

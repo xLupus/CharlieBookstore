@@ -1,8 +1,11 @@
-footer {background-color: #5C3D2F;}
+footer {
+    background-color: #5C3D2F;
+    margin-top: 4rem;
+}
 
 hr {background-color: #E0C09A;}
 
-img {
+footer img {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -17,7 +20,7 @@ img {
 
 
 @media screen and (max-width: 768px){
-    img {width: 100%;}
+    footer img {width: 100%;}
 }
 
 @media screen and (max-width: 576px) {

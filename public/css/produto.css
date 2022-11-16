@@ -16,7 +16,6 @@ input[type=number] {appearance: textfield;}
 
 .side-pictures {
     width: 150px;
-    height: 480px;
 }
 
 .side-pictures img {cursor: pointer;}
