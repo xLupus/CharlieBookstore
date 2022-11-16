@@ -6,9 +6,9 @@
 
 @section('main')
     <main role="main">
-        <div class="container-xxl mt-5 mb-5">
-            <div class="row row-cols-2">
-                <div class="col-12 mb-3 cart">
+        <div class="container-xxl mb-5">
+            <div class="row cart">
+                <div class="col-12 mb-3">
                     <span class="d-block fs-3 fw-bold">CARRINHO</span>
                 </div>
             </div>

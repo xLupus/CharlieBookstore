@@ -31,13 +31,7 @@ input[type=number] {appearance: textfield;}
     outline: none;
 }
 
-main {
-    margin-top: 6%;
-}
-
-.cart {
-    margin-top: 3.5rem;
-}
+.cart {margin-top: 9rem;}
 
 .form-endereco {width: 75%;}
 
