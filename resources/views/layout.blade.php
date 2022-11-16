@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta http-equiv="cache-control" content="max-age=0" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="expires" content="0" />
-    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
-    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="max-age=0">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
+    <meta http-equiv="pragma" content="no-cache">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
@@ -24,7 +24,6 @@
         <script src="/js/tooltip.js" defer></script>
         <script src="@yield('script')" defer></script>
         <script src="@yield('filtro')" defer></script>
-
     <title>@yield('title')</title>
 </head>
 <body>
@@ -315,7 +314,6 @@
                 </div>
                 <div class="col d-flex flex-column align-items-center align-items-md-end justify-content-center my-5 my-md-1">
                     <span class="text-white fw-bold fs-5 d-block mb-4">Meu Perfil:</span>
-
                     @if (!Auth::user())
                         <a href="{{route('login')}}" class="link text-white d-block">ENTRAR</a>
                         <a href="{{route('register')}}" class="link text-white d-block pt-2">CADASTRAR</a>

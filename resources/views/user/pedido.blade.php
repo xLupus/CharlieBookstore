@@ -3,7 +3,7 @@
 @section('title', "Pedido #{$items[0]->PEDIDO_ID}")
 
 @section('main')
-    <div class="container-xxl mt-4">
+    <div class="container-xxl">
         <nav aria-label="breadcrumb">
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#" class="link">Perfil</a></li>

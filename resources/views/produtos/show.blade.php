@@ -6,7 +6,7 @@
 @section('script','/js/produto.js')
 
 @section('main')
-    <div class="my-4 container-xxl">
+    <div class="container-xxl">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('catalogo')}}">Livros</a></li>

@@ -42,9 +42,8 @@ class ProdutoController extends Controller
         $maxPreco = max($valores);
         $minPreco = min($valores);
 
-        if ($request->precoMin && $request->precoMax) {
+        if ($request->precoMin && $request->precoMax)
             $produtos = Produto::whereRaw("(PRODUTO_PRECO - PRODUTO_DESCONTO) BETWEEN {$request->precoMin} AND {$request->precoMax}")->get();
-        }
 
         switch ($request->order) {
             case 'a-z':
