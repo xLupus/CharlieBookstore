@@ -61,6 +61,12 @@ class LoginRequest extends FormRequest
             'USUARIO_EMAIL' => $this->only('email')['email'] //only retorna o array, e somente o dado daquele EMAIL
         ])->first(); //filtra aonde encotnrar usuario email aonde encontrar o campo email (filtra o usuári que tiver o EMAIL) e retorna o primeiro valor ENCONTRADO
 
+        if (!$user) {
+            throw ValidationException::withMessages([
+                'invalid' => trans('*CREDENCIAIS INCORRETAS'),
+            ]);
+        }
+
         //seta dupla => acessa propriedade , -> acessa valor
         //(verifica que são iguais)
         if (Hash::check($this->only('password')['password'], $user->USUARIO_SENHA)) { //passa a senha atual ( o que o usuario está digitando) (verifica se a hash corresponde a do banco) (verifica se pertence ao mesmo numero)
