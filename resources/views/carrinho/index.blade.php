@@ -14,7 +14,7 @@
             </div>
 
             <div class="row row-cols-1 row-cols-lg-2 justify-content-center gx-lg-4 gx-xxl-5">
-                <div class="col-9 col-lg-7 col-xxl-8">
+                <div class="col-11 col-lg-7 col-xxl-8">
                     <div class="row">
                         <div class="col">
                             <hr class="hr bg-light">
@@ -158,7 +158,7 @@
                     </div>
                 </div>
 
-                <div class="col-9 order-first order-lg-0 mb-md-5 mb-lg-0 col-lg-4 col-xxl-4">
+                <div class="col-11 order-first order-lg-0 mb-md-5 mb-lg-0 col-lg-4 col-xxl-4">
                     <div class="row">
                         <div class="col-12 bg-light rounded-top mb-2 p-4">
                             <span class="d-block fw-bold fs-5 mb-3">CUPOM DE DESCONTO</span>
