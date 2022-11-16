@@ -1,24 +1,19 @@
-
+/* Arruma footer */
 body {
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
-/* ARRUMA O FOOTER */
-main {
-    flex: 1 0 auto;
-}
+main {flex: 1 0 auto;}
 
-.breadcrumb {
-    margin-top: 8.5%;
-}
+footer {margin-top: 3.5rem;}
 
-header, footer {
-    font-family: 'Lora', serif;
-}
+.breadcrumb {margin-top: 9rem;}
 
-.container {
-        position: relative;
-        left: 1;
+header, footer {font-family: 'Lora', serif;}
+
+.div {
+    width: 177px;
+    height: 265px;
 }

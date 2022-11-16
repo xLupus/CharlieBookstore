@@ -12,7 +12,7 @@
 
 @section('main')
     <main role="main">
-        <div class="container-xxl" style="margin-top: 8.5%">
+        <div class="container-xxl">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     @if (Route::current()->getName() == 'categoria.show')
@@ -25,9 +25,9 @@
             </nav>
         </div>
 
-        <div class="container-xxl mb-5">
+        <div class="container-xxl">
             <div class="row row-cols-1 row-cols-lg-2">
-                <div class="col-lg-3 col-12 mt-5 mt-xl-0">
+                <div class="col-lg-3 col-12 mb-5 mb-lg-0 mt-md-0">
                     <div class="d-block bg-light p-4 shadow-sm">
                         <span class="d-block fw-bold" id="filter">FILTROS:</span>
 
@@ -115,11 +115,11 @@
                     </div>
                 </div>
 
-                <div class="col-lg-9 col-12 mt-5 mt-xl-0">
-                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+                <div class="col-lg-9 col-12 mt-5 mt-lg-0">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
                         @foreach ($produtos as $produto)
                             <div class="col d-flex justify-content-center">
-                                <a href="{{route('produto.show', $produto->PRODUTO_ID)}}">
+                                <a href="{{route('produto.show', $produto->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                     <figure class="figure">
                                         <div class="overflow-hidden rounded-4 mb-3 div">
                                             @if (isset($produto->produtoImagens[0]))
