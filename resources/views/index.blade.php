@@ -1,4 +1,3 @@
-@php $min = $max = 0; @endphp
 @extends('layout')
 
 @section('style', 'css/index.css')
@@ -11,11 +10,11 @@
                 <div class="col-md-12 col-lg-4">
                     <img src="/img/Image.png" alt="image" class="img-fluid position-relative" style="right: .8rem;">
                 </div>
-                <div class="col-md-9 col-lg-6 text-sm-center">
-                    <p class="lh-1 txt" id="txt1">A sua <br> Livraria <br> Online</p>
-                    <p class="fs-4 txt" id="txt2">Conheça nosso acervo literário!</p>
-                    <div class="vstack col-6 col-sm-10" id="div-btn">
-                        <a href="{{route('catalogo')}}" class="btn btn-default w-100 p-2 fs-3 text-decoration-none text-white btn-conferir" role="button">Conferir</a>
+                <div class="vstack col-md-9 col-lg-6 text-center text-md-none">
+                    <span class="lh-1" id="txt1">A sua <br> Livraria <br> Online</span>
+                    <span class="fs-4 mt-4" id="txt2">Conheça nosso acervo literário!</span>
+                    <div class="mt-4">
+                        <a href="{{route('catalogo')}}" class="btn btn-default w-75 p-2 fs-3 text-decoration-none text-white btn-conferir" role="button">Conferir</a>
                     </div>
                 </div>
                 <div class="col-md-3 col-lg-2 d-none d-md-block">
@@ -45,7 +44,7 @@
                 </div>
 
                 <div class="col-10 mx-auto mt-2 mb-1"><!-- carousel 1 -->
-                    <div id="carouselControls" class="carousel slide d-none d-lg-block" data-bs-ride="carousel">
+                    <div id="carouselControls" class="carousel slide d-none d-xl-block" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="6500">
                                 <div class="row row-cols-4 g-5">
@@ -58,7 +57,7 @@
                                                                 @if (isset($produtos[$i]->produtoImagens[0]))
                                                                     <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                                 @else
-                                                                    <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                    <img src="https://via.placeholder.com/223x320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                                 @endif
                                                             </div>
 
@@ -95,7 +94,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -132,7 +131,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -169,7 +168,7 @@
                         </button>
                     </div>{{-- 4 --}}
 
-                    <div id="carouselControls2" class="carousel slide d-none d-md-block d-lg-none" data-bs-ride="carousel">
+                    <div id="carouselControls2" class="carousel slide d-none d-lg-block d-xl-none" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="6500">
                                 <div class="row row-cols-3 g-5">
@@ -182,7 +181,7 @@
                                                                 @if (isset($produtos[$i]->produtoImagens[0]))
                                                                     <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                                 @else
-                                                                    <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                    <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                                 @endif
                                                             </div>
 
@@ -219,7 +218,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -256,7 +255,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -293,7 +292,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -330,7 +329,7 @@
                         </button>
                     </div>{{-- 3 --}}
 
-                    <div id="carouselControls3" class="carousel slide d-none d-sm-block d-md-none" data-bs-ride="carousel">
+                    <div id="carouselControls3" class="carousel slide d-none d-md-block d-lg-none" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="6500">
                                 <div class="row row-cols-2 g-5">
@@ -343,7 +342,7 @@
                                                                 @if (isset($produtos[$i]->produtoImagens[0]))
                                                                     <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                                 @else
-                                                                    <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                    <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                                 @endif
                                                             </div>
 
@@ -380,7 +379,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -417,7 +416,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -454,7 +453,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -491,7 +490,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -528,7 +527,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -565,7 +564,7 @@
                         </button>
                     </div>{{-- 2 --}}
 
-                    <div id="carouselControls4" class="carousel slide d-block d-sm-none" data-bs-ride="carousel">
+                    <div id="carouselControls4" class="carousel slide d-block d-md-none" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="6500">
                                 <div class="row row-cols-1 g-5">
@@ -578,7 +577,7 @@
                                                                 @if (isset($produtos[$i]->produtoImagens[0]))
                                                                     <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                                 @else
-                                                                    <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                    <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                                 @endif
                                                             </div>
 
@@ -615,7 +614,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -662,7 +661,7 @@
                 </div>
 
                 <div class="col-10 mx-auto mt-2 mb-1"><!-- carousel 1 -->
-                    <div id="carouselControls5" class="carousel slide d-none d-lg-block" data-bs-ride="carousel">
+                    <div id="carouselControls5" class="carousel slide d-none d-xl-block" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="6500">
                                 <div class="row row-cols-4 g-5">
@@ -675,7 +674,7 @@
                                                                 @if (isset($produtos[$i]->produtoImagens[0]))
                                                                     <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                                 @else
-                                                                    <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                    <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                                 @endif
                                                             </div>
 
@@ -712,7 +711,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -749,7 +748,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -786,7 +785,7 @@
                         </button>
                     </div>{{-- 4 --}}
 
-                    <div id="carouselControls6" class="carousel slide d-none d-md-block d-lg-none" data-bs-ride="carousel">
+                    <div id="carouselControls6" class="carousel slide d-none d-lg-block d-xl-none" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="6500">
                                 <div class="row row-cols-3 g-5">
@@ -799,7 +798,7 @@
                                                                 @if (isset($produtos[$i]->produtoImagens[0]))
                                                                     <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                                 @else
-                                                                    <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                    <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                                 @endif
                                                             </div>
 
@@ -836,7 +835,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -873,7 +872,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -910,7 +909,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -947,7 +946,7 @@
                         </button>
                     </div>{{-- 3 --}}
 
-                    <div id="carouselControls7" class="carousel slide d-none d-sm-block d-md-none" data-bs-ride="carousel">
+                    <div id="carouselControls7" class="carousel slide d-none d-md-block d-lg-none" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="6500">
                                 <div class="row row-cols-2 g-5">
@@ -960,7 +959,7 @@
                                                                 @if (isset($produtos[$i]->produtoImagens[0]))
                                                                     <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                                 @else
-                                                                    <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                    <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                                 @endif
                                                             </div>
 
@@ -997,7 +996,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -1034,7 +1033,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -1071,7 +1070,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -1108,7 +1107,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -1145,7 +1144,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 
@@ -1182,7 +1181,7 @@
                         </button>
                     </div>{{-- 2 --}}
 
-                    <div id="carouselControls8" class="carousel slide d-block d-sm-none" data-bs-ride="carousel">
+                    <div id="carouselControls8" class="carousel slide d-block d-md-none" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="6500">
                                 <div class="row row-cols-1 g-5">
@@ -1195,7 +1194,7 @@
                                                                 @if (isset($produtos[$i]->produtoImagens[0]))
                                                                     <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                                 @else
-                                                                    <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                    <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                                 @endif
                                                             </div>
 
@@ -1232,7 +1231,7 @@
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
-                                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
                                                         </div>
 

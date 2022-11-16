@@ -50,7 +50,7 @@ ul.list-unstyled {font-size: 16px;}
     appearance: none;
 }
 
-@media (prefers-reduced-motion:reduce) {
+@media (prefers-reduced-motion: reduce) {
     #slider span:nth-child(2),
     #slider span:last-child {
         transition: none;

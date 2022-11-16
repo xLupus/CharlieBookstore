@@ -1,10 +1,10 @@
 const BTN = document.querySelectorAll('.order-btn');
-let svg = new Array();
+const SVG = new Array(
+    document.getElementById('btnOrder'),
+    document.getElementById('btnCategory'),
+    document.getElementById('btnPrice')
+);
 let path = '';
-
-for (let i = 9, j = 0; i <= 11; j++, i++) {
-    svg[j] = document.querySelectorAll('svg')[i];
-}
 
 BTN.forEach(function(btn) {
     btn.addEventListener('click', () => {
@@ -14,10 +14,10 @@ BTN.forEach(function(btn) {
 
 function changeSVG(className, pathValue, currentBtn) {
     currentBtn.lastElementChild.classList = className;
-    currentBtn.lastElementChild.id === 'btnOrder' ? changePATH('d', pathValue, 9) : (currentBtn.lastElementChild.id === 'btnCategory' ? changePATH('d', pathValue, 10) : changePATH('d', pathValue, 11));
+    currentBtn.lastElementChild.id === 'btnOrder' ? changePATH('d', pathValue, SVG[0].lastElementChild) : (currentBtn.lastElementChild.id === 'btnCategory' ? changePATH('d', pathValue, SVG[1].lastElementChild) : changePATH('d', pathValue, SVG[2].lastElementChild));
 
     function changePATH(pathAtribute, pathValue, index) {
-        path = document.querySelectorAll('path')[index];
+        path = index;
         path.removeAttribute(pathAtribute);
         path.setAttribute(pathAtribute, pathValue);
     }
