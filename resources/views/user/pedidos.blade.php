@@ -11,7 +11,7 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a class="link" href="#">Perfil</a></li>
+                            <li class="breadcrumb-item"><a href="#" class="link">Perfil</a></li>
                             <li class="breadcrumb-item active">Meus Pedidos</li>
                         </ul>
                     </nav>

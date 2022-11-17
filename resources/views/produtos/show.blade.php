@@ -20,9 +20,9 @@
             </div>
         @endif
     </div>
-
-
+    
     <main class="container-xxl">
+        
         <div class="d-flex justify-content-center">
             <div class="col col-5">
                 <div class="d-flex justify-content-center books-pictures">
