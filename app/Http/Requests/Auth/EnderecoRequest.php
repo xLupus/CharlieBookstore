@@ -42,15 +42,15 @@ class EnderecoRequest extends FormRequest
     public function messages()
     {
         return [
-            'cep.required'        => 'O campo CEP é obrigatorio',
-            'cep.min_digits'      => 'O campo CEP deve conter 8 digitos',
-            'cep.max_digits'      => 'O campo CEP deve apenas 8 digitos',
-            'numero.required'     => 'O campo Numero é obrigatorio',
+            'cep.required'        => 'O campo CEP é obrigatório',
+            'cep.min_digits'      => 'O campo CEP deve conter 8 dígitos',
+            'cep.max_digits'      => 'O campo CEP deve apenas 8 dígitos',
+            'numero.required'     => 'O campo Número é obrigatório',
             'complemento'         => '',
-            'logradouro.required' => 'O campo Endereco é obrigatorio',
-            'cidade.required'     => 'O campo Cidade é obrigatorio',
-            'uf.required'         => 'O campo UF é obrigatorio',
-            'rotulo.required'     => 'O campo Rotulo é obrigatorio',
+            'logradouro.required' => 'O campo Endereço é obrigatório',
+            'cidade.required'     => 'O campo Cidade é obrigatório',
+            'uf.required'         => 'O campo UF é obrigatório',
+            'rotulo.required'     => 'O campo Rótulo é obrigatório',
         ];
     }
 }

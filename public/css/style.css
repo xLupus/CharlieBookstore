@@ -15,3 +15,39 @@ header, footer {font-family: 'Lora', serif;}
     width: 177px;
     height: 265px;
 }
+
+/* A & LI (PAGINAÇÃO) */
+.pagination li:first-child span,
+.pagination li:last-child span {
+    color: #9e9e9e;
+}
+
+.pagination li:not(li:first-child, li:last-child) a {
+    border-radius: 20%;
+    background-color: #E0E0E0;
+}
+
+.pagination li a,
+.pagination li a:focus,
+.pagination li a:hover,
+.pagination li span {
+    font-family: 'Montserrat', sans-serif;
+    border: 0;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.pagination li:nth-child(n + 2):nth-child(-n + 3) a {
+    width: 36px;
+}
+
+/*
+.pagination .active a {
+    background-color: #624DE3 !important;
+}
+*/
+
+.pagination .active a {
+    background-color: #2a2a2a !important;
+}

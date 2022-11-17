@@ -33,8 +33,8 @@ input[type=number] {appearance: textfield;}
 
 .cart {margin-top: 9rem;}
 
-.form-endereco {width: 75%;}
+#form-endereco {width: 75%;}
 
 @media screen and (max-width: 576px) {
-    .form-endereco, .enderecoNovo {width: 100%;}
+    #form-endereco, .enderecoNovo {width: 100%;}
 }

@@ -21,7 +21,7 @@ class CarrinhoController extends Controller
         $descontoTotal = 0;
 
         $itensCarrinho = Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
-                                        ->where('ITEM_QTD', '>', 0)->get();
+            ->where('ITEM_QTD', '>', 0)->get();
 
         foreach ($itensCarrinho as $item) {
             $precoTotal    += $item->produto->PRODUTO_PRECO    * $item->ITEM_QTD;
@@ -31,7 +31,7 @@ class CarrinhoController extends Controller
         if (!count($itensCarrinho)) return redirect(route('home'));
 
         $enderecos = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID )
-                                    ->paginate(3);
+            ->paginate(3);
 
         return view('carrinho.index')->with([
             'itens'         => $itensCarrinho,
@@ -59,7 +59,6 @@ class CarrinhoController extends Controller
 
             if ($request->qtd > 0) //se o estoque for maior que a soma
                 $cart->update(['ITEM_QTD' => $request->qtd > $estoque ? $estoque : $request->qtd]);
-
             else
                 $cart->update(['ITEM_QTD' => 0]);
 
@@ -71,7 +70,7 @@ class CarrinhoController extends Controller
             ]);
         }
 
-        session()->flash('message', 'Produto adicionado ao carrinho com sucesso'); //zika d+
+        session()->flash('message', 'Produto adicionado ao carrinho com sucesso!'); //zika d+
 
         return redirect()->back();
     }

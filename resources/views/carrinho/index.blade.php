@@ -60,12 +60,13 @@
                                             </label>
                                         </div>
                                     </div>
-
                                 @endforeach
 
-                                {!! $enderecos->links() !!}
+                                <div class="d-block mt-5">
+                                    {!! $enderecos->links() !!}
+                                </div>
 
-                                <button type="button" id="drop_form" class="btn btn-light btn-lg rounded-pill mt-2 mb-4 shadow-sm enderecoNovo" value="show">Adicionar novo endereço</button>
+                                <button type="button" id="drop_form" class="btn btn-light btn-lg rounded-pill my-4 shadow-sm enderecoNovo" value="show">Adicionar novo endereço</button>
                             @endif
 
                             <form action="{{ route('endereco.store') }}" method="post" class="{{$hideForm ?? ''}} row g-3 mb-5" id="form-endereco">

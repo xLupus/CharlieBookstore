@@ -67,19 +67,9 @@
                     </div>
                 </div>
 
-                {{ $pedidos->links() }}
-
-              {{--   <div class="col-12 mt-5">
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination justify-content-center text-center">
-                            <li class="page-item"><a href="#" class="page-link">Anterior</a></li>
-                            <li class="page-item"><a href="#" class="page-link active text-white ms-3">1</a></li>
-                            <li class="page-item"><a href="#" class="page-link text-dark ms-3">2</a></li>
-                            <li class="page-item"><a href="#" class="page-link text-dark ms-3">3</a></li>
-                            <li class="page-item"><a href="#" class="page-link ms-3">Próxima</a></li>
-                        </ul>
-                    </nav>
-                </div> --}}
+                <div class="col-12 mt-5">
+                    {{ $pedidos->links() }}
+                </div>
             </div>
         </div>
     </main>

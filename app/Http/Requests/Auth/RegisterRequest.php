@@ -25,9 +25,9 @@ class RegisterRequest extends FormRequest
     {
         return [
             'nome'  => ['required', 'string'],
-            'email' => ['required', 'email:rfc,dns', 'unique:App\Models\User,USUARIO_EMAIL'],
+            'email' => ['required', 'email:rfc,dns', 'unique:App\Models\User, USUARIO_EMAIL'],
             'senha' => ['required', 'string'],
-            'cpf'   => ['required', 'numeric', 'min_digits:11', 'max_digits:11', 'unique:App\Models\User,USUARIO_CPF']
+            'cpf'   => ['required', 'numeric', 'min_digits:11', 'max_digits:11', 'unique:App\Models\User, USUARIO_CPF']
         ];
     }
 
@@ -39,17 +39,17 @@ class RegisterRequest extends FormRequest
     public function messages()
     {
         return [
-            'nome.required'  => 'Preencha o campo',
+            'nome.required'  => 'Preencha este campo',
             'nome.string'    => 'Esse campo deve conter apenas texto',
-            'email.required' => 'Preencha o campo',
-            'email.email'    => 'Insira um formato de e-mail valido',
-            'email.unique'   => 'E-mail já cadastrado',
-            'senha.required' => 'Preencha o campo',
-            'cpf.required'   => 'Preencha o campo',
+            'email.required' => 'Preencha este campo',
+            'email.email'    => 'Insira um formato de e-mail válido',
+            'email.unique'   => 'O e-mail informado já possui cadastro',
+            'senha.required' => 'Preencha este campo',
+            'cpf.required'   => 'Preencha este campo',
             'cpf.numeric'    => 'Esse campo deve conter apenas numeros',
             'cpf.min_digits' => 'Esse campo deve ter 11 digitos',
-            'cpf.max_digits' => 'Esse campo deve ter 11 digitos',
-            'cpf.unique'     => 'CPF informado já cadastrado'
+            'cpf.max_digits' => 'Esse campo deve ter 11 dígitos',
+            'cpf.unique'     => 'O CPF informado já possui cadastro'
         ];
     }
 }

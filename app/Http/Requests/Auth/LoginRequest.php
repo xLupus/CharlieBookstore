@@ -61,7 +61,7 @@ class LoginRequest extends FormRequest
             'USUARIO_EMAIL' => $this->only('email')['email'] //only retorna o array, e somente o dado daquele EMAIL
         ])->first(); //filtra aonde encotnrar usuario email aonde encontrar o campo email (filtra o usuári que tiver o EMAIL) e retorna o primeiro valor ENCONTRADO
 
-        if (!$user) {
+        if (!$user) { //se não existir
             throw ValidationException::withMessages([
                 'invalid' => trans('*CREDENCIAIS INCORRETAS'),
             ]);
@@ -125,9 +125,9 @@ class LoginRequest extends FormRequest
     public function messages()
     {
         return [
-            'email.required'    => 'Preencha o campo',
-            'email.email'       => 'Formato de e-mail invalido',
-            'password.required' => 'Preencha o campo'
+            'email.required'    => 'Preencha este campo',
+            'email.email'       => 'Formato de e-mail inválido',
+            'password.required' => 'Preencha este campo'
         ];
     }
 }

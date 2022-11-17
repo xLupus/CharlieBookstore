@@ -20,8 +20,8 @@ class EnderecoController extends Controller
         $request->validated();
 
         $verification = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)
-                                        ->where('ENDERECO_NOME', $request->rotulo)
-                                        ->get();
+            ->where('ENDERECO_NOME', $request->rotulo)
+            ->get();
 
         if ($verification->count() != 0) {
             session()->flash('error-message', 'Endereço com Rotulo já cadastrado');
