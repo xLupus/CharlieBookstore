@@ -5,10 +5,7 @@ main {font-family: 'Montserrat', sans-serif;}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   appearance: none;
-  margin: 0;
 }
-
-input[type=number] {appearance: textfield;}
 
 .books-pictures {
     height: 400px;
@@ -20,31 +17,22 @@ input[type=number] {appearance: textfield;}
 
 .side-pictures img {cursor: pointer;}
 
-.quantity {
-    display: inline;
-    border: 1px solid black;
-    border-radius: 50px;
-    text-align: center;
-    vertical-align: middle;
-    margin-right: 15px;
-    height: 50px;
-}
-
-.quantity button {
-    height: 100%;
-    width: 50px;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    background: none;
-    cursor: pointer;
-}
-
+/*
 .quantity input {
     border: none;
     width: 60px;
     height: 96%;
     text-align: center;
     outline: none;
+}*/
+
+.description-container p {
+    text-align: justify;
 }
-.description-container{width: 1070px;}
+
+@media screen and (min-width: 0px) and (max-width: 1200px) {
+    .prod {
+        width: 19rem;
+    }
+}
+

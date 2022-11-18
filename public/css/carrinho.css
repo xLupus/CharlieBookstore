@@ -6,6 +6,7 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {appearance: textfield;}
 
+
 .quantity {
     border: 1px solid black;
     border-radius: 50px;
@@ -13,7 +14,7 @@ input[type=number] {appearance: textfield;}
     height: 50px;
 }
 
-.quantity button{
+.quantity button {
     height: 100%;
     width: 50px;
     font-size: 18px;

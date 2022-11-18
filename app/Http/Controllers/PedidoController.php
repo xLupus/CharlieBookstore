@@ -81,7 +81,7 @@ class PedidoController extends Controller
             }
         }
 
-        session()->flash('success', 'Pedido Realizado com Sucesso');
+        session()->flash('success', 'Pedido Realizado com Sucesso!');
 
         return redirect()->route('pedido', $pedido->PEDIDO_ID);
     }

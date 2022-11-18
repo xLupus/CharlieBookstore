@@ -17,9 +17,9 @@
                 <ol class="breadcrumb">
                     @if (Route::current()->getName() == 'categoria.show')
                         <li class="breadcrumb-item"><a class="link" href="{{route('catalogo')}}">Livros</a></li>
-                        <li class="breadcrumb-item active">{{ucfirst(Route::current()->categoria->CATEGORIA_NOME)}}</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ucfirst(Route::current()->categoria->CATEGORIA_NOME)}}</li>
                     @else
-                        <li class="breadcrumb-item active">Livros<li>
+                        <li class="breadcrumb-item active" aria-current="page">Livros<li>
                     @endif
                 </ol>
             </nav>
