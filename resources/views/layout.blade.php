@@ -97,7 +97,7 @@
                                     <li>
                                         <form action="{{route('logout')}}" method="post" class="dropdown-item p-1">
                                             @csrf
-                                            <button type="submit" class="btn btn-default w-100 py-0 text-start logOut">Sair</button>
+                                            <button type="submit" class="btn btn-default border border-0 py-0 text-start">Sair</button>
                                         </form>
                                     </li>
                                 @else
@@ -168,9 +168,9 @@
                                     <li><a href="{{route('pedidos')}}" class="dropdown-item">Meus Pedidos</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <form action="{{route('logout')}}" method="post" class="dropdown-item p-1">
+                                        <form action="{{route('logout')}}" method="post" class="dropdown-item p-1 w-auto">
                                             @csrf
-                                            <button type="submit" class="btn btn-default w-100 py-0 text-start logOut">Sair</button>
+                                            <button type="submit" class="btn btn-default border border-0 py-0 text-start w-100">Sair</button>
                                         </form>
                                     </li>
                                 @else

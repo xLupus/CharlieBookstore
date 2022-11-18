@@ -30,10 +30,10 @@
                 </div>
 
                 <div class="col-10 mx-auto mt-2 mb-5">
-                    <div class="row row-cols-3 row-cols-sm-4 row-cols-md-5 row-cols-lg-6 gy-3 gx-4 text-center">
+                    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 gy-3 gx-4 text-center">
                         @foreach($categorias as $categoria)
                             <div class="col">
-                                <a href="{{route('categoria.show',  $categoria->CATEGORIA_ID)}}" class="btn btn-default p-3 border rounded-0 bg-light w-100 text-decoration-none text-black" role="button">{{$categoria->CATEGORIA_NOME}}</a>
+                                <a href="{{route('categoria.show',  $categoria->CATEGORIA_ID)}}" class="btn btn-default p-3 border rounded-0 bg-light w-100 text-decoration-none text-black categoria" role="button">{{$categoria->CATEGORIA_NOME}}</a>
                             </div>
                         @endforeach
                     </div>
@@ -43,7 +43,7 @@
                     <p class="fs-3 fw-bold txt">Livros em Alta</p>
                 </div>
 
-                <div class="col-10 mx-auto mt-2 mb-1"><!-- carousel 1 -->
+                <div class="col-10 mx-auto my-2"><!-- carousel 1 -->
                     <div id="carouselControls" class="carousel slide d-none d-xl-block" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="6500">
@@ -53,7 +53,7 @@
                                                 <div class="d-flex justify-content-center">
                                                     <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                         <figure class="figure">
-                                                            <div class="overflow-hidden rounded-4 div">
+                                                            <div class="overflow-hidden rounded-4 mb-3 div">
                                                                 @if (isset($produtos[$i]->produtoImagens[0]))
                                                                     <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                                 @else
@@ -62,7 +62,7 @@
                                                             </div>
 
                                                             <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                                <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                                <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                                 @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                     <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                     <div class="d-flex">
@@ -90,7 +90,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -99,7 +99,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -127,7 +127,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -136,7 +136,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -177,7 +177,7 @@
                                                 <div class="d-flex justify-content-center">
                                                     <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                         <figure class="figure">
-                                                            <div class="overflow-hidden rounded-4 div">
+                                                            <div class="overflow-hidden rounded-4 mb-3 div">
                                                                 @if (isset($produtos[$i]->produtoImagens[0]))
                                                                     <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                                 @else
@@ -185,8 +185,8 @@
                                                                 @endif
                                                             </div>
 
-                                                            <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                                <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <figcaption class="figure-caption text-dark fw-semibold position-relative">
+                                                                <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                                 @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                     <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                     <div class="d-flex">
@@ -214,7 +214,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -223,7 +223,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -251,7 +251,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -260,7 +260,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -288,7 +288,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -297,7 +297,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -338,7 +338,7 @@
                                                 <div class="d-flex justify-content-center">
                                                     <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                         <figure class="figure">
-                                                            <div class="overflow-hidden rounded-4 div">
+                                                            <div class="overflow-hidden rounded-4 mb-3 div">
                                                                 @if (isset($produtos[$i]->produtoImagens[0]))
                                                                     <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                                 @else
@@ -347,7 +347,7 @@
                                                             </div>
 
                                                             <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                                <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                                <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                                 @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                     <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                     <div class="d-flex">
@@ -375,7 +375,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -384,7 +384,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -412,7 +412,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -421,7 +421,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -449,7 +449,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -458,7 +458,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -486,7 +486,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -495,7 +495,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -523,7 +523,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -532,7 +532,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -573,7 +573,7 @@
                                                 <div class="d-flex justify-content-center">
                                                     <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                         <figure class="figure">
-                                                            <div class="overflow-hidden rounded-4 div">
+                                                            <div class="overflow-hidden rounded-4 mb-3 div">
                                                                 @if (isset($produtos[$i]->produtoImagens[0]))
                                                                     <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                                 @else
@@ -582,7 +582,7 @@
                                                             </div>
 
                                                             <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                                <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                                <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                                 @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                     <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                     <div class="d-flex">
@@ -610,7 +610,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -619,7 +619,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -653,14 +653,14 @@
                 </div>
 
                 <div class="col-12 mt-5 mb-4 d-flex justify-content-center">
-                    <button type="button" class="btn btn-outline-dark px-5 py-2 fs-4">Conferir Lista</button>
+                    <button type="button" class="btn btn-outline-dark px-5 my-1 py-2 fs-4">Conferir Lista</button>
                 </div>
 
                 <div class="col-12 mt-5">
                     <p class="fs-3 fw-bold txt">Maiores Descontos</p>
                 </div>
 
-                <div class="col-10 mx-auto mt-2 mb-1"><!-- carousel 2 -->
+                <div class="col-10 mx-auto my-2"><!-- carousel 2 -->
                     <div id="carouselControls5" class="carousel slide d-none d-xl-block" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="6500">
@@ -670,7 +670,7 @@
                                                 <div class="d-flex justify-content-center">
                                                     <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                         <figure class="figure">
-                                                            <div class="overflow-hidden rounded-4 div">
+                                                            <div class="overflow-hidden rounded-4 mb-3 div">
                                                                 @if (isset($produtos[$i]->produtoImagens[0]))
                                                                     <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                                 @else
@@ -679,7 +679,7 @@
                                                             </div>
 
                                                             <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                                <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                                <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                                 @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                     <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                     <div class="d-flex">
@@ -707,7 +707,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -716,7 +716,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -744,7 +744,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -753,7 +753,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -794,7 +794,7 @@
                                                 <div class="d-flex justify-content-center">
                                                     <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                         <figure class="figure">
-                                                            <div class="overflow-hidden rounded-4 div">
+                                                            <div class="overflow-hidden rounded-4 mb-3 div">
                                                                 @if (isset($produtos[$i]->produtoImagens[0]))
                                                                     <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                                 @else
@@ -803,7 +803,7 @@
                                                             </div>
 
                                                             <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                                <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                                <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                                 @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                     <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                     <div class="d-flex">
@@ -831,7 +831,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -840,7 +840,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -868,7 +868,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -877,7 +877,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -905,7 +905,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -914,7 +914,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -955,7 +955,7 @@
                                                 <div class="d-flex justify-content-center">
                                                     <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                         <figure class="figure">
-                                                            <div class="overflow-hidden rounded-4 div">
+                                                            <div class="overflow-hidden rounded-4 mb-3 div">
                                                                 @if (isset($produtos[$i]->produtoImagens[0]))
                                                                     <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                                 @else
@@ -964,7 +964,7 @@
                                                             </div>
 
                                                             <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                                <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                                <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                                 @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                     <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                     <div class="d-flex">
@@ -992,7 +992,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -1001,7 +1001,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -1029,7 +1029,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -1038,7 +1038,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -1066,7 +1066,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -1075,7 +1075,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -1103,7 +1103,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -1112,7 +1112,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -1140,7 +1140,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -1149,7 +1149,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -1190,7 +1190,7 @@
                                                 <div class="d-flex justify-content-center">
                                                     <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                         <figure class="figure">
-                                                            <div class="overflow-hidden rounded-4 div">
+                                                            <div class="overflow-hidden rounded-4 mb-3 div">
                                                                 @if (isset($produtos[$i]->produtoImagens[0]))
                                                                     <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                                 @else
@@ -1199,7 +1199,7 @@
                                                             </div>
 
                                                             <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                                <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                                <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                                 @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                     <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                     <div class="d-flex">
@@ -1227,7 +1227,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
-                                                        <div class="overflow-hidden rounded-4 div">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
                                                             @if (isset($produtos[$i]->produtoImagens[0]))
                                                                 <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
@@ -1236,7 +1236,7 @@
                                                         </div>
 
                                                         <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                            <span class="mt-2"><small>{{$produtos[$i]->PRODUTO_NOME}}</small></span>
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
                                                             @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
                                                                 <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
                                                                 <div class="d-flex">
@@ -1270,7 +1270,7 @@
                 </div>
 
                 <div class="col-12 mt-5 mb-4 d-flex justify-content-center">
-                    <button type="button" class="btn btn-outline-dark px-5 py-2 fs-4">Conferir Lista</button>
+                    <button type="button" class="btn btn-outline-dark px-5 my-1 py-2 fs-4">Conferir Lista</button>
                 </div>
             </div>
         </div>

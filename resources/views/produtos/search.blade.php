@@ -43,7 +43,7 @@
                                     </div>
 
                                     <figcaption class="figure-caption text-dark fw-semibold position-relative">
-                                        <span class="fs-6">{{$produto->PRODUTO_NOME}}</span>
+                                        <span class="d-block fs-5 name">{{$produto->PRODUTO_NOME}}</span>
                                         @if ($produto->PRODUTO_DESCONTO > 0)
                                             <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5 desconto" style="{{isset($produto->produtoEstoque->PRODUTO_ID) && $produto->produtoEstoque->PRODUTO_QTD != 0 ? '' : 'filter: grayscale(85%);'}}">{{number_format($produto->PRODUTO_DESCONTO / $produto->PRODUTO_PRECO * 100, 0)}}%</span>
                                             <div class="d-flex">

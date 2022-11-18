@@ -1,6 +1,10 @@
 /* CATALOG */
 .history-header {background-color: #E4D1BA;}
 
+.pagination .active a {
+    background-color: #624DE3 !important;
+}
+
 /* TABLE */
 tr {height: 60px;}
 

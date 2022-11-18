@@ -13,7 +13,7 @@ Route::get('/categoria/{categoria}', [ProdutoController::class, 'index'])->name(
 Route::resource('/produto', ProdutoController::class);
 Route::get('/pesquisa', [ProdutoController::class, 'search'])->name('search');
 
-Route::group( ['middleware' => ['auth'] ], function(){
+Route::group( ['middleware' => ['auth'] ], function() {
     Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
     Route::post('/carrinho/{id}', [CarrinhoController::class, 'store'])->name('carrinho.store');
     Route::get('/checkout', [PedidoController::class, 'create'])->name('checkout');

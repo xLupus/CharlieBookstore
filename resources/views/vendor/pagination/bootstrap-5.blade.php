@@ -36,11 +36,11 @@
             {{-- Next Page Link --}}
             @if ($paginator->hasMorePages())
                 <li class="page-item">
-                    <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next">Próxima</a>
+                    <a class="page-link ms-2" href="{{ $paginator->nextPageUrl() }}" rel="next">Próxima</a>
                 </li>
             @else
                 <li class="page-item disabled" aria-disabled="true">
-                    <span class="page-link ms-3">Próxima</span>
+                    <span class="page-link ms-2">Próxima</span>
                 </li>
             @endif
         </ul>

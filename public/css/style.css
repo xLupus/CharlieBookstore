@@ -42,12 +42,10 @@ header, footer {font-family: 'Lora', serif;}
     width: 36px;
 }
 
-/*
-.pagination .active a {
-    background-color: #624DE3 !important;
-}
-*/
-
 .pagination .active a {
     background-color: #2a2a2a !important;
+}
+
+.name {
+    width: 11rem;
 }

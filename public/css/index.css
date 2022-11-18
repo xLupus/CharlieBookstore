@@ -44,6 +44,10 @@ main {
     height: 320px;
 }
 
+.name {
+    width: 14rem;
+}
+
 @media screen and (max-width: 576px) {
     #txt1 {
         font-size: 60px;
