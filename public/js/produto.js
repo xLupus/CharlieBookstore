@@ -7,12 +7,12 @@ const PRODUTO_QTD = document.getElementById('produto-qtd');
 
 for (let i = 0; i < pictures.length; i++) {
     pictures[i].addEventListener('click', function() {
-        picture.src = pictures[i].src
+        picture.src = pictures[i].src;
     })
 }
 
 BTN_MAIS.addEventListener('click', function() {
-    let qtd = Number(PRODUTO_QTD.value)
+    let qtd = Number(PRODUTO_QTD.value);
 
     if (qtd < PRODUTO_QTD.max)
         PRODUTO_QTD.value =  qtd + 1;

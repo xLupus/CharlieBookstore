@@ -23,27 +23,27 @@
         </div>
 
         <div class="container-xxl">
-            <div class="row row-cols-2 mx-xl-0">
-                <div class="col-5 mx-auto">
-                    <div class="d-flex justify-content-center books-pictures">
-                        <div class="me-3 destaque">
+            <div class="row row-cols-1 row-cols-md-2">
+                <div class="col-10 col-md-4 mx-auto">
+                    <div class="row row-cols-1 row-cols-xl-2 books-pictures">
+                        <div class="col-12 col-xl-8 destaque">
                             @if (isset($produto->produtoImagens[0]))
-                                <img id="book-picture" src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="" width="320" class="img-fluid">
+                                <img src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="img-fluid" id="book-picture">
                             @else
-                                <img class="mb-2 book-pictures" src="https://via.placeholder.com/223x300/F8F8F8/CCC?text=Sem%20Imagem" alt="" width="320">
+                                <img src="https://via.placeholder.com/223x300/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="img-fluid mb-2 book-pictures">
                             @endif
                         </div>
-                        <div class="side-pictures overflow-auto">
+                        <div class="col-12 col-xl-4 d-flex d-xl-block side-pictures overflow-auto">
                             @if (isset($produto->produtoImagens[0]))
                                 @foreach($produto->produtoImagens as $imagem)
-                                    <img class="mb-2 book-pictures" src="{{$imagem->IMAGEM_URL}}" alt="" width="125" class="img-fluid">
+                                    <img src="{{$imagem->IMAGEM_URL}}" alt="..." width="125" class="img-fluid mb-2 mt-2 mt-xl-0 me-2 me-xl-0 book-pictures">
                                 @endforeach
                             @endif
                         </div>
                     </div>
                 </div>
 
-                <div class="col-5 mx-auto">
+                <div class="col-10 col-md-6 mx-auto mt-5 mt-md-0">
                     <div class="row">
                         <div class="col">
                             <span class="fs-3 fw-bold">{{ $produto->PRODUTO_NOME }}</span>
@@ -63,16 +63,16 @@
                         <div class="col">
                             <span class="d-block fs-6 mb-2">Tipo de Mídia</span>
 
-                            <div class="hstack gap-4">
-                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25">Fisico</button>
-                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25">Digital</button>
+                            <div class="d-flex flex-column flex-sm-row gap-4">
+                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-auto" data-bs-toggle="button">Fisico</button>
+                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-auto" data-bs-toggle="button">Digital</button>
                             </div>
 
                             <span class="d-block fs-6 mt-4 mb-2">Tipo de Capa</span>
 
-                            <div class="hstack gap-4">
-                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25">Normal</button>
-                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25">Dura</button>
+                            <div class="d-flex flex-column flex-sm-row gap-4">
+                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-auto" data-bs-toggle="button">Normal</button>
+                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-auto" data-bs-toggle="button">Dura</button>
                             </div>
                         </div>
                     </div>
@@ -91,11 +91,11 @@
                             </div>
 
                             @if($produto->produtoEstoque?->PRODUTO_QTD > 0)
-                                <form class="row row-cols-1 row-cols-xl-2 align-items-center justify-content-between" action="{{route('carrinho.store', $produto->PRODUTO_ID)}}" method="post">
+                                <form class="row align-items-center justify-content-between mt-3 mt-xl-0" action="{{route('carrinho.store', $produto->PRODUTO_ID)}}" method="post">
                                     @csrf
                                     {{-- d-flex  --}}
-                                    <div class="col-12 col-xl-4">
-                                        <div class="d-flex justify-content-between justify-content-xl-center p-2 rounded-pill border border-1 border-dark mx-auto mx-xl-0 mt-4 mt-xl-0 prod">
+                                    <div class="col-12 col-sm-7 col-xl-4 mx-auto mx-xl-0">
+                                        <div class="d-flex justify-content-between justify-content-xl-center p-2 rounded-pill border border-1 border-dark">
                                             <button type="button" id="qtd-menos" class="btn btn-default border-0">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
                                                     <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
@@ -109,13 +109,14 @@
                                             </button>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-xl-8 d-flex justify-content-xl-end mt-4 mt-xl-0">
-                                        <div class="d-flex align-items-center mx-auto mx-xl-0">
-                                            <button type="submit" class="btn btn-dark rounded-pill" style="padding: .8rem 3rem">
+
+                                    <div class="col-12 col-sm-7 col-xl-8 mx-auto mx-xl-0 mt-3 mt-xl-0">
+                                        <div class="d-flex justify-content-center">
+                                            <button type="submit" class="btn btn-dark rounded-pill w-100" style="padding: .9rem 3rem;">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
                                                     <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
                                                 </svg>
-                                                <span class="ms-2 fs-6">Adicionar ao carrinho</span>
+                                                <span class="ms-2 small d-none d-xl-inline">Adicionar ao carrinho</span>
                                             </button>
                                         </div>
                                     </div>
@@ -129,7 +130,7 @@
             </div>
 
             <div class="row mt-5">
-                <div class="col-10 mx-auto">
+                <div class="col-11 mx-auto">
                     <div class="d-block description-container">
                         <span class="d-block fs-3 mb-3 fw-bold display-2">Sinopse</span>
                         <p class="d-block lh-lg">{{ $produto->PRODUTO_DESC }}</p>

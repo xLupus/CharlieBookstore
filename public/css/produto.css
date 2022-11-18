@@ -7,32 +7,23 @@ input::-webkit-inner-spin-button {
   appearance: none;
 }
 
-.books-pictures {
-    height: 400px;
+.side-pictures img, .destaque img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    cursor: pointer;
 }
 
-.side-pictures {
-    width: 150px;
+.destaque img {
+    width: 320px;
 }
-
-.side-pictures img {cursor: pointer;}
-
-/*
-.quantity input {
-    border: none;
-    width: 60px;
-    height: 96%;
-    text-align: center;
-    outline: none;
-}*/
 
 .description-container p {
     text-align: justify;
 }
 
-@media screen and (min-width: 0px) and (max-width: 1200px) {
-    .prod {
-        width: 19rem;
-    }
+/*
+.books-pictures {
+    height: 500px;
 }
-
+*/

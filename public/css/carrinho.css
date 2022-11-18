@@ -4,34 +4,6 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type=number] {appearance: textfield;}
-
-
-.quantity {
-    border: 1px solid black;
-    border-radius: 50px;
-    margin-right: 15px;
-    height: 50px;
-}
-
-.quantity button {
-    height: 100%;
-    width: 50px;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    background: none;
-    cursor: pointer;
-}
-
-.quantity input {
-    border: none;
-    width: 60px;
-    height: 96%;
-    text-align: center;
-    outline: none;
-}
-
 .cart {margin-top: 9rem;}
 
 #form-endereco {width: 75%;}

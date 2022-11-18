@@ -146,10 +146,18 @@
                                     <div class="col-7 col-xl-4 mx-auto mt-4 mt-xl-0">
                                         <form class="d-flex justify-content-center" action="{{route('carrinho.store', $item->PRODUTO_ID)}}" method="post">
                                             @csrf
-                                            <div class="d-inline-flex text-center quantity">
-                                                <button type="button" id="qtd-menos" class="btn btn-default" onclick="atualizarQtd(this, -1)">-</button>
-                                                <input type="number" id="produto-qtd" class="border border-0 text-center" name="qtd" value="{{$item->ITEM_QTD}}" min="1" max="{{$item->produto->produtoEstoque->PRODUTO_QTD}}">
-                                                <button type="button" id="qtd-mais" class="btn btn-default" onclick="atualizarQtd(this, 1)">+</button>
+                                            <div class="d-flex justify-content-between justify-content-xl-center p-2 rounded-pill border border-1 border-dark">
+                                                <button type="button" id="qtd-menos" class="btn btn-default btn btn-default border-0" onclick="atualizarQtd(this, -1)">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                                                        <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                                                    </svg>
+                                                </button>
+                                                <input type="number" id="produto-qtd" class="form-control w-auto text-center border-0 shadow-none" name="qtd" value="{{$item->ITEM_QTD}}" min="1" max="{{$item->produto->produtoEstoque->PRODUTO_QTD}}">
+                                                <button type="button" id="qtd-mais" class="btn btn-default border-0" onclick="atualizarQtd(this, 1)">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                                                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                                    </svg>
+                                                </button>
                                             </div>
                                         </form>
                                     </div>
