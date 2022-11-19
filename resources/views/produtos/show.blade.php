@@ -137,7 +137,7 @@
                 <div class="col-11 mx-auto">
                     <div class="d-block description-container">
                         <span class="d-block fs-3 mb-3 fw-bold display-2">Sinopse</span>
-                        <p class="d-block lh-lg text-capitalize">{{ $produto->PRODUTO_DESC }}</p>
+                        <p class="d-block lh-lg">{{ ucfirst($produto->PRODUTO_DESC) }}</p>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 @extends('layout')
 
+@section('style', '/css/pedido.css')
 @section('title', "Pedido #{$items[0]->PEDIDO_ID}")
 
 @section('main')
@@ -15,12 +16,9 @@
         </div>
 
         <div class="container-xxl">
-            <div class="row">
-                <span class="d-block fw-bold h4">Pedido #{{$items[0]->PEDIDO_ID}}</span>
-            </div>
-
-            <div class="row row-cols-2 gx-5">
-                <div class="col-8">
+            <div class="row row-cols-1 row-cols-lg-2">
+                <div class="col-11 col-lg-8 mx-auto">
+                    <span class="d-block fw-bold h4 mt-5 mt-lg-0">Pedido #{{$items[0]->PEDIDO_ID}}</span>
 
                     @if (session()->has('success'))
                         <div class="alert alert-success" role="alert">
@@ -31,28 +29,34 @@
                     @foreach ($items as $item)
                         <hr class="hr bg-light">
 
-                        <div class="row py-2">
-                            <div class="col-2">
-                                <img src="{{$item->pedidoItens->produtoImagens[0]->IMAGEM_URL}}" width="140" class="img-fluid rounded-4">
+                        <div class="row row-cols-1 row-cols-sm-2 py-2">
+                            <div class="col-11 col-sm-4 col-lg-3 mx-auto d-flex justify-content-center">
+                                <div class="overflow-hidden rounded-4 div">
+                                    <img src="{{$item->pedidoItens->produtoImagens[0]->IMAGEM_URL}}" width="140" class="img-fluid">
+                                </div>
                             </div>
 
-                            <div class="col-6 vstack justify-content-around">
+                            <div class="col-11 col-sm-6 col-lg-9 mx-auto mt-3 mt-sm-0">
                                 <div>
                                     <span class="fw-bold">Titulo: </span>
                                     <span>{{$item->pedidoItens->PRODUTO_NOME}}</span>
                                 </div>
+
                                 <div>
                                     <span class="fw-bold">Categoria: </span>
                                     <span>{{$item->pedidoItens->produtoCategoria->CATEGORIA_NOME}}</span>
                                 </div>
+
                                 <div>
                                     <span class="fw-bold">Quantidade: </span>
                                     <span>{{$item->ITEM_QTD}} unidade(s)</span>
                                 </div>
+
                                 <div>
                                     <span class="fw-bold">Preço Unitario: </span>
                                     <span>R$ {{number_format($item->ITEM_PRECO, 2)}}</span>
                                 </div>
+
                                 <div>
                                     <span class="fw-bold">Valor Total do Item: </span>
                                     <span>R$ {{number_format($item->ITEM_PRECO * $item->ITEM_QTD, 2)}}</span>
@@ -62,7 +66,7 @@
                     @endforeach
                 </div>
 
-                <div class="col-4">
+                <div class="col-11 col-lg-4 mx-auto order-first order-lg-0">
                     <div class="d-block bg-light shadow-sm p-4">
                         <span class="d-block fw-bold">ENDEREÇO DE ENTREGA</span>
                         <span class="d-block fs-5 mt-3">{{$endereco->ENDERECO_LOGRADOURO}}, {{$endereco->ENDERECO_NUMERO}} - {{$endereco->ENDERECO_COMPLEMENTO}}{{$endereco->ENDERECO_CIDADE}} - {{$endereco->ENDERECO_ESTADO}}, {{$endereco->ENDERECO_CEP}}</span>

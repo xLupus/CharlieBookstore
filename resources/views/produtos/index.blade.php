@@ -27,7 +27,7 @@
 
         <div class="container-xxl">
             <div class="row row-cols-1 row-cols-lg-2">
-                <div class="col-lg-3 col-12 mb-5 mb-lg-0 mt-md-0">
+                <div class="col-lg-3 col-11 mb-5 mb-lg-0 mt-md-0 mx-auto">
                     <div class="d-block bg-light p-4 shadow-sm">
                         <span class="d-block fw-bold" id="filter">FILTROS:</span>
 
@@ -115,7 +115,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-9 col-12 mt-5 mt-lg-0">
+                <div class="col-lg-9 col-11 mt-5 mt-lg-0 mx-auto">
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
                         @foreach ($produtos as $produto)
                             <div class="col d-flex justify-content-center my-2">
