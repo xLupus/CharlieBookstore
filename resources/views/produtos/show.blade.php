@@ -46,7 +46,7 @@
                 <div class="col-10 col-md-6 mx-auto mt-5 mt-md-0">
                     <div class="row">
                         <div class="col">
-                            <span class="fs-3 fw-bold">{{ $produto->PRODUTO_NOME }}</span>
+                            <span class="fs-3 fw-bold text-capitalize">{{ $produto->PRODUTO_NOME }}</span>
 
                             <div class="my-3">
                                 @if ($produto->PRODUTO_DESCONTO > 0)
@@ -137,7 +137,7 @@
                 <div class="col-11 mx-auto">
                     <div class="d-block description-container">
                         <span class="d-block fs-3 mb-3 fw-bold display-2">Sinopse</span>
-                        <p class="d-block lh-lg">{{ $produto->PRODUTO_DESC }}</p>
+                        <p class="d-block lh-lg text-capitalize">{{ $produto->PRODUTO_DESC }}</p>
                     </div>
                 </div>
             </div>

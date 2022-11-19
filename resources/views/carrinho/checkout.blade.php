@@ -24,11 +24,11 @@
     </div>
 
     <div class="container-xxl">
-        <div class="row row-cols-2">
-            <div class="col col-8 mb-5">
-                <div class="row row-cols-1 mb-4">
+        <div class="row row-cols-1 row-cols-lg-2">
+            <div class="col-11 col-lg-8 mx-auto">
+                <div class="row row-cols-1 mb-4 mt-4 mt-lg-0">
                     <div class="col">
-                        <div class="bg-light p-3 ms-3">
+                        <div class="bg-light p-3 ms-3 shadow-sm">
                             <h5 class="fw-bold">Informações de contato</h5>
 
                             <div class="mb-1">
@@ -47,12 +47,12 @@
                     </div>
 
                     <div class="col mt-3">
-                        <div class="bg-light p-3 ms-3">
+                        <div class="bg-light p-3 ms-3 shadow-sm">
                             <span class="fw-bold h5 d-block">Endereço de entrega</span>
 
                             <div class="">
                                 <span class="d-block fw-bold">{{strtoupper($endereco->ENDERECO_NOME)}}: </span>
-                                <div>
+                                <div class="d-block">
                                     <span>{{$endereco->ENDERECO_LOGRADOURO}}, </span>
                                     <span>{{$endereco->ENDERECO_NUMERO}}- </span>
                                     <span>{{$endereco->ENDERECO_COMPLEMENTO}}</span>
@@ -65,31 +65,39 @@
                     </div>
                 </div>
 
-                <div class="row mb-4">
-                    <div class="px-3">
+                <div class="row">
+                    <div class="col-12">
                         <span class="d-block fw-bold h5 mb-3">Forma de Pagamento</span>
 
-                        <div class="d-flex">
-                            <button type="button" class="btn btn-light px-4 ms-2 rounded-pill border" data-bs-toggle="button">Boleto Bancario</button>
-                            <button type="button" class="btn btn-light px-4 ms-2 rounded-pill border" data-bs-toggle="button">Cartão de crédito</button>
-                            <button type="button" class="btn btn-light px-4 ms-2 rounded-pill border" data-bs-toggle="button">Transferencia Bancaria</button>
-                            <button type="button" class="btn btn-light px-4 ms-2 rounded-pill border" data-bs-toggle="button">PIX</button>
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 gx-1 gy-2">
+                            <div class="col-8 col-sm-5 col-lg-3 mx-auto mx-lg-0">
+                                <button type="button" class="btn btn-light rounded-pill w-100 border" data-bs-toggle="button">Boleto Bancário</button>
+                            </div>
+                            <div class="col-8 col-sm-5 col-lg-3 mx-auto mx-lg-0">
+                                <button type="button" class="btn btn-light rounded-pill w-100 border" data-bs-toggle="button">Cartão de crédito</button>
+                            </div>
+                            <div class="col-8 col-sm-5 col-lg-4 mx-auto mx-lg-0">
+                                <button type="button" class="btn btn-light rounded-pill w-100 border" data-bs-toggle="button">Transferência Bancária</button>
+                            </div>
+                            <div class="col-8 col-sm-5 col-lg-2 mx-auto mx-lg-0">
+                                <button type="button" class="btn btn-light rounded-pill w-100 border" data-bs-toggle="button">PIX</button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row mt-4">
                    <div class="col">
-                        <div class="bg-light p-3">
+                        <div class="bg-light p-3 shadow-sm">
                             <span class="fw-bold">Itens do Pedido</span>
 
-                            <div class="table-responsive">
-                                <table class="table table-striped table-hover">
+                            <div class="table-responsive shadow-sm mt-3">
+                                <table class="table table-hover text-center align-middle">
                                     <thead>
-                                        <tr>
+                                        <tr class="align-middle history-header">
                                             <th scope="col">QTD</th>
                                             <th scope="col">NOME DO PRODUTO</th>
-                                            <th scope="col">VALOR UNITARIO</th>
+                                            <th scope="col">VALOR UNITÁRIO</th>
                                             <th scope="col">VALOR TOTAL</th>
                                         </tr>
                                     </thead>
@@ -110,8 +118,8 @@
                 </div>
             </div>
 
-            <div class="col col-4">
-                <div class="bg-light rounded p-3">
+            <div class="col-11 col-lg-4 order-first order-lg-0 mx-auto">
+                <div class="bg-light rounded p-3 shadow-sm">
                     <span class="d-block fw-bold h4 mb-3">Detalhes do Pedido</span>
 
                     <div class="d-flex justify-content-between align-items-center mb-2">
@@ -134,9 +142,9 @@
                         <span class="fw-semibold fs-5">R$ {{number_format($precoTotal - $descontoTotal, 2)}}</span>
                     </div>
 
-                    <form class="#" action="{{route('realizar-pedido')}}" method="post">
+                    <form action="{{route('realizar-pedido')}}" method="post">
                         @csrf
-                        <input type="submit" name="#" value="Efetuar Pedido" class="d-block bg-black w-100 text-white rounded-pill w-100 py-2 text-center">
+                        <button type="submit" class="btn btn-dark text-white rounded-pill w-100 py-2 text-align-center">Efetuar Pedido</button>
                     </form>
                 </div>
             </div>

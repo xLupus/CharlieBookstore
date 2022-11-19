@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
 /* Arruma footer */
 body {
     display: flex;
@@ -9,7 +11,7 @@ main {flex: 1 0 auto;}
 
 .breadcrumb {margin-top: 7.5rem;}
 
-header, footer {font-family: 'Lora', serif;}
+* {font-family: 'Lora', serif;}
 
 .div {
     width: 177px;
@@ -49,3 +51,12 @@ header, footer {font-family: 'Lora', serif;}
 .name {
     width: 11rem;
 }
+
+/* TABLE */
+.history-header {background-color: #E4D1BA;}
+
+tr {height: 60px;}
+
+table tbody tr:nth-child(odd) {background-color: #fff;}
+
+table tbody tr:nth-child(even) {background-color: #f6f6f6;}

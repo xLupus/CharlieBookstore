@@ -25,9 +25,9 @@
             <div class="row mt-5">
                 <div class="col-11 mx-auto">
                     <div class="table-responsive shadow-sm">
-                        <table class="table">
+                        <table class="table text-center align-middle">
                             <thead>
-                                <tr class="text-center align-middle history-header">
+                                <tr class="align-middle history-header">
                                     <th scope="col">ID</th>
                                     <th scope="col">DATA DA COMPRA</th>
                                     <th scope="col">MÉTODO DE PAGAMENTO</th>
@@ -48,7 +48,7 @@
                                                 $itensTotal += $item->ITEM_QTD;
                                             }
                                         @endphp
-                                        <tr class="text-center align-middle">
+                                        <tr>
                                             <th scope="row"><a href="{{route('pedido', $pedido->PEDIDO_ID)}}" class="link text-dark">#{{$pedido->PEDIDO_ID}}</a></th>
                                             <td>{{implode('/', array_reverse(explode('-', $pedido->PEDIDO_DATA)))}}</td>
                                             <td class="pagamento"></td>

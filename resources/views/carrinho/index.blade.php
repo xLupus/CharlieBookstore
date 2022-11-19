@@ -109,8 +109,8 @@
                             @foreach ($itens as $item)
                                 <hr class="hr bg-light">
 
-                                <div class="row row-cols-1 row-cols-xl-3 py-2">
-                                    <div class="col-7 col-xl-4 mx-auto mx-xl-0">
+                                <div class="row row-cols-1 row-cols-md-3 py-2">
+                                    <div class="col-7 col-sm-4 mx-auto mx-sm-0">
                                         <div class="overflow-hidden rounded-4 div mx-auto">
                                             @if (isset($item->produto->produtoImagens[0]))
                                                 <img src="{{$item->produto->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
@@ -120,7 +120,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-7 col-xl-4 mx-auto text-center mt-4 mt-xl-0">
+                                    <div class="col-7 col-sm-4 mx-auto text-center mt-4 mt-sm-0">
                                         <div class="mb-3">
                                             <span class="fw-bold">Titulo: </span>
                                             <span class="d-block">{{ $item->produto->PRODUTO_NOME }}</span>
@@ -143,7 +143,7 @@
                                         @endif
                                     </div>
 
-                                    <div class="col-7 col-xl-4 mx-auto mt-4 mt-xl-0">
+                                    <div class="col-7 col-sm-4 mx-auto mt-4 mt-sm-0">
                                         <form class="d-flex justify-content-center" action="{{route('carrinho.store', $item->PRODUTO_ID)}}" method="post">
                                             @csrf
                                             <div class="d-flex justify-content-between justify-content-xl-center p-2 rounded-pill border border-1 border-dark">
@@ -169,7 +169,7 @@
 
                 <div class="col-11 order-first order-lg-0 mb-md-5 mb-lg-0 col-lg-4 col-xxl-4">
                     <div class="row">
-                        <div class="col-12 bg-light rounded-top mb-2 p-4">
+                        <div class="col-12 mx-lg-0 bg-light rounded-top mb-2 p-4">
                             <span class="d-block fw-bold fs-5 mb-3">CUPOM DE DESCONTO</span>
                             <div class="row row-cols-2 align-items-center">
                                 <div class="col-10">
@@ -212,9 +212,7 @@
                                 <span class="fw-semibold fs-5">R$ {{number_format($precoTotal - $descontoTotal, 2)}}</span>
                             </div>
 
-                            <a href="{{route('checkout')}}">
-                                <input type="button" value="Checkout" class="bg-black text-white rounded-pill w-100 py-2 text-align-center">
-                            </a>
+                            <a href="{{route('checkout')}}" class="btn btn-dark text-white rounded-pill w-100 py-2 text-align-center" role="button">Checkout</a>
                         </div>
                     </div>
                 </div>
