@@ -45,6 +45,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col mt-3">
                         <div class="bg-light p-3 ms-3">
                             <span class="fw-bold h5 d-block">Endereço de entrega</span>
@@ -68,40 +69,44 @@
                     <div class="px-3">
                         <span class="d-block fw-bold h5 mb-3">Forma de Pagamento</span>
 
-                        <div class="d-flex justify-content-between">
-                            <button type="button" class="btn btn-light px-5 rounded-pill border" data-bs-toggle="button">Boleto Bancario</button>
-                            <button type="button" class="btn btn-light px-5 rounded-pill border" data-bs-toggle="button">Cartão de crédito</button>
-                            <button type="button" class="btn btn-light px-5 rounded-pill border" data-bs-toggle="button">Transferencia Bancaria</button>
-                            <button type="button" class="btn btn-light px-5 rounded-pill border" data-bs-toggle="button">PIX</button>
+                        <div class="d-flex">
+                            <button type="button" class="btn btn-light px-4 ms-2 rounded-pill border" data-bs-toggle="button">Boleto Bancario</button>
+                            <button type="button" class="btn btn-light px-4 ms-2 rounded-pill border" data-bs-toggle="button">Cartão de crédito</button>
+                            <button type="button" class="btn btn-light px-4 ms-2 rounded-pill border" data-bs-toggle="button">Transferencia Bancaria</button>
+                            <button type="button" class="btn btn-light px-4 ms-2 rounded-pill border" data-bs-toggle="button">PIX</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="bg-light w-75 p-3 ms-3">
-                        <h5 class="fw-bold">Itens do Pedido</h5>
+                   <div class="col">
+                        <div class="bg-light p-3">
+                            <span class="fw-bold">Itens do Pedido</span>
 
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>QTD</th>
-                                    <th>NOME DO PRODUTO</th>
-                                    <th>VALOR UNITARIO</th>
-                                    <th>VALOR TOTAL</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            @foreach ($produtos as $livro)
-                                <tr>
-                                    <td>{{$livro->ITEM_QTD}}x</td>
-                                    <td>{{$livro->produto->PRODUTO_NOME}}</td>
-                                    <td>R$ {{number_format(($livro->produto->PRODUTO_PRECO - $livro->produto->PRODUTO_DESCONTO), 2)}}</td>
-                                    <td>R$ {{number_format(($livro->produto->PRODUTO_PRECO - $livro->produto->PRODUTO_DESCONTO) * $livro->ITEM_QTD, 2)}}</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">QTD</th>
+                                            <th scope="col">NOME DO PRODUTO</th>
+                                            <th scope="col">VALOR UNITARIO</th>
+                                            <th scope="col">VALOR TOTAL</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($produtos as $livro)
+                                            <tr>
+                                                <td>{{$livro->ITEM_QTD}}x</td>
+                                                <td>{{$livro->produto->PRODUTO_NOME}}</td>
+                                                <td>R$ {{number_format(($livro->produto->PRODUTO_PRECO - $livro->produto->PRODUTO_DESCONTO), 2)}}</td>
+                                                <td>R$ {{number_format(($livro->produto->PRODUTO_PRECO - $livro->produto->PRODUTO_DESCONTO) * $livro->ITEM_QTD, 2)}}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                   </div>
                 </div>
             </div>
 

@@ -22,6 +22,18 @@ input::-webkit-inner-spin-button {
     text-align: justify;
 }
 
+@media screen and (max-width: 575px) {
+    .capa button, .midia button {
+        width: 100% !important;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .side-pictures {
+        height: 25.3rem;
+    }
+}
+
 /*
 .books-pictures {
     height: 500px;
