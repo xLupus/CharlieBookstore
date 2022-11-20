@@ -25,9 +25,9 @@ class RegisterRequest extends FormRequest
     {
         return [
             'nome'  => ['required', 'string'],
-            'email' => ['required', 'email:rfc,dns', 'unique:App\Models\User, USUARIO_EMAIL'],
+            'email' => ['required', 'email:rfc,dns', 'unique:App\Models\User,USUARIO_EMAIL'],
             'senha' => ['required', 'string'],
-            'cpf'   => ['required', 'numeric', 'min_digits:11', 'max_digits:11', 'unique:App\Models\User, USUARIO_CPF']
+            'cpf'   => ['required', 'numeric', 'min_digits:11', 'max_digits:11', 'unique:App\Models\User,USUARIO_CPF']
         ];
     }
 

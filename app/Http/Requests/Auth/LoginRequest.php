@@ -63,7 +63,7 @@ class LoginRequest extends FormRequest
 
         if (!$user) { //se não existir
             throw ValidationException::withMessages([
-                'invalid' => trans('*CREDENCIAIS INCORRETAS'),
+                'invalid' => trans('Email ou senha incorretos'),
             ]);
         }
 
@@ -75,7 +75,7 @@ class LoginRequest extends FormRequest
             return redirect(route('home')); //retorna para a index
         } else {
             throw ValidationException::withMessages([
-                'invalid' => trans('*CREDENCIAIS INCORRETAS'),
+                'invalid' => trans('Email ou senha incorretos'),
             ]);
         }
 
