@@ -29,8 +29,9 @@ header input[type="search"]::-webkit-search-results-decoration {
 
 @media screen and (max-width: 1200px) {
     .user {
-        bottom: .55rem;
-        left: 2rem;
+        bottom: 1rem;
+        left: 2.5rem;
+        padding: .35rem;
     }
 }
 

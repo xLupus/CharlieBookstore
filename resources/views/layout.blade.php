@@ -74,7 +74,7 @@
                         </li>
 
                         <li class="nav-item dropdown p-3 p-xl-3 position-relative d-block d-xl-none">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button">
+                            <a href="#" class="nav-link" data-bs-toggle="offcanvas" role="button" data-bs-target="#userOffCanvas" id="offcanvasBtn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="dark" class="bi bi-person" viewBox="0 0 16 16">
                                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                                 </svg>
@@ -85,27 +85,6 @@
                                     <span class="visually-hidden">Logado</span>
                                 </span>
                             @endif
-
-                            <ul class="dropdown-menu">
-                                @if (Auth::user())
-                                    <li>
-                                        <a href="#" class="dropdown-item disabled text-capitalize">Olá, {{Auth::user()->USUARIO_NOME}} !</a>
-                                    </li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a href="{{route('pedidos')}}" class="dropdown-item">Meus Pedidos</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li>
-                                        <form action="{{route('logout')}}" method="post" class="dropdown-item p-1">
-                                            @csrf
-                                            <button type="submit" class="btn btn-default border border-0 py-0 text-start">Sair</button>
-                                        </form>
-                                    </li>
-                                @else
-                                    <li><a href="{{route('login')}}" class="dropdown-item">Login</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a href="{{route('register')}}" class="dropdown-item">Cadastrar</a></li>
-                                @endif
-                            </ul>
                         </li>
 
                         <li class="nav-item p-3 p-xl-3 position-relative text-center">
@@ -215,6 +194,29 @@
                             </svg>
                         </button>
                     </form>
+                </div>
+            </div>
+
+            <div class="offcanvas offcanvas-end d-xl-none" tabindex="-1" id="userOffCanvas" aria-labelledby="offcanvasLabel">
+                <div class="offcanvas-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body text-center">
+                    <ul class="list-group list-group-flush">
+                        @if (Auth::user())
+                            <a href="#" class="list-group-item list-group-action disabled text-capitalize">Olá, {{Auth::user()->USUARIO_NOME}} !</a>
+                            <a href="{{route('pedidos')}}" class="list-group-item list-group-action">Meus Pedidos</a>
+                            <li class="list-group-item">
+                                <form action="{{route('logout')}}" method="post" class="p-1 w-100">
+                                    @csrf
+                                    <button type="submit" class="btn btn-default border border-0 py-0">Sair</button>
+                                </form>
+                            </li>
+                        @else
+                            <a href="{{route('login')}}" class="list-group-item list-group-action">Login</a>
+                            <a href="{{route('register')}}" class="list-group-item list-group-action">Cadastrar</a>
+                        @endif
+                    </ul>
                 </div>
             </div>
         </nav>
