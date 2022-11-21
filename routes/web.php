@@ -14,7 +14,7 @@ Route::get('/categoria/{categoria}', [ProdutoController::class, 'index'])->name(
 Route::resource('/produto', ProdutoController::class);
 Route::get('/pesquisa', [ProdutoController::class, 'search'])->name('search');
 
-Route::group(['middleware' => 'preventBackHistory'],function(){ //evita que o usuário volte para as páginas (de usuário logado) quando fazer o logout
+Route::group(['middleware' => 'preventBackHistory'],function() { //evita que o usuário volte para as páginas (de usuário logado) quando fazer o logout
     Route::group( ['middleware' => ['auth'] ], function() {
         Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
         Route::post('/carrinho/{id}', [CarrinhoController::class, 'store'])->name('carrinho.store');
@@ -29,6 +29,5 @@ Route::group(['middleware' => 'preventBackHistory'],function(){ //evita que o us
 
 	Route::get('/', [ProdutoController::class, 'home'])->name('home');
 });
-
 
 require __DIR__.'/auth.php';
