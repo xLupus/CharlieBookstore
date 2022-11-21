@@ -9,6 +9,11 @@ use App\Http\Controllers\PedidoController;
 
 Route::get('/', [ProdutoController::class, 'home'])->name('home');
 
+Route::get('/catalogo', [ProdutoController::class, 'index'])->name('catalogo');
+Route::get('/categoria/{categoria}', [ProdutoController::class, 'index'])->name('categoria.show');
+Route::resource('/produto', ProdutoController::class);
+Route::get('/pesquisa', [ProdutoController::class, 'search'])->name('search');
+
 Route::group(['middleware' => 'preventBackHistory'],function(){ //evita que o usuário volte para as páginas (de usuário logado) quando fazer o logout
     Route::group( ['middleware' => ['auth'] ], function() {
         Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
@@ -21,11 +26,6 @@ Route::group(['middleware' => 'preventBackHistory'],function(){ //evita que o us
         Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos');
         Route::get('/pedido/{id}', [PedidoController::class, 'show'])->name('pedido');
     });
-
-    Route::get('/catalogo', [ProdutoController::class, 'index'])->name('catalogo');
-    Route::get('/categoria/{categoria}', [ProdutoController::class, 'index'])->name('categoria.show');
-    Route::resource('/produto', ProdutoController::class);
-    Route::get('/pesquisa', [ProdutoController::class, 'search'])->name('search');
 
 	Route::get('/', [ProdutoController::class, 'home'])->name('home');
 });
