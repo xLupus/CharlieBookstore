@@ -26,8 +26,6 @@ Route::group(['middleware' => 'preventBackHistory'],function() { //evita que o u
         Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos');
         Route::get('/pedido/{id}', [PedidoController::class, 'show'])->name('pedido');
     });
-
-	Route::get('/', [ProdutoController::class, 'home'])->name('home');
 });
 
 require __DIR__.'/auth.php';
