@@ -31,7 +31,7 @@
             @else
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 mt-4">
                     @foreach ($produtos as $produto)
-                        <div class="col d-flex justify-content-center">
+                        <div class="col d-flex justify-content-center my-3">
                             <a href="{{route('produto.show', $produto->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                 <figure class="figure">
                                     <div class="overflow-hidden rounded-4 mb-3 div">
