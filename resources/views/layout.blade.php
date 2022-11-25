@@ -198,7 +198,7 @@
                 </div>
                 <div class="offcanvas-body text-center">
                     <ul class="list-group list-group-flush">
-                        @if (Auth::user())
+                        @auth
                             <a href="#" class="list-group-item list-group-action disabled text-capitalize">Olá, {{Auth::user()->USUARIO_NOME}} !</a>
                             <a href="{{route('pedidos')}}" class="list-group-item list-group-action">Meus Pedidos</a>
                             <li class="list-group-item">
@@ -207,10 +207,12 @@
                                     <button type="submit" class="btn btn-default border border-0 py-0">Sair</button>
                                 </form>
                             </li>
-                        @else
+                        @endauth
+
+                        @guest
                             <a href="{{route('login')}}" class="list-group-item list-group-action">Login</a>
                             <a href="{{route('register')}}" class="list-group-item list-group-action">Cadastrar</a>
-                        @endif
+                        @endguest
                     </ul>
                 </div>
             </div>
@@ -220,7 +222,7 @@
     @yield('main')
 
     <footer>
-        @if (Route::current()->getName() == 'home')
+        @if (Route::currentRouteName() == 'home')
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 footerImg">
@@ -240,6 +242,7 @@
                 </div>
             </div>
         @endif
+
         <div class="container-xxl">
             <div class="row row-cols-xl-4 row-cols-sm-2 row-cols-1 pt-4 pb-2 px-0 gy-3 gy-xl-0">
                 <div class="col d-flex justify-content-center align-items-center">
@@ -311,16 +314,18 @@
                 </div>
                 <div class="col d-flex flex-column align-items-center align-items-md-end justify-content-center my-5 my-md-1">
                     <span class="text-white fw-bold fs-5 d-block mb-4">Meu Perfil:</span>
-                    @if (!Auth::user())
+                    @guest
                         <a href="{{route('login')}}" class="link text-white d-block">ENTRAR</a>
                         <a href="{{route('register')}}" class="link text-white d-block pt-2">CADASTRAR</a>
-                    @else
+                    @endguest
+
+                    @auth
                         <a href="{{route('pedidos')}}" class="link text-white d-block pb-1">MEUS PEDIDOS</a>
                         <form action="{{route('logout')}}" method="post">
                             @csrf
                             <button type="submit" class="btn btn-link text-white d-block p-0">SAIR</button>
                         </form>
-                    @endif
+                    @endauth
                 </div>
             </div>
 

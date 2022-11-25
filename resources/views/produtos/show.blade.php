@@ -34,11 +34,11 @@
                             @endif
                         </div>
                         <div class="col-12 col-xl-4 d-flex d-xl-block side-pictures overflow-auto">
-                            @if (isset($produto->produtoImagens[0]))
+                            @isset($produto->produtoImagens[0])
                                 @foreach($produto->produtoImagens as $imagem)
                                     <img src="{{$imagem->IMAGEM_URL}}" alt="..." width="125" class="img-fluid mb-2 mt-2 mt-xl-0 me-2 me-xl-0 book-pictures">
                                 @endforeach
-                            @endif
+                            @endisset
                         </div>
                     </div>
                 </div>
