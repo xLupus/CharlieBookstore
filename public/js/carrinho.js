@@ -42,36 +42,7 @@ CEP.oninput = function() {
         console.log(error);
     });
 }
-/*
-INPUT_CHECK.onclick = function() {
 
-
-    if (INPUT_CHECK.checked) {
-        const DIV   = document.createElement('div');
-        const INPUT = document.createElement('input');
-        const BTN   = document.createElement('input');
-
-        DIV.id = 'input-nome';
-        DIV.classList = 'd-inline-flex';
-
-        INPUT.classList = 'rounded-pill form-control form-control-lg me-3';
-        INPUT.setAttribute('type', 'text');
-        INPUT.setAttribute('name', 'rotulo');
-        INPUT.setAttribute('placeholder', 'Rotulo');
-
-        BTN.classList = 'btn btn-light btn-lg rounded-pill w-50';
-        BTN.value     = 'Salvar';
-        BTN.setAttribute('type', 'submit');
-
-        DIV.appendChild(INPUT);
-        DIV.appendChild(BTN);
-        FORM.appendChild(DIV);
-    } else {
-        const DIV = document.getElementById('input-nome')
-        DIV.remove()
-    }
-}
-*/
 function atualizarQtd(btn, qtd) {
     btn.parentNode.children[1].value = Number(btn.parentNode.children[1].value) + qtd;
     btn.parentNode.parentElement.submit();

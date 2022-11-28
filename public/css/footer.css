@@ -1,3 +1,36 @@
-footer {background-color: #5C3D2F;}
+footer {
+    background-color: #5C3D2F;
+    margin-top: 4rem;
+}
 
 hr {background-color: #E0C09A;}
+
+footer img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+}
+
+.footerImg {
+    background: linear-gradient(#B75C3D, #60392C);
+}
+
+.reservar {padding: .8rem 5rem;}
+
+
+@media screen and (max-width: 768px){
+    footer img {width: 100%;}
+}
+
+@media screen and (max-width: 576px) {
+    .opcoes {
+        width: 35%;
+    }
+}
+
+@media screen and (min-width: 577px) {
+    .opcoes {
+        width: auto;
+    }
+}

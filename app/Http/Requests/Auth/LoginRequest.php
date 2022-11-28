@@ -31,7 +31,7 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required', 'string', 'email'],
+            'email'    => ['required', 'string', 'email:rfc,dns'],
             'password' => ['required', 'string'],
         ];
     }
@@ -61,6 +61,12 @@ class LoginRequest extends FormRequest
             'USUARIO_EMAIL' => $this->only('email')['email'] //only retorna o array, e somente o dado daquele EMAIL
         ])->first(); //filtra aonde encotnrar usuario email aonde encontrar o campo email (filtra o usuári que tiver o EMAIL) e retorna o primeiro valor ENCONTRADO
 
+        if (!$user) { //se não existir
+            throw ValidationException::withMessages([
+                'invalid' => trans('Email ou senha incorretos'),
+            ]);
+        }
+
         //seta dupla => acessa propriedade , -> acessa valor
         //(verifica que são iguais)
         if (Hash::check($this->only('password')['password'], $user->USUARIO_SENHA)) { //passa a senha atual ( o que o usuario está digitando) (verifica se a hash corresponde a do banco) (verifica se pertence ao mesmo numero)
@@ -69,7 +75,7 @@ class LoginRequest extends FormRequest
             return redirect(route('home')); //retorna para a index
         } else {
             throw ValidationException::withMessages([
-                'email' => trans('CREDENCIAIS INCORRETAS'),
+                'invalid' => trans('Email ou senha incorretos'),
             ]);
         }
 
@@ -109,5 +115,19 @@ class LoginRequest extends FormRequest
     public function throttleKey()
     {
         return Str::transliterate(Str::lower($this->input('email')).'|'.$this->ip());
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'email.required'    => 'Preencha este campo',
+            'email.email'       => 'Formato de e-mail inválido',
+            'password.required' => 'Preencha este campo'
+        ];
     }
 }

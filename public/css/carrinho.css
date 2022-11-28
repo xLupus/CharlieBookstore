@@ -3,29 +3,11 @@ input::-webkit-inner-spin-button {
   appearance: none;
   margin: 0;
 }
-input[type=number] {appearance: textfield;}
 
-.quantity {
-    border: 1px solid black;
-    border-radius: 50px;
-    margin-right: 15px;
-    height: 50px;
-}
+.cart {margin-top: 9rem;}
 
-.quantity button{
-    height: 100%;
-    width: 50px;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    background: none;
-    cursor: pointer;
-}
+#form-endereco {width: 75%;}
 
-.quantity input {
-    border: none;
-    width: 60px;
-    height: 96%;
-    text-align: center;
-    outline: none;
+@media screen and (max-width: 576px) {
+    #form-endereco, .enderecoNovo {width: 100%;}
 }

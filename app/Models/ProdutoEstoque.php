@@ -11,7 +11,7 @@ class ProdutoEstoque extends Model
 
     protected $table = 'PRODUTO_ESTOQUE';
 
-    protected $timestamp = false;
+    public $timestamps = false;
 
     protected $primaryKey = 'PRODUTO_ID';
 }

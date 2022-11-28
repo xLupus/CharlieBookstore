@@ -1,20 +1,28 @@
 /* LOGIN */
-.login-background {
-    background-image: url('/img/login.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    height: 100vh;
-}
 
-/* CADASTRO */
+
+.login-background,
 .cadastro-background {
-    background-image: url('/img/cadastro.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    left: -1rem;
+    width: 100%;
+}
+
+.login-background {
     height: 100vh;
 }
 
-button {background-color: #B75C3D !important;}
-a:last-child {background-color: #5C3D2F !important;}
+.cadastro-background {
+    height: 100vh;
+}
+
+.login-background, .cadastro-background, .logo {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.logo {width: 16rem;}
+
+.logar {background-color: #B75C3D !important;}
+
+.cadastrar {background-color: #5C3D2F !important;}

@@ -1,53 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
-main{
-    font-family: 'Montserrat', sans-serif;
-}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-input[type=number] {
-  -moz-appearance: textfield;
+  appearance: none;
 }
 
-
-.books-pictures{
-    height: 400px;
-}
-.side-pictures{
-    width: 150px;
-    height: 480px;
-}
-.side-pictures img{
+.side-pictures img, .destaque img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
     cursor: pointer;
 }
 
+.destaque img {
+    width: 320px;
+}
 
-.quantity {
-    display: inline;
-    border: 1px solid black;
-    border-radius: 50px;
-    text-align: center;
-    vertical-align: middle;
-    margin-right: 15px;
-    height: 50px;
+.description-container p {
+    text-align: justify;
 }
-.quantity button{
-    height: 100%;
-    width: 50px;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    background: none;
-    cursor: pointer;
+
+@media screen and (max-width: 575px) {
+    .capa button, .midia button {
+        width: 100% !important;
+    }
 }
-.quantity input {
-    border: none;
-    width: 60px;
-    height: 96%;
-    text-align: center;
-    outline: none;
+
+@media screen and (min-width: 1200px) {
+    .side-pictures {
+        height: 25.3rem;
+    }
 }
-.description-container{width: 1070px;}
+
+/*
+.books-pictures {
+    height: 500px;
+}
+*/
