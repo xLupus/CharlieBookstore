@@ -15,7 +15,7 @@
         <div class="container-xxl">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    @if (Route::current()->getName() == 'categoria.show')
+                    @if (Route::currentRouteName() == 'categoria.show')
                         <li class="breadcrumb-item"><a class="link" href="{{route('catalogo')}}">Livros</a></li>
                         <li class="breadcrumb-item active" aria-current="page">{{ucfirst(Route::current()->categoria->CATEGORIA_NOME)}}</li>
                     @else
@@ -67,7 +67,7 @@
 
                         <div class="collapse mt-2" id="collapse2">
                             <ul class="list-unstyled ms-4 lh-lg d-flex flex-column px-0">
-                                @if (Route::current()->getName() == 'categoria.show')
+                                @if (Route::currentRouteName() == 'categoria.show')
                                     @foreach (App\Models\Categoria::ativo() as $categoria)
                                         @if (Route::current()->categoria->CATEGORIA_ID == $categoria['id'])
                                             <li class="order-first border-bottom pb-2">
@@ -118,34 +118,39 @@
                 <div class="col-lg-9 col-11 mt-5 mt-lg-0 mx-auto">
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
                         @foreach ($produtos as $produto)
-                            <div class="col d-flex justify-content-center my-2">
-                                <a href="{{route('produto.show', $produto->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
-                                    <figure class="figure">
-                                        <div class="overflow-hidden rounded-4 mb-3 div">
-                                            @if (isset($produto->produtoImagens[0]))
-                                                <img src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid" style="{{isset($produto->produtoEstoque->PRODUTO_ID) && $produto->produtoEstoque->PRODUTO_QTD != 0 ? '' : 'filter: grayscale(85%);'}}">
-                                            @else
-                                                <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
-                                            @endif
-                                        </div>
+                        @php
+                            dd($produto->produtoEstoque)
+                        @endphp
+                            @if ($produto->produtoEstoque->PRODUTO_QTD > 0)
+                                <div class="col d-flex justify-content-center my-2">
+                                    <a href="{{route('produto.show', $produto->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
+                                        <figure class="figure">
+                                            <div class="overflow-hidden rounded-4 mb-3 div">
+                                                @if (isset($produto->produtoImagens[0]))
+                                                    <img src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid" style="{{isset($produto->produtoEstoque->PRODUTO_ID) && $produto->produtoEstoque->PRODUTO_QTD != 0 ? '' : 'filter: grayscale(85%);'}}">
+                                                @else
+                                                    <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                @endif
+                                            </div>
 
-                                        <figcaption class="figure-caption text-dark fw-semibold position-relative">
-                                            <span class="d-block fs-5 name">{{$produto->PRODUTO_NOME}}</span>
-                                            @if ($produto->PRODUTO_DESCONTO > 0)
-                                                <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5 desconto" style="{{isset($produto->produtoEstoque->PRODUTO_ID) && $produto->produtoEstoque->PRODUTO_QTD != 0 ? '' : 'filter: grayscale(85%);'}}">{{number_format($produto->PRODUTO_DESCONTO / $produto->PRODUTO_PRECO * 100, 0)}}%</span>
-                                                <div class="d-flex">
-                                                    <span class="fw-semibold me-3 fs-5">R$ {{number_format($produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO, 2)}}</span>
-                                                    <span class="fw-semibold"><s>R$ {{$produto->PRODUTO_PRECO}}</s></span>
-                                                </div>
-                                            @else
-                                                <div class="d-block">
-                                                    <span class="fw-semibold fs-5">R$ {{$produto->PRODUTO_PRECO}}</span>
-                                                </div>
-                                            @endif
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </div>
+                                            <figcaption class="figure-caption text-dark fw-semibold position-relative">
+                                                <span class="d-block fs-5 name">{{$produto->PRODUTO_NOME}}</span>
+                                                @if ($produto->PRODUTO_DESCONTO > 0)
+                                                    <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5 desconto" style="{{isset($produto->produtoEstoque->PRODUTO_ID) && $produto->produtoEstoque->PRODUTO_QTD != 0 ? '' : 'filter: grayscale(85%);'}}">{{number_format($produto->PRODUTO_DESCONTO / $produto->PRODUTO_PRECO * 100, 0)}}%</span>
+                                                    <div class="d-flex">
+                                                        <span class="fw-semibold me-3 fs-5">R$ {{number_format($produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO, 2)}}</span>
+                                                        <span class="fw-semibold"><s>R$ {{$produto->PRODUTO_PRECO}}</s></span>
+                                                    </div>
+                                                @else
+                                                    <div class="d-block">
+                                                        <span class="fw-semibold fs-5">R$ {{$produto->PRODUTO_PRECO}}</span>
+                                                    </div>
+                                                @endif
+                                            </figcaption>
+                                        </figure>
+                                    </a>
+                                </div>
+                            @endif                          
                         @endforeach
                     </div>
                 </div>

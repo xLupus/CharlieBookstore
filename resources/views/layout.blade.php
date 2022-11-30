@@ -75,15 +75,15 @@
                                 </svg>
                             </a>
 
-                            @if (Auth::user())
+                            @auth
                                 <span class="position-absolute translate-middle rounded-circle bg-success user">
                                     <span class="visually-hidden">Logado</span>
                                 </span>
-                            @endif
+                            @endauth
                         </li>
 
                         <li class="nav-item p-3 p-xl-3 position-relative text-center">
-                            @if (Auth::user())
+                            @auth
                                 @if (Carrinho::qtdCarrinho(Auth::user()->USUARIO_ID) > 0)
                                     <a href="{{route('carrinho.index')}}" class="nav-link">
                                         <span class="badge rounded-5 position-absolute end-0 bottom-50 translate-middle-x badge-itens">{{Carrinho::qtdCarrinho(Auth::user()->USUARIO_ID)}}</span>
@@ -98,13 +98,15 @@
                                         </svg>
                                     </a>
                                 @endif
-                            @else
+                            @endauth
+
+                            @guest
                                 <a href="{{route('carrinho.index')}}" class="nav-link">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"  fill="dark" class="bi bi-cart3" viewBox="0 0 16 16">
                                         <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                     </svg>
                                 </a>
-                            @endif
+                            @endguest
                         </li>
                     </ul>
 
@@ -127,14 +129,14 @@
                                 </svg>
                             </a>
 
-                            @if (Auth::user())
+                            @auth
                                 <span class="position-absolute translate-middle rounded-circle bg-success user">
                                     <span class="visually-hidden">Logado</span>
                                 </span>
-                            @endif
+                            @endauth
 
                             <ul class="dropdown-menu">
-                                @if (Auth::user())
+                                @auth
                                     <li>
                                         <a href="#" class="dropdown-item disabled text-capitalize">Olá, {{Auth::user()->USUARIO_NOME}} !</a>
                                     </li>
@@ -147,16 +149,18 @@
                                             <button type="submit" class="btn btn-default border border-0 py-0 text-start w-100">Sair</button>
                                         </form>
                                     </li>
-                                @else
+                                @endauth
+
+                                @guest
                                     <li><a href="{{route('login')}}" class="dropdown-item">Login</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a href="{{route('register')}}" class="dropdown-item">Cadastrar</a></li>
-                                @endif
+                                @endguest
                             </ul>
                         </li>{{-- Faz parte do não responsivo --}}
 
                         <li class="nav-item p-2 p-xl-3 position-relative text-center">
-                            @if (Auth::user())
+                            @auth
                                 @if (Carrinho::qtdCarrinho(Auth::user()->USUARIO_ID) > 0)
                                     <a href="{{route('carrinho.index')}}" class="nav-link">
                                         <span class="badge rounded-5 position-absolute end-0 bottom-50 translate-middle-x badge-itens">{{Carrinho::qtdCarrinho(Auth::user()->USUARIO_ID)}}</span>
@@ -171,13 +175,15 @@
                                         </svg>
                                     </a>
                                 @endif
-                            @else
+                            @endauth
+
+                            @guest
                                 <a href="{{route('carrinho.index')}}" class="nav-link">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"  fill="dark" class="bi bi-cart3" viewBox="0 0 16 16">
                                         <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                     </svg>
                                 </a>
-                            @endif
+                            @endguest
                         </li>
                     </ul>
 

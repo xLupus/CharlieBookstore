@@ -28,6 +28,8 @@ class Produto extends Model
     }
 
     public static function ativo() {
-        return Produto::where('PRODUTO_ATIVO', TRUE)->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)->get();
+        return Produto::where('PRODUTO_ATIVO', TRUE)
+                            ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
+                            ->get();
     }
 }
