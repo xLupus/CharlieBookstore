@@ -118,9 +118,6 @@
                 <div class="col-lg-9 col-11 mt-5 mt-lg-0 mx-auto">
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
                         @foreach ($produtos as $produto)
-                        @php
-                            dd($produto->produtoEstoque)
-                        @endphp
                             @if ($produto->produtoEstoque->PRODUTO_QTD > 0)
                                 <div class="col d-flex justify-content-center my-2">
                                     <a href="{{route('produto.show', $produto->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
@@ -150,7 +147,7 @@
                                         </figure>
                                     </a>
                                 </div>
-                            @endif                          
+                            @endif
                         @endforeach
                     </div>
                 </div>
