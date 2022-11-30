@@ -1,7 +1,7 @@
 @extends('layout')
 @section('style', '/css/catalogo.css')
 
-@if (Route::current()->getName() == 'categoria.show')
+@if (Route::currentRouteName() == 'categoria.show')
     @section('title', 'Livros de ' . Route::current()->categoria->CATEGORIA_NOME)
 @else
     @section('title', 'Catalogo')
@@ -118,7 +118,7 @@
                 <div class="col-lg-9 col-11 mt-5 mt-lg-0 mx-auto">
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
                         @foreach ($produtos as $produto)
-                            @if ($produto->produtoEstoque->PRODUTO_QTD > 0)
+                            @if ($produto->produtoEstoque != null && $produto->produtoEstoque->PRODUTO_QTD > 0)
                                 <div class="col d-flex justify-content-center my-2">
                                     <a href="{{route('produto.show', $produto->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                         <figure class="figure">

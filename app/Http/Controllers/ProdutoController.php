@@ -20,9 +20,9 @@ class ProdutoController extends Controller
                 ->orderBy('CATEGORIA_NOME', 'ASC')
                 ->get(),
             'produtos' => Produto::where('PRODUTO_ATIVO', TRUE)
-                                        ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
-                                        ->whereRelation('produtoEstoque', 'PRODUTO_QTD', '>', 0)
-                                        ->get()
+                ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
+                ->whereRelation('produtoEstoque', 'PRODUTO_QTD', '>', 0)
+                ->get()
         ]); //Index (recebe categorias)
     }
 

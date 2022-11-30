@@ -49,36 +49,36 @@
                             <div class="carousel-item active" data-bs-interval="6500">
                                 <div class="row row-cols-4 g-5">
                                     @for ($i = 0; $i < 4; $i++)
-                                            <div class="col">
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
-                                                        <figure class="figure">
-                                                            <div class="overflow-hidden rounded-4 mb-3 div">
-                                                                @if (isset($produtos[$i]->produtoImagens[0]))
-                                                                    <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
-                                                                @else
-                                                                    <img src="https://via.placeholder.com/223x320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
-                                                                @endif
-                                                            </div>
+                                        <div class="col">
+                                            <div class="d-flex justify-content-center">
+                                                <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
+                                                    <figure class="figure">
+                                                        <div class="overflow-hidden rounded-4 mb-3 div">
+                                                            @if (isset($produtos[$i]->produtoImagens[0]))
+                                                                <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                            @else
+                                                                <img src="https://via.placeholder.com/223x320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                            @endif
+                                                        </div>
 
-                                                            <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
-                                                                <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
-                                                                @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
-                                                                    <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
-                                                                    <div class="d-flex">
-                                                                        <span class="fw-semibold me-3 fs-5">R$ {{ number_format($produtos[$i]->PRODUTO_PRECO - $produtos[$i]->PRODUTO_DESCONTO, 2) }}</span>
-                                                                        <span class="fw-semibold"><s>R$ {{$produtos[$i]->PRODUTO_PRECO}}</s></span>
-                                                                    <div>
-                                                                @else
-                                                                    <div class="d-block">
-                                                                        <span class="fw-semibold fs-5">R$ {{$produtos[$i]->PRODUTO_PRECO}}</span>
-                                                                    </div>
-                                                                @endif
-                                                            </figcaption>
-                                                        </figure>
-                                                    </a>
-                                                </div>
+                                                        <figcaption class="figure-caption text-dark fw-semibold fs-6 position-relative">
+                                                            <span class="d-block fs-6 name">{{$produtos[$i]->PRODUTO_NOME}}</span>
+                                                            @if ($produtos[$i]->PRODUTO_DESCONTO > 0)
+                                                                <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5">{{number_format($produtos[$i]->PRODUTO_DESCONTO / $produtos[$i]->PRODUTO_PRECO * 100, 0)}}%</span>
+                                                                <div class="d-flex">
+                                                                    <span class="fw-semibold me-3 fs-5">R$ {{ number_format($produtos[$i]->PRODUTO_PRECO - $produtos[$i]->PRODUTO_DESCONTO, 2) }}</span>
+                                                                    <span class="fw-semibold"><s>R$ {{$produtos[$i]->PRODUTO_PRECO}}</s></span>
+                                                                <div>
+                                                            @else
+                                                                <div class="d-block">
+                                                                    <span class="fw-semibold fs-5">R$ {{$produtos[$i]->PRODUTO_PRECO}}</span>
+                                                                </div>
+                                                            @endif
+                                                        </figcaption>
+                                                    </figure>
+                                                </a>
                                             </div>
+                                        </div>
                                     @endfor
                                 </div>
                             </div>
