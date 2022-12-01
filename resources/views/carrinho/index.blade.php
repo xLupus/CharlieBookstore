@@ -72,35 +72,35 @@
                             <form action="{{ route('endereco.store') }}" method="post" class="{{$hideForm ?? ''}} row g-3 mb-5" id="form-endereco">
                                 @csrf
                                 <div class="col-12 col-sm-8 col-xxl-3">
-                                    <input type="number" name="cep" id="cep" placeholder="CEP" class="rounded-pill form-control form-control-lg">
+                                    <input type="number" name="cep" id="cep" placeholder="CEP" value="{{old('cep')}}" class="@error('cep') is-invalid @enderror rounded-pill form-control form-control-lg" autocomplete="off">
                                 </div>
                                 <div class="col-12 col-sm-4 col-xxl-2">
-                                    <input type="number" name="numero" id="numero" placeholder="Nº" class="rounded-pill form-control form-control-lg text-sm-center">
+                                    <input type="number" name="numero" id="numero" placeholder="Nº" value="{{old('numero')}}" class="@error('numero') is-invalid @enderror rounded-pill form-control form-control-lg text-sm-center" autocomplete="off">
                                 </div>
                                 <div class="col-12 col-xxl-7">
-                                    <input type="text" name="complemento" id="Complemento" placeholder="Complemento" class="rounded-pill form-control form-control-lg">
+                                    <input type="text" name="complemento" id="Complemento" placeholder="Complemento" value="{{old('complemento')}}" class="@error('complemento') is-invalid @enderror rounded-pill form-control form-control-lg" autocomplete="off">
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" name="logradouro" id="logradouro" placeholder="Endereço" class="rounded-pill form-control form-control-lg">
+                                    <input type="text" name="logradouro" id="logradouro" placeholder="Endereço" value="{{old('logradouro')}}" class="@error('logradouro') is-invalid @enderror rounded-pill form-control form-control-lg" autocomplete="off">
                                 </div>
                                 <div class="col-12 col-lg-5">
-                                    <input type="text" name="bairro" id="bairro" placeholder="Bairro" class="rounded-pill form-control form-control-lg">
+                                    <input type="text" name="bairro" id="bairro" placeholder="Bairro" value="{{old('bairro')}}" class="@error('bairro') is-invalid @enderror rounded-pill form-control form-control-lg" autocomplete="off">
                                 </div>
                                 <div class="col-12 col-sm-8 col-lg-4">
-                                    <input type="text" name="cidade" id="cidade" placeholder="Cidade" class="rounded-pill form-control form-control-lg">
+                                    <input type="text" name="cidade" id="cidade" placeholder="Cidade" value="{{old('cidade')}}" class="@error('cidade') is-invalid @enderror rounded-pill form-control form-control-lg" autocomplete="off">
                                 </div>
                                 <div class="col-12 col-sm-4 col-lg-3">
-                                    <input type="text" name="uf" id="uf" placeholder="UF" class="rounded-pill form-control form-control-lg text-sm-center">
+                                    <input type="text" name="uf" id="uf" placeholder="UF" value="{{old('uf')}}" class="@error('uf') is-invalid @enderror rounded-pill form-control form-control-lg text-sm-center" autocomplete="off">
                                 </div>
                                 <div class="col-12 col-lg-6">
-                                    <input type="text" name="rotulo" placeholder="Rotulo" class="rounded-pill form-control form-control-lg">
+                                    <input type="text" name="rotulo" placeholder="Rótulo" class="@error('rotulo') is-invalid @enderror  rounded-pill form-control form-control-lg" autocomplete="off">
                                 </div>
                                 <div class="col-12 col-lg-6">
                                     <button type="submit" class="btn btn-light btn-lg rounded-pill w-100 shadow-sm">Salvar endereço</button>
                                 </div>
                             </form>
 
-                            <span class="d-block fw-semibold my-4">Tempo de entrega de 1-3 dias utéis.</span>
+                            <span class="d-block fw-semibold my-4">Tempo de entrega de 1-3 dias úteis.</span>
                         </div>
                     </div>
 
@@ -112,7 +112,7 @@
                                 <div class="row row-cols-1 row-cols-md-3 py-2">
                                     <div class="col-7 col-sm-4 mx-auto mx-sm-0">
                                         <div class="overflow-hidden rounded-4 div mx-auto">
-                                            <a href="{{route('produto.show', $item->produto->PRODUTO_ID)}}">
+                                            <a href="{{route('produto.show', $item->produto->PRODUTO_ID)}}" class="link">
                                                 @if (isset($item->produto->produtoImagens[0]))
                                                     <img src="{{$item->produto->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                 @else
@@ -122,9 +122,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-7 col-sm-4 mx-auto text-center mt-4 mt-sm-0">
+                                    <div class="col-7 col-sm-4 mx-auto text-center mt-4 mt-sm-0 fs-5">
                                         <div class="mb-3">
-                                            <span class="fw-bold">Titulo: </span>
+                                            <span class="fw-bold">Título: </span>
                                             <span class="d-block">{{ $item->produto->PRODUTO_NOME }}</span>
                                         </div>
 
@@ -201,7 +201,7 @@
 
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <span class="fw-normal fs-5">Frete</span>
-                                <span class="fw-normal fs-5">Gratis</span>
+                                <span class="fw-normal fs-5">Grátis</span>
                             </div>
 
                             <div class="d-flex justify-content-between align-items-center mb-4">

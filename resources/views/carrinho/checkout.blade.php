@@ -71,16 +71,16 @@
 
                         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 gx-1 gy-2">
                             <div class="col-8 col-sm-5 col-lg-3 mx-auto mx-lg-0">
-                                <button type="button" class="btn btn-light rounded-pill w-100 border py-3" data-bs-toggle="button">Boleto Bancário</button>
+                                <button type="button" class="btn btn-light rounded-pill w-100 border py-3" data-bs-toggle>Boleto Bancário</button>
                             </div>
                             <div class="col-8 col-sm-5 col-lg-3 mx-auto mx-lg-0">
-                                <button type="button" class="btn btn-light rounded-pill w-100 border py-3" data-bs-toggle="button">Cartão de crédito</button>
+                                <button type="button" class="btn btn-light rounded-pill w-100 border py-3" data-bs-toggle>Cartão de crédito</button>
                             </div>
                             <div class="col-8 col-sm-5 col-lg-4 mx-auto mx-lg-0">
-                                <button type="button" class="btn btn-light rounded-pill w-100 border py-3" data-bs-toggle="button">Transferência Bancária</button>
+                                <button type="button" class="btn btn-light rounded-pill w-100 border py-3" data-bs-toggle>Transferência Bancária</button>
                             </div>
                             <div class="col-8 col-sm-5 col-lg-2 mx-auto mx-lg-0">
-                                <button type="button" class="btn btn-light rounded-pill w-100 border py-3" data-bs-toggle="button">PIX</button>
+                                <button type="button" class="btn btn-light rounded-pill w-100 border py-3" data-bs-toggle>PIX</button>
                             </div>
                         </div>
                     </div>
@@ -129,7 +129,7 @@
 
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <span class="fw-normal fs-5">Frete</span>
-                        <span class="fw-normal fs-5">Gratis</span>
+                        <span class="fw-normal fs-5">Grátis</span>
                     </div>
 
                     <div class="d-flex justify-content-between align-items-center mb-4">

@@ -36,7 +36,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-11 col-sm-6 col-lg-9 mx-auto mt-3 mt-sm-0">
+                            <div class="col-11 col-sm-6 col-lg-9 mx-auto text-center text-sm-start mt-3 mt-sm-0 lh-lg info">
                                 <div>
                                     <span class="fw-bold">Titulo: </span>
                                     <span>{{$item->pedidoItens->PRODUTO_NOME}}</span>
@@ -83,7 +83,7 @@
                             </div>
                             <div class="col-6 d-flex flex-column align-items-end fw-bold">
                                 <span class="d-block">R$ {{$precoTotal}}</span>
-                                <span class="d-block">Gratis</span>
+                                <span class="d-block">Grátis</span>
                             </div>
                         </div>
 

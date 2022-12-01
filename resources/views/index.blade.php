@@ -6,11 +6,11 @@
 @section('main')
     <main role="main">
         <div class="container-fluid mb-5">
-            <div class="row row-cols-sm-1 row-cols-md-2 row-cols-xl-3">
-                <div class="col-md-12 col-lg-4">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                <div class="col-12 col-md-12 col-lg-4">
                     <img src="/img/Image.png" alt="image" class="img-fluid position-relative" style="right: .8rem;">
                 </div>
-                <div class="vstack col-md-9 col-lg-6 text-center text-md-none">
+                <div class="vstack col-12 col-md-9 col-lg-6 text-center text-md-none">
                     <span class="lh-1" id="txt1">A sua <br> Livraria <br> Online</span>
                     <span class="fs-4 mt-4" id="txt2">Conheça nosso acervo literário!</span>
                     <div class="mt-4">
@@ -25,8 +25,8 @@
 
         <div class="container-fluid mt-5">
             <div class="row">
-                <div class="col-12">
-                    <p class="fs-3 fw-bold txt">Categorias</p>
+                <div class="col-12 mb-3">
+                    <span class="fs-3 fw-bold txt">Categorias</span>
                 </div>
 
                 <div class="col-10 mx-auto mt-2 mb-5">
@@ -39,8 +39,8 @@
                     </div>
                 </div>
 
-                <div class="col-12 mt-5">
-                    <p class="fs-3 fw-bold txt">Livros em Alta</p>
+                <div class="col-12 mt-5 mb-3">
+                    <span class="fs-3 fw-bold txt">Livros em Alta</span>
                 </div>
 
                 <div class="col-10 mx-auto my-2"><!-- carousel 1 -->
@@ -656,8 +656,8 @@
                     <button type="button" class="btn btn-outline-dark px-5 my-1 py-2 fs-4">Conferir Lista</button>
                 </div>
 
-                <div class="col-12 mt-5">
-                    <p class="fs-3 fw-bold txt">Maiores Descontos</p>
+                <div class="col-12 mt-5 mb-3">
+                    <span class="fs-3 fw-bold txt">Maiores Descontos</span>
                 </div>
 
                 <div class="col-10 mx-auto my-2"><!-- carousel 2 -->

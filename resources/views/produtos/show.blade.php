@@ -64,15 +64,15 @@
                             <span class="d-block fs-6 mb-2">Tipo de Mídia</span>
 
                             <div class="d-flex gap-4 midia">
-                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25" data-bs-toggle="button">Fisico</button>
-                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25" data-bs-toggle="button">Digital</button>
+                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25" data-bs-toggle>Fisico</button>
+                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25" data-bs-toggle>Digital</button>
                             </div>
 
                             <span class="d-block fs-6 mt-4 mb-2">Tipo de Capa</span>
 
                             <div class="d-flex gap-4 capa">
-                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25" data-bs-toggle="button">Normal</button>
-                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25" data-bs-toggle="button">Dura</button>
+                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25" data-bs-toggle>Normal</button>
+                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25" data-bs-toggle>Dura</button>
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,6 @@
                             @if($produto->produtoEstoque?->PRODUTO_QTD > 0)
                                 <form class="row align-items-center justify-content-between mt-3 mt-xl-0" action="{{route('carrinho.store', $produto->PRODUTO_ID)}}" method="post">
                                     @csrf
-                                    {{-- d-flex  --}}
                                     <div class="col-9 col-sm-5 col-md-6 col-xl-4 mx-auto mx-xl-0">
                                         <div class="d-flex justify-content-between justify-content-xl-center p-2 rounded-pill border border-1 border-dark">
                                             <button type="button" id="qtd-menos" class="btn btn-default border-0">

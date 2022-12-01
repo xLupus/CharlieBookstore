@@ -17,6 +17,15 @@ class EnderecoController extends Controller
      */
     public function store(EnderecoRequest $request)
     {
+        $request->old('cep');
+        $request->old('numero');
+        $request->old('complemento');
+        $request->old('logradouro');
+        $request->old('bairro');
+        $request->old('cidade');
+        $request->old('uf');
+        $request->old('rotulo');
+
         $request->validated();
 
         $verification = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)
