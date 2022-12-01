@@ -49,7 +49,7 @@ class EnderecoController extends Controller
             'ENDERECO_NOME'        => $request->rotulo
         ]);
 
-        session()->flash('success-message', 'Endereco salvo com sucesso!');
+        session()->flash('success-message', 'Endereço salvo com sucesso!');
 
         return redirect()->back();
     }

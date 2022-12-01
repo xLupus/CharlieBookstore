@@ -64,15 +64,15 @@
                             <span class="d-block fs-6 mb-2">Tipo de Mídia</span>
 
                             <div class="d-flex gap-4 midia">
-                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25" data-bs-toggle>Fisico</button>
-                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25" data-bs-toggle>Digital</button>
+                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25" data-bs-toggle="button">Fisico</button>
+                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25" data-bs-toggle="button">Digital</button>
                             </div>
 
                             <span class="d-block fs-6 mt-4 mb-2">Tipo de Capa</span>
 
                             <div class="d-flex gap-4 capa">
-                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25" data-bs-toggle>Normal</button>
-                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25" data-bs-toggle>Dura</button>
+                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25" data-bs-toggle="button">Normal</button>
+                                <button type="button" class="btn btn-light rounded-pill px-4 py-2 fw-semibold border w-25" data-bs-toggle="button">Dura</button>
                             </div>
                         </div>
                     </div>

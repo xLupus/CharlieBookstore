@@ -240,7 +240,7 @@
                                 <span class="fs-6 fw-bold text-dark ms-md-5">NOVO LANÇAMENTO</span>
                                 <span class="display-3 ms-md-5 mt-4">Mayah - Lavender</span>
                                 <div class="mt-5 ms-md-5">
-                                    <button type="button" class="btn btn-outline-light rounded-pill fw-bold reservar">RESERVAR</button>
+                                    <a href="https://www.instagram.com/mayah_br/" class="btn btn-outline-light rounded-pill fw-bold reservar">RESERVAR</a>
                                 </div>
                             </div>
                         </div>
