@@ -33,7 +33,7 @@
                         <div class="col-9 col-xl-6 mx-auto d-flex flex-column gap-2">
                             {{-- Email --}}
                             <label for="Email" class="form-label">Email</label>
-                            <input type="email" name="email" value="{{ old('email') }}" id="Email" class="form-control form-control-lg text-form @error('email') is-invalid @enderror">
+                            <input type="email" name="email" value="{{ old('email') }}" id="Email" class="form-control form-control-lg text-form @error('email') is-invalid @enderror" autocomplete="off">
 
                             @if (!count($errors->get('email')) == 0)
                                 <span class="text-danger fw-bold fs-6">{{$errors->get('email')[0]}}</span>{{-- retorna no indice 0 --}}

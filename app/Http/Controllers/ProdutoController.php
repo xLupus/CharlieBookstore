@@ -16,13 +16,14 @@ class ProdutoController extends Controller
     {
         return view('index')->with([
             'categorias' => Categoria::where('CATEGORIA_ATIVO', TRUE)
-                ->whereRelation('produtos', 'PRODUTO_ATIVO', TRUE)
-                ->orderBy('CATEGORIA_NOME', 'ASC')
-                ->get(),
+                                            ->whereRelation('produtos', 'PRODUTO_ATIVO', TRUE)
+                                            ->orderBy('CATEGORIA_NOME', 'ASC')
+                                            ->get(),
+                                            
             'produtos' => Produto::where('PRODUTO_ATIVO', TRUE)
-                ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
-                ->whereRelation('produtoEstoque', 'PRODUTO_QTD', '>', 0)
-                ->get()
+                                            ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
+                                            ->whereRelation('produtoEstoque', 'PRODUTO_QTD', '>', 0)
+                                            ->get()
         ]); //Index (recebe categorias)
     }
 
@@ -111,10 +112,11 @@ class ProdutoController extends Controller
         $campos   = implode('%', $campos);
 
         $produtos = Produto::where('PRODUTO_ATIVO', TRUE)
-            ->where('PRODUTO_NOME', 'like', "%{$campos}%")
-            ->whereRelation('produtoEstoque', 'PRODUTO_QTD', '>', 0)
-            ->orderBy('PRODUTO_NOME', 'ASC')
-            ->paginate(10);
+                                    ->where('PRODUTO_NOME', 'like', "%{$campos}%")
+                                    ->whereRelation('produtoEstoque', 'PRODUTO_QTD', '>', 0)
+                                    ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
+                                    ->orderBy('PRODUTO_NOME', 'ASC')
+                                    ->paginate(10);
 
         $produtos->withPath("pesquisa?search={$request->search}");
 

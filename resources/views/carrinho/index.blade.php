@@ -112,11 +112,13 @@
                                 <div class="row row-cols-1 row-cols-md-3 py-2">
                                     <div class="col-7 col-sm-4 mx-auto mx-sm-0">
                                         <div class="overflow-hidden rounded-4 div mx-auto">
-                                            @if (isset($item->produto->produtoImagens[0]))
-                                                <img src="{{$item->produto->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
-                                            @else
-                                                <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
-                                            @endif
+                                            <a href="{{route('produto.show', $item->produto->PRODUTO_ID)}}">
+                                                @if (isset($item->produto->produtoImagens[0]))
+                                                    <img src="{{$item->produto->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                @else
+                                                    <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
+                                                @endif
+                                            </a>
                                         </div>
                                     </div>
 

@@ -17,8 +17,8 @@ class Categoria extends Model
 
     public function produtos() {
         return $this->hasMany(Produto::class, 'CATEGORIA_ID')
-        ->where('PRODUTO_ATIVO', TRUE)
-        ->whereRelation('produtoEstoque', 'PRODUTO_QTD', '>', 0);
+                            ->where('PRODUTO_ATIVO', TRUE)
+                            ->whereRelation('produtoEstoque', 'PRODUTO_QTD', '>', 0);
     }
 
     public static function ativo() {

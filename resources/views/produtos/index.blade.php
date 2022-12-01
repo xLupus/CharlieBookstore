@@ -124,7 +124,7 @@
                                         <figure class="figure">
                                             <div class="overflow-hidden rounded-4 mb-3 div">
                                                 @if (isset($produto->produtoImagens[0]))
-                                                    <img src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid" style="{{isset($produto->produtoEstoque->PRODUTO_ID) && $produto->produtoEstoque->PRODUTO_QTD != 0 ? '' : 'filter: grayscale(85%);'}}">
+                                                    <img src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                 @else
                                                     <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                 @endif

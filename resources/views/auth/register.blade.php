@@ -43,7 +43,7 @@
 
                             {{--  Email --}}
                             <label class="form-label mb-2" for="Email">Email</label>
-                            <input type="email" name="email" value="{{old('email')}}" class="form-control form-control-lg text-form @error('email') is-invalid @enderror">
+                            <input type="email" name="email" value="{{old('email')}}" class="form-control form-control-lg text-form @error('email') is-invalid @enderror" autocomplete="off">
 
                             @if(!count($errors->get('email')) == 0)
                                 <span class="text-danger fw-bold fs-6">{{$errors->get('email')[0]}}</span>
