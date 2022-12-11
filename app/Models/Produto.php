@@ -11,20 +11,20 @@ class Produto extends Model
 
     protected $table = 'PRODUTO';
 
-    protected $primaryKey = 'PRODUTO_ID';
+    protected $primaryKey = 'id';
 
     public $timestamps = false;
 
     public function produtoImagens() {
-        return $this->hasMany(ProdutoImagem::class, 'PRODUTO_ID')->orderBy('IMAGEM_ORDEM', 'ASC');
+        return $this->hasMany(ProdutoImagem::class, 'id')->orderBy('IMAGEM_ORDEM', 'ASC');
     }
 
     public function produtoCategoria() {
-        return $this->belongsTo(Categoria::class, 'CATEGORIA_ID');
+        return $this->belongsTo(Categoria::class, 'id');
     }
 
     public function produtoEstoque() {
-        return $this->belongsTo(ProdutoEstoque::class, 'PRODUTO_ID');
+        return $this->belongsTo(ProdutoEstoque::class, 'id');
     }
 
     public static function ativo() {

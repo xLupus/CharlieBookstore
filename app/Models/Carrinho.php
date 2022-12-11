@@ -23,18 +23,18 @@ class Carrinho extends Model
     protected function setKeysForSaveQuery($query) //seleciona as foreign keys
     {
         $query->where('USUARIO_ID', '=', $this->getAttribute('USUARIO_ID'))
-            ->where('PRODUTO_ID', '=', $this->getAttribute('PRODUTO_ID'));
+                    ->where('PRODUTO_ID', '=', $this->getAttribute('PRODUTO_ID'));
 
         return $query;
     }
 
     public function produto()
     {
-        return $this->belongsTo(Produto::class, 'PRODUTO_ID')->where('PRODUTO_ATIVO', TRUE);
+        return $this->belongsTo(Produto::class, 'id')->where('PRODUTO_ATIVO', TRUE);
     }
 
     public static function qtdCarrinho($id)
     {
-        return count(Carrinho::where('USUARIO_ID', $id)->where('ITEM_QTD', '>', 0)->get());
+        return count(Carrinho::where('id', $id)->where('ITEM_QTD', '>', 0)->get());
     }
 }

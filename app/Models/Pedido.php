@@ -14,7 +14,7 @@ class Pedido extends Model
 
     protected $table = 'PEDIDO';
 
-    protected $primaryKey = 'PEDIDO_ID';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'USUARIO_ID',

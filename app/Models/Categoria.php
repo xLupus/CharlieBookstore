@@ -11,7 +11,7 @@ class Categoria extends Model
 
     protected $table = 'CATEGORIA';
 
-    protected $primaryKey = 'CATEGORIA_ID';
+    protected $primaryKey = 'id';
 
     public $timestamps = false;
 
