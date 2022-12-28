@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('produto_imagem', function (Blueprint $table) {
+        Schema::create('PRODUTO_IMAGEM', function (Blueprint $table) {
             $table->id();
-            $table->integer('imagem_ordem');
-            $table->string('imagem_url', 8000);
+            $table->integer('IMAGEM_ORDEM');
+            $table->string('IMAGEM_URL', 8000);
 
-            $table->integer('produto_id')->unsigned();
-            $table->foreign('produto_id')->references('id')->on('produto')->onDelete('cascade');
+            $table->integer('PRODUTO_ID')->unsigned();
+            $table->foreign('PRODUTO_ID')->references('id')->on('PRODUTO')->onDelete('cascade');
         });
     }
 

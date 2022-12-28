@@ -13,18 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('endereco', function (Blueprint $table) {
+        Schema::create('ENDERECO', function (Blueprint $table) {
             $table->id();
-            $table->string('endereco_nome', 30);
-            $table->string('endereco_logradouro', 500);
-            $table->string('endereco_numero', 10);
-            $table->string('endereco_complemento', 100)->nullable();
-            $table->char('endereco_cep', 8);
-            $table->string('endereco_cidade', 100);
-            $table->char('endereco_nome', 2);
+            $table->string('ENDERECO_NOME', 30);
+            $table->string('ENDERECO_LOGRADOURO', 500);
+            $table->string('ENDERECO_NUMERO', 10);
+            $table->string('ENDERECO_COMPLEMENTO', 100)->nullable();
+            $table->char('ENDERECO_CEP', 8);
+            $table->string('ENDERECO_CIDADE', 100);
 
-            $table->integer('usuario_id')->unsigned();
-            $table->foreign('usuario_id')->references('id')->on('usuario')->onDelete('cascade');
+            $table->integer('USUARIO_ID')->unsigned();
+            $table->foreign('USUARIO_ID')->references('id')->on('USUARIO')->onDelete('cascade');
         });
     }
 

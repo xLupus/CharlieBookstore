@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pedido', function (Blueprint $table) {
+        Schema::create('PEDIDO', function (Blueprint $table) {
             $table->id();
-            $table->date('pedido_data');
+            $table->date('PEDIDO_DATA');
 
-            $table->integer('usuario_id')->unsigned();
-            $table->foreign('usuario_id')->references('id')->on('usuario')->onDelete('cascade');
-            
-            $table->integer('status_id')->unsigned();
-            $table->foreign('status_id')->references('id')->on('pedido_status')->onDelete('cascade');
+            $table->integer('USUARIO_ID')->unsigned();
+            $table->foreign('USUARIO_ID')->references('id')->on('USUARIO')->onDelete('cascade');
+
+            $table->integer('STATUS_ID')->unsigned();
+            $table->foreign('STATUS_ID')->references('id')->on('PEDIDO_STATUS')->onDelete('cascade');
         });
     }
 

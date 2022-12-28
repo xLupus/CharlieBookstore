@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categoria', function (Blueprint $table) {
+        Schema::create('CATEGORIA', function (Blueprint $table) {
             $table->id();
-            $table->string('categoria_nome', 100);
-            $table->string('categoria_desc', 8000);
-            $table->boolean('categoria_ativo');
+            $table->string('CATEGORIA_NOME', 100);
+            $table->string('CATEGORIA_DESC', 8000);
+            $table->boolean('CATEGORIA_ATIVO');
         });
     }
 

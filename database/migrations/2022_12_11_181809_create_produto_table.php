@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('produto', function (Blueprint $table) {
+        Schema::create('PRODUTO', function (Blueprint $table) {
             $table->id();
-            $table->string('produto_nome', 100);
-            $table->string('produto_desc', 8000);
-            $table->decimal('produto_preco', $precision = 5, $scale = 2);
-            $table->decimal('produto_desconto', $precision = 5, $scale = 2);
-            $table->boolean('produto_ativo');
+            $table->string('PRODUTO_NOME', 100);
+            $table->string('PRODUTO_DESC', 8000);
+            $table->decimal('PRODUTO_PRECO', $precision = 5, $scale = 2);
+            $table->decimal('PRODUTO_DESCONTO', $precision = 5, $scale = 2);
+            $table->boolean('PRODUTO_ATIVO');
 
-            $table->bigInteger('categoria_id')->unsigned();
-            $table->foreign('categoria_id')->references('id')->on('categoria')->onDelete('cascade');
+            $table->bigInteger('CATEGORIA_ID')->unsigned();
+            $table->foreign('CATEGORIA_ID')->references('id')->on('CATEGORIA')->onDelete('cascade');
         });
     }
 

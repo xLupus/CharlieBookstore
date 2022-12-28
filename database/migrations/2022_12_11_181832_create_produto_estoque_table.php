@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('produto_estoque', function (Blueprint $table) {
-            $table->integer('produto_qtd');
+        Schema::create('PRODUTO_ESTOQUE', function (Blueprint $table) {
+            $table->integer('PRODUTO_QTD');
 
-            $table->bigInteger('produto_id')->unsigned();
-            $table->foreign('produto_id')->references('id')->on('produto')->onDelete('cascade');
+            $table->bigInteger('PRODUTO_ID')->unsigned();
+            $table->foreign('PRODUTO_ID')->references('id')->on('PRODUTO')->onDelete('cascade');
         });
     }
 

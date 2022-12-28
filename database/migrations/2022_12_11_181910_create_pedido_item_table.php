@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pedido_item', function (Blueprint $table) {
-            $table->integer('item_qtd');
-            $table->decimal('item_preco', $precision = 5, $scale = 2);
+        Schema::create('PEDIDO_ITEM', function (Blueprint $table) {
+            $table->integer('ITEM_QTD');
+            $table->decimal('ITEM_PRECO', $precision = 5, $scale = 2);
 
-            $table->integer('produto_id')->unsigned();
-            $table->foreign('produto_id')->references('id')->on('produto')->onDelete('cascade');
-            
-            $table->integer('pedido_id')->unsigned();
-            $table->foreign('pedido_id')->references('id')->on('pedido')->onDelete('cascade');
+            $table->integer('PRODUTO_ID')->unsigned();
+            $table->foreign('PRODUTO_ID')->references('id')->on('PRODUTO')->onDelete('cascade');
+
+            $table->integer('PEDIDO_ID')->unsigned();
+            $table->foreign('PEDIDO_ID')->references('id')->on('PEDIDO')->onDelete('cascade');
         });
     }
 

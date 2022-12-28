@@ -69,7 +69,7 @@
                             <ul class="list-unstyled ms-4 lh-lg d-flex flex-column px-0">
                                 @if (Route::currentRouteName() == 'categoria.show')
                                     @foreach (App\Models\Categoria::ativo() as $categoria)
-                                        @if (Route::current()->categoria->CATEGORIA_ID == $categoria['id'])
+                                        @if (Route::current()->categoria->id == $categoria['id'])
                                             <li class="order-first border-bottom pb-2">
                                                 <a href="{{route('categoria.show', $categoria['id'])}}" class="link text-decoration-none text-dark fw-bold">{{$categoria['nome']}} ({{$categoria['quantidade']}})</a>
                                             </li>
