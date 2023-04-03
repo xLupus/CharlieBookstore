@@ -14,7 +14,7 @@ class Pedido extends Model
 
     protected $table = 'PEDIDO';
 
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'PEDIDO_ID';
 
     protected $fillable = [
         'USUARIO_ID',
@@ -24,11 +24,11 @@ class Pedido extends Model
 
     public $timestamps = false;
 
-    public function pedidoStatus() {
+    public function status() {
         return $this->belongsTo(PedidoStatus::class, 'STATUS_ID');
     }
 
-    public function pedidoItens() {
+    public function itens() {
         return $this->hasMany(PedidoItem::class, 'PEDIDO_ID');
     }
 }

@@ -21,8 +21,8 @@ class ProdutoController extends Controller
                                             ->get(),
 
             'produtos' => Produto::where('PRODUTO_ATIVO', TRUE)
-                                            ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
-                                            ->whereRelation('produtoEstoque', 'PRODUTO_QTD', '>', 0)
+                                            ->whereRelation('categoria', 'CATEGORIA_ATIVO', TRUE)
+                                            ->whereRelation('estoque', 'PRODUTO_QTD', '>', 0)
                                             ->get()
         ]);
     }
@@ -102,6 +102,7 @@ class ProdutoController extends Controller
         return view('produtos.show', compact('produto'));
     }
 
+    
     public function search(Request $request)
     {
         $pesquisa = str_replace(['%', '_'], '', $request->search);
@@ -113,8 +114,8 @@ class ProdutoController extends Controller
 
         $produtos = Produto::where('PRODUTO_ATIVO', TRUE)
                                     ->where('PRODUTO_NOME', 'like', "%{$campos}%")
-                                    ->whereRelation('produtoEstoque', 'PRODUTO_QTD', '>', 0)
-                                    ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
+                                    ->whereRelation('estoque', 'PRODUTO_QTD', '>', 0)
+                                    ->whereRelation('categoria', 'CATEGORIA_ATIVO', TRUE)
                                     ->orderBy('PRODUTO_NOME', 'ASC')
                                     ->paginate(10);
 

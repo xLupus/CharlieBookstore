@@ -55,7 +55,7 @@ class CarrinhoController extends Controller
         ])->first(); //pega uma
 
         if ($cart) {
-            $estoque = Produto::where('PRODUTO_ID', $id)->first()->produtoEstoque->PRODUTO_QTD;
+            $estoque = Produto::where('PRODUTO_ID', $id)->first()->estoque->PRODUTO_QTD;
 
             if ($request->qtd > 0) //se o estoque for maior que a soma
                 $cart->update(['ITEM_QTD' => $request->qtd > $estoque ? $estoque : $request->qtd]);

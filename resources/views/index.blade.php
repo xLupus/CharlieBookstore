@@ -33,7 +33,7 @@
                     <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 gy-3 gx-4 text-center">
                         @foreach($categorias as $categoria)
                             <div class="col">
-                                <a href="{{route('categoria.show',  $categoria->id)}}" class="btn btn-default p-3 border rounded-0 bg-light w-100 text-decoration-none text-black categoria" role="button">{{$categoria->CATEGORIA_NOME}}</a>
+                                <a href="{{route('categoria.show',  $categoria->CATEGORIA_ID)}}" class="btn btn-default p-3 border rounded-0 bg-light w-100 text-decoration-none text-black categoria" role="button">{{$categoria->CATEGORIA_NOME}}</a>
                             </div>
                         @endforeach
                     </div>
@@ -51,11 +51,11 @@
                                     @for ($i = 0; $i < 4; $i++)
                                         <div class="col">
                                             <div class="d-flex justify-content-center">
-                                                <a href="{{route('produto.show', $produtos[$i]->id)}}" class="link text-decoration-none text-dark">
+                                                <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
                                                         <div class="overflow-hidden rounded-4 mb-3 div">
-                                                            @if (isset($produtos[$i]->produtoImagens[0]))
-                                                                <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                            @if (isset($produtos[$i]->imagens[0]))
+                                                                <img src="{{$produtos[$i]->imagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
                                                                 <img src="https://via.placeholder.com/223x320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
@@ -88,11 +88,11 @@
                                     @for ($i = 4; $i < 6; $i++)
                                         <div class="col">
                                             <div class="d-flex justify-content-center">
-                                                <a href="{{route('produto.show', $produtos[$i]->id)}}" class="link text-decoration-none text-dark">
+                                                <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
                                                         <div class="overflow-hidden rounded-4 mb-3 div">
-                                                            @if (isset($produtos[$i]->produtoImagens[0]))
-                                                                <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                            @if (isset($produtos[$i]->imagens[0]))
+                                                                <img src="{{$produtos[$i]->imagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
                                                                 <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif
@@ -150,11 +150,11 @@
                                     @for ($i = 0; $i < 4; $i++)
                                             <div class="col">
                                                 <div class="d-flex justify-content-center">
-                                                    <a href="{{route('produto.show', $produtos[$i]->id)}}" class="link text-decoration-none text-dark">
+                                                    <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                         <figure class="figure">
                                                             <div class="overflow-hidden rounded-4 mb-3 div">
-                                                                @if (isset($produtos[$i]->produtoImagens[0]))
-                                                                    <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                                @if (isset($produtos[$i]->imagens[0]))
+                                                                    <img src="{{$produtos[$i]->imagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                                 @else
                                                                     <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                                 @endif
@@ -187,11 +187,11 @@
                                     @for ($i = 4; $i < 6; $i++)
                                         <div class="col">
                                             <div class="d-flex justify-content-center">
-                                                <a href="{{route('produto.show', $produtos[$i]->id)}}" class="link text-decoration-none text-dark">
+                                                <a href="{{route('produto.show', $produtos[$i]->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                                     <figure class="figure">
                                                         <div class="overflow-hidden rounded-4 mb-3 div">
-                                                            @if (isset($produtos[$i]->produtoImagens[0]))
-                                                                <img src="{{$produtos[$i]->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                            @if (isset($produtos[$i]->imagens[0]))
+                                                                <img src="{{$produtos[$i]->imagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                             @else
                                                                 <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                             @endif

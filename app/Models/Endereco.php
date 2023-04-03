@@ -11,7 +11,7 @@ class Endereco extends Model
 
     protected $table = 'ENDERECO';
 
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'ENDERECO_ID';
 
     protected $fillable = [
         'USUARIO_ID',

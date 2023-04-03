@@ -30,7 +30,7 @@ class Carrinho extends Model
 
     public function produto()
     {
-        return $this->belongsTo(Produto::class, 'id')->where('PRODUTO_ATIVO', TRUE);
+        return $this->belongsTo(Produto::class, 'PRODUTO_ID')->where('PRODUTO_ATIVO', TRUE);
     }
 
     public static function qtdCarrinho($id)

@@ -11,25 +11,25 @@ class Produto extends Model
 
     protected $table = 'PRODUTO';
 
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'PRODUTO_ID';
 
     public $timestamps = false;
 
-    public function produtoImagens() {
-        return $this->hasMany(ProdutoImagem::class, 'id')->orderBy('IMAGEM_ORDEM', 'ASC');
+    public function imagens() {
+        return $this->hasMany(ProdutoImagem::class, 'PRODUTO_ID')->orderBy('IMAGEM_ORDEM', 'ASC');
     }
 
-    public function produtoCategoria() {
-        return $this->belongsTo(Categoria::class, 'id');
+    public function categoria() {
+        return $this->belongsTo(Categoria::class, 'PRODUTO_ID');
     }
 
-    public function produtoEstoque() {
-        return $this->belongsTo(ProdutoEstoque::class, 'id');
+    public function estoque() {
+        return $this->belongsTo(ProdutoEstoque::class, 'PRODUTO_ID');
     }
 
     public static function ativo() {
         return Produto::where('PRODUTO_ATIVO', TRUE)
-            ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
-            ->get();
+                            ->whereRelation('categoria', 'CATEGORIA_ATIVO', TRUE)
+                            ->get();
     }
 }

@@ -118,13 +118,13 @@
                 <div class="col-lg-9 col-11 mt-5 mt-lg-0 mx-auto">
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
                         @foreach ($produtos as $produto)
-                            @if ($produto->produtoEstoque != null && $produto->produtoEstoque->PRODUTO_QTD > 0)
+                            @if ($produto->estoque != null && $produto->estoque->PRODUTO_QTD > 0)
                                 <div class="col d-flex justify-content-center my-2">
                                     <a href="{{route('produto.show', $produto->PRODUTO_ID)}}" class="link text-decoration-none text-dark">
                                         <figure class="figure">
                                             <div class="overflow-hidden rounded-4 mb-3 div">
-                                                @if (isset($produto->produtoImagens[0]))
-                                                    <img src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                @if (isset($produto->imagens[0]))
+                                                    <img src="{{$produto->imagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                 @else
                                                     <img src="https://via.placeholder.com/177x265/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                 @endif
@@ -133,7 +133,7 @@
                                             <figcaption class="figure-caption text-dark fw-semibold position-relative">
                                                 <span class="d-block fs-5 name">{{$produto->PRODUTO_NOME}}</span>
                                                 @if ($produto->PRODUTO_DESCONTO > 0)
-                                                    <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5 desconto" style="{{isset($produto->produtoEstoque->PRODUTO_ID) && $produto->produtoEstoque->PRODUTO_QTD != 0 ? '' : 'filter: grayscale(85%);'}}">{{number_format($produto->PRODUTO_DESCONTO / $produto->PRODUTO_PRECO * 100, 0)}}%</span>
+                                                    <span class="badge rounded-0 rounded-start position-absolute translate-middle bg-danger fs-5 desconto" style="{{isset($produto->estoque->PRODUTO_ID) && $produto->estoque->PRODUTO_QTD != 0 ? '' : 'filter: grayscale(85%);'}}">{{number_format($produto->PRODUTO_DESCONTO / $produto->PRODUTO_PRECO * 100, 0)}}%</span>
                                                     <div class="d-flex">
                                                         <span class="fw-semibold me-3 fs-5">R$ {{number_format($produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO, 2)}}</span>
                                                         <span class="fw-semibold"><s>R$ {{$produto->PRODUTO_PRECO}}</s></span>
