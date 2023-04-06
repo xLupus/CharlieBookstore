@@ -11,7 +11,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('catalogo')}}" class="link">Livros</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('categoria.show',$produto->categoria->id)}}" class="link">{{ ucfirst($produto->categoria->CATEGORIA_NOME) }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('categoria.show',$produto->categoria->CATEGORIA_ID)}}" class="link">{{ ucfirst($produto->categoria->CATEGORIA_NOME) }}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{ $produto->PRODUTO_NOME }}</li>
                 </ol>
             </nav>
@@ -95,7 +95,7 @@
                             </div>
 
                             @if($produto->estoque?->PRODUTO_QTD > 0)
-                                <form class="row align-items-center justify-content-between mt-3 mt-xl-0" action="{{route('carrinho.store', $produto->id)}}" method="post">
+                                <form class="row align-items-center justify-content-between mt-3 mt-xl-0" action="{{route('carrinho.store', $produto->PRODUTO_ID)}}" method="post">
                                     @csrf
                                     <div class="col-9 col-sm-5 col-md-6 col-xl-4 mx-auto mx-xl-0">
                                         <div class="d-flex justify-content-between justify-content-xl-center p-2 rounded-pill border border-1 border-dark">
