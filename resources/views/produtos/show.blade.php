@@ -11,7 +11,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('catalogo')}}" class="link">Livros</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('categoria.show',$produto->categoria->CATEGORIA_ID)}}" class="link">{{ ucfirst($produto->categoria->CATEGORIA_NOME) }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('categoria.show',$produto->produtoCategoria->CATEGORIA_ID)}}" class="link">{{ ucfirst($produto->produtoCategoria->CATEGORIA_NOME) }}</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{ $produto->PRODUTO_NOME }}</li>
                 </ol>
             </nav>
@@ -27,15 +27,15 @@
                 <div class="col-10 col-md-4 mx-auto">
                     <div class="row row-cols-1 row-cols-xl-2 books-pictures">
                         <div class="col-12 col-xl-8 destaque">
-                            @if (isset($produto->imagens[0]))
-                                <img src="{{$produto->imagens[0]->IMAGEM_URL}}" alt="..." class="img-fluid" id="book-picture">
+                            @if (isset($produto->produtoImagens[0]))
+                                <img src="{{$produto->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="img-fluid" id="book-picture">
                             @else
                                 <img src="https://via.placeholder.com/223x300/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="img-fluid mb-2 book-pictures">
                             @endif
                         </div>
                         <div class="col-12 col-xl-4 d-flex d-xl-block side-pictures overflow-auto">
-                            @isset($produto->imagens[0])
-                                @foreach($produto->imagens as $imagem)
+                            @isset($produto->produtoImagens[0])
+                                @foreach($produto->produtoImagens as $imagem)
                                     <img src="{{$imagem->IMAGEM_URL}}" alt="..." width="125" class="img-fluid mb-2 mt-2 mt-xl-0 me-2 me-xl-0 book-pictures">
                                 @endforeach
                             @endisset
@@ -79,8 +79,8 @@
 
                     <div class="row">
                         <div class="col">
-                            @if($produto->estoque?->PRODUTO_QTD > 0)
-                                <span class="d-block mt-4 fw-semibold">Quantidade em Estoque: {{$produto->estoque?->PRODUTO_QTD}}</span>
+                            @if($produto->produtoEstoque?->PRODUTO_QTD > 0)
+                                <span class="d-block mt-4 fw-semibold">Quantidade em Estoque: {{$produto->produtoEstoque?->PRODUTO_QTD}}</span>
                             @endif
 
                             <div class="row bg-light align-items-center p-4 my-4 rounded shadow-sm">
@@ -94,7 +94,7 @@
                                 </div>
                             </div>
 
-                            @if($produto->estoque?->PRODUTO_QTD > 0)
+                            @if($produto->produtoEstoque?->PRODUTO_QTD > 0)
                                 <form class="row align-items-center justify-content-between mt-3 mt-xl-0" action="{{route('carrinho.store', $produto->PRODUTO_ID)}}" method="post">
                                     @csrf
                                     <div class="col-9 col-sm-5 col-md-6 col-xl-4 mx-auto mx-xl-0">
@@ -104,7 +104,7 @@
                                                     <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
                                                 </svg>
                                             </button>
-                                            <input type="number" class="form-control w-auto text-center border-0 shadow-none" id="produto-qtd" name="qtd" value="1" min="1" max="{{$produto->estoque->PRODUTO_QTD}}">
+                                            <input type="number" class="form-control w-auto text-center border-0 shadow-none" id="produto-qtd" name="qtd" value="1" min="1" max="{{$produto->produtoEstoque->PRODUTO_QTD}}">
                                             <button type="button" id="qtd-mais" class="btn btn-default border-0">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                                                     <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>

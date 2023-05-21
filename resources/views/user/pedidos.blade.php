@@ -43,7 +43,7 @@
                                             $precoTotal = [];
                                             $itensTotal = 0;
 
-                                            foreach ($pedido->itens as $item) {
+                                            foreach ($pedido->pedidoItens as $item) {
                                                 $precoTotal[] = $item->ITEM_QTD * ($item->ITEM_PRECO);
                                                 $itensTotal += $item->ITEM_QTD;
                                             }
@@ -52,7 +52,7 @@
                                             <th scope="row"><a href="{{route('pedido', $pedido->PEDIDO_ID)}}" class="link text-dark">#{{$pedido->PEDIDO_ID}}</a></th>
                                             <td>{{implode('/', array_reverse(explode('-', $pedido->PEDIDO_DATA)))}}</td>
                                             <td class="pagamento"></td>
-                                            <td><span class="badge rounded-pill px-2 status">{{$pedido->status->STATUS_DESC}}</span></td>
+                                            <td><span class="badge rounded-pill px-2 status">{{$pedido->pedidoStatus->STATUS_DESC}}</span></td>
                                             <td>{{$itensTotal}}</td>
                                             <td>R$ {{number_format(array_sum($precoTotal), 2)}}</td>
                                         </tr>

@@ -32,19 +32,19 @@
                         <div class="row row-cols-1 row-cols-sm-2 py-2">
                             <div class="col-11 col-sm-4 col-lg-3 mx-auto d-flex justify-content-center">
                                 <div class="overflow-hidden rounded-4 div">
-                                    <img src="{{$item->itens->imagens[0]->IMAGEM_URL}}" width="140" class="img-fluid">
+                                    <img src="{{$item->pedidoItens->produtoImagens[0]->IMAGEM_URL}}" width="140" class="img-fluid">
                                 </div>
                             </div>
 
                             <div class="col-11 col-sm-6 col-lg-9 mx-auto text-center text-sm-start mt-3 mt-sm-0 lh-lg info">
                                 <div>
                                     <span class="fw-bold">Titulo: </span>
-                                    <span>{{$item->itens->PRODUTO_NOME}}</span>
+                                    <span>{{$item->pedidoItens->PRODUTO_NOME}}</span>
                                 </div>
 
                                 <div>
                                     <span class="fw-bold">Categoria: </span>
-                                    <span>{{$item->itens->categoria->CATEGORIA_NOME}}</span>
+                                    <span>{{$item->pedidoItens->produtoCategoria->CATEGORIA_NOME}}</span>
                                 </div>
 
                                 <div>

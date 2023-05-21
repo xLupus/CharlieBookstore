@@ -15,21 +15,21 @@ class Produto extends Model
 
     public $timestamps = false;
 
-    public function imagens() {
+    public function produtoImagens() {
         return $this->hasMany(ProdutoImagem::class, 'PRODUTO_ID')->orderBy('IMAGEM_ORDEM', 'ASC');
     }
 
-    public function categoria() {
-        return $this->belongsTo(Categoria::class, 'PRODUTO_ID');
+    public function produtoCategoria() {
+        return $this->belongsTo(Categoria::class, 'CATEGORIA_ID');
     }
 
-    public function estoque() {
+    public function produtoEstoque() {
         return $this->belongsTo(ProdutoEstoque::class, 'PRODUTO_ID');
     }
 
     public static function ativo() {
         return Produto::where('PRODUTO_ATIVO', TRUE)
-                            ->whereRelation('categoria', 'CATEGORIA_ATIVO', TRUE)
-                            ->get();
+            ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
+            ->get();
     }
 }

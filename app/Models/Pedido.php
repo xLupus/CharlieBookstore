@@ -24,11 +24,11 @@ class Pedido extends Model
 
     public $timestamps = false;
 
-    public function status() {
+    public function pedidoStatus() {
         return $this->belongsTo(PedidoStatus::class, 'STATUS_ID');
     }
 
-    public function itens() {
+    public function pedidoItens() {
         return $this->hasMany(PedidoItem::class, 'PEDIDO_ID');
     }
 }

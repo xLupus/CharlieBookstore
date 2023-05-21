@@ -113,8 +113,8 @@
                                     <div class="col-7 col-sm-4 mx-auto mx-sm-0">
                                         <div class="overflow-hidden rounded-4 div mx-auto">
                                             <a href="{{route('produto.show', $item->produto->PRODUTO_ID)}}" class="link">
-                                                @if (isset($item->produto->imagens[0]))
-                                                    <img src="{{$item->produto->imagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
+                                                @if (isset($item->produto->produtoImagens[0]))
+                                                    <img src="{{$item->produto->produtoImagens[0]->IMAGEM_URL}}" alt="..." class="figure-img img-fluid">
                                                 @else
                                                     <img src="https://via.placeholder.com/223X320/F8F8F8/CCC?text=Sem%20Imagem" alt="..." class="figure-img img-fluid">
                                                 @endif
@@ -130,7 +130,7 @@
 
                                         <div class="mb-3">
                                             <span class="fw-bold">Categoria: </span>
-                                            <span class="d-block">{{ $item->produto->categoria->CATEGORIA_NOME }}</span>
+                                            <span class="d-block">{{ $item->produto->produtoCategoria->CATEGORIA_NOME }}</span>
                                         </div>
 
                                         @if ($item->produto->PRODUTO_DESCONTO > 0)
@@ -154,7 +154,7 @@
                                                         <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
                                                     </svg>
                                                 </button>
-                                                <input type="number" id="produto-qtd" class="form-control w-auto text-center border-0 shadow-none" name="qtd" value="{{$item->ITEM_QTD}}" min="1" max="{{$item->produto->estoque->PRODUTO_QTD}}">
+                                                <input type="number" id="produto-qtd" class="form-control w-auto text-center border-0 shadow-none" name="qtd" value="{{$item->ITEM_QTD}}" min="1" max="{{$item->produto->produtoEstoque->PRODUTO_QTD}}">
                                                 <button type="button" id="qtd-mais" class="btn btn-default border-0" onclick="atualizarQtd(this, 1)">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                                                         <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -180,7 +180,7 @@
                                     </form>
                                 </div>
                                 <div class="col-2 bg-light rounded-top">
-                                    <button type="button" class="btn btn-default p-0 border-0 float-end">
+                                    <button type="button" class="btn btn-default p-0 border border-0 float-end">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
                                             <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
                                         </svg>
