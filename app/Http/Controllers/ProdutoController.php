@@ -9,25 +9,6 @@ use App\Models\Categoria;
 class ProdutoController extends Controller
 {
     /**
-     * Return the Main Page of the application
-     * @return void
-     */
-    public function home()
-    {
-        return view('index')->with([
-            'categorias' => Categoria::where('CATEGORIA_ATIVO', TRUE)
-                                            ->whereRelation('produtos', 'PRODUTO_ATIVO', TRUE)
-                                            ->orderBy('CATEGORIA_NOME', 'ASC')
-                                            ->get(),
-                                            
-            'produtos' => Produto::where('PRODUTO_ATIVO', TRUE)
-                                            ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
-                                            ->whereRelation('produtoEstoque', 'PRODUTO_QTD', '>', 0)
-                                            ->get()
-        ]); //Index (recebe categorias)
-    }
-
-    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -40,7 +21,7 @@ class ProdutoController extends Controller
 
         $produtosAtivos = Produto::ativo();
 
-        foreach($produtosAtivos as $produto)
+        foreach ($produtosAtivos as $produto)
             $valores[] = $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO;
 
         $maxPreco = max($valores);
@@ -49,30 +30,25 @@ class ProdutoController extends Controller
         if ($request->precoMin && $request->precoMax)
             $produtos = Produto::whereRaw("(PRODUTO_PRECO - PRODUTO_DESCONTO) BETWEEN {$request->precoMin} AND {$request->precoMax}")->get();
 
-        switch ($request->order) {
-            case 'a-z':
-                $produtos = $produtos->sortby(fn($produto) => $produto->PRODUTO_NOME);
-                $order_az = true;
-                break;
 
-            case 'z-a':
-                $produtos = $produtos->sortbyDesc(fn($produto) => $produto->PRODUTO_NOME);
-                $order_za = true;
-                break;
 
-            case 'menores-precos':
-                $produtos = $produtos->sortby(fn($produto) => $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO);
-                $order_menor_preco = true;
-                break;
+        if ($request->order == 'a-z') {
+            $produtos = $produtos->sortby(fn ($produto) => $produto->PRODUTO_NOME);
+            $order_az = true;
+            
+        } elseif ($request->order == 'z-a') {
+            $produtos = $produtos->sortbyDesc(fn ($produto) => $produto->PRODUTO_NOME);
+            $order_za = true;
 
-            case 'maiores-precos':
-                $produtos = $produtos->sortbyDesc(fn($produto) => $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO);
-                $order_maior_preco = true;
-                break;
+        } elseif ($request->order == 'menores-precos') {
+            $produtos = $produtos->sortby(fn ($produto) => $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO);
+            $order_menor_preco = true;
 
-            default:
-                break;
+        } elseif ($request->order == 'maiores-precos') {
+            $produtos = $produtos->sortbyDesc(fn ($produto) => $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO);
+            $order_maior_preco = true;
         }
+
 
         return view('produtos.index')->with([
             'produtos'          => $produtos,
@@ -106,17 +82,17 @@ class ProdutoController extends Controller
     {
         $pesquisa = str_replace(['%', '_'], '', $request->search);
 
-        if(!$pesquisa) return redirect()->route('catalogo');
+        if (!$pesquisa) return redirect()->route('catalogo');
 
         $campos   = explode(' ', $pesquisa);
         $campos   = implode('%', $campos);
 
         $produtos = Produto::where('PRODUTO_ATIVO', TRUE)
-                                    ->where('PRODUTO_NOME', 'like', "%{$campos}%")
-                                    ->whereRelation('produtoEstoque', 'PRODUTO_QTD', '>', 0)
-                                    ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
-                                    ->orderBy('PRODUTO_NOME', 'ASC')
-                                    ->paginate(10);
+            ->where('PRODUTO_NOME', 'like', "%{$campos}%")
+            ->whereRelation('produtoEstoque', 'PRODUTO_QTD', '>', 0)
+            ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
+            ->orderBy('PRODUTO_NOME', 'ASC')
+            ->paginate(10);
 
         $produtos->withPath("pesquisa?search={$request->search}");
 
