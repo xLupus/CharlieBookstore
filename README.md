@@ -1,64 +1,74 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Charlie Bookstore
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Índice
 
-## About Laravel
+- [Charlie Bookstore](#charlie-bookstore)
+- [Índice](#índice)
+- [Descrição do Projeto](#descrição-do-projeto)
+- [Limitações do Projeto](#limitações-do-projeto)
+- [Modelagem do Banco](#modelagem-do-banco)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Status do Projeto](#status-do-projeto)
+- [Funcionalidades e Demonstração](#funcionalidades-e-demonstração)
+- [Contribuidores](#contribuidores)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<br>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Descrição do Projeto
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Charlie Bookstore é o Projeto Integrador do 3° Semestre do Curso de Tecnologo em Sistemas para Intenet do Centro Universitario Senac, em parceria com o 2° e 4° Semestre.
 
-## Learning Laravel
+A ideia inicial desse projeto erá fazer um e-coomerce de livros utilizando o Framework Laravel, em cooperação com o 2° e 4° Semestre.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+O 2° Semestre ficaria responsavel pela area de administrador, sendo responsaval por inserir os produtos, estoque, imagens [...], o 3° Semestre ficaria responsavel por fazer a area do usuario e a area publica do site como - Exibir os produtos, filtros, adicionar um produto no carrinho, exibir a lista de produtos, finalizar compra [...], e o 4° Semestre ficaria resposavel por fazer a versão mobile do site.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<br>
 
-## Laravel Sponsors
+# Limitações do Projeto
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+O Projeto foi delimitado pela Universidade, sendo eles responsaveis:
 
-### Premium Partners
+- Pelo tema de e-coomerce de livros;
+- Pela modelagem do banco de daods;
+- Ceder o banco de dados a ser utilizado;
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Devido a isso:
 
-## Contributing
+- O projeto não possui a area de administrador, ja que fomos responsaveis apenas pela area do cliente;
+- Não possui qualquer integração com sistemas de pagamento;
+- As funcionalidades foram limitadas deido a limitação do banco de dados;
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<br>
 
-## Code of Conduct
+# Modelagem do Banco
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+![Modelagem do Banco de Dados do Projeto](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21348&authkey=%21AMzdqMHQxGAO2yY&width=660 "Modelo Lógico do Banco de Dados")
 
-## Security Vulnerabilities
+<br>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Tecnologias Utilizadas
 
-## License
+- HTML
+- CSS
+- Bootstrap 5
+- PHP/Laravel
+- MySQL (Hospedado em Nuvemm)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<br>
+
+# Status do Projeto
+
+**Em Adaptação**
+
+<br>
+
+# Funcionalidades e Demonstração
+
+**Em Progresso**
+
+<br>
+
+# Contribuidores
+
+- [Rafael Martins](https://github.com/Mr-R4F)
+
