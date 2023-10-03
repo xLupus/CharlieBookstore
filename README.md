@@ -36,7 +36,7 @@ Devido a isso:
 
 - O projeto não possui a area de administrador, ja que fomos responsaveis apenas pela area do cliente;
 - Não possui qualquer integração com sistemas de pagamento;
-- As funcionalidades foram limitadas deido a limitação do banco de dados;
+- As funcionalidades foram limitadas pelo do banco de dados;
 
 <br>
 
@@ -52,7 +52,7 @@ Devido a isso:
 - CSS
 - Bootstrap 5
 - PHP/Laravel
-- MySQL (Hospedado em Nuvemm)
+- MySQL (Hospedado em Nuvem)
 
 <br>
 
