@@ -4,10 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\EnderecoController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PedidoController;
 //use Illuminate\Support\Facades\Auth;
 
-Route::get('/', [ProdutoController::class, 'home'])->name('home');
+Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::get('/catalogo', [ProdutoController::class, 'index'])->name('catalogo');
 Route::get('/categoria/{categoria}', [ProdutoController::class, 'index'])->name('categoria.show');

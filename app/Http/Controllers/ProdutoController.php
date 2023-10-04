@@ -9,81 +9,47 @@ use App\Models\Categoria;
 class ProdutoController extends Controller
 {
     /**
-     * Return the Main Page of the application
-     * @return void
-     */
-    public function home()
-    {
-        return view('index')->with([
-            'categorias' => Categoria::where('CATEGORIA_ATIVO', TRUE)
-                                            ->whereRelation('produtos', 'PRODUTO_ATIVO', TRUE)
-                                            ->orderBy('CATEGORIA_NOME', 'ASC')
-                                            ->get(),
-                                            
-            'produtos' => Produto::where('PRODUTO_ATIVO', TRUE)
-                                            ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
-                                            ->whereRelation('produtoEstoque', 'PRODUTO_QTD', '>', 0)
-                                            ->get()
-        ]); //Index (recebe categorias)
-    }
-
-    /**
      * Display a listing of the resource.
-     *
+     * TODO - Consertar o problema do filtro
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request, Categoria $categoria)
     {
+        $itemsPerPage = 12;
+
         $order_az = $order_za = $order_menor_preco = $order_maior_preco = false;
 
-        $produtos = $categoria->produtos->count() != 0 ? $categoria->produtos : Produto::ativo();
+        $produtos = $categoria->produtos->count() != 0 
+            ? $categoria->produtos()
 
-        $produtosAtivos = Produto::ativo();
+            : Produto::where('PRODUTO_ATIVO', TRUE)
+                    ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE);
 
-        foreach($produtosAtivos as $produto)
-            $valores[] = $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO;
+        if ($request->order == 'a-z') {
+            $produtos = $produtos->orderBy('PRODUTO_NOME', "asc");
+            $order_az = true;
+            
+        } elseif ($request->order == 'z-a') {
+            $produtos = $produtos->orderBy('PRODUTO_NOME', "desc");
+            $order_za = true;
 
-        $maxPreco = max($valores);
-        $minPreco = min($valores);
+        } elseif ($request->order == 'menores-precos') {
+            $produtos = $produtos->orderByRaw("PRODUTO.PRODUTO_PRECO - PRODUTO.PRODUTO_DESCONTO asc");
+            $order_menor_preco = true;
 
-        if ($request->precoMin && $request->precoMax)
-            $produtos = Produto::whereRaw("(PRODUTO_PRECO - PRODUTO_DESCONTO) BETWEEN {$request->precoMin} AND {$request->precoMax}")->get();
-
-        switch ($request->order) {
-            case 'a-z':
-                $produtos = $produtos->sortby(fn($produto) => $produto->PRODUTO_NOME);
-                $order_az = true;
-                break;
-
-            case 'z-a':
-                $produtos = $produtos->sortbyDesc(fn($produto) => $produto->PRODUTO_NOME);
-                $order_za = true;
-                break;
-
-            case 'menores-precos':
-                $produtos = $produtos->sortby(fn($produto) => $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO);
-                $order_menor_preco = true;
-                break;
-
-            case 'maiores-precos':
-                $produtos = $produtos->sortbyDesc(fn($produto) => $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO);
-                $order_maior_preco = true;
-                break;
-
-            default:
-                break;
+        } elseif ($request->order == 'maiores-precos') {
+            $produtos = $produtos->orderByRaw("PRODUTO.PRODUTO_PRECO - PRODUTO.PRODUTO_DESCONTO desc");
+            $order_maior_preco = true;
         }
+
+        $produtos = $produtos->paginate($itemsPerPage)->withQueryString();
 
         return view('produtos.index')->with([
             'produtos'          => $produtos,
             "order_az"          => $order_az,
             "order_za"          => $order_za,
             "order_menor_preco" => $order_menor_preco,
-            "order_maior_preco" => $order_maior_preco,
-            "preco_max"         => $maxPreco,
-            "preco_min"         => $minPreco,
-            "min"               => $request->precoMin,
-            "max"               => $request->precoMax,
+            "order_maior_preco" => $order_maior_preco
         ]);
     }
 
@@ -102,21 +68,25 @@ class ProdutoController extends Controller
         return view('produtos.show', compact('produto'));
     }
 
+    /**
+     * 
+     */
     public function search(Request $request)
     {
         $pesquisa = str_replace(['%', '_'], '', $request->search);
 
-        if(!$pesquisa) return redirect()->route('catalogo');
+        if (!$pesquisa) 
+            return redirect()->route('catalogo');
 
         $campos   = explode(' ', $pesquisa);
         $campos   = implode('%', $campos);
 
         $produtos = Produto::where('PRODUTO_ATIVO', TRUE)
-                                    ->where('PRODUTO_NOME', 'like', "%{$campos}%")
-                                    ->whereRelation('produtoEstoque', 'PRODUTO_QTD', '>', 0)
-                                    ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
-                                    ->orderBy('PRODUTO_NOME', 'ASC')
-                                    ->paginate(10);
+            ->where('PRODUTO_NOME', 'like', "%{$campos}%")
+            ->whereRelation('produtoEstoque', 'PRODUTO_QTD', '>', 0)
+            ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
+            ->orderBy('PRODUTO_NOME', 'ASC')
+            ->paginate(10);
 
         $produtos->withPath("pesquisa?search={$request->search}");
 
