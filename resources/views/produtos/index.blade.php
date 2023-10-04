@@ -89,29 +89,6 @@
                             </ul>
                         </div><!-- 2 -->
 
-                        <button class="btn btn-default d-inline-flex justify-content-between align-items-center mt-4 p-0 w-100 order-btn" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="#collapse3">
-                            <span class="d-block fw-bold" id="price">PREÇO</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-dash ms-2" viewBox="0 0 16 16" id="btnPrice">
-                                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-                            </svg>
-                        </button>
-
-                        <div class="collapse mt-2" id="collapse3">
-                            <form action="{{route('catalogo')}}" method="get">
-                                {{-- Pega o val max --}}
-                                    <input type="hidden" class="form-control" id="preco-max" value="{{$preco_max}}"></span>
-                                {{--  --}}
-                                <span class="d-block">Intervalo de preço:</span>
-                                <div class="d-flex justify-content-between align-items-center mt-2">
-                                    <span class="hstack me-2">R$: <input class="form-control form-control-sm ms-auto" id="val1" name="precoMin" value="{{isset($min) ? $min : '0'}}" readonly></span>
-                                    <span class="hstack ms-2">R$: <input class="form-control form-control-sm ms-auto" id="val2" name="precoMax"  value="{{isset($max) ? $max : ceil($preco_max)}}" readonly></span>
-                                </div>
-
-                                <div class="mx-auto mt-3" id="slider"></div>
-
-                                <button type="submit" class="btn btn-outline-secondary w-100 mt-4">APLICAR</button>
-                            </form>
-                        </div><!-- 3 -->
                     </div>
                 </div>
 
@@ -150,7 +127,12 @@
                             @endif
                         @endforeach
                     </div>
+
+                    {{$produtos->onEachSide(3)->links()}}
                 </div>
+
+                
+
             </div>
         </div>
     </main>

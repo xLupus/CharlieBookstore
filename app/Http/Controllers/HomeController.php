@@ -15,18 +15,20 @@ class HomeController extends Controller
      */
     public function home()
     {
-        return view('index')->with([
-            'categorias' => Categoria::where('CATEGORIA_ATIVO', TRUE)
-                ->whereRelation('produtos', 'PRODUTO_ATIVO', TRUE)
-                ->orderBy('CATEGORIA_NOME', 'ASC')
-                ->get(),
+        $products = Produto::where('PRODUTO_ATIVO', TRUE)
+            ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
+            ->whereRelation('produtoEstoque', 'PRODUTO_QTD', '>', 0)
+            ->get();
 
-            'produtos' => Produto::where('PRODUTO_ATIVO', TRUE)
-                ->whereRelation('produtoCategoria', 'CATEGORIA_ATIVO', TRUE)
-                ->whereRelation('produtoEstoque', 'PRODUTO_QTD', '>', 0)
-                ->get()
+        $categories = Categoria::where('CATEGORIA_ATIVO', TRUE)
+            ->whereRelation('produtos', 'PRODUTO_ATIVO', TRUE)
+            ->orderBy('CATEGORIA_NOME', 'ASC')
+            ->get();
+
+
+        return view('index')->with([
+            'categorias' => $categories,
+            'produtos'   => $products
         ]);
     }
-
-
 }
