@@ -146,7 +146,7 @@
                                     <li>
                                         <form action="{{route('logout')}}" method="post" class="dropdown-item p-1 w-auto">
                                             @csrf
-                                            <button type="submit" class="btn btn-default border border-0 py-0 text-start w-100">Sair</button>
+                                            <button type="submit" class="btn btn-default border py-0 text-start w-100">Sair</button>
                                         </form>
                                     </li>
                                 @endauth

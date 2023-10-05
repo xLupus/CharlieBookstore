@@ -15,7 +15,7 @@ class ProdutoController extends Controller
      */
     public function index(Request $request, Categoria $categoria)
     {
-        $itemsPerPage = 12;
+        $itemsPerPage = 16;
 
         $order_az = $order_za = $order_menor_preco = $order_maior_preco = false;
 
