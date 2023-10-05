@@ -68,8 +68,7 @@ Devido a isso:
 <br>
 
 # Modelagem do Banco
-
-![Modelagem do Banco de Dados do Projeto](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21348&authkey=%21AMzdqMHQxGAO2yY&width=876&height=609 "Modelo Lógico do Banco de Dados")
+<img src="https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21348&authkey=%21AMzdqMHQxGAO2yY" alt="Modelagem do Banco de Dados do Projeto" width="100%"/>
 
 <br>
 
@@ -91,87 +90,86 @@ Devido a isso:
 
 # Funcionalidades e Demonstração
 ## Home
-![Página inicial do Projeto](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21425&authkey=%21AJbzYkIBIWDO2iM&height=1024)
+<img src="https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21425&authkey=%21AJbzYkIBIWDO2iM" alt="Página inicial do Projeto" width="100%"/>
 
 ## Catalogo
-![Página de Produtos](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21423&authkey=%21AL-2nFb5soXxJpI&height=1024)
+<img src="https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21423&authkey=%21AL-2nFb5soXxJpI" alt="Página de Produtos" width="100%"/>
 
 ### Ordenação
-![Página de Produtos - Ordenação](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21428&authkey=%21APbi5p6cNAAayr0&height=1024)
+<img src="https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21428&authkey=%21APbi5p6cNAAayr0" alt="Página de Produtos - Ordenação" width="100%"/>
 
 ### Categoria
-![Página de Produtos por Categoria](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21421&authkey=%21ABOPmW2IIs04Pmk&height=1024)
+<img src="https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21421&authkey=%21ABOPmW2IIs04Pmk" alt="Página de Produtos por Categoria" width="100%"/>
 
 ### Categoria Ordenada
-![Página de Produtos por Categoria - Ordenada](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21420&authkey=%21AGmAJRYMAj58mtI&height=1024)
+<img src="https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21420&authkey=%21AGmAJRYMAj58mtI" alt="Página de Produtos por Categoria - Ordenada" width="100%"/>
 
 ### Produto com Desconto
-![Catalogo de Produtos - Produto com Desconto](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21436&authkey=%21AGFXl7C8K8lLKWY&height=1024)
+<img src="https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21436&authkey=%21AGFXl7C8K8lLKWY" alt="Catalogo de Produtos - Produto com Desconto" width="100%"/>
 
 ## Produto
 ### Página de Produto
-![Página de Detalhes do Produto](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21437&authkey=%21AGGHTR4mLvaeJDM&height=1024)
-
+<img src="https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21437&authkey=%21AGGHTR4mLvaeJDM" alt="Página de Detalhes do Produto" width="100%"/>
 
 ### Produto adicionado ao carrinho
-![Página de Detalhes do Produto - Produto Adicionado ao Carrinho](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21434&authkey=%21ADX02DJbjZTvw2s&height=1024)
-
+![Página de Detalhes do Produto - Produto Adicionado ao Carrinho](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21434&authkey=%21ADX02DJbjZTvw2s)
+<img src="" alt="" width="100%"/>
 ### Produto com Desconto
-![Página de Detalhes do Produto com Desconto](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21433&authkey=%21AMx1pmjjMeWOoVw&width=1024)
-
+![Página de Detalhes do Produto com Desconto](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21433&authkey=%21AMx1pmjjMeWOoVw)
+<img src="" alt="" width="100%"/>
 ### Produto sem Estoque
-![Página de Detalhes do Produto sem Estoque](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21435&authkey=%21AOaSfB-3SYvrKLU&width=1024)
+![Página de Detalhes do Produto sem Estoque](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21435&authkey=%21AOaSfB-3SYvrKLU)
 
 ## Pesquisa
 ### Pesquisa Encontrada
-![Página de Pesquisa Encontrada](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21430&authkey=%21AF9KWv2FlyIKFjY&height=1024)
-
+![Página de Pesquisa Encontrada](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21430&authkey=%21AF9KWv2FlyIKFjY)
+<img src="" alt="" width="100%"/>
 ### Pesquisa não Encontrada
-![Página de Pesquisa não Encontrada](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21431&authkey=%21ACQZaJxvkuaw7UI&width=1024)
-
+![Página de Pesquisa não Encontrada](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21431&authkey=%21ACQZaJxvkuaw7UI)
+<img src="" alt="" width="100%"/>
 
 ## Login
-![Página de Login](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21432&authkey=%21AM8j11_kx1bqJLg&width=1024)
-
+![Página de Login](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21432&authkey=%21AM8j11_kx1bqJLg)
+<img src="" alt="" width="100%"/>
 ### Login Validação
-![Página de Login - Validação](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21426&authkey=%21ABDl-EBCIolnSK8&width=1024)
-
+![Página de Login - Validação](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21426&authkey=%21ABDl-EBCIolnSK8)
+<img src="" alt="" width="100%"/>
 ### Login não Realizado
-![Página de Login - Login não Realizado](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21440&authkey=%21AFy5HTKBNCu1dZs&width=1024)
-
+![Página de Login - Login não Realizado](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21440&authkey=%21AFy5HTKBNCu1dZs)
+<img src="" alt="" width="100%"/>
 ## Cadastro
-![Página Cadastro](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21438&authkey=%21AL3EbL6pZyGZaDw&width=1024)
-
+![Página Cadastro](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21438&authkey=%21AL3EbL6pZyGZaDw)
+<img src="" alt="" width="100%"/>
 
 ### Cadastro Validação
-![Página Cadastro - Validação](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21439&authkey=%21AGegmobPbMv3Chk&width=1024)
-
+![Página Cadastro - Validação](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21439&authkey=%21AGegmobPbMv3Chk)
+****<img src="" alt="" width="100%"/>
 
 ## Carrinho
-![Página de Carrinho](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21419&authkey=%21AFsBNv_x2xGu-x0&height=1024)
-
+![Página de Carrinho](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21419&authkey=%21AFsBNv_x2xGu-x0)
+<img src="" alt="" width="100%"/>
 
 ### Adicionando Endereço
-![Página de Carrinho - Adicionando Endereço](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21418&authkey=%21AKywtGaSCp15Krk&height=1024)
-
+![Página de Carrinho - Adicionando Endereço](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21418&authkey=%21AKywtGaSCp15Krk)
+<img src="" alt="" width="100%"/>
 ### Endereço Adicionado
-![Página de Carrinho - Endereço Adicionado](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21417&authkey=%21AAuAtnpB1JRXVzE&height=1024)
-
+![Página de Carrinho - Endereço Adicionado](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21417&authkey=%21AAuAtnpB1JRXVzE)
+<img src="" alt="" width="100%"/>
 
 ### Checkout 
-![Página de Checkout](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21422&authkey=%21APINJoqCCgDby2o&width=1024)
-
+![Página de Checkout](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21422&authkey=%21APINJoqCCgDby2o)
+<img src="" alt="" width="100%"/>
 ## Pedidos
 ### Não possui
-![Página de Pedidos - Não Possui Pedidos](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21424&authkey=%21AKOeDZ3JCYkDPeU&width=1024)
-
+![Página de Pedidos - Não Possui Pedidos](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21424&authkey=%21AKOeDZ3JCYkDPeU)
+<img src="" alt="" width="100%"/>
 ### Possui
-![Página de Pedidos - Possui Pedidos](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21427&authkey=%21AE4diIIa72lPSUQ&width=1024)
-
+![Página de Pedidos - Possui Pedidos](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21427&authkey=%21AE4diIIa72lPSUQ)
+<img src="" alt="" width="100%"/>
 ### Detalhes do Pedido
 
-![Página de Detalhes do Pedido](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21429&authkey=%21AKVgk1ilgZxqcv4&width=1024)
-
+![Página de Detalhes do Pedido](https://onedrive.live.com/embed?resid=C26E4E1985092CA2%21429&authkey=%21AKVgk1ilgZxqcv4)
+<img src="" alt="" width="100%"/>
 
 <br>
 
