@@ -62,5 +62,5 @@ jobs:
         with:
           app-name: 'charliebookstore'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EF7B84B30F844C03AABBA2DD468AA98E }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A1B2EBF855834780B587BE1EFE9A7250 }}
           package: .
