@@ -240,7 +240,7 @@
                                 <span class="fs-6 fw-bold text-dark ms-md-5">NOVO LANÇAMENTO</span>
                                 <span class="display-3 ms-md-5 mt-4">Mayah - Lavender</span>
                                 <div class="mt-5 ms-md-5">
-                                    <a href="https://www.instagram.com/mayah_br/" class="btn btn-outline-light rounded-pill fw-bold reservar">RESERVAR</a>
+                                    <a href="https://www.lojapendragon.com.br/loja/produto.php?loja=492765&IdProd=899&iniSession=1&656de196a5e43" target="_blank" class="btn btn-outline-light rounded-pill fw-bold reservar">RESERVAR</a>
                                 </div>
                             </div>
                         </div>
