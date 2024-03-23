@@ -28,12 +28,12 @@ class EnderecoController extends Controller
 
         $request->validated();
 
-        $verification = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)
+        $address_verification = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)
             ->where('ENDERECO_NOME', $request->rotulo)
             ->get();
 
-        if ($verification->count() != 0) {
-            session()->flash('error-message', 'Endereço com Rotulo já cadastrado');
+        if ($address_verification->count() != 0) {
+            session()->flash('error-andress-message', 'Endereço com Rotulo já cadastrado');
 
             return redirect()->back();
         }
@@ -49,7 +49,7 @@ class EnderecoController extends Controller
             'ENDERECO_NOME'        => $request->rotulo
         ]);
 
-        session()->flash('success-message', 'Endereço salvo com sucesso!');
+        session()->flash('success-andress-message', 'Endereço salvo com sucesso!');
 
         return redirect()->back();
     }

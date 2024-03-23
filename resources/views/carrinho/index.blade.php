@@ -21,15 +21,21 @@
 
                             <span class="d-block h2 mb-4">Informações de entrega</span>
 
-                            @if (session()->has('success-message'))
-                                <div class="alert alert-success mt-3" role="alert">
-                                    {{ session()->get('success-message') }}
+                            @if (session()->has('checkout_error_message'))
+                                <div class="alert alert-danger mt-3" role="alert">
+                                    {{ session()->get('checkout_error_message') }}
                                 </div>
                             @endif
 
-                            @if (session()->has('error-message'))
+                            @if (session()->has('success-andress-message'))
+                                <div class="alert alert-success mt-3" role="alert">
+                                    {{ session()->get('success-andress-message') }}
+                                </div>
+                            @endif
+
+                            @if (session()->has('error-andress-message'))
                                 <div class="alert alert-danger mt-3" role="alert">
-                                    {{ session()->get('error-message') }}
+                                    {{ session()->get('error-andress-message') }}
                                 </div>
                             @endif
 
@@ -50,10 +56,14 @@
                                         </div>
                                         <div class="col ms-4">
                                             <label for="{{$endereco->ENDERECO_NOME}}" class="form-check-label">
-                                                <span class="d-block"><strong>{{strtoupper($endereco->ENDERECO_NOME)}}</strong></span>
+                                                <span class="d-block">
+                                                    <strong>{{strtoupper($endereco->ENDERECO_NOME)}}</strong>
+                                                </span>
                                                 <span>{{$endereco->ENDERECO_LOGRADOURO}}, </span>
                                                 <span>{{$endereco->ENDERECO_NUMERO}} - </span>
-                                                <span><i>{{($endereco->ENDERECO_COMPLEMENTO) ? $endereco->ENDERECO_COMPLEMENTO." - " : ''}}</i></span>
+                                                <span>
+                                                    <i>{{($endereco->ENDERECO_COMPLEMENTO) ? $endereco->ENDERECO_COMPLEMENTO." - " : ''}}</i>
+                                                </span>
                                                 <span>{{$endereco->ENDERECO_CIDADE}} - </span>
                                                 <span>{{$endereco->ENDERECO_ESTADO}}, </span>
                                                 <span>{{$endereco->ENDERECO_CEP}}</span>
@@ -180,7 +190,7 @@
                                     </form>
                                 </div>
                                 <div class="col-2 bg-light rounded-top">
-                                    <button type="button" class="btn btn-default p-0 border border-0 float-end">
+                                    <button type="button" class="btn btn-default p-0 border-0 float-end">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
                                             <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
                                         </svg>

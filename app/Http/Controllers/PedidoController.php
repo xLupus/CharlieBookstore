@@ -36,6 +36,15 @@ class PedidoController extends Controller
 
         $endereco = Endereco::where('USUARIO_ID', Auth::user()->USUARIO_ID)->get()->last();
 
+        if(!$endereco) {
+            session()->flash(
+                'checkout_error_message', 
+                'Nenhum endereço cadastrado, cadastre um endereço para prosseguir com sua compra.'
+            );
+            
+            return redirect()->route('carrinho.index');
+        }
+
         $produtos = Carrinho::where('USUARIO_ID', Auth::user()->USUARIO_ID)
             ->where('ITEM_QTD', '>', 0)->get()->all();
 
